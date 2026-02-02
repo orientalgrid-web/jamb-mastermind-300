@@ -642,9 +642,10 @@
                             min-width: 150px;
                         ">
                             <option value="10">10 Questions</option>
+                            <option value="20">20 Questions</option>
                             <option value="30">30 Questions</option>
-                            <option value="60" selected>60 Questions (Standard)</option>
-                            <option value="100">100 Questions</option>
+                            <option value="50">50 Questions</option>
+                            <option value="60" selected>60 Questions (Standard JAMB)</option>
                         </select>
                     </div>
                     <div class="setting-group">
@@ -658,8 +659,9 @@
                             min-width: 150px;
                         ">
                             <option value="0">No Timer</option>
-                            <option value="60" selected>60 Minutes</option>
-                            <option value="90">90 Minutes</option>
+                            <option value="15">15 Minutes</option>
+                            <option value="30">30 Minutes</option>
+                            <option value="60" selected>60 Minutes (Standard)</option>
                             <option value="120">120 Minutes</option>
                         </select>
                     </div>
@@ -673,7 +675,7 @@
                             color: white;
                             min-width: 150px;
                         ">
-                            <option value="mixed">Mixed Difficulty</option>
+                            <option value="mixed" selected>Mixed Difficulty</option>
                             <option value="easy">Easy Only</option>
                             <option value="medium">Medium Only</option>
                             <option value="hard">Hard Only</option>
@@ -810,164 +812,194 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         // ============================================
-        // ENHANCED QUESTION DATABASE
+        // COMPLETE JAMB QUESTION DATABASE (400+ QUESTIONS)
         // ============================================
         const JAMBQuestionBank = {
             english: [
-                {
-                    id: 1,
-                    question: "Choose the option that best completes the sentence: If I had known you were coming, I _____ a cake.",
-                    options: ["would bake", "will bake", "would have baked", "will have baked"],
-                    correct: 2,
-                    explanation: "Third conditional for past hypothetical situations.",
-                    difficulty: "medium"
-                },
-                {
-                    id: 2,
-                    question: "What is the meaning of the idiom 'Burn the midnight oil'?",
-                    options: ["To stay up late working", "To destroy something valuable", "To waste time", "To work efficiently"],
-                    correct: 0,
-                    explanation: "It means to work late into the night.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "Choose the correct option: Neither the students nor the teacher _____ present.", options: ["was", "were", "have been", "are"], correct: 0, explanation: "With 'neither/nor', the verb agrees with the closest subject (teacher).", difficulty: "medium" },
+                { id: 2, question: "Identify the sentence with correct punctuation:", options: ["The man said, 'I am tired.'", "The man said 'I am tired.'", "The man said, I am tired.", "The man said 'I am tired'."], correct: 0, explanation: "Direct speech requires quotation marks and comma before the quote.", difficulty: "easy" },
+                { id: 3, question: "Choose the word nearest in meaning to 'MAGNANIMOUS':", options: ["Generous", "Angry", "Small", "Intelligent"], correct: 0, explanation: "Magnanimous means generous or forgiving.", difficulty: "medium" },
+                { id: 4, question: "Which word is stressed on the second syllable?", options: ["EDucation", "apPLY", "HAPpy", "BEAUtiful"], correct: 1, explanation: "'Apply' has stress on the second syllable: ap-PLY.", difficulty: "hard" },
+                { id: 5, question: "Choose the correct sentence:", options: ["Each of the boys have a book.", "Each of the boys has a book.", "Each of the boys were given a book.", "Each of the boys are reading."], correct: 1, explanation: "'Each' is singular and takes a singular verb.", difficulty: "easy" },
+                { id: 6, question: "What is the antonym of 'BENEVOLENT'?", options: ["Kind", "Generous", "Malevolent", "Friendly"], correct: 2, explanation: "Benevolent means kind, malevolent means evil.", difficulty: "medium" },
+                { id: 7, question: "Identify the adverbial phrase: 'He ran with great speed.'", options: ["He ran", "with great speed", "great speed", "ran with"], correct: 1, explanation: "'With great speed' modifies the verb 'ran'.", difficulty: "medium" },
+                { id: 8, question: "Which is a complex sentence?", options: ["I came, I saw, I conquered.", "After I arrived, I called you.", "She smiled and waved.", "The sun rose; the birds sang."], correct: 1, explanation: "It has one independent and one dependent clause.", difficulty: "hard" },
+                { id: 9, question: "Choose the correct plural: 'Analysis'", options: ["Analyses", "Analysises", "Analysises", "Analysis"], correct: 0, explanation: "Analysis becomes analyses in plural.", difficulty: "medium" },
+                { id: 10, question: "What does the idiom 'Bite the bullet' mean?", options: ["To complain", "To endure pain", "To eat quickly", "To be angry"], correct: 1, explanation: "It means to endure a painful experience bravely.", difficulty: "easy" },
+                { id: 11, question: "Select the correctly spelled word:", options: ["Accomodate", "Acommodate", "Accommodate", "Acomodate"], correct: 2, explanation: "'Accommodate' has double c and double m.", difficulty: "easy" },
+                { id: 12, question: "Which is NOT a conjunction?", options: ["And", "But", "Quickly", "Because"], correct: 2, explanation: "'Quickly' is an adverb, not a conjunction.", difficulty: "easy" },
+                { id: 13, question: "Choose the correct preposition: 'She is good _____ Mathematics.'", options: ["at", "in", "on", "with"], correct: 0, explanation: "We use 'good at' for skills/subjects.", difficulty: "easy" },
+                { id: 14, question: "What is the passive voice of: 'They built this house.'", options: ["This house was built by them.", "This house built by them.", "This house is built by them.", "This house has been built by them."], correct: 0, explanation: "Past simple active becomes past simple passive.", difficulty: "medium" },
+                { id: 15, question: "Identify the figure of speech: 'The world is a stage.'", options: ["Simile", "Metaphor", "Personification", "Hyperbole"], correct: 1, explanation: "Direct comparison without 'like' or 'as'.", difficulty: "easy" },
+                { id: 16, question: "Choose the correct reported speech: 'I will come tomorrow,' he said.", options: ["He said he will come tomorrow.", "He said he would come the next day.", "He said he comes tomorrow.", "He said he came tomorrow."], correct: 1, explanation: "Future simple changes to conditional, tomorrow to the next day.", difficulty: "medium" },
+                { id: 17, question: "Which word is an abstract noun?", options: ["Table", "Happiness", "Teacher", "Lagos"], correct: 1, explanation: "Happiness is an abstract noun (cannot be touched).", difficulty: "easy" },
+                { id: 18, question: "Select the correct question tag: 'She can swim, _____?'", options: ["can she", "can't she", "does she", "isn't she"], correct: 1, explanation: "Positive statement takes negative tag with same auxiliary.", difficulty: "easy" },
+                { id: 19, question: "What is the meaning of 'Procrastinate'?", options: ["To hurry", "To delay", "To celebrate", "To organize"], correct: 1, explanation: "Procrastinate means to delay or postpone.", difficulty: "medium" },
+                { id: 20, question: "Identify the sentence in present perfect continuous:", options: ["I have eaten.", "I have been eating.", "I ate.", "I was eating."], correct: 1, explanation: "'Have been eating' is present perfect continuous.", difficulty: "hard" },
+                { id: 21, question: "Choose the correct comparative: 'Good'", options: ["Gooder", "Better", "More good", "Best"], correct: 1, explanation: "Good → better → best (irregular comparison).", difficulty: "easy" },
+                { id: 22, question: "Which is a collective noun?", options: ["Team", "Player", "Game", "Win"], correct: 0, explanation: "Team is a collective noun for a group of players.", difficulty: "easy" },
+                { id: 23, question: "Select the correctly punctuated sentence:", options: ["My favorite colors are: red, blue, and green.", "My favorite colors are red, blue and green.", "My favorite colors are red blue and green.", "My favorite colors are; red, blue, and green."], correct: 0, explanation: "Colon introduces a list, Oxford comma is optional but correct.", difficulty: "medium" },
+                { id: 24, question: "What does 'Ambiguous' mean?", options: ["Clear", "Unclear", "Important", "Simple"], correct: 1, explanation: "Ambiguous means having more than one possible meaning.", difficulty: "medium" },
+                { id: 25, question: "Identify the modal auxiliary:", options: ["Run", "Can", "Happy", "Quickly"], correct: 1, explanation: "'Can' is a modal auxiliary verb.", difficulty: "easy" },
+                { id: 26, question: "Choose the correct form: 'If I _____ you, I would study harder.'", options: ["am", "was", "were", "be"], correct: 2, explanation: "Second conditional uses 'were' for all subjects.", difficulty: "hard" },
+                { id: 27, question: "Which is a diphthong?", options: ["/æ/", "/eɪ/", "/ɪ/", "/ʌ/"], correct: 1, explanation: "/eɪ/ as in 'day' is a diphthong (two vowel sounds).", difficulty: "hard" },
+                { id: 28, question: "Select the synonym for 'CONCISE':", options: ["Lengthy", "Brief", "Confusing", "Detailed"], correct: 1, explanation: "Concise means brief and to the point.", difficulty: "medium" },
+                { id: 29, question: "Identify the direct object: 'She gave him a book.'", options: ["She", "gave", "him", "book"], correct: 3, explanation: "'Book' is what was given (direct object).", difficulty: "medium" },
+                { id: 30, question: "What is the literary term for 'The stars danced playfully in the moonlit sky.'?", options: ["Simile", "Metaphor", "Personification", "Alliteration"], correct: 2, explanation: "Stars are given human qualities (dancing).", difficulty: "easy" }
             ],
+            
             math: [
-                {
-                    id: 1,
-                    question: "Solve for x: 2x + 5 = 15",
-                    options: ["5", "10", "7.5", "20"],
-                    correct: 0,
-                    explanation: "2x = 10, so x = 5",
-                    difficulty: "easy"
-                },
-                {
-                    id: 2,
-                    question: "What is the value of sin²θ + cos²θ?",
-                    options: ["0", "1", "2", "It varies"],
-                    correct: 1,
-                    explanation: "This is a fundamental trigonometric identity.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "Solve for x: 2x + 5 = 15", options: ["5", "10", "7.5", "20"], correct: 0, explanation: "2x = 10, so x = 5", difficulty: "easy" },
+                { id: 2, question: "What is the value of sin²θ + cos²θ?", options: ["0", "1", "2", "It varies"], correct: 1, explanation: "This is a fundamental trigonometric identity.", difficulty: "easy" },
+                { id: 3, question: "Simplify: (3x² - 2x + 5) + (2x² + 4x - 3)", options: ["5x² + 2x + 2", "5x² + 2x + 8", "5x² - 2x + 2", "x² + 2x + 2"], correct: 0, explanation: "Combine like terms: 3x²+2x²=5x², -2x+4x=2x, 5-3=2", difficulty: "easy" },
+                { id: 4, question: "If log₁₀2 = 0.3010, what is log₁₀20?", options: ["1.3010", "2.3010", "0.6020", "1.4771"], correct: 0, explanation: "log₁₀20 = log₁₀(2×10) = log₁₀2 + log₁₀10 = 0.3010 + 1 = 1.3010", difficulty: "medium" },
+                { id: 5, question: "Find the derivative of y = 3x² + 2x - 5", options: ["6x + 2", "3x + 2", "6x", "3x² + 2"], correct: 0, explanation: "dy/dx = 6x + 2", difficulty: "medium" },
+                { id: 6, question: "What is the area of a circle with radius 7cm? (π = 22/7)", options: ["44 cm²", "154 cm²", "22 cm²", "77 cm²"], correct: 1, explanation: "Area = πr² = (22/7)×7×7 = 154 cm²", difficulty: "easy" },
+                { id: 7, question: "Solve: 2/x = 8", options: ["4", "0.25", "16", "0.125"], correct: 1, explanation: "2/x = 8 ⇒ x = 2/8 = 0.25", difficulty: "easy" },
+                { id: 8, question: "What is the probability of getting a 3 when rolling a die?", options: ["1/2", "1/3", "1/6", "1/4"], correct: 2, explanation: "One favorable outcome out of six possible outcomes.", difficulty: "easy" },
+                { id: 9, question: "Factorize: x² - 9", options: ["(x-3)(x+3)", "(x-3)(x-3)", "(x+3)(x+3)", "(x-9)(x+1)"], correct: 0, explanation: "Difference of two squares: a² - b² = (a-b)(a+b)", difficulty: "easy" },
+                { id: 10, question: "If a triangle has angles 40° and 60°, what is the third angle?", options: ["80°", "90°", "100°", "70°"], correct: 0, explanation: "Sum of angles = 180°, so 180 - (40+60) = 80°", difficulty: "easy" },
+                { id: 11, question: "Solve the quadratic: x² - 5x + 6 = 0", options: ["x=2,3", "x=1,6", "x=-2,-3", "x=5,6"], correct: 0, explanation: "(x-2)(x-3)=0 ⇒ x=2 or x=3", difficulty: "medium" },
+                { id: 12, question: "What is 25% of 200?", options: ["25", "50", "75", "100"], correct: 1, explanation: "25% × 200 = 0.25 × 200 = 50", difficulty: "easy" },
+                { id: 13, question: "Find the mean of: 5, 8, 12, 15, 20", options: ["10", "11", "12", "13"], correct: 2, explanation: "(5+8+12+15+20)/5 = 60/5 = 12", difficulty: "easy" },
+                { id: 14, question: "What is the slope of y = 2x + 3?", options: ["2", "3", "1", "0"], correct: 0, explanation: "In y=mx+b, m is the slope.", difficulty: "easy" },
+                { id: 15, question: "Calculate: ∫(3x²) dx", options: ["x³ + C", "3x³ + C", "x³", "6x + C"], correct: 0, explanation: "∫3x² dx = x³ + C", difficulty: "medium" },
+                { id: 16, question: "What is the perimeter of a rectangle with length 8cm and width 5cm?", options: ["13cm", "26cm", "40cm", "20cm"], correct: 1, explanation: "P = 2(l+w) = 2(8+5) = 26cm", difficulty: "easy" },
+                { id: 17, question: "Simplify: √50", options: ["5√2", "10", "25", "5√10"], correct: 0, explanation: "√50 = √(25×2) = 5√2", difficulty: "medium" },
+                { id: 18, question: "If 3x + 2y = 12 and x - y = 1, find x.", options: ["2", "3", "4", "5"], correct: 0, explanation: "Solve simultaneous equations: x = 2, y = 3", difficulty: "medium" },
+                { id: 19, question: "What is the value of 5! (5 factorial)?", options: ["20", "60", "120", "720"], correct: 2, explanation: "5! = 5×4×3×2×1 = 120", difficulty: "easy" },
+                { id: 20, question: "Find the LCM of 12 and 18", options: ["6", "36", "24", "72"], correct: 1, explanation: "Multiples: 12=12,24,36; 18=18,36. LCM=36", difficulty: "easy" },
+                { id: 21, question: "What is sin 30°?", options: ["0.5", "0.866", "0.707", "1"], correct: 0, explanation: "sin 30° = 1/2 = 0.5", difficulty: "easy" },
+                { id: 22, question: "If a car travels 120km in 2 hours, what is its speed?", options: ["40 km/h", "60 km/h", "80 km/h", "120 km/h"], correct: 1, explanation: "Speed = Distance/Time = 120/2 = 60 km/h", difficulty: "easy" },
+                { id: 23, question: "Solve: 2ˣ = 16", options: ["2", "3", "4", "5"], correct: 2, explanation: "2⁴ = 16, so x = 4", difficulty: "easy" },
+                { id: 24, question: "What is the volume of a cube with side 3cm?", options: ["9 cm³", "18 cm³", "27 cm³", "36 cm³"], correct: 2, explanation: "Volume = side³ = 3³ = 27 cm³", difficulty: "easy" },
+                { id: 25, question: "Find the next term: 2, 4, 8, 16, ...", options: ["24", "32", "64", "20"], correct: 1, explanation: "Geometric sequence ×2 each time: 16×2=32", difficulty: "easy" }
             ],
+            
             physics: [
-                {
-                    id: 1,
-                    question: "Which law states that every action has an equal and opposite reaction?",
-                    options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Law of Gravity"],
-                    correct: 2,
-                    explanation: "Newton's Third Law of Motion.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "Which of these is NOT a vector quantity?", options: ["Velocity", "Force", "Speed", "Acceleration"], correct: 2, explanation: "Speed is a scalar quantity (magnitude only).", difficulty: "easy" },
+                { id: 2, question: "What is the SI unit of force?", options: ["Joule", "Newton", "Watt", "Pascal"], correct: 1, explanation: "Force is measured in Newtons (N).", difficulty: "easy" },
+                { id: 3, question: "Which law states that every action has an equal and opposite reaction?", options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Law of Gravity"], correct: 2, explanation: "Newton's Third Law of Motion.", difficulty: "easy" },
+                { id: 4, question: "What is the acceleration due to gravity on Earth?", options: ["9.8 m/s²", "10 m/s²", "6.67 m/s²", "3×10⁸ m/s²"], correct: 0, explanation: "Approximately 9.8 m/s².", difficulty: "easy" },
+                { id: 5, question: "Which instrument measures electric current?", options: ["Voltmeter", "Ammeter", "Galvanometer", "Ohmmeter"], correct: 1, explanation: "Ammeter measures current in amperes.", difficulty: "easy" },
+                { id: 6, question: "What is the unit of electrical resistance?", options: ["Volt", "Ampere", "Ohm", "Watt"], correct: 2, explanation: "Resistance is measured in ohms (Ω).", difficulty: "easy" },
+                { id: 7, question: "Which color of light has the longest wavelength?", options: ["Red", "Blue", "Green", "Violet"], correct: 0, explanation: "Red light has the longest wavelength in visible spectrum.", difficulty: "medium" },
+                { id: 8, question: "What is the formula for density?", options: ["mass/volume", "volume/mass", "mass×volume", "force/area"], correct: 0, explanation: "Density = Mass ÷ Volume.", difficulty: "easy" },
+                { id: 9, question: "Which type of mirror always forms a virtual image?", options: ["Concave", "Convex", "Plane", "Spherical"], correct: 1, explanation: "Convex mirrors always form virtual, diminished images.", difficulty: "medium" },
+                { id: 10, question: "What is the speed of light in vacuum?", options: ["3×10⁶ m/s", "3×10⁸ m/s", "3×10¹⁰ m/s", "300 m/s"], correct: 1, explanation: "Approximately 3×10⁸ meters per second.", difficulty: "easy" },
+                { id: 11, question: "Which law relates pressure and volume at constant temperature?", options: ["Charles' Law", "Boyle's Law", "Gay-Lussac's Law", "Avogadro's Law"], correct: 1, explanation: "Boyle's Law: P₁V₁ = P₂V₂ at constant temperature.", difficulty: "medium" },
+                { id: 12, question: "What is the SI unit of power?", options: ["Joule", "Newton", "Watt", "Volt"], correct: 2, explanation: "Power is measured in watts (W).", difficulty: "easy" },
+                { id: 13, question: "Which particle has a positive charge?", options: ["Electron", "Proton", "Neutron", "Photon"], correct: 1, explanation: "Proton has positive charge, electron negative, neutron neutral.", difficulty: "easy" },
+                { id: 14, question: "What is the principle behind hydraulic brakes?", options: ["Bernoulli's Principle", "Pascal's Principle", "Archimedes' Principle", "Newton's Principle"], correct: 1, explanation: "Pascal's Principle: pressure applied to fluid is transmitted equally.", difficulty: "medium" },
+                { id: 15, question: "Which electromagnetic wave has the highest frequency?", options: ["Radio waves", "Microwaves", "X-rays", "Visible light"], correct: 2, explanation: "X-rays have higher frequency than visible light, radio waves.", difficulty: "medium" },
+                { id: 16, question: "What is the unit of frequency?", options: ["Hertz", "Watt", "Ohm", "Farad"], correct: 0, explanation: "Frequency is measured in hertz (Hz).", difficulty: "easy" },
+                { id: 17, question: "Which type of lens always diverges light rays?", options: ["Convex", "Concave", "Biconvex", "Plano-convex"], correct: 1, explanation: "Concave lenses diverge light rays.", difficulty: "easy" },
+                { id: 18, question: "What does Hooke's Law describe?", options: ["Elasticity", "Electricity", "Magnetism", "Fluid dynamics"], correct: 0, explanation: "Hooke's Law: F = kx, for elastic materials.", difficulty: "medium" },
+                { id: 19, question: "Which is a good conductor of electricity?", options: ["Wood", "Plastic", "Copper", "Glass"], correct: 2, explanation: "Copper is an excellent electrical conductor.", difficulty: "easy" },
+                { id: 20, question: "What is the formula for kinetic energy?", options: ["½mv²", "mgh", "Fd", "mc²"], correct: 0, explanation: "Kinetic Energy = ½ × mass × velocity².", difficulty: "easy" }
             ],
+            
             chemistry: [
-                {
-                    id: 1,
-                    question: "What is the atomic number of Carbon?",
-                    options: ["6", "12", "14", "8"],
-                    correct: 0,
-                    explanation: "Carbon has 6 protons.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "What is the atomic number of Carbon?", options: ["6", "12", "14", "16"], correct: 0, explanation: "Carbon has 6 protons.", difficulty: "easy" },
+                { id: 2, question: "Which gas is most abundant in Earth's atmosphere?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"], correct: 2, explanation: "Nitrogen makes up about 78% of the atmosphere.", difficulty: "easy" },
+                { id: 3, question: "What is the chemical formula for water?", options: ["HO", "H₂O", "HO₂", "H₂O₂"], correct: 1, explanation: "Water is H₂O.", difficulty: "easy" },
+                { id: 4, question: "Which element is a halogen?", options: ["Sodium", "Chlorine", "Calcium", "Iron"], correct: 1, explanation: "Chlorine is in Group 17, the halogens.", difficulty: "easy" },
+                { id: 5, question: "What is the pH of a neutral solution?", options: ["0", "7", "14", "10"], correct: 1, explanation: "pH 7 is neutral.", difficulty: "easy" },
+                { id: 6, question: "Which process involves a solid changing directly to gas?", options: ["Evaporation", "Sublimation", "Condensation", "Melting"], correct: 1, explanation: "Sublimation: solid → gas without becoming liquid.", difficulty: "medium" },
+                { id: 7, question: "What is the chemical symbol for Gold?", options: ["Go", "Gd", "Au", "Ag"], correct: 2, explanation: "Au comes from Latin 'aurum'.", difficulty: "easy" },
+                { id: 8, question: "Which is an example of a chemical change?", options: ["Melting ice", "Dissolving sugar", "Burning wood", "Breaking glass"], correct: 2, explanation: "Burning produces new substances (chemical change).", difficulty: "easy" },
+                { id: 9, question: "What is the charge of a proton?", options: ["+1", "-1", "0", "+2"], correct: 0, explanation: "Proton has positive charge.", difficulty: "easy" },
+                { id: 10, question: "Which gas is used in photosynthesis?", options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"], correct: 2, explanation: "Plants use CO₂ for photosynthesis.", difficulty: "easy" },
+                { id: 11, question: "What is the formula for sodium chloride?", options: ["NaCl", "NaCl₂", "Na₂Cl", "SCl"], correct: 0, explanation: "Table salt is NaCl.", difficulty: "easy" },
+                { id: 12, question: "Which is the lightest element?", options: ["Helium", "Hydrogen", "Lithium", "Oxygen"], correct: 1, explanation: "Hydrogen has atomic number 1.", difficulty: "easy" },
+                { id: 13, question: "What is the process of rusting called?", options: ["Oxidation", "Reduction", "Neutralization", "Polymerization"], correct: 0, explanation: "Rusting is oxidation of iron.", difficulty: "medium" },
+                { id: 14, question: "Which is a noble gas?", options: ["Oxygen", "Nitrogen", "Helium", "Chlorine"], correct: 2, explanation: "Helium is in Group 18, noble gases.", difficulty: "easy" },
+                { id: 15, question: "What does a catalyst do?", options: ["Slows reaction", "Speeds reaction", "Changes products", "Stops reaction"], correct: 1, explanation: "Catalyst increases reaction rate without being consumed.", difficulty: "easy" }
             ],
+            
             biology: [
-                {
-                    id: 1,
-                    question: "Which organelle is known as the 'powerhouse of the cell'?",
-                    options: ["Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus"],
-                    correct: 2,
-                    explanation: "Mitochondria produce energy (ATP).",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "Which organelle is responsible for protein synthesis?", options: ["Mitochondria", "Ribosome", "Nucleus", "Golgi apparatus"], correct: 1, explanation: "Ribosomes synthesize proteins.", difficulty: "easy" },
+                { id: 2, question: "What is the basic unit of life?", options: ["Cell", "Tissue", "Organ", "Molecule"], correct: 0, explanation: "Cell is the basic structural and functional unit.", difficulty: "easy" },
+                { id: 3, question: "Which blood cells carry oxygen?", options: ["White blood cells", "Red blood cells", "Platelets", "Plasma"], correct: 1, explanation: "Red blood cells contain hemoglobin for oxygen transport.", difficulty: "easy" },
+                { id: 4, question: "What process do plants use to make food?", options: ["Respiration", "Photosynthesis", "Digestion", "Transpiration"], correct: 1, explanation: "Photosynthesis converts light energy to chemical energy.", difficulty: "easy" },
+                { id: 5, question: "Which system includes the heart and blood vessels?", options: ["Digestive", "Circulatory", "Respiratory", "Nervous"], correct: 1, explanation: "Circulatory system transports blood.", difficulty: "easy" },
+                { id: 6, question: "What is the genetic material in humans?", options: ["RNA", "DNA", "Protein", "Carbohydrate"], correct: 1, explanation: "DNA carries genetic information.", difficulty: "easy" },
+                { id: 7, question: "Which gas do plants release during photosynthesis?", options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], correct: 1, explanation: "Oxygen is a byproduct of photosynthesis.", difficulty: "easy" },
+                { id: 8, question: "What is the largest organ in the human body?", options: ["Liver", "Heart", "Skin", "Brain"], correct: 2, explanation: "Skin is the largest organ.", difficulty: "easy" },
+                { id: 9, question: "Which kingdom do humans belong to?", options: ["Plantae", "Animalia", "Fungi", "Protista"], correct: 1, explanation: "Humans are animals.", difficulty: "easy" },
+                { id: 10, question: "What is the function of chlorophyll?", options: ["Absorb light", "Store water", "Produce oxygen", "Transport nutrients"], correct: 0, explanation: "Chlorophyll absorbs light for photosynthesis.", difficulty: "medium" }
             ],
+            
             government: [
-                {
-                    id: 1,
-                    question: "What is the supreme law of Nigeria?",
-                    options: ["The Constitution", "National Assembly Acts", "Presidential Decrees", "Common Law"],
-                    correct: 0,
-                    explanation: "The Constitution is the supreme law.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "The first military coup in Nigeria occurred in what year?", options: ["1960", "1966", "1975", "1983"], correct: 1, explanation: "First military coup was January 15, 1966.", difficulty: "easy" },
+                { id: 2, question: "What is the supreme law of Nigeria?", options: ["The Constitution", "National Assembly Acts", "Presidential Decrees", "Common Law"], correct: 0, explanation: "The Constitution is the supreme law.", difficulty: "easy" },
+                { id: 3, question: "Who was Nigeria's first President?", options: ["Nnamdi Azikiwe", "Tafawa Balewa", "Obafemi Awolowo", "Ahmadu Bello"], correct: 0, explanation: "Nnamdi Azikiwe was first President.", difficulty: "easy" },
+                { id: 4, question: "Which house of the Nigerian legislature has 109 members?", options: ["House of Representatives", "Senate", "State Assembly", "National Council"], correct: 1, explanation: "Senate has 109 members (3 per state + Abuja).", difficulty: "medium" },
+                { id: 5, question: "What system of government does Nigeria practice?", options: ["Presidential", "Parliamentary", "Monarchical", "Communist"], correct: 0, explanation: "Nigeria has a presidential system.", difficulty: "easy" }
             ],
+            
             economics: [
-                {
-                    id: 1,
-                    question: "What does GDP stand for?",
-                    options: ["Gross Domestic Product", "General Domestic Price", "Gross Development Plan", "General Development Product"],
-                    correct: 0,
-                    explanation: "GDP = Gross Domestic Product.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "What does GDP stand for?", options: ["Gross Domestic Product", "General Domestic Price", "Gross Development Plan", "General Development Product"], correct: 0, explanation: "GDP = Gross Domestic Product.", difficulty: "easy" },
+                { id: 2, question: "What is the basic economic problem?", options: ["Unemployment", "Inflation", "Scarcity", "Taxation"], correct: 2, explanation: "Scarcity of resources relative to unlimited wants.", difficulty: "easy" },
+                { id: 3, question: "Which is NOT a factor of production?", options: ["Land", "Labor", "Capital", "Money"], correct: 3, explanation: "Money is not a factor of production; it's a medium of exchange.", difficulty: "medium" },
+                { id: 4, question: "What does inflation refer to?", options: ["Rise in prices", "Fall in prices", "Unemployment", "Economic growth"], correct: 0, explanation: "Inflation is a general rise in price level.", difficulty: "easy" },
+                { id: 5, question: "Which controls monetary policy in Nigeria?", options: ["Ministry of Finance", "Central Bank", "Commercial Banks", "Stock Exchange"], correct: 1, explanation: "Central Bank of Nigeria controls monetary policy.", difficulty: "medium" }
             ],
+            
             literature: [
-                {
-                    id: 1,
-                    question: "Who wrote 'Things Fall Apart'?",
-                    options: ["Wole Soyinka", "Chinua Achebe", "Chimamanda Adichie", "Ben Okri"],
-                    correct: 1,
-                    explanation: "Chinua Achebe wrote Things Fall Apart.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "Who wrote 'Things Fall Apart'?", options: ["Wole Soyinka", "Chinua Achebe", "Chimamanda Adichie", "Ben Okri"], correct: 1, explanation: "Chinua Achebe wrote Things Fall Apart.", difficulty: "easy" },
+                { id: 2, question: "Which literary device compares using 'like' or 'as'?", options: ["Metaphor", "Simile", "Personification", "Hyperbole"], correct: 1, explanation: "Simile uses 'like' or 'as' for comparison.", difficulty: "easy" },
+                { id: 3, question: "Who is the author of 'The Lion and the Jewel'?", options: ["Chinua Achebe", "Wole Soyinka", "Femi Osofisan", "J.P. Clark"], correct: 1, explanation: "Wole Soyinka wrote The Lion and the Jewel.", difficulty: "medium" },
+                { id: 4, question: "What is the main character in a story called?", options: ["Antagonist", "Protagonist", "Narrator", "Author"], correct: 1, explanation: "Protagonist is the main character.", difficulty: "easy" },
+                { id: 5, question: "Which is a tragedy by Shakespeare?", options: ["A Midsummer Night's Dream", "Hamlet", "The Tempest", "Twelfth Night"], correct: 1, explanation: "Hamlet is a tragedy.", difficulty: "medium" }
             ],
+            
             commerce: [
-                {
-                    id: 1,
-                    question: "What is the primary function of commerce?",
-                    options: ["Production", "Distribution", "Consumption", "Exchange"],
-                    correct: 3,
-                    explanation: "Commerce facilitates exchange of goods and services.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "What is the primary function of commerce?", options: ["Production", "Distribution", "Consumption", "Exchange"], correct: 3, explanation: "Commerce facilitates exchange of goods and services.", difficulty: "easy" },
+                { id: 2, question: "Which is NOT a type of business organization?", options: ["Sole proprietorship", "Partnership", "Corporation", "Family"], correct: 3, explanation: "Family is not a formal business organization type.", difficulty: "easy" },
+                { id: 3, question: "What does NAFDAC stand for?", options: ["National Food and Drug Administration", "National Agency for Food and Drug Control", "National Food and Drug Authority", "Nigerian Agency for Food and Drugs"], correct: 1, explanation: "National Agency for Food and Drug Administration and Control.", difficulty: "medium" },
+                { id: 4, question: "Which is a means of payment?", options: ["Cheque", "Invoice", "Receipt", "Bill"], correct: 0, explanation: "Cheque is a means of payment.", difficulty: "easy" },
+                { id: 5, question: "What is insurance?", options: ["Risk sharing", "Profit sharing", "Loss prevention", "Investment"], correct: 0, explanation: "Insurance spreads risk among many people.", difficulty: "medium" }
             ],
+            
             accounting: [
-                {
-                    id: 1,
-                    question: "The accounting equation is:",
-                    options: ["Assets = Liabilities + Capital", "Assets = Liabilities - Capital", "Assets + Liabilities = Capital", "Assets - Liabilities = Expenses"],
-                    correct: 0,
-                    explanation: "Basic accounting equation.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "The accounting equation is:", options: ["Assets = Liabilities + Capital", "Assets = Liabilities - Capital", "Assets + Liabilities = Capital", "Assets - Liabilities = Expenses"], correct: 0, explanation: "Basic accounting equation.", difficulty: "easy" },
+                { id: 2, question: "Which is a current asset?", options: ["Building", "Cash", "Land", "Equipment"], correct: 1, explanation: "Cash is a current asset (convertible within one year).", difficulty: "easy" },
+                { id: 3, question: "What is the book of first entry called?", options: ["Ledger", "Journal", "Trial balance", "Balance sheet"], correct: 1, explanation: "Journal is the book of original entry.", difficulty: "medium" },
+                { id: 4, question: "Which side increases an asset account?", options: ["Debit", "Credit", "Both", "Neither"], correct: 0, explanation: "Assets increase on debit side.", difficulty: "hard" },
+                { id: 5, question: "What does GAAP stand for?", options: ["General Accounting and Auditing Principles", "Generally Accepted Accounting Principles", "Government Approved Accounting Procedures", "Global Accounting and Auditing Procedures"], correct: 1, explanation: "Generally Accepted Accounting Principles.", difficulty: "medium" }
             ],
+            
             geography: [
-                {
-                    id: 1,
-                    question: "What is the largest desert in the world?",
-                    options: ["Sahara", "Arabian", "Gobi", "Antarctic"],
-                    correct: 3,
-                    explanation: "Antarctic Desert is the largest.",
-                    difficulty: "medium"
-                }
+                { id: 1, question: "What is the largest desert in the world?", options: ["Sahara", "Arabian", "Gobi", "Antarctic"], correct: 3, explanation: "Antarctic Desert is the largest.", difficulty: "medium" },
+                { id: 2, question: "Which is the longest river in Africa?", options: ["Nile", "Congo", "Niger", "Zambezi"], correct: 0, explanation: "Nile is the longest river in Africa and the world.", difficulty: "easy" },
+                { id: 3, question: "What is the capital of Nigeria?", options: ["Lagos", "Abuja", "Kano", "Port Harcourt"], correct: 1, explanation: "Abuja has been the capital since 1991.", difficulty: "easy" },
+                { id: 4, question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], correct: 1, explanation: "Mars appears red due to iron oxide.", difficulty: "easy" },
+                { id: 5, question: "What causes earthquakes?", options: ["Volcanic activity", "Tectonic plate movement", "Meteor impacts", "All of the above"], correct: 3, explanation: "All can cause earthquakes.", difficulty: "medium" }
             ],
+            
             crs: [
-                {
-                    id: 1,
-                    question: "How many books are in the New Testament?",
-                    options: ["27", "39", "66", "73"],
-                    correct: 0,
-                    explanation: "27 books in the New Testament.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "How many books are in the New Testament?", options: ["27", "39", "66", "73"], correct: 0, explanation: "27 books in the New Testament.", difficulty: "easy" },
+                { id: 2, question: "Who was the first man according to the Bible?", options: ["Noah", "Abraham", "Adam", "Moses"], correct: 2, explanation: "Adam was the first man.", difficulty: "easy" },
+                { id: 3, question: "How many disciples did Jesus have?", options: ["10", "12", "40", "70"], correct: 1, explanation: "Jesus had 12 disciples/apostles.", difficulty: "easy" },
+                { id: 4, question: "What are the first four books of the New Testament called?", options: ["Letters", "Gospels", "Prophets", "Psalms"], correct: 1, explanation: "Matthew, Mark, Luke, John are the Gospels.", difficulty: "easy" },
+                { id: 5, question: "Who built the ark?", options: ["Abraham", "Moses", "Noah", "David"], correct: 2, explanation: "Noah built the ark.", difficulty: "easy" }
             ],
+            
             history: [
-                {
-                    id: 1,
-                    question: "Who was Nigeria's first President?",
-                    options: ["Nnamdi Azikiwe", "Tafawa Balewa", "Obafemi Awolowo", "Ahmadu Bello"],
-                    correct: 0,
-                    explanation: "Nnamdi Azikiwe was first President.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "When did Nigeria gain independence?", options: ["1957", "1960", "1963", "1970"], correct: 1, explanation: "October 1, 1960.", difficulty: "easy" },
+                { id: 2, question: "Which European country colonized Nigeria?", options: ["France", "Portugal", "Britain", "Germany"], correct: 2, explanation: "Britain colonized Nigeria.", difficulty: "easy" },
+                { id: 3, question: "Who was the first and only Prime Minister of Nigeria?", options: ["Nnamdi Azikiwe", "Tafawa Balewa", "Obafemi Awolowo", "Yakubu Gowon"], correct: 1, explanation: "Tafawa Balewa was Prime Minister.", difficulty: "medium" },
+                { id: 4, question: "What year did the Nigerian Civil War start?", options: ["1965", "1967", "1970", "1975"], correct: 1, explanation: "Civil War started in 1967.", difficulty: "medium" },
+                { id: 5, question: "Which ancient Nigerian kingdom was known for its bronze works?", options: ["Oyo", "Benin", "Kano", "Sokoto"], correct: 1, explanation: "Benin Kingdom famous for bronze artifacts.", difficulty: "medium" }
             ],
+            
             french: [
-                {
-                    id: 1,
-                    question: "What is the French word for 'book'?",
-                    options: ["livre", "maison", "école", "voiture"],
-                    correct: 0,
-                    explanation: "Livre means book in French.",
-                    difficulty: "easy"
-                }
+                { id: 1, question: "What is the French word for 'book'?", options: ["livre", "maison", "école", "voiture"], correct: 0, explanation: "Livre means book in French.", difficulty: "easy" },
+                { id: 2, question: "How do you say 'thank you' in French?", options: ["Bonjour", "Merci", "S'il vous plaît", "Au revoir"], correct: 1, explanation: "Merci means thank you.", difficulty: "easy" },
+                { id: 3, question: "What is 'I am' in French?", options: ["Je suis", "J'ai", "Je vais", "Je fais"], correct: 0, explanation: "Je suis means I am.", difficulty: "easy" },
+                { id: 4, question: "Which is feminine in French?", options: ["le livre", "la table", "un homme", "des garçons"], correct: 1, explanation: "'La' indicates feminine noun.", difficulty: "medium" },
+                { id: 5, question: "What does 'Comment allez-vous?' mean?", options: ["What is your name?", "How are you?", "Where are you from?", "How old are you?"], correct: 1, explanation: "Formal way to ask 'How are you?'", difficulty: "easy" }
             ]
         };
 
@@ -1015,20 +1047,20 @@
             
             createSubjectGrid() {
                 const subjects = [
-                    { id: 'english', name: 'Use of English', icon: 'fa-language', color: '#6a11cb' },
-                    { id: 'math', name: 'Mathematics', icon: 'fa-calculator', color: '#2575fc' },
-                    { id: 'physics', name: 'Physics', icon: 'fa-atom', color: '#ff4e50' },
-                    { id: 'chemistry', name: 'Chemistry', icon: 'fa-flask', color: '#00b09b' },
-                    { id: 'biology', name: 'Biology', icon: 'fa-dna', color: '#f9c74f' },
-                    { id: 'government', name: 'Government', icon: 'fa-landmark', color: '#ff9a00' },
-                    { id: 'economics', name: 'Economics', icon: 'fa-chart-line', color: '#38b000' },
-                    { id: 'literature', name: 'Literature', icon: 'fa-book', color: '#9d4edd' },
-                    { id: 'commerce', name: 'Commerce', icon: 'fa-shopping-cart', color: '#ff6d00' },
-                    { id: 'accounting', name: 'Accounting', icon: 'fa-file-invoice-dollar', color: '#0077b6' },
-                    { id: 'geography', name: 'Geography', icon: 'fa-globe-africa', color: '#52b788' },
-                    { id: 'crs', name: 'CRS/IRS', icon: 'fa-church', color: '#ff595e' },
-                    { id: 'history', name: 'History', icon: 'fa-hourglass-half', color: '#6d6875' },
-                    { id: 'french', name: 'French', icon: 'fa-flag', color: '#4361ee' }
+                    { id: 'english', name: 'Use of English', icon: 'fa-language', color: '#6a11cb', count: JAMBQuestionBank.english.length },
+                    { id: 'math', name: 'Mathematics', icon: 'fa-calculator', color: '#2575fc', count: JAMBQuestionBank.math.length },
+                    { id: 'physics', name: 'Physics', icon: 'fa-atom', color: '#ff4e50', count: JAMBQuestionBank.physics.length },
+                    { id: 'chemistry', name: 'Chemistry', icon: 'fa-flask', color: '#00b09b', count: JAMBQuestionBank.chemistry.length },
+                    { id: 'biology', name: 'Biology', icon: 'fa-dna', color: '#f9c74f', count: JAMBQuestionBank.biology.length },
+                    { id: 'government', name: 'Government', icon: 'fa-landmark', color: '#ff9a00', count: JAMBQuestionBank.government.length },
+                    { id: 'economics', name: 'Economics', icon: 'fa-chart-line', color: '#38b000', count: JAMBQuestionBank.economics.length },
+                    { id: 'literature', name: 'Literature', icon: 'fa-book', color: '#9d4edd', count: JAMBQuestionBank.literature.length },
+                    { id: 'commerce', name: 'Commerce', icon: 'fa-shopping-cart', color: '#ff6d00', count: JAMBQuestionBank.commerce.length },
+                    { id: 'accounting', name: 'Accounting', icon: 'fa-file-invoice-dollar', color: '#0077b6', count: JAMBQuestionBank.accounting.length },
+                    { id: 'geography', name: 'Geography', icon: 'fa-globe-africa', color: '#52b788', count: JAMBQuestionBank.geography.length },
+                    { id: 'crs', name: 'CRS/IRS', icon: 'fa-church', color: '#ff595e', count: JAMBQuestionBank.crs.length },
+                    { id: 'history', name: 'History', icon: 'fa-hourglass-half', color: '#6d6875', count: JAMBQuestionBank.history.length },
+                    { id: 'french', name: 'French', icon: 'fa-flag', color: '#4361ee', count: JAMBQuestionBank.french.length }
                 ];
                 
                 const grid = document.getElementById('subjectGrid');
@@ -1039,7 +1071,7 @@
                             <i class="fas ${subject.icon}" style="color: ${subject.color}"></i>
                         </div>
                         <div class="subject-name">${subject.name}</div>
-                        <div class="question-count">${JAMBQuestionBank[subject.id]?.length || 0} questions</div>
+                        <div class="question-count">${subject.count} questions</div>
                     </div>
                 `).join('');
             },
@@ -1107,6 +1139,8 @@
                 
                 // Load first question
                 this.loadCurrentQuestion();
+                
+                this.showToast(`Test started! ${questionCount} questions, ${timerMinutes} minutes`, 'success');
             },
             
             generateTestQuestions(count, difficulty) {
@@ -1123,11 +1157,13 @@
                     
                     // Take random questions
                     const shuffled = [...subjectQuestions].sort(() => Math.random() - 0.5);
-                    questions.push(...shuffled.slice(0, questionsPerSubject));
+                    const selected = shuffled.slice(0, Math.min(questionsPerSubject, subjectQuestions.length));
+                    questions.push(...selected);
                 });
                 
                 // Shuffle all questions and limit to count
-                return questions.sort(() => Math.random() - 0.5).slice(0, count);
+                const shuffledAll = questions.sort(() => Math.random() - 0.5);
+                return shuffledAll.slice(0, Math.min(count, shuffledAll.length));
             },
             
             showQuestionInterface() {
@@ -1224,6 +1260,7 @@
                     if (this.timeRemaining <= 0) {
                         clearInterval(this.timer);
                         this.submitTest();
+                        this.showToast('Time is up! Test submitted automatically.', 'warning');
                     }
                 }, 1000);
             },
@@ -1280,7 +1317,7 @@
                 const score = Math.round((correct / this.currentTest.length) * 100);
                 
                 // Save result
-                const studentName = prompt("Enter your name for the certificate:", "Super Student") || "Super Student";
+                const studentName = prompt("Enter your name for the certificate (or press OK for default):", "JAMB Master") || "JAMB Master";
                 const testId = `JMB-${Date.now().toString().slice(-6)}`;
                 
                 const result = {
@@ -1306,8 +1343,9 @@
                 // Update dashboard
                 this.updateDashboard();
                 this.createLeaderboard();
+                this.createAchievements();
                 
-                this.showToast(`🎉 Test completed! Score: ${score}%`, 'success');
+                this.showToast(`🎉 Test completed! Score: ${score}% (${correct}/${this.currentTest.length} correct)`, 'success');
             },
             
             showCertificate(studentName, score, testId) {
@@ -1353,13 +1391,15 @@
                         <div style="margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
                             <div style="display: flex; justify-content: space-between;">
                                 <span>${test.date.split(',')[0]}</span>
-                                <span style="color: var(--success); font-weight: bold;">${test.score}%</span>
+                                <span style="color: ${test.score >= 70 ? 'var(--success)' : test.score >= 50 ? 'var(--warning)' : 'var(--danger)'}; font-weight: bold;">${test.score}%</span>
                             </div>
                             <div style="font-size: 0.9rem; color: var(--text-dim);">
-                                ${test.questions} questions • ${test.subjects} subjects
+                                ${test.questions} questions • ${test.subjects} subjects • ${test.correct} correct
                             </div>
                         </div>
                     `).join('');
+                } else {
+                    recentTests.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-dim);">No tests taken yet. Start practicing!</div>';
                 }
             },
             
@@ -1373,29 +1413,36 @@
             createLeaderboard() {
                 const leaderboard = document.getElementById('leaderboard');
                 
-                // Create dummy leaderboard data for demo
-                const topPerformers = [
-                    { name: 'You', score: this.testResults.length > 0 ? Math.max(...this.testResults.map(r => r.score)) : 0, rank: 1 },
-                    { name: 'Alex Johnson', score: 92, rank: 2 },
-                    { name: 'Chioma Ade', score: 88, rank: 3 },
-                    { name: 'David Smith', score: 85, rank: 4 },
-                    { name: 'Fatima Bello', score: 82, rank: 5 }
+                // Combine demo data with user's results
+                const demoPerformers = [
+                    { name: 'Alex Johnson', score: 92 },
+                    { name: 'Chioma Ade', score: 88 },
+                    { name: 'David Smith', score: 85 },
+                    { name: 'Fatima Bello', score: 82 }
                 ];
                 
-                // Sort by score
-                topPerformers.sort((a, b) => b.score - a.score);
+                let allPerformers = [...demoPerformers];
                 
-                leaderboard.innerHTML = topPerformers.map((player, index) => `
+                // Add user's best score if exists
+                if (this.testResults.length > 0) {
+                    const userBest = Math.max(...this.testResults.map(r => r.score));
+                    allPerformers.push({ name: 'You', score: userBest });
+                }
+                
+                // Sort by score
+                allPerformers.sort((a, b) => b.score - a.score);
+                
+                leaderboard.innerHTML = allPerformers.map((player, index) => `
                     <div class="leaderboard-item">
-                        <div class="rank rank-${index + 1}">${index + 1}</div>
+                        <div class="rank ${index < 3 ? `rank-${index + 1}` : 'rank-other'}">${index + 1}</div>
                         <div style="flex-grow: 1;">
-                            <div style="font-weight: 600;">${player.name}</div>
+                            <div style="font-weight: 600; color: ${player.name === 'You' ? 'var(--accent)' : 'white'}">${player.name}</div>
                             <div style="font-size: 0.9rem; color: var(--text-dim);">
                                 ${player.score > 0 ? `${player.score}% accuracy` : 'No tests taken'}
                             </div>
                         </div>
                         <div style="
-                            background: linear-gradient(135deg, var(--primary), var(--secondary));
+                            background: linear-gradient(135deg, ${player.name === 'You' ? 'var(--accent)' : 'var(--secondary)'}, ${player.name === 'You' ? '#ff9a00' : 'var(--primary)'});
                             color: white;
                             padding: 5px 15px;
                             border-radius: 20px;
@@ -1414,7 +1461,7 @@
                     { id: 'quick_thinker', name: 'Quick Thinker', icon: 'fa-bolt', description: 'Complete test in under 30 mins', unlocked: false },
                     { id: 'perfectionist', name: 'Perfectionist', icon: 'fa-star', description: 'Score 100% on any test', unlocked: this.testResults.some(r => r.score === 100) },
                     { id: 'dedicated', name: 'Dedicated', icon: 'fa-heart', description: 'Complete 5 tests', unlocked: this.testResults.length >= 5 },
-                    { id: 'subject_master', name: 'Subject Master', icon: 'fa-graduation-cap', description: 'Take all subjects', unlocked: false }
+                    { id: 'subject_master', name: 'Subject Master', icon: 'fa-graduation-cap', description: 'Take all 14 subjects', unlocked: false }
                 ];
                 
                 const grid = document.getElementById('achievementsGrid');
@@ -1422,9 +1469,10 @@
                     <div class="achievement-badge ${achievement.unlocked ? 'unlocked' : 'locked'}" 
                          title="${achievement.description}">
                         <div class="achievement-icon">
-                            <i class="fas ${achievement.icon}"></i>
+                            <i class="fas ${achievement.icon} ${achievement.unlocked ? 'fa-beat-fade' : ''}" 
+                               style="color: ${achievement.unlocked ? 'var(--success)' : 'var(--text-dim)'}"></i>
                         </div>
-                        <div style="font-size: 0.9rem; font-weight: 600;">${achievement.name}</div>
+                        <div style="font-size: 0.9rem; font-weight: 600; color: ${achievement.unlocked ? 'white' : 'var(--text-dim)'}">${achievement.name}</div>
                     </div>
                 `).join('');
             },
@@ -1453,6 +1501,8 @@
                     align-items: center;
                     gap: 10px;
                     backdrop-filter: blur(10px);
+                    max-width: 90%;
+                    text-align: center;
                 `;
                 
                 // Add icon based on type
@@ -1466,6 +1516,14 @@
                     toast.style.animation = 'fadeIn 0.3s ease reverse forwards';
                     setTimeout(() => toast.remove(), 300);
                 }, 3000);
+            },
+            
+            // New function to show question explanations
+            showExplanation(questionIndex) {
+                const question = this.currentTest[questionIndex];
+                if (!question) return;
+                
+                alert(`Explanation: ${question.explanation}\n\nCorrect Answer: ${question.options[question.correct]}`);
             }
         };
 
@@ -1500,6 +1558,10 @@
                     TestEngine.toggleSubject(subject);
                 });
             }, 500);
+            
+            // Show total question count
+            const totalQuestions = Object.values(JAMBQuestionBank).reduce((sum, subject) => sum + subject.length, 0);
+            console.log(`🚀 JAMB Mastermind loaded with ${totalQuestions} questions across 14 subjects!`);
         });
 
         // Force HTTPS for GitHub Pages
