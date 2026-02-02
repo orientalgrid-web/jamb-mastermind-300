@@ -6,6 +6,10 @@
     <title>JAMB Mastermind 300+ - Proto Douglas Ltd</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    <!-- Favicon for GitHub Pages -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23004a99%22>🎓</text></svg>">
+    
     <style>
         /* === RUN BUTTON STYLES === */
         .run-button-container {
@@ -120,7 +124,237 @@
             color: #000;
         }
         
-        /* Your existing styles below - I'll keep them intact */
+        /* PRACTICE TEST MODE STYLES */
+        .practice-mode {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0c2461, #1e3799);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .test-header {
+            background: linear-gradient(90deg, #004a99, #0066cc);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .test-timer {
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .test-timer.warning {
+            color: #ffc107;
+            animation: pulse 1s infinite;
+        }
+        
+        .test-timer.danger {
+            color: #d9534f;
+            animation: pulse 0.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .question-container {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .question-number {
+            color: #ffc107;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .options-container {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .option-btn {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .option-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .option-btn.selected {
+            background: rgba(40, 167, 69, 0.2);
+            border-color: #28a745;
+        }
+        
+        .option-btn.correct {
+            background: rgba(40, 167, 69, 0.3);
+            border-color: #28a745;
+        }
+        
+        .option-btn.incorrect {
+            background: rgba(217, 83, 79, 0.3);
+            border-color: #d9534f;
+        }
+        
+        .option-letter {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn.primary {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+        
+        .nav-btn.secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .results-screen {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .score-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #004a99, #0066cc);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            border: 5px solid #ffc107;
+        }
+        
+        .score-percent {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .score-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Your existing styles below */
         :root {
             --primary: #004a99;
             --primary-light: rgba(0, 74, 153, 0.1);
@@ -151,7 +385,6 @@
             overflow-x: hidden;
         }
 
-        /* LANDING PAGE */
         .landing-page {
             min-height: 100vh;
             padding: 20px;
@@ -203,7 +436,7 @@
             max-width: 600px;
         }
 
-        .stats-grid {
+        .stats-grid-landing {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
@@ -233,7 +466,6 @@
             letter-spacing: 1px;
         }
 
-        /* PAYMENT SECTION */
         .payment-section {
             background: rgba(0,0,0,0.7);
             border-radius: 20px;
@@ -327,7 +559,6 @@
             font-weight: 500;
         }
 
-        /* SUBJECTS GRID */
         .subjects-section {
             margin: 60px 0;
             max-width: 1000px;
@@ -388,7 +619,6 @@
             font-size: 0.9rem;
         }
 
-        /* APP INTERFACE */
         .app-interface {
             display: none;
             height: 100vh;
@@ -422,7 +652,6 @@
             border: 2px solid rgba(255,255,255,0.2);
         }
 
-        /* FOOTER & COPYRIGHT */
         .copyright {
             padding: 20px;
             text-align: center;
@@ -451,7 +680,6 @@
             color: var(--accent);
         }
 
-        /* MODALS */
         .modal {
             position: fixed;
             top: 0;
@@ -492,7 +720,6 @@
             padding: 30px;
         }
 
-        /* LOADING SPINNER */
         .spinner {
             border: 5px solid rgba(255,255,255,0.1);
             border-top: 5px solid var(--accent);
@@ -508,9 +735,8 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .stats-grid {
+            .stats-grid-landing {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -542,10 +768,14 @@
                 left: 10px;
                 top: 70px;
             }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 480px) {
-            .stats-grid {
+            .stats-grid-landing {
                 grid-template-columns: 1fr;
             }
             
@@ -556,9 +786,12 @@
             .price-tag {
                 font-size: 2.5rem;
             }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* ANIMATIONS */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -568,7 +801,6 @@
             animation: fadeIn 0.5s ease forwards;
         }
 
-        /* SCROLLBAR */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -584,7 +816,6 @@
     </style>
 </head>
 <body>
-
     <!-- ========== RUN BUTTON ========== -->
     <div class="run-button-container">
         <button class="run-btn" id="mainRunButton">
@@ -595,36 +826,30 @@
 
     <div class="run-panel" id="runPanel">
         <h3><i class="fas fa-cogs"></i> App Controls</h3>
-        
         <div class="run-controls">
             <button class="control-btn" onclick="RunSystem.togglePaymentStatus()">
                 <i class="fas fa-lock"></i>
                 Toggle Payment Status
                 <span class="status-badge" id="paymentStatus">FREE</span>
             </button>
-            
             <button class="control-btn" onclick="RunSystem.simulatePayment()">
                 <i class="fas fa-credit-card"></i>
                 Simulate Payment
                 <span class="status-badge paid">TEST</span>
             </button>
-            
+            <button class="control-btn" onclick="RunSystem.startPracticeTest()">
+                <i class="fas fa-graduation-cap"></i>
+                Start Practice Test
+            </button>
             <button class="control-btn" onclick="RunSystem.resetApp()">
                 <i class="fas fa-redo"></i>
                 Reset App State
             </button>
-            
             <button class="control-btn" onclick="RunSystem.showUserInfo()">
                 <i class="fas fa-user"></i>
                 Show User Info
             </button>
-            
-            <button class="control-btn" onclick="RunSystem.testFeatures()">
-                <i class="fas fa-flask"></i>
-                Test All Features
-            </button>
         </div>
-        
         <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1);">
             <p style="font-size: 11px; color: var(--text-dim);">
                 <i class="fas fa-info-circle"></i> Demo controls for testing
@@ -632,8 +857,98 @@
         </div>
     </div>
 
+    <!-- ========== PRACTICE TEST MODE ========== -->
+    <div class="practice-mode" id="practiceMode">
+        <div class="test-header">
+            <div>
+                <h2 style="color: white; margin: 0;">
+                    <i class="fas fa-graduation-cap"></i>
+                    JAMB Practice Test
+                </h2>
+                <div style="color: var(--text-dim); font-size: 0.9rem; margin-top: 5px;">
+                    Subject: <span id="currentSubject">Use of English</span>
+                </div>
+            </div>
+            <div class="test-timer" id="testTimer">45:00</div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <div class="question-container" id="questionContainer">
+            <div class="question-number">
+                <i class="fas fa-question-circle"></i>
+                Question <span id="currentQuestion">1</span> of <span id="totalQuestions">15</span>
+            </div>
+            <div class="question-text" id="questionText">
+                Loading question...
+            </div>
+            <div class="options-container" id="optionsContainer">
+                <!-- Options will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="navigation-buttons">
+            <button class="nav-btn secondary" id="prevBtn" onclick="PracticeTest.prevQuestion()">
+                <i class="fas fa-arrow-left"></i>
+                Previous
+            </button>
+            <button class="nav-btn primary" id="nextBtn" onclick="PracticeTest.nextQuestion()">
+                Next Question
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="nav-btn" id="submitBtn" onclick="PracticeTest.submitTest()" 
+                    style="background: linear-gradient(135deg, #d9534f, #c9302c); color: white;">
+                <i class="fas fa-paper-plane"></i>
+                Submit Test
+            </button>
+        </div>
+        
+        <!-- Results Screen -->
+        <div class="results-screen" id="resultsScreen">
+            <div class="score-circle">
+                <div class="score-percent" id="scorePercent">0%</div>
+                <div class="score-label">SCORE</div>
+            </div>
+            
+            <h2 style="color: white; margin-bottom: 10px;">
+                <i class="fas fa-trophy"></i>
+                Test Completed!
+            </h2>
+            <p style="color: var(--text-dim); margin-bottom: 30px;">
+                You have completed the practice test. Here are your results:
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="correctAnswers">0</div>
+                    <div class="stat-label">Correct</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="wrongAnswers">0</div>
+                    <div class="stat-label">Wrong</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="timeTaken">0:00</div>
+                    <div class="stat-label">Time Taken</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="nav-btn primary" onclick="PracticeTest.restartTest()" style="margin-right: 10px;">
+                    <i class="fas fa-redo"></i>
+                    Try Again
+                </button>
+                <button class="nav-btn secondary" onclick="PracticeTest.exitTest()">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- ========== MAIN APP ========== -->
-    <!-- LANDING PAGE -->
     <div class="landing-page" id="landingPage">
         <div class="logo-container">
             <div class="logo">
@@ -643,7 +958,7 @@
             <p class="tagline">Powered by Proto Douglas Ltd. The ultimate JAMB preparation platform with 10,000+ past questions across all subjects. Guaranteed 300+ score roadmap.</p>
         </div>
 
-        <div class="stats-grid">
+        <div class="stats-grid-landing">
             <div class="stat-card">
                 <div class="stat-number">10,000+</div>
                 <div class="stat-label">Past Questions</div>
@@ -665,22 +980,17 @@
         <div class="payment-section">
             <h2><i class="fas fa-lock"></i> UNLOCK FULL ACCESS</h2>
             <p>One-time payment. Lifetime access to all updates.</p>
-            
             <div class="price-tag">
                 ₦5,000<span>.00</span>
             </div>
-
             <div class="payment-methods">
                 <button class="payment-btn" onclick="processPayment('card')">
-                    <i class="fas fa-credit-card"></i>
-                    Pay with Card
+                    <i class="fas fa-credit-card"></i> Pay with Card
                 </button>
                 <button class="payment-btn secondary" onclick="processPayment('transfer')">
-                    <i class="fas fa-university"></i>
-                    Bank Transfer
+                    <i class="fas fa-university"></i> Bank Transfer
                 </button>
             </div>
-
             <div class="bank-details">
                 <h3><i class="fas fa-building-columns"></i> DIRECT BANK TRANSFER</h3>
                 <div class="account-info">
@@ -709,9 +1019,7 @@
 
         <div class="subjects-section">
             <h2 class="section-title"><i class="fas fa-book-open"></i> ALL JAMB SUBJECTS COVERED</h2>
-            <div class="subjects-grid" id="subjectsGrid">
-                <!-- Subjects will be populated by JavaScript -->
-            </div>
+            <div class="subjects-grid" id="subjectsGrid"></div>
         </div>
 
         <div class="copyright">
@@ -737,7 +1045,7 @@
         </div>
     </div>
 
-    <!-- PAYMENT VERIFICATION MODAL -->
+    <!-- PAYMENT MODAL -->
     <div class="modal" id="paymentModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -754,12 +1062,8 @@
                             <button class="payment-btn secondary" onclick="showPaymentStep(2, 'transfer')" style="width: 100%;">
                                 <i class="fas fa-university"></i> Bank Transfer
                             </button>
-                            <button class="payment-btn" onclick="showPaymentStep(2, 'ussd')" style="width: 100%; background: linear-gradient(135deg, #6f42c1, #6610f2);">
-                                <i class="fas fa-mobile-alt"></i> USSD
-                            </button>
                         </div>
                     </div>
-                    
                     <div class="payment-step" id="step2" style="display: none;">
                         <div id="cardPayment" style="display: none;">
                             <h3 style="margin-bottom: 20px; color: var(--accent);">Card Payment</h3>
@@ -775,7 +1079,6 @@
                                 </button>
                             </div>
                         </div>
-                        
                         <div id="transferPayment" style="display: none;">
                             <h3 style="margin-bottom: 20px; color: var(--accent);">Bank Transfer Instructions</h3>
                             <div class="bank-details">
@@ -810,13 +1113,11 @@
                             </button>
                         </div>
                     </div>
-                    
                     <div class="payment-step" id="step3" style="display: none; text-align: center;">
                         <div class="spinner"></div>
                         <h3 style="margin: 20px 0; color: var(--accent);">Verifying Payment...</h3>
                         <p style="color: var(--text-dim);">Please wait while we verify your payment.</p>
                     </div>
-                    
                     <div class="payment-step" id="step4" style="display: none; text-align: center;">
                         <div style="font-size: 4rem; color: var(--secondary); margin: 20px 0;">
                             <i class="fas fa-check-circle"></i>
@@ -834,9 +1135,8 @@
         </div>
     </div>
 
-    <!-- ACTUAL APP INTERFACE -->
+    <!-- APP INTERFACE -->
     <div class="app-interface" id="appInterface">
-        <!-- Header -->
         <header>
             <div class="brand-small">
                 <i class="fas fa-graduation-cap"></i>
@@ -844,38 +1144,66 @@
             </div>
             <div class="timer" id="timer">02:00:00</div>
         </header>
-
-        <!-- Main content area would be here -->
         <div style="padding: 20px; text-align: center;">
-            <h1 style="margin-top: 100px;">Welcome to JAMB Mastermind 300+</h1>
+            <h1 style="margin-top: 50px;">Welcome to JAMB Mastermind 300+</h1>
             <p style="color: var(--text-dim); margin: 20px 0 40px;">Your premium JAMB preparation platform</p>
             
-            <div style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px;">
-                <h2 style="color: var(--accent); margin-bottom: 20px;"><i class="fas fa-star"></i> FEATURES UNLOCKED</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
-                    <div class="feature-card">
-                        <i class="fas fa-database" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
-                        <h3>10,000+ Questions</h3>
-                        <p>Complete past question database</p>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; margin-bottom: 30px;">
+                    <h2 style="color: var(--accent); margin-bottom: 20px;"><i class="fas fa-star"></i> QUICK ACTIONS</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                        <button class="feature-card" onclick="PracticeTest.startTest('english')" 
+                                style="background: rgba(0, 74, 153, 0.2); border: 1px solid rgba(0, 74, 153, 0.5);">
+                            <i class="fas fa-language" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                            <h3>Use of English</h3>
+                            <p>Start practice test</p>
+                        </button>
+                        <button class="feature-card" onclick="PracticeTest.startTest('math')" 
+                                style="background: rgba(217, 83, 79, 0.2); border: 1px solid rgba(217, 83, 79, 0.5);">
+                            <i class="fas fa-calculator" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                            <h3>Mathematics</h3>
+                            <p>Start practice test</p>
+                        </button>
+                        <button class="feature-card" onclick="PracticeTest.startTest('biology')" 
+                                style="background: rgba(40, 167, 69, 0.2); border: 1px solid rgba(40, 167, 69, 0.5);">
+                            <i class="fas fa-dna" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
+                            <h3>Biology</h3>
+                            <p>Start practice test</p>
+                        </button>
                     </div>
-                    <div class="feature-card">
-                        <i class="fas fa-brain" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
-                        <h3>AI Analysis</h3>
-                        <p>Smart performance tracking</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--accent); margin-bottom: 10px;"></i>
-                        <h3>300+ Roadmap</h3>
-                        <p>Guaranteed score improvement</p>
-                    </div>
+                    
+                    <button class="payment-btn" style="background: linear-gradient(135deg, #28a745, #20c997); margin-right: 10px;" 
+                            onclick="PracticeTest.startTest('english')">
+                        <i class="fas fa-play"></i> START PRACTICE TEST
+                    </button>
+                    <button class="payment-btn secondary" onclick="RunSystem.showUserInfo()">
+                        <i class="fas fa-chart-line"></i> VIEW PROGRESS
+                    </button>
                 </div>
                 
-                <button class="payment-btn" style="background: linear-gradient(135deg, #28a745, #20c997);" onclick="startPractice()">
-                    <i class="fas fa-play"></i> START PRACTICE
-                </button>
+                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px;">
+                    <h2 style="color: var(--accent); margin-bottom: 20px;"><i class="fas fa-trophy"></i> YOUR STATISTICS</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                        <div class="stat-item">
+                            <div class="stat-value" id="userScore">0%</div>
+                            <div class="stat-label">Average Score</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="testsTaken">0</div>
+                            <div class="stat-label">Tests Taken</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="questionsAnswered">0</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="studyTime">0h</div>
+                            <div class="stat-label">Study Time</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
         <div class="copyright" style="position: absolute; bottom: 0; width: 100%;">
             <p>© 2024 Proto Douglas Ltd. All rights reserved.</p>
             <p>Licensed to: <span id="userEmail">demo@user.com</span></p>
@@ -885,6 +1213,319 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         // ============================================
+        // JAMB PRACTICE TEST SYSTEM
+        // ============================================
+        const PracticeTest = {
+            currentTest: null,
+            currentQuestionIndex: 0,
+            userAnswers: [],
+            testTimer: null,
+            timeRemaining: 45 * 60, // 45 minutes in seconds
+            
+            questions: {
+                english: [
+                    {
+                        question: "Choose the option that best completes the sentence: If I had known, I _____.",
+                        options: ["would have come", "will come", "would come", "will have come"],
+                        correct: 0,
+                        explanation: "The sentence requires the third conditional form for past hypothetical situations."
+                    },
+                    {
+                        question: "Identify the word that has a different stress pattern: 'education', 'application', 'demonstration', 'satisfaction'",
+                        options: ["education", "application", "demonstration", "satisfaction"],
+                        correct: 3,
+                        explanation: "'Satisfaction' has stress on the third syllable while others have stress on the fourth."
+                    },
+                    {
+                        question: "Choose the word that is nearest in meaning to 'UBIQUITOUS':",
+                        options: ["Rare", "Everywhere", "Ancient", "Unique"],
+                        correct: 1,
+                        explanation: "Ubiquitous means present, appearing, or found everywhere."
+                    },
+                    {
+                        question: "Which sentence is grammatically correct?",
+                        options: [
+                            "Neither the students nor the teacher were present.",
+                            "Neither the students nor the teacher was present.",
+                            "Neither the students or the teacher was present.",
+                            "Neither the students or the teacher were present."
+                        ],
+                        correct: 1,
+                        explanation: "With 'neither/nor', the verb agrees with the closest subject (teacher = singular)."
+                    },
+                    {
+                        question: "Select the option that best describes the tone of: 'The government's handling of the crisis was nothing short of catastrophic.'",
+                        options: ["Neutral", "Sarcastic", "Critical", "Appreciative"],
+                        correct: 2,
+                        explanation: "The use of 'catastrophic' indicates strong criticism."
+                    }
+                ],
+                math: [
+                    {
+                        question: "Simplify: (3x² - 2x + 5) + (2x² + 4x - 3)",
+                        options: ["5x² + 2x + 2", "5x² + 2x + 8", "5x² - 2x + 2", "x² + 2x + 2"],
+                        correct: 0,
+                        explanation: "Combine like terms: (3x² + 2x²) + (-2x + 4x) + (5 - 3) = 5x² + 2x + 2"
+                    },
+                    {
+                        question: "If log₁₀2 = 0.3010 and log₁₀3 = 0.4771, find log₁₀6",
+                        options: ["0.7781", "0.6990", "0.8451", "0.9542"],
+                        correct: 0,
+                        explanation: "log₁₀6 = log₁₀(2×3) = log₁₀2 + log₁₀3 = 0.3010 + 0.4771 = 0.7781"
+                    },
+                    {
+                        question: "Solve for x: 2x + 5 = 3x - 2",
+                        options: ["7", "5", "3", "-7"],
+                        correct: 0,
+                        explanation: "2x + 5 = 3x - 2 → 5 + 2 = 3x - 2x → 7 = x"
+                    },
+                    {
+                        question: "Find the area of a circle with radius 7cm (take π = 22/7)",
+                        options: ["154 cm²", "44 cm²", "88 cm²", "308 cm²"],
+                        correct: 0,
+                        explanation: "Area = πr² = (22/7) × 7 × 7 = 154 cm²"
+                    },
+                    {
+                        question: "If the ratio of boys to girls in a class is 3:2 and there are 15 boys, how many girls are there?",
+                        options: ["10", "12", "15", "20"],
+                        correct: 0,
+                        explanation: "3 parts = 15 boys, so 1 part = 5. Girls = 2 parts = 2 × 5 = 10"
+                    }
+                ],
+                biology: [
+                    {
+                        question: "Which of these is NOT a function of the kidney?",
+                        options: ["Excretion", "Osmoregulation", "Photosynthesis", "Ultrafiltration"],
+                        correct: 2,
+                        explanation: "Photosynthesis occurs in plants, not in kidneys."
+                    },
+                    {
+                        question: "The process by which plants lose water vapor is called:",
+                        options: ["Transpiration", "Respiration", "Photosynthesis", "Osmosis"],
+                        correct: 0,
+                        explanation: "Transpiration is the loss of water vapor from plants."
+                    },
+                    {
+                        question: "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+                        options: ["Pulmonary artery", "Pulmonary vein", "Aorta", "Vena cava"],
+                        correct: 1,
+                        explanation: "Pulmonary vein carries oxygenated blood from lungs to heart."
+                    },
+                    {
+                        question: "The basic unit of heredity is the:",
+                        options: ["Chromosome", "Gene", "Cell", "Nucleus"],
+                        correct: 1,
+                        explanation: "Genes are the basic units of heredity."
+                    },
+                    {
+                        question: "Which of these is a product of anaerobic respiration in animals?",
+                        options: ["Lactic acid", "Ethanol", "Carbon dioxide", "Oxygen"],
+                        correct: 0,
+                        explanation: "Lactic acid is produced during anaerobic respiration in animals."
+                    }
+                ]
+            },
+            
+            startTest(subject) {
+                this.currentTest = subject;
+                this.currentQuestionIndex = 0;
+                this.userAnswers = [];
+                this.timeRemaining = 45 * 60;
+                
+                document.getElementById('landingPage').style.display = 'none';
+                document.getElementById('appInterface').style.display = 'none';
+                document.getElementById('practiceMode').style.display = 'block';
+                
+                this.updateSubjectDisplay();
+                this.loadQuestion();
+                this.startTimer();
+                this.updateProgress();
+            },
+            
+            loadQuestion() {
+                const questions = this.questions[this.currentTest];
+                const question = questions[this.currentQuestionIndex];
+                
+                document.getElementById('currentQuestion').textContent = this.currentQuestionIndex + 1;
+                document.getElementById('totalQuestions').textContent = questions.length;
+                document.getElementById('questionText').textContent = question.question;
+                
+                const optionsContainer = document.getElementById('optionsContainer');
+                optionsContainer.innerHTML = '';
+                
+                const letters = ['A', 'B', 'C', 'D'];
+                letters.forEach((letter, index) => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.className = 'option-btn';
+                    if (this.userAnswers[this.currentQuestionIndex] === index) {
+                        optionBtn.classList.add('selected');
+                    }
+                    
+                    optionBtn.innerHTML = `
+                        <div class="option-letter">${letter}</div>
+                        <div>${question.options[index]}</div>
+                    `;
+                    
+                    optionBtn.onclick = () => this.selectOption(index);
+                    optionsContainer.appendChild(optionBtn);
+                });
+                
+                // Update navigation buttons
+                document.getElementById('prevBtn').disabled = this.currentQuestionIndex === 0;
+                document.getElementById('nextBtn').disabled = this.currentQuestionIndex === questions.length - 1;
+            },
+            
+            selectOption(optionIndex) {
+                this.userAnswers[this.currentQuestionIndex] = optionIndex;
+                
+                // Update UI
+                const options = document.querySelectorAll('.option-btn');
+                options.forEach((btn, index) => {
+                    btn.classList.remove('selected');
+                    if (index === optionIndex) {
+                        btn.classList.add('selected');
+                    }
+                });
+            },
+            
+            nextQuestion() {
+                const questions = this.questions[this.currentTest];
+                if (this.currentQuestionIndex < questions.length - 1) {
+                    this.currentQuestionIndex++;
+                    this.loadQuestion();
+                    this.updateProgress();
+                }
+            },
+            
+            prevQuestion() {
+                if (this.currentQuestionIndex > 0) {
+                    this.currentQuestionIndex--;
+                    this.loadQuestion();
+                    this.updateProgress();
+                }
+            },
+            
+            updateProgress() {
+                const questions = this.questions[this.currentTest];
+                const progress = ((this.currentQuestionIndex + 1) / questions.length) * 100;
+                document.getElementById('progressFill').style.width = `${progress}%`;
+            },
+            
+            startTimer() {
+                if (this.testTimer) clearInterval(this.testTimer);
+                
+                this.testTimer = setInterval(() => {
+                    this.timeRemaining--;
+                    
+                    const minutes = Math.floor(this.timeRemaining / 60);
+                    const seconds = this.timeRemaining % 60;
+                    
+                    const timerElement = document.getElementById('testTimer');
+                    timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    // Update timer color based on remaining time
+                    timerElement.classList.remove('warning', 'danger');
+                    if (this.timeRemaining < 300) { // 5 minutes
+                        timerElement.classList.add('danger');
+                    } else if (this.timeRemaining < 600) { // 10 minutes
+                        timerElement.classList.add('warning');
+                    }
+                    
+                    if (this.timeRemaining <= 0) {
+                        clearInterval(this.testTimer);
+                        this.submitTest();
+                    }
+                }, 1000);
+            },
+            
+            submitTest() {
+                clearInterval(this.testTimer);
+                
+                const questions = this.questions[this.currentTest];
+                let correct = 0;
+                
+                // Calculate score
+                this.userAnswers.forEach((answer, index) => {
+                    if (answer === questions[index].correct) {
+                        correct++;
+                    }
+                });
+                
+                const score = (correct / questions.length) * 100;
+                
+                // Show results
+                document.getElementById('questionContainer').style.display = 'none';
+                document.getElementById('prevBtn').style.display = 'none';
+                document.getElementById('nextBtn').style.display = 'none';
+                document.getElementById('submitBtn').style.display = 'none';
+                document.getElementById('progressFill').style.display = 'none';
+                
+                document.getElementById('resultsScreen').style.display = 'block';
+                document.getElementById('scorePercent').textContent = `${Math.round(score)}%`;
+                document.getElementById('correctAnswers').textContent = correct;
+                document.getElementById('wrongAnswers').textContent = questions.length - correct;
+                
+                const timeTaken = 45 * 60 - this.timeRemaining;
+                const minutes = Math.floor(timeTaken / 60);
+                const seconds = timeTaken % 60;
+                document.getElementById('timeTaken').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                // Save statistics
+                this.saveStatistics(score, questions.length, correct, timeTaken);
+            },
+            
+            saveStatistics(score, totalQuestions, correct, timeTaken) {
+                const stats = JSON.parse(localStorage.getItem('jamb_stats') || '{"tests": 0, "totalScore": 0, "totalQuestions": 0, "totalCorrect": 0, "totalTime": 0}');
+                
+                stats.tests++;
+                stats.totalScore += score;
+                stats.totalQuestions += totalQuestions;
+                stats.totalCorrect += correct;
+                stats.totalTime += timeTaken;
+                
+                localStorage.setItem('jamb_stats', JSON.stringify(stats));
+                this.updateUserStats();
+            },
+            
+            updateUserStats() {
+                const stats = JSON.parse(localStorage.getItem('jamb_stats') || '{"tests": 0, "totalScore": 0, "totalQuestions": 0, "totalCorrect": 0, "totalTime": 0}');
+                
+                if (stats.tests > 0) {
+                    document.getElementById('userScore').textContent = `${Math.round(stats.totalScore / stats.tests)}%`;
+                    document.getElementById('testsTaken').textContent = stats.tests;
+                    document.getElementById('questionsAnswered').textContent = stats.totalQuestions;
+                    document.getElementById('studyTime').textContent = `${Math.round(stats.totalTime / 3600)}h`;
+                }
+            },
+            
+            restartTest() {
+                document.getElementById('resultsScreen').style.display = 'none';
+                document.getElementById('questionContainer').style.display = 'block';
+                document.getElementById('prevBtn').style.display = 'flex';
+                document.getElementById('nextBtn').style.display = 'flex';
+                document.getElementById('submitBtn').style.display = 'flex';
+                document.getElementById('progressFill').style.display = 'block';
+                
+                this.startTest(this.currentTest);
+            },
+            
+            exitTest() {
+                document.getElementById('practiceMode').style.display = 'none';
+                document.getElementById('appInterface').style.display = 'block';
+                this.updateUserStats();
+            },
+            
+            updateSubjectDisplay() {
+                const subjectNames = {
+                    english: "Use of English",
+                    math: "Mathematics",
+                    biology: "Biology"
+                };
+                document.getElementById('currentSubject').textContent = subjectNames[this.currentTest] || "General";
+            }
+        };
+
+        // ============================================
         // RUN SYSTEM CONTROLS
         // ============================================
         const RunSystem = {
@@ -892,21 +1533,55 @@
                 console.log('🚀 JAMB Run System Initialized');
                 this.updateRunButton();
                 this.setupEventListeners();
+                this.populateSubjects();
+                PracticeTest.updateUserStats();
+            },
+            
+            populateSubjects() {
+                const subjects = [
+                    { name: "Use of English", icon: "fa-language", questions: 2500, action: () => PracticeTest.startTest('english') },
+                    { name: "Mathematics", icon: "fa-calculator", questions: 1800, action: () => PracticeTest.startTest('math') },
+                    { name: "Physics", icon: "fa-atom", questions: 1200, action: () => PracticeTest.startTest('english') },
+                    { name: "Chemistry", icon: "fa-flask", questions: 1200, action: () => PracticeTest.startTest('english') },
+                    { name: "Biology", icon: "fa-dna", questions: 1500, action: () => PracticeTest.startTest('biology') },
+                    { name: "Government", icon: "fa-landmark", questions: 800, action: () => PracticeTest.startTest('english') },
+                    { name: "Economics", icon: "fa-chart-line", questions: 900, action: () => PracticeTest.startTest('english') },
+                    { name: "Literature", icon: "fa-book", questions: 700, action: () => PracticeTest.startTest('english') },
+                    { name: "Commerce", icon: "fa-shopping-cart", questions: 600, action: () => PracticeTest.startTest('english') },
+                    { name: "Accounting", icon: "fa-balance-scale", questions: 500, action: () => PracticeTest.startTest('english') },
+                    { name: "Geography", icon: "fa-globe-africa", questions: 400, action: () => PracticeTest.startTest('english') },
+                    { name: "CRS/IRS", icon: "fa-pray", questions: 400, action: () => PracticeTest.startTest('english') },
+                    { name: "History", icon: "fa-history", questions: 300, action: () => PracticeTest.startTest('english') },
+                    { name: "French", icon: "fa-language", questions: 200, action: () => PracticeTest.startTest('english') },
+                    { name: "Music", icon: "fa-music", questions: 150, action: () => PracticeTest.startTest('english') }
+                ];
+                
+                const grid = document.getElementById('subjectsGrid');
+                subjects.forEach(subject => {
+                    const card = document.createElement('div');
+                    card.className = 'subject-card fade-in';
+                    card.onclick = subject.action;
+                    card.innerHTML = `
+                        <div class="subject-icon">
+                            <i class="fas ${subject.icon}"></i>
+                        </div>
+                        <div class="subject-name">${subject.name}</div>
+                        <div class="question-count">${subject.questions.toLocaleString()} Questions</div>
+                    `;
+                    grid.appendChild(card);
+                });
             },
             
             setupEventListeners() {
-                // Toggle run panel
                 document.getElementById('mainRunButton').addEventListener('click', (e) => {
                     const panel = document.getElementById('runPanel');
                     panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
                     e.stopPropagation();
                 });
                 
-                // Close panel when clicking outside
                 document.addEventListener('click', (e) => {
                     const panel = document.getElementById('runPanel');
                     const button = document.getElementById('mainRunButton');
-                    
                     if (!panel.contains(e.target) && !button.contains(e.target)) {
                         panel.style.display = 'none';
                     }
@@ -916,7 +1591,6 @@
             togglePaymentStatus() {
                 const isPaid = localStorage.getItem('jamb_paid') === 'true';
                 const newStatus = !isPaid;
-                
                 localStorage.setItem('jamb_paid', newStatus.toString());
                 
                 const statusBadge = document.getElementById('paymentStatus');
@@ -928,11 +1602,8 @@
                     runBtn.classList.add('paid');
                     runBtn.classList.remove('demo');
                     runBtn.innerHTML = '<i class="fas fa-check"></i> APP UNLOCKED';
-                    
-                    // Show app interface
                     document.getElementById('landingPage').style.display = 'none';
                     document.getElementById('appInterface').style.display = 'block';
-                    
                     this.showToast('Payment status: PAID - App unlocked!', 'success');
                 } else {
                     statusBadge.textContent = 'FREE';
@@ -940,55 +1611,43 @@
                     runBtn.classList.add('demo');
                     runBtn.classList.remove('paid');
                     runBtn.innerHTML = '<i class="fas fa-play"></i> RUN JAMB APP';
-                    
-                    // Show landing page
                     document.getElementById('landingPage').style.display = 'flex';
                     document.getElementById('appInterface').style.display = 'none';
-                    
                     this.showToast('Payment status: FREE - Landing page shown', 'info');
                 }
             },
             
             simulatePayment() {
                 const email = prompt("Enter email for demo account:", "student@demo.com");
-                if (!email || !validateEmail(email)) {
+                if (!email || !this.validateEmail(email)) {
                     this.showToast("Valid email required", "error");
                     return;
                 }
                 
-                // Simulate payment process
                 this.showToast("Processing payment...", "info");
                 
                 setTimeout(() => {
                     localStorage.setItem('jamb_paid', 'true');
                     localStorage.setItem('jamb_user_email', email);
-                    
-                    const transaction = {
-                        id: 'DEMO_TRX_' + Date.now(),
-                        email: email,
-                        amount: 5000,
-                        method: 'demo',
-                        date: new Date().toISOString(),
-                        status: 'completed'
-                    };
-                    localStorage.setItem('jamb_transaction', JSON.stringify(transaction));
-                    
                     this.updateRunButton();
                     this.showToast(`Payment successful! Welcome ${email}`, 'success');
-                    
-                    // Auto-launch app
                     document.getElementById('landingPage').style.display = 'none';
                     document.getElementById('appInterface').style.display = 'block';
                     document.getElementById('userEmail').textContent = email;
-                    
                 }, 1500);
             },
             
+            startPracticeTest() {
+                PracticeTest.startTest('english');
+                this.showToast("Starting English practice test...", "info");
+            },
+            
             resetApp() {
-                if (confirm("Reset all app data? This will clear payment status.")) {
+                if (confirm("Reset all app data? This will clear payment status and statistics.")) {
                     localStorage.removeItem('jamb_paid');
                     localStorage.removeItem('jamb_user_email');
                     localStorage.removeItem('jamb_transaction');
+                    localStorage.removeItem('jamb_stats');
                     
                     document.getElementById('paymentStatus').textContent = 'FREE';
                     document.getElementById('paymentStatus').className = 'status-badge free';
@@ -1000,6 +1659,13 @@
                     
                     document.getElementById('landingPage').style.display = 'flex';
                     document.getElementById('appInterface').style.display = 'none';
+                    document.getElementById('practiceMode').style.display = 'none';
+                    
+                    // Reset statistics display
+                    document.getElementById('userScore').textContent = '0%';
+                    document.getElementById('testsTaken').textContent = '0';
+                    document.getElementById('questionsAnswered').textContent = '0';
+                    document.getElementById('studyTime').textContent = '0h';
                     
                     this.showToast('App reset to initial state', 'success');
                 }
@@ -1008,32 +1674,18 @@
             showUserInfo() {
                 const isPaid = localStorage.getItem('jamb_paid') === 'true';
                 const email = localStorage.getItem('jamb_user_email') || 'Not set';
-                const transaction = JSON.parse(localStorage.getItem('jamb_transaction') || '{}');
+                const stats = JSON.parse(localStorage.getItem('jamb_stats') || '{"tests": 0, "totalScore": 0}');
                 
                 const info = `
 App Status: ${isPaid ? 'PAID ✅' : 'FREE 🔒'}
 
 User Email: ${email}
 
-Transaction: ${transaction.id ? '✓ Completed' : 'None'}
-
-Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() : 'N/A'}
+Tests Taken: ${stats.tests}
+Average Score: ${stats.tests > 0 ? Math.round(stats.totalScore / stats.tests) : 0}%
                 `.trim();
                 
                 alert("📊 JAMB APP STATUS\n\n" + info);
-            },
-            
-            testFeatures() {
-                this.showToast("Testing all features...", "info");
-                
-                // Test payment modal
-                document.getElementById('paymentModal').style.display = 'flex';
-                showPaymentStep(1);
-                
-                setTimeout(() => {
-                    document.getElementById('paymentModal').style.display = 'none';
-                    this.showToast("Feature test completed", "success");
-                }, 2000);
             },
             
             updateRunButton() {
@@ -1057,14 +1709,11 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             },
             
             showToast(message, type = 'info') {
-                // Simple toast notification
                 const toast = document.createElement('div');
-                toast.className = 'run-toast';
                 toast.innerHTML = `
                     <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
                     <span>${message}</span>
                 `;
-                
                 toast.style.cssText = `
                     position: fixed;
                     bottom: 20px;
@@ -1082,21 +1731,22 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
                     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
                     animation: slideUp 0.3s ease-out;
                 `;
-                
                 document.body.appendChild(toast);
-                
                 setTimeout(() => {
                     toast.style.animation = 'slideDown 0.3s ease-in';
                     setTimeout(() => toast.remove(), 300);
                 }, 3000);
+            },
+            
+            validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
             }
         };
 
         // ============================================
-        // ORIGINAL JAMB APP CODE (with Run System integration)
+        // ORIGINAL JAMB APP CODE
         // ============================================
-        
-        // Configure Toastr
         toastr.options = {
             positionClass: "toast-top-center",
             progressBar: true,
@@ -1104,26 +1754,6 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             closeButton: true
         };
 
-        // JAMB Subjects Data
-        const jambSubjects = [
-            { name: "Use of English", icon: "fa-language", questions: 2500, color: "#004a99" },
-            { name: "Mathematics", icon: "fa-calculator", questions: 1800, color: "#d9534f" },
-            { name: "Physics", icon: "fa-atom", questions: 1200, color: "#20c997" },
-            { name: "Chemistry", icon: "fa-flask", questions: 1200, color: "#6f42c1" },
-            { name: "Biology", icon: "fa-dna", questions: 1500, color: "#28a745" },
-            { name: "Government", icon: "fa-landmark", questions: 800, color: "#fd7e14" },
-            { name: "Economics", icon: "fa-chart-line", questions: 900, color: "#17a2b8" },
-            { name: "Literature", icon: "fa-book", questions: 700, color: "#e83e8c" },
-            { name: "Commerce", icon: "fa-shopping-cart", questions: 600, color: "#ffc107" },
-            { name: "Accounting", icon: "fa-balance-scale", questions: 500, color: "#6610f2" },
-            { name: "Geography", icon: "fa-globe-africa", questions: 400, color: "#20c997" },
-            { name: "CRS/IRS", icon: "fa-pray", questions: 400, color: "#6f42c1" },
-            { name: "History", icon: "fa-history", questions: 300, color: "#fd7e14" },
-            { name: "French", icon: "fa-language", questions: 200, color: "#004a99" },
-            { name: "Music", icon: "fa-music", questions: 150, color: "#e83e8c" }
-        ];
-
-        // Payment State
         const paymentState = {
             currentStep: 1,
             paymentMethod: '',
@@ -1131,27 +1761,8 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             userEmail: localStorage.getItem('jamb_user_email') || ''
         };
 
-        // Initialize on load
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Run System
             RunSystem.init();
-            
-            // Populate subjects grid
-            const subjectsGrid = document.getElementById('subjectsGrid');
-            jambSubjects.forEach(subject => {
-                const card = document.createElement('div');
-                card.className = 'subject-card fade-in';
-                card.innerHTML = `
-                    <div class="subject-icon" style="background: linear-gradient(135deg, ${subject.color}, ${lightenColor(subject.color, 20)})">
-                        <i class="fas ${subject.icon}"></i>
-                    </div>
-                    <div class="subject-name">${subject.name}</div>
-                    <div class="question-count">${subject.questions.toLocaleString()} Questions</div>
-                `;
-                subjectsGrid.appendChild(card);
-            });
-
-            // Check if already paid
             if (paymentState.isPaid) {
                 document.getElementById('landingPage').style.display = 'none';
                 document.getElementById('appInterface').style.display = 'block';
@@ -1159,23 +1770,17 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             }
         });
 
-        // Payment Processing
         function processPayment(method) {
             document.getElementById('paymentModal').style.display = 'flex';
             showPaymentStep(2, method);
         }
 
         function showPaymentStep(step, method = '') {
-            // Hide all steps
             document.querySelectorAll('.payment-step').forEach(el => {
                 el.style.display = 'none';
             });
-            
-            // Hide all payment methods
             document.getElementById('cardPayment').style.display = 'none';
             document.getElementById('transferPayment').style.display = 'none';
-            
-            // Show selected step
             document.getElementById(`step${step}`).style.display = 'block';
             paymentState.currentStep = step;
             
@@ -1189,7 +1794,6 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             }
             
             if (step === 3) {
-                // Simulate payment processing
                 setTimeout(() => {
                     showPaymentStep(4);
                 }, 3000);
@@ -1197,49 +1801,27 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
         }
 
         function simulatePayment() {
-            // Ask for email for receipt
             const email = prompt("Please enter your email for receipt and account setup:");
             if (!email) {
                 toastr.error("Email is required for account setup");
                 return;
             }
             
-            if (!validateEmail(email)) {
+            if (!RunSystem.validateEmail(email)) {
                 toastr.error("Please enter a valid email address");
                 return;
             }
             
             paymentState.userEmail = email;
             localStorage.setItem('jamb_user_email', email);
-            
             showPaymentStep(3);
             
-            // Simulate API call
             setTimeout(() => {
-                // Mark as paid
                 paymentState.isPaid = true;
                 localStorage.setItem('jamb_paid', 'true');
-                
-                // Update Run System
                 RunSystem.updateRunButton();
-                
-                // Show success
                 showPaymentStep(4);
-                
-                // Send welcome email (simulated)
                 toastr.success("Welcome email sent to " + email);
-                
-                // Log transaction
-                const transaction = {
-                    id: 'TRX_' + Date.now(),
-                    email: email,
-                    amount: 5000,
-                    method: paymentState.paymentMethod,
-                    date: new Date().toISOString(),
-                    status: 'completed'
-                };
-                localStorage.setItem('jamb_transaction', JSON.stringify(transaction));
-                
             }, 3000);
         }
 
@@ -1247,62 +1829,10 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             document.getElementById('paymentModal').style.display = 'none';
             document.getElementById('landingPage').style.display = 'none';
             document.getElementById('appInterface').style.display = 'block';
-            
-            // Update user email display
             document.getElementById('userEmail').textContent = paymentState.userEmail;
-            
             toastr.success("Welcome to JAMB Mastermind 300+!");
         }
 
-        function startPractice() {
-            toastr.info("Practice mode starting... (Full app would load here)");
-            // In full version, this would load the complete exam interface
-        }
-
-        // Utility functions
-        function lightenColor(color, percent) {
-            const num = parseInt(color.replace("#", ""), 16);
-            const amt = Math.round(2.55 * percent);
-            const R = (num >> 16) + amt;
-            const G = (num >> 8 & 0x00FF) + amt;
-            const B = (num & 0x0000FF) + amt;
-            return "#" + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
-                (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
-                (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
-        }
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        // Timer for app (demo)
-        function startTimer() {
-            let time = 7200; // 2 hours in seconds
-            const timerElement = document.getElementById('timer');
-            
-            const interval = setInterval(() => {
-                const hours = Math.floor(time / 3600);
-                const minutes = Math.floor((time % 3600) / 60);
-                const seconds = time % 60;
-                
-                timerElement.textContent = 
-                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                
-                if (time <= 0) {
-                    clearInterval(interval);
-                    toastr.warning("Time's up! Exam completed.");
-                }
-                time--;
-            }, 1000);
-        }
-
-        // Start timer when app loads
-        if (paymentState.isPaid) {
-            setTimeout(startTimer, 1000);
-        }
-
-        // Keyboard shortcuts
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 document.getElementById('paymentModal').style.display = 'none';
@@ -1310,12 +1840,10 @@ Last Payment: ${transaction.date ? new Date(transaction.date).toLocaleString() :
             }
         });
 
-        // Export function for proof upload
         window.uploadProof = function() {
             const file = document.getElementById('proofUpload').files[0];
             if (file) {
                 toastr.success("Proof uploaded! We'll verify within 24 hours.");
-                // In real app, upload to server
                 simulatePayment();
             }
         };
