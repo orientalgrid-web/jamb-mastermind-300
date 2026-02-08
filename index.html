@@ -16,6 +16,7 @@
             --gold: #FFD700;
             --danger: #dc3545;
             --warning: #ffc107;
+            --purple: #6f42c1;
             --shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
@@ -33,7 +34,7 @@
         }
 
         .app-container { 
-            max-width: 1000px; 
+            max-width: 1100px; 
             margin: 0 auto; 
             background: white; 
             border-radius: 15px; 
@@ -47,7 +48,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* HEADER & TIMER */
+        /* HEADER */
         .header { 
             background: linear-gradient(90deg, var(--primary), #003366);
             color: white; 
@@ -73,6 +74,13 @@
             font-weight: bold; 
             font-size: 1.1rem;
             backdrop-filter: blur(5px);
+        }
+        .header-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
         }
 
         /* DASHBOARD */
@@ -101,11 +109,44 @@
             margin-right: 5px;
             color: var(--primary);
         }
+        .dashboard-tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin: 0 20px;
+        }
+        .tab-btn {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            color: #666;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            color: var(--primary);
+        }
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary);
+        }
+        .tab-content {
+            padding: 20px;
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
         .grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
             gap: 15px; 
-            padding: 20px; 
         }
         .card { 
             background: white; 
@@ -150,6 +191,78 @@
             border-radius: 12px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.2);
             z-index: 2;
+        }
+
+        /* MOCK EXAM SETUP */
+        .mock-setup {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .setup-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .setup-option {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #eaeaea;
+        }
+        .setup-option h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        .checkbox-group {
+            margin: 10px 0;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        .multiplayer-setup {
+            background: #eef7ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .player-list {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .player-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            min-width: 150px;
+            text-align: center;
+        }
+        .player-card.you {
+            border-color: var(--primary);
+            background: #f0f8ff;
+        }
+        .invite-section {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .invite-input {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
         }
 
         /* QUESTION INTERFACE */
@@ -260,6 +373,22 @@
             color: white;
         }
         
+        /* MOCK EXAM TIMER */
+        .mock-timer {
+            background: var(--danger);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
         /* BUTTONS */
         .button-container {
             display: flex;
@@ -290,33 +419,35 @@
         .btn:active {
             transform: translateY(-1px);
         }
-        .btn-next { 
+        .btn-primary { 
+            background: var(--primary); 
+            color: white; 
+        }
+        .btn-secondary { 
             background: var(--secondary); 
             color: white; 
         }
-        .btn-prev { 
-            background: #6c757d; 
-            color: white; 
-        }
-        .btn-finish { 
+        .btn-accent { 
             background: var(--accent); 
             color: white; 
         }
-        .btn-exit { 
+        .btn-danger { 
             background: var(--danger); 
             color: white; 
         }
-        .btn-subject { 
-            background: var(--primary); 
+        .btn-purple { 
+            background: var(--purple); 
             color: white; 
-            margin-top: 10px;
         }
         
         /* RESULTS SCREEN */
         #results-section {
             display: none;
             padding: 30px;
+        }
+        .result-header {
             text-align: center;
+            margin-bottom: 30px;
         }
         .result-icon {
             font-size: 4rem;
@@ -339,6 +470,55 @@
             background: var(--light);
             padding: 20px;
             border-radius: 10px;
+            text-align: center;
+        }
+        .result-box h3 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .result-box p {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .score-breakdown {
+            margin-top: 40px;
+        }
+        .subject-score {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        .score-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        .score-fill {
+            height: 100%;
+            background: var(--secondary);
+        }
+        .leaderboard {
+            margin-top: 40px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .leaderboard-item.you {
+            background: #eef7ff;
+            border-radius: 8px;
         }
         
         /* FOOTER */
@@ -375,6 +555,8 @@
             .dashboard-info { flex-direction: column; align-items: flex-start; }
             .button-container { flex-direction: column; }
             .btn { width: 100%; justify-content: center; }
+            .header-buttons { position: static; justify-content: center; margin-top: 15px; }
+            .setup-options { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -386,6 +568,14 @@
         <div class="header-subtitle">Orient Neo 7 Edition - Your Ultimate UTME Preparation Platform</div>
         <div class="study-clock" id="session-timer">
             <i class="far fa-clock"></i> Session: 00:00:00
+        </div>
+        <div class="header-buttons">
+            <button class="btn btn-accent" onclick="openTab('mock-tab')">
+                <i class="fas fa-graduation-cap"></i> Mock Exam
+            </button>
+            <button class="btn btn-purple" onclick="showMultiplayerModal()">
+                <i class="fas fa-users"></i> Multiplayer
+            </button>
         </div>
     </div>
 
@@ -401,57 +591,193 @@
                 <div class="stat-box"><i class="fas fa-bolt"></i> Instant Feedback</div>
             </div>
         </div>
-        <div class="grid">
-            <div class="card" onclick="startQuiz('english')">
-                <div class="value-bet-tag">VALUE BET</div>
-                <i class="fas fa-book fa-2x" style="color:#004a99"></i>
-                <p>English Language</p>
-                <small>2,000 Questions</small>
+        
+        <div class="dashboard-tabs">
+            <button class="tab-btn active" onclick="openTab('practice-tab')">Practice Mode</button>
+            <button class="tab-btn" onclick="openTab('mock-tab')">Mock Exam</button>
+            <button class="tab-btn" onclick="openTab('multiplayer-tab')">Study Groups</button>
+        </div>
+        
+        <div id="practice-tab" class="tab-content active">
+            <div class="grid">
+                <div class="card" onclick="startQuiz('english')">
+                    <div class="value-bet-tag">VALUE BET</div>
+                    <i class="fas fa-book fa-2x" style="color:#004a99"></i>
+                    <p>English Language</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('math')">
+                    <i class="fas fa-calculator fa-2x" style="color:#004a99"></i>
+                    <p>Mathematics</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('physics')">
+                    <i class="fas fa-atom fa-2x" style="color:#004a99"></i>
+                    <p>Physics</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('biology')">
+                    <i class="fas fa-dna fa-2x" style="color:#004a99"></i>
+                    <p>Biology</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('chemistry')">
+                    <i class="fas fa-flask fa-2x" style="color:#004a99"></i>
+                    <p>Chemistry</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('government')">
+                    <i class="fas fa-landmark fa-2x" style="color:#004a99"></i>
+                    <p>Government</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('economics')">
+                    <i class="fas fa-chart-bar fa-2x" style="color:#004a99"></i>
+                    <p>Economics</p>
+                    <small>2,000 Questions</small>
+                </div>
+                <div class="card" onclick="startQuiz('literature')">
+                    <i class="fas fa-pen-alt fa-2x" style="color:#004a99"></i>
+                    <p>Literature</p>
+                    <small>2,000 Questions</small>
+                </div>
             </div>
-            <div class="card" onclick="startQuiz('math')">
-                <i class="fas fa-calculator fa-2x" style="color:#004a99"></i>
-                <p>Mathematics</p>
-                <small>2,000 Questions</small>
+        </div>
+        
+        <div id="mock-tab" class="tab-content">
+            <div class="mock-setup">
+                <h3><i class="fas fa-graduation-cap"></i> JAMB Mock Exam Simulation</h3>
+                <p>Simulate the actual JAMB exam experience with random questions from all subjects.</p>
+                
+                <div class="setup-options">
+                    <div class="setup-option">
+                        <h4><i class="fas fa-clock"></i> Exam Duration</h4>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="radio" name="duration" value="120" checked> 2 Hours (Standard)
+                            </label>
+                            <label>
+                                <input type="radio" name="duration" value="90"> 1.5 Hours (Quick)
+                            </label>
+                            <label>
+                                <input type="radio" name="duration" value="180"> 3 Hours (Extended)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-option">
+                        <h4><i class="fas fa-question-circle"></i> Questions</h4>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="radio" name="questions" value="180" checked> 180 Questions (JAMB Standard)
+                            </label>
+                            <label>
+                                <input type="radio" name="questions" value="100"> 100 Questions (Quick Test)
+                            </label>
+                            <label>
+                                <input type="radio" name="questions" value="60"> 60 Questions (Subject Focus)
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="setup-option">
+                        <h4><i class="fas fa-book"></i> Subjects to Include</h4>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="subjects" value="english" checked> English
+                            </label>
+                            <label>
+                                <input type="checkbox" name="subjects" value="math" checked> Mathematics
+                            </label>
+                            <label>
+                                <input type="checkbox" name="subjects" value="physics"> Physics
+                            </label>
+                            <label>
+                                <input type="checkbox" name="subjects" value="biology"> Biology
+                            </label>
+                            <label>
+                                <input type="checkbox" name="subjects" value="chemistry"> Chemistry
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="multiplayer-setup">
+                    <h4><i class="fas fa-users"></i> Multiplayer Mock Exam (Optional)</h4>
+                    <p>Invite up to 2 friends to take the mock exam together and compare scores.</p>
+                    
+                    <div class="player-list" id="player-list">
+                        <div class="player-card you">
+                            <i class="fas fa-user-circle fa-2x"></i>
+                            <p>You (Host)</p>
+                            <small>Ready</small>
+                        </div>
+                    </div>
+                    
+                    <div class="invite-section">
+                        <input type="text" class="invite-input" id="invite-code" value="JAMB-7X9P2" readonly>
+                        <button class="btn btn-primary" onclick="copyInviteCode()">
+                            <i class="fas fa-copy"></i> Copy Code
+                        </button>
+                        <button class="btn btn-secondary" onclick="joinMockSession()">
+                            <i class="fas fa-user-plus"></i> Join Session
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 15px;">
+                        <input type="text" class="invite-input" placeholder="Enter friend's code to invite" id="friend-code">
+                        <button class="btn btn-accent" onclick="inviteFriend()">
+                            <i class="fas fa-paper-plane"></i> Invite Friend
+                        </button>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn btn-primary" style="padding: 15px 40px; font-size: 1.2rem;" onclick="startMockExam()">
+                        <i class="fas fa-play-circle"></i> Start Mock Exam
+                    </button>
+                </div>
             </div>
-            <div class="card" onclick="startQuiz('physics')">
-                <i class="fas fa-atom fa-2x" style="color:#004a99"></i>
-                <p>Physics</p>
-                <small>2,000 Questions</small>
-            </div>
-            <div class="card" onclick="startQuiz('biology')">
-                <i class="fas fa-dna fa-2x" style="color:#004a99"></i>
-                <p>Biology</p>
-                <small>2,000 Questions</small>
-            </div>
-            <div class="card" onclick="startQuiz('chemistry')">
-                <i class="fas fa-flask fa-2x" style="color:#004a99"></i>
-                <p>Chemistry</p>
-                <small>2,000 Questions</small>
-            </div>
-            <div class="card" onclick="startQuiz('government')">
-                <i class="fas fa-landmark fa-2x" style="color:#004a99"></i>
-                <p>Government</p>
-                <small>2,000 Questions</small>
-            </div>
-            <div class="card" onclick="startQuiz('economics')">
-                <i class="fas fa-chart-bar fa-2x" style="color:#004a99"></i>
-                <p>Economics</p>
-                <small>2,000 Questions</small>
-            </div>
-            <div class="card" onclick="startQuiz('literature')">
-                <i class="fas fa-pen-alt fa-2x" style="color:#004a99"></i>
-                <p>Literature</p>
-                <small>2,000 Questions</small>
+        </div>
+        
+        <div id="multiplayer-tab" class="tab-content">
+            <div style="text-align: center; padding: 40px 20px;">
+                <i class="fas fa-users fa-4x" style="color: var(--purple); margin-bottom: 20px;"></i>
+                <h3>Study Groups & Multiplayer</h3>
+                <p style="margin-bottom: 30px;">Connect with friends for collaborative learning and mock exams</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
+                    <div class="card" onclick="createStudyGroup()">
+                        <i class="fas fa-plus-circle fa-3x" style="color: var(--secondary);"></i>
+                        <h4>Create Group</h4>
+                        <p>Start a new study group</p>
+                    </div>
+                    
+                    <div class="card" onclick="joinStudyGroup()">
+                        <i class="fas fa-user-plus fa-3x" style="color: var(--primary);"></i>
+                        <h4>Join Group</h4>
+                        <p>Join existing study group</p>
+                    </div>
+                    
+                    <div class="card" onclick="viewLeaderboard()">
+                        <i class="fas fa-trophy fa-3x" style="color: var(--gold);"></i>
+                        <h4>Leaderboard</h4>
+                        <p>See top performers</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="quiz-section">
         <div class="quiz-header">
-            <div class="subject-title" id="subject-title">English Language</div>
+            <div class="subject-title" id="subject-title">Mock Exam</div>
+            <div id="mock-timer" class="mock-timer" style="display: none;">
+                <i class="fas fa-hourglass-half"></i> Time Left: <span id="time-left">120:00</span>
+            </div>
             <div style="flex-grow: 1; margin-left: 20px;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Question <span id="current-q">1</span> of <span id="total-q">10</span></span>
+                    <span>Question <span id="current-q">1</span> of <span id="total-q">180</span></span>
                     <span id="score-display">Score: 0%</span>
                 </div>
                 <div class="progress-bar">
@@ -462,7 +788,7 @@
         
         <div class="question-meta">
             <div id="question-tip"></div>
-            <div id="timer-display"><i class="far fa-clock"></i> 00:00</div>
+            <div id="subject-indicator"></div>
         </div>
         
         <div class="question-box" id="q-text">Loading Question...</div>
@@ -472,38 +798,40 @@
         </div>
         
         <div class="button-container">
-            <button class="btn btn-prev" onclick="prevQuestion()">
+            <button class="btn btn-primary" onclick="prevQuestion()">
                 <i class="fas fa-chevron-left"></i> Previous
             </button>
-            <button class="btn btn-exit" onclick="exitQuiz()">
-                <i class="fas fa-sign-out-alt"></i> Exit Quiz
+            <button class="btn btn-danger" onclick="exitQuiz()">
+                <i class="fas fa-sign-out-alt"></i> Exit Exam
             </button>
-            <button class="btn btn-next" onclick="nextQuestion()">
+            <button class="btn btn-secondary" onclick="nextQuestion()">
                 Next <i class="fas fa-chevron-right"></i>
             </button>
         </div>
     </div>
 
     <div id="results-section">
-        <div class="result-icon">
-            <i class="fas fa-trophy"></i>
+        <div class="result-header">
+            <div class="result-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h2>Mock Exam Completed!</h2>
+            <div class="score-display" id="final-score">85%</div>
+            <p id="result-message">You've completed the JAMB Mock Exam Simulation</p>
         </div>
-        <h2>Quiz Completed!</h2>
-        <div class="score-display" id="final-score">85%</div>
-        <p>You've completed the <span id="result-subject">English Language</span> practice session</p>
         
         <div class="result-details">
             <div class="result-box">
                 <h3><i class="fas fa-check-circle" style="color:var(--success)"></i> Correct</h3>
-                <p id="correct-answers">8</p>
+                <p id="correct-answers">0</p>
             </div>
             <div class="result-box">
                 <h3><i class="fas fa-times-circle" style="color:var(--danger)"></i> Wrong</h3>
-                <p id="wrong-answers">2</p>
+                <p id="wrong-answers">0</p>
             </div>
             <div class="result-box">
                 <h3><i class="fas fa-clock" style="color:var(--primary)"></i> Time Spent</h3>
-                <p id="time-spent">12:45</p>
+                <p id="time-spent">00:00</p>
             </div>
             <div class="result-box">
                 <h3><i class="fas fa-chart-line" style="color:var(--secondary)"></i> Performance</h3>
@@ -511,9 +839,29 @@
             </div>
         </div>
         
-        <div style="margin-top: 30px;">
-            <button class="btn btn-subject" onclick="returnToDashboard()">
-                <i class="fas fa-th-large"></i> Choose Another Subject
+        <div class="score-breakdown">
+            <h3>Subject Performance Breakdown</h3>
+            <div id="subject-scores">
+                <!-- Subject scores will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <div class="leaderboard" id="multiplayer-results" style="display: none;">
+            <h3><i class="fas fa-users"></i> Multiplayer Results</h3>
+            <div id="leaderboard-list">
+                <!-- Leaderboard items will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; text-align: center;">
+            <button class="btn btn-primary" onclick="returnToDashboard()" style="margin-right: 10px;">
+                <i class="fas fa-th-large"></i> Return to Dashboard
+            </button>
+            <button class="btn btn-secondary" onclick="reviewAnswers()">
+                <i class="fas fa-clipboard-check"></i> Review Answers
+            </button>
+            <button class="btn btn-accent" onclick="startNewMock()">
+                <i class="fas fa-redo"></i> New Mock Exam
             </button>
         </div>
     </div>
@@ -526,22 +874,25 @@
             <a href="https://pastquestionhub.com" target="_blank">Past Questions</a>
         </div>
         <hr style="margin: 10px auto; width: 80%; opacity: 0.3;">
-        <p>Support: orientalgrid@gmail.com | 2349088857570</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">© 2023 JAMB Practice Hub - Orient Neo 7 Edition. All Rights Reserved.</p>
+        <p>Support: orientalgrid@gmail.com | 2348103365359</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 JAMB Practice Hub - Orient Neo 7 Edition. All Rights Reserved.</p>
     </div>
 </div>
 
 <script>
-    // 2,000 QUESTION DATABASE SIMULATION
+    // Enhanced Question Database (2,000 questions simulation)
     const generateQuestions = (subject, count) => {
         const questions = [];
         const templates = {
             english: [
                 { q: "Choose the word opposite in meaning to 'Arrogant':", o: ["Humble", "Proud", "Wealthy", "Angry"], c: 0, tip: "Value Bet: Antonyms" },
-                { q: "The boys ___ gone to the field.", o: ["has", "have", "is", "was"], c: 1, tip: "Corner: Subject-Verb Agreement" },
+                { q: "The boys ___ gone to the field.", o: ["has", "have", "is", "was"], c: 1, tip: "Subject-Verb Agreement" },
                 { q: "Which of these is a figure of speech?", o: ["Metaphor", "Paragraph", "Sentence", "Chapter"], c: 0, tip: "Literary Devices" },
                 { q: "The synonym of 'Benevolent' is:", o: ["Kind", "Cruel", "Selfish", "Greedy"], c: 0, tip: "Vocabulary Builder" },
                 { q: "Identify the grammatical error: 'Neither John nor Mary are coming.'", o: ["No error", "Neither John nor", "Mary are", "coming"], c: 2, tip: "Subject-Verb Agreement" },
+                { q: "What is the plural form of 'analysis'?", o: ["Analyses", "Analysises", "Analysises", "Analysis"], c: 0, tip: "Plural Forms" },
+                { q: "Which word is correctly spelled?", o: ["Occurrence", "Occurence", "Occurrance", "Ocurrence"], c: 0, tip: "Spelling Check" },
+                { q: "Select the correct sentence:", o: ["She sings beautiful.", "She sings beautifully.", "She sing beautiful.", "She sing beautifully."], c: 1, tip: "Adverb Usage" },
             ],
             math: [
                 { q: "Solve for x: 2x + 4 = 12", o: ["2", "4", "6", "8"], c: 1, tip: "Algebra Basics" },
@@ -549,6 +900,9 @@
                 { q: "If a triangle has angles 60° and 70°, what is the third angle?", o: ["50°", "60°", "40°", "30°"], c: 0, tip: "Triangle Angle Sum" },
                 { q: "Calculate 15% of 200", o: ["15", "30", "20", "25"], c: 1, tip: "Percentage Calculation" },
                 { q: "Simplify: (3x²y)(4xy³)", o: ["12x³y⁴", "7x³y⁴", "12x²y³", "7x²y³"], c: 0, tip: "Algebraic Expressions" },
+                { q: "What is the square root of 144?", o: ["12", "14", "16", "18"], c: 0, tip: "Basic Arithmetic" },
+                { q: "Solve: 5! (5 factorial)", o: ["120", "60", "24", "720"], c: 0, tip: "Factorials" },
+                { q: "What is the area of a circle with radius 7cm?", o: ["154 cm²", "44 cm²", "49 cm²", "22 cm²"], c: 0, tip: "Area Calculation" },
             ],
             physics: [
                 { q: "What is the SI unit of force?", o: ["Newton", "Joule", "Watt", "Pascal"], c: 0, tip: "Physics Fundamentals" },
@@ -556,6 +910,9 @@
                 { q: "What type of lens converges light?", o: ["Convex", "Concave", "Plano-concave", "Diverging"], c: 0, tip: "Optics" },
                 { q: "Calculate velocity if distance is 100m and time is 10s", o: ["10 m/s", "5 m/s", "20 m/s", "15 m/s"], c: 0, tip: "Kinematics" },
                 { q: "Which is a vector quantity?", o: ["Temperature", "Mass", "Velocity", "Time"], c: 2, tip: "Scalars vs Vectors" },
+                { q: "What is the formula for kinetic energy?", o: ["½mv²", "mgh", "F=ma", "PV=nRT"], c: 0, tip: "Energy Formulas" },
+                { q: "Which color has the longest wavelength?", o: ["Red", "Blue", "Green", "Violet"], c: 0, tip: "Light Spectrum" },
+                { q: "What instrument measures electric current?", o: ["Ammeter", "Voltmeter", "Ohmmeter", "Galvanometer"], c: 0, tip: "Electrical Instruments" },
             ],
             biology: [
                 { q: "Which organelle is the powerhouse of the cell?", o: ["Mitochondria", "Nucleus", "Ribosome", "Golgi Apparatus"], c: 0, tip: "Cell Biology" },
@@ -563,18 +920,41 @@
                 { q: "How many chromosomes do humans have?", o: ["46", "23", "48", "24"], c: 0, tip: "Genetics" },
                 { q: "Which system transports blood in the body?", o: ["Circulatory", "Respiratory", "Digestive", "Nervous"], c: 0, tip: "Human Anatomy" },
                 { q: "Enzymes are primarily made of:", o: ["Proteins", "Carbohydrates", "Lipids", "Nucleic Acids"], c: 0, tip: "Biochemistry" },
+                { q: "What is the basic unit of life?", o: ["Cell", "Tissue", "Organ", "Molecule"], c: 0, tip: "Biology Fundamentals" },
+                { q: "Which blood type is the universal donor?", o: ["O-", "O+", "AB+", "A-"], c: 0, tip: "Blood Groups" },
+                { q: "What process do plants use to make food?", o: ["Photosynthesis", "Respiration", "Transpiration", "Fermentation"], c: 0, tip: "Plant Processes" },
+            ],
+            chemistry: [
+                { q: "What is the atomic number of Hydrogen?", o: ["1", "2", "3", "4"], c: 0, tip: "Periodic Table" },
+                { q: "What is the chemical symbol for Gold?", o: ["Au", "Ag", "Gd", "Go"], c: 0, tip: "Chemical Symbols" },
+                { q: "What is the pH of pure water?", o: ["7", "1", "14", "0"], c: 0, tip: "Acids and Bases" },
+                { q: "Which gas is most abundant in Earth's atmosphere?", o: ["Nitrogen", "Oxygen", "Carbon Dioxide", "Argon"], c: 0, tip: "Atmospheric Chemistry" },
+                { q: "What is the formula for water?", o: ["H₂O", "HO₂", "H₂O₂", "HO"], c: 0, tip: "Chemical Formulas" },
+            ],
+            government: [
+                { q: "Who is the current president of Nigeria?", o: ["Bola Tinubu", "Muhammadu Buhari", "Goodluck Jonathan", "Olusegun Obasanjo"], c: 0, tip: "Current Affairs" },
+                { q: "What year did Nigeria gain independence?", o: ["1960", "1963", "1957", "1970"], c: 0, tip: "History" },
+                { q: "How many states are in Nigeria?", o: ["36", "37", "35", "34"], c: 0, tip: "Political Structure" },
+                { q: "Which arm of government makes laws?", o: ["Legislature", "Executive", "Judiciary", "Military"], c: 0, tip: "Government Functions" },
+            ],
+            economics: [
+                { q: "What does GDP stand for?", o: ["Gross Domestic Product", "General Domestic Price", "Gross Development Product", "General Development Plan"], c: 0, tip: "Economic Terms" },
+                { q: "Who is considered the father of economics?", o: ["Adam Smith", "John Keynes", "Karl Marx", "David Ricardo"], c: 0, tip: "Economic History" },
+                { q: "What is inflation?", o: ["Increase in general price level", "Decrease in money supply", "Increase in exports", "Decrease in imports"], c: 0, tip: "Economic Concepts" },
+                { q: "Which organization regulates banks in Nigeria?", o: ["CBN", "NDIC", "SEC", "NCC"], c: 0, tip: "Financial Institutions" },
             ]
         };
 
-        // Generate 50 sample questions for each subject (simulating 2,000)
+        // Generate sample questions for each subject
         const subjectTemplates = templates[subject] || templates.english;
         for (let i = 0; i < count; i++) {
             const template = subjectTemplates[i % subjectTemplates.length];
             questions.push({
-                q: `[Q${i+1}] ${template.q}`,
+                q: `${template.q}`,
                 o: [...template.o],
                 c: template.c,
-                tip: template.tip
+                tip: template.tip,
+                subject: subject
             });
         }
         return questions;
@@ -586,12 +966,13 @@
         math: generateQuestions('math', 50),
         physics: generateQuestions('physics', 50),
         biology: generateQuestions('biology', 50),
-        chemistry: generateQuestions('physics', 50),
-        government: generateQuestions('english', 50),
-        economics: generateQuestions('math', 50),
+        chemistry: generateQuestions('chemistry', 50),
+        government: generateQuestions('government', 50),
+        economics: generateQuestions('economics', 50),
         literature: generateQuestions('english', 50)
     };
 
+    // App State Variables
     let currentSubject = '';
     let currentQIndex = 0;
     let userAnswers = [];
@@ -599,6 +980,12 @@
     let quizSeconds = 0;
     let quizTimer;
     let sessionTimer;
+    let mockTimer;
+    let mockExamData = null;
+    let multiplayerPlayers = [];
+    let isMultiplayerMode = false;
+    let mockExamDuration = 120; // minutes
+    let mockExamTimeLeft = 120 * 60; // seconds
 
     // Session timer
     sessionTimer = setInterval(() => {
@@ -614,48 +1001,209 @@
             `<i class="far fa-clock"></i> Session: ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
     }
 
-    function startQuiz(subject) {
-        currentSubject = subject;
-        currentQIndex = 0;
-        userAnswers = [];
-        quizSeconds = 0;
+    // Tab Navigation
+    function openTab(tabId) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
         
-        document.getElementById('dashboard').style.display = 'none';
-        document.getElementById('quiz-section').style.display = 'block';
-        document.getElementById('results-section').style.display = 'none';
+        // Remove active class from all tab buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
         
-        // Set subject title
-        const subjectNames = {
-            english: "English Language",
-            math: "Mathematics",
-            physics: "Physics",
-            biology: "Biology",
-            chemistry: "Chemistry",
-            government: "Government",
-            economics: "Economics",
-            literature: "Literature"
+        // Show selected tab content
+        document.getElementById(tabId).classList.add('active');
+        
+        // Activate corresponding tab button
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            if (btn.onclick.toString().includes(tabId)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    // Mock Exam Functions
+    function startMockExam() {
+        // Get mock exam settings
+        const duration = document.querySelector('input[name="duration"]:checked').value;
+        const questionCount = document.querySelector('input[name="questions"]:checked').value;
+        const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked'))
+                                    .map(cb => cb.value);
+        
+        // Check if at least one subject is selected
+        if (selectedSubjects.length === 0) {
+            alert("Please select at least one subject for the mock exam.");
+            return;
+        }
+        
+        // Check multiplayer status
+        const playerCards = document.querySelectorAll('.player-card');
+        isMultiplayerMode = playerCards.length > 1;
+        
+        // Generate mock exam questions
+        mockExamData = generateMockExam(selectedSubjects, parseInt(questionCount));
+        
+        // Set mock exam duration
+        mockExamDuration = parseInt(duration);
+        mockExamTimeLeft = mockExamDuration * 60;
+        
+        // Start the exam
+        startQuiz('mock');
+    }
+
+    function generateMockExam(subjects, questionCount) {
+        const allQuestions = [];
+        
+        // Calculate questions per subject (proportional distribution)
+        const questionsPerSubject = Math.floor(questionCount / subjects.length);
+        const remainder = questionCount % subjects.length;
+        
+        // Collect questions from each selected subject
+        subjects.forEach((subject, index) => {
+            const subjectQuestions = database[subject] || [];
+            const count = questionsPerSubject + (index < remainder ? 1 : 0);
+            
+            // Randomly select questions from this subject
+            const shuffled = [...subjectQuestions].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, count).map(q => ({
+                ...q,
+                subject: subject
+            }));
+            
+            allQuestions.push(...selected);
+        });
+        
+        // Shuffle all questions
+        const shuffledAll = [...allQuestions].sort(() => 0.5 - Math.random());
+        
+        return {
+            questions: shuffledAll.slice(0, questionCount),
+            subjects: subjects,
+            totalQuestions: questionCount
         };
+    }
+
+    // Start Quiz (Practice or Mock)
+    function startQuiz(mode, subject = '') {
+        if (mode === 'mock') {
+            currentSubject = 'mock';
+            currentQIndex = 0;
+            userAnswers = [];
+            quizSeconds = 0;
+            
+            // Hide dashboard, show quiz section
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'block';
+            document.getElementById('results-section').style.display = 'none';
+            
+            // Set up mock exam UI
+            document.getElementById('subject-title').textContent = "JAMB Mock Exam";
+            document.getElementById('mock-timer').style.display = 'block';
+            updateMockTimerDisplay();
+            
+            // Start timers
+            clearInterval(quizTimer);
+            quizTimer = setInterval(() => {
+                quizSeconds++;
+                mockExamTimeLeft--;
+                
+                if (mockExamTimeLeft <= 0) {
+                    finishQuiz(); // Auto-submit when time is up
+                }
+                
+                updateMockTimerDisplay();
+            }, 1000);
+            
+            loadQuestion();
+            
+        } else {
+            // Regular practice mode
+            currentSubject = subject;
+            currentQIndex = 0;
+            userAnswers = [];
+            quizSeconds = 0;
+            
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'block';
+            document.getElementById('results-section').style.display = 'none';
+            document.getElementById('mock-timer').style.display = 'none';
+            
+            // Set subject title
+            const subjectNames = {
+                english: "English Language",
+                math: "Mathematics",
+                physics: "Physics",
+                biology: "Biology",
+                chemistry: "Chemistry",
+                government: "Government",
+                economics: "Economics",
+                literature: "Literature"
+            };
+            
+            document.getElementById('subject-title').textContent = subjectNames[subject] || subject;
+            
+            // Start quiz timer
+            clearInterval(quizTimer);
+            quizTimer = setInterval(() => {
+                quizSeconds++;
+            }, 1000);
+            
+            loadQuestion();
+        }
+    }
+
+    function updateMockTimerDisplay() {
+        let minutes = Math.floor(mockExamTimeLeft / 60);
+        let seconds = mockExamTimeLeft % 60;
         
-        document.getElementById('subject-title').textContent = subjectNames[subject] || subject;
+        // Change color when time is running low
+        let timerElement = document.getElementById('time-left');
+        timerElement.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
         
-        // Start quiz timer
-        clearInterval(quizTimer);
-        quizTimer = setInterval(() => {
-            quizSeconds++;
-            let m = Math.floor(quizSeconds / 60);
-            let s = quizSeconds % 60;
-            document.getElementById('timer-display').innerHTML = `<i class="far fa-clock"></i> ${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-        }, 1000);
-        
-        loadQuestion();
+        if (minutes < 5) {
+            timerElement.parentElement.style.background = '#dc3545'; // Red
+        } else if (minutes < 15) {
+            timerElement.parentElement.style.background = '#ffc107'; // Yellow
+            timerElement.parentElement.style.color = '#000';
+        }
     }
 
     function loadQuestion() {
-        const subjectData = database[currentSubject] || database.english;
-        const totalQuestions = subjectData.length;
-        const q = subjectData[currentQIndex];
+        let q, totalQuestions, subject;
         
-        document.getElementById('q-text').textContent = q.q;
+        if (currentSubject === 'mock') {
+            // Mock exam questions
+            q = mockExamData.questions[currentQIndex];
+            totalQuestions = mockExamData.totalQuestions;
+            subject = q.subject;
+            
+            // Show subject indicator for mock exam
+            const subjectNames = {
+                english: "English",
+                math: "Mathematics",
+                physics: "Physics",
+                biology: "Biology",
+                chemistry: "Chemistry",
+                government: "Government",
+                economics: "Economics",
+                literature: "Literature"
+            };
+            document.getElementById('subject-indicator').innerHTML = 
+                `<i class="fas fa-book"></i> Subject: ${subjectNames[subject] || subject}`;
+                
+        } else {
+            // Regular practice questions
+            const subjectData = database[currentSubject] || database.english;
+            totalQuestions = subjectData.length;
+            q = subjectData[currentQIndex];
+            subject = currentSubject;
+            
+            document.getElementById('subject-indicator').innerHTML = '';
+        }
+        
+        document.getElementById('q-text').textContent = `${currentQIndex + 1}. ${q.q}`;
         document.getElementById('question-tip').innerHTML = q.tip ? `💡 ${q.tip}` : '';
         document.getElementById('current-q').textContent = currentQIndex + 1;
         document.getElementById('total-q').textContent = totalQuestions;
@@ -665,7 +1213,7 @@
         document.getElementById('progress-fill').style.width = `${progressPercent}%`;
         
         // Update score display
-        const correctSoFar = userAnswers.filter(answer => answer.isCorrect).length;
+        const correctSoFar = userAnswers.filter(answer => answer && answer.isCorrect).length;
         const scorePercent = userAnswers.length > 0 ? Math.round((correctSoFar / userAnswers.length) * 100) : 0;
         document.getElementById('score-display').textContent = `Score: ${scorePercent}%`;
         
@@ -704,8 +1252,8 @@
     }
 
     function selectOption(el, index) {
-        // If already answered, don't allow change
-        if (userAnswers[currentQIndex]) return;
+        // If already answered, don't allow change (except in practice mode)
+        if (userAnswers[currentQIndex] && currentSubject === 'mock') return;
         
         // Remove selected class from all options
         document.querySelectorAll('.option').forEach(b => {
@@ -716,40 +1264,58 @@
         el.classList.add('selected');
         
         // Check if correct
-        const subjectData = database[currentSubject];
-        const q = subjectData[currentQIndex];
+        let q;
+        if (currentSubject === 'mock') {
+            q = mockExamData.questions[currentQIndex];
+        } else {
+            const subjectData = database[currentSubject];
+            q = subjectData[currentQIndex];
+        }
+        
         const isCorrect = index === q.c;
         
         // Save user answer
         userAnswers[currentQIndex] = {
             selectedIndex: index,
-            isCorrect: isCorrect
+            isCorrect: isCorrect,
+            subject: q.subject
         };
         
-        // Show correct/wrong styling
-        setTimeout(() => {
-            el.classList.remove('selected');
-            el.classList.add(isCorrect ? 'correct' : 'wrong');
-            
-            // Show correct answer if wrong
-            if (!isCorrect) {
-                document.querySelectorAll('.option')[q.c].classList.add('correct');
-            }
-        }, 300);
+        // Show correct/wrong styling immediately in practice mode
+        if (currentSubject !== 'mock') {
+            setTimeout(() => {
+                el.classList.remove('selected');
+                el.classList.add(isCorrect ? 'correct' : 'wrong');
+                
+                // Show correct answer if wrong
+                if (!isCorrect) {
+                    document.querySelectorAll('.option')[q.c].classList.add('correct');
+                }
+            }, 300);
+        }
         
         // Update score display
-        const correctSoFar = userAnswers.filter(answer => answer.isCorrect).length;
-        const scorePercent = Math.round((correctSoFar / userAnswers.length) * 100);
+        const correctSoFar = userAnswers.filter(answer => answer && answer.isCorrect).length;
+        const scorePercent = userAnswers.length > 0 ? Math.round((correctSoFar / userAnswers.length) * 100) : 0;
         document.getElementById('score-display').textContent = `Score: ${scorePercent}%`;
     }
 
     function nextQuestion() {
-        const subjectData = database[currentSubject];
-        if (currentQIndex < subjectData.length - 1) {
-            currentQIndex++;
-            loadQuestion();
+        if (currentSubject === 'mock') {
+            if (currentQIndex < mockExamData.totalQuestions - 1) {
+                currentQIndex++;
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
         } else {
-            finishQuiz();
+            const subjectData = database[currentSubject];
+            if (currentQIndex < subjectData.length - 1) {
+                currentQIndex++;
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
         }
     }
 
@@ -763,10 +1329,35 @@
     function finishQuiz() {
         clearInterval(quizTimer);
         
-        const subjectData = database[currentSubject];
-        const totalQuestions = subjectData.length;
-        const answeredQuestions = userAnswers.filter(a => a !== undefined).length;
-        const correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
+        let totalQuestions, correctAnswers, subjectScores = {};
+        
+        if (currentSubject === 'mock') {
+            // Mock exam results
+            totalQuestions = mockExamData.totalQuestions;
+            correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
+            
+            // Calculate scores by subject
+            mockExamData.subjects.forEach(subject => {
+                const subjectAnswers = userAnswers.filter(answer => answer && answer.subject === subject);
+                const subjectCorrect = subjectAnswers.filter(answer => answer.isCorrect).length;
+                const subjectTotal = mockExamData.questions.filter(q => q.subject === subject).length;
+                
+                if (subjectTotal > 0) {
+                    subjectScores[subject] = {
+                        correct: subjectCorrect,
+                        total: subjectTotal,
+                        percentage: Math.round((subjectCorrect / subjectTotal) * 100)
+                    };
+                }
+            });
+            
+        } else {
+            // Practice mode results
+            const subjectData = database[currentSubject];
+            totalQuestions = subjectData.length;
+            correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
+        }
+        
         const scorePercent = Math.round((correctAnswers / totalQuestions) * 100);
         
         // Calculate time spent
@@ -788,26 +1379,100 @@
         document.getElementById('time-spent').textContent = timeSpent;
         document.getElementById('performance').textContent = performance;
         
-        const subjectNames = {
-            english: "English Language",
-            math: "Mathematics",
-            physics: "Physics",
-            biology: "Biology",
-            chemistry: "Chemistry",
-            government: "Government",
-            economics: "Economics",
-            literature: "Literature"
-        };
-        
-        document.getElementById('result-subject').textContent = subjectNames[currentSubject] || currentSubject;
+        if (currentSubject === 'mock') {
+            document.getElementById('result-message').textContent = "You've completed the JAMB Mock Exam Simulation";
+            
+            // Show subject breakdown for mock exam
+            const subjectScoresDiv = document.getElementById('subject-scores');
+            subjectScoresDiv.innerHTML = '';
+            
+            const subjectNames = {
+                english: "English Language",
+                math: "Mathematics",
+                physics: "Physics",
+                biology: "Biology",
+                chemistry: "Chemistry",
+                government: "Government",
+                economics: "Economics",
+                literature: "Literature"
+            };
+            
+            Object.keys(subjectScores).forEach(subject => {
+                const score = subjectScores[subject];
+                const div = document.createElement('div');
+                div.className = 'subject-score';
+                div.innerHTML = `
+                    <div>
+                        <strong>${subjectNames[subject] || subject}</strong>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${score.percentage}%"></div>
+                        </div>
+                    </div>
+                    <div>${score.correct}/${score.total} (${score.percentage}%)</div>
+                `;
+                subjectScoresDiv.appendChild(div);
+            });
+            
+            // Show multiplayer results if in multiplayer mode
+            if (isMultiplayerMode) {
+                document.getElementById('multiplayer-results').style.display = 'block';
+                updateLeaderboard();
+            }
+            
+        } else {
+            const subjectNames = {
+                english: "English Language",
+                math: "Mathematics",
+                physics: "Physics",
+                biology: "Biology",
+                chemistry: "Chemistry",
+                government: "Government",
+                economics: "Economics",
+                literature: "Literature"
+            };
+            
+            document.getElementById('result-message').textContent = 
+                `You've completed the ${subjectNames[currentSubject] || currentSubject} practice session`;
+                
+            document.getElementById('subject-scores').innerHTML = '';
+        }
         
         // Show results
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
     }
 
+    function updateLeaderboard() {
+        // Simulated leaderboard data
+        const leaderboardData = [
+            { name: "You", score: 85, time: "1:45:20" },
+            { name: "Chidinma", score: 92, time: "1:30:10" },
+            { name: "Emeka", score: 78, time: "1:55:40" },
+            { name: "Aisha", score: 65, time: "2:00:15" }
+        ];
+        
+        // Sort by score (descending)
+        leaderboardData.sort((a, b) => b.score - a.score);
+        
+        const leaderboardList = document.getElementById('leaderboard-list');
+        leaderboardList.innerHTML = '';
+        
+        leaderboardData.forEach((player, index) => {
+            const div = document.createElement('div');
+            div.className = `leaderboard-item ${player.name === "You" ? "you" : ""}`;
+            div.innerHTML = `
+                <div>
+                    <strong>#${index + 1} ${player.name}</strong>
+                    <div style="font-size: 0.8rem; color: #666;">Time: ${player.time}</div>
+                </div>
+                <div style="font-weight: bold; font-size: 1.2rem;">${player.score}%</div>
+            `;
+            leaderboardList.appendChild(div);
+        });
+    }
+
     function exitQuiz() {
-        if (confirm("Are you sure you want to exit the quiz? Your progress will be lost.")) {
+        if (confirm("Are you sure you want to exit? Your progress will be lost.")) {
             returnToDashboard();
         }
     }
@@ -819,10 +1484,96 @@
         document.getElementById('dashboard').style.display = 'block';
     }
 
-    // Initialize with English as the default subject
+    function reviewAnswers() {
+        alert("Answer review feature coming soon! You'll be able to see all questions with your answers and explanations.");
+    }
+
+    function startNewMock() {
+        openTab('mock-tab');
+        returnToDashboard();
+    }
+
+    // Multiplayer Functions
+    function copyInviteCode() {
+        const inviteCode = document.getElementById('invite-code');
+        inviteCode.select();
+        document.execCommand('copy');
+        alert("Invite code copied to clipboard! Share with friends.");
+    }
+
+    function joinMockSession() {
+        const code = prompt("Enter a friend's session code to join their mock exam:");
+        if (code) {
+            alert(`Attempting to join session: ${code}\n\n(Session joining functionality requires backend integration)`);
+            // In a real app, this would connect to a backend service
+            addPlayer("You (Joined)", false);
+        }
+    }
+
+    function inviteFriend() {
+        const friendCode = document.getElementById('friend-code').value;
+        if (friendCode.trim()) {
+            alert(`Invitation sent to ${friendCode}\n\n(Requires backend integration for actual invites)`);
+            // In a real app, this would send an invitation
+            addPlayer("Friend", true);
+            document.getElementById('friend-code').value = '';
+        } else {
+            alert("Please enter a valid friend code or username.");
+        }
+    }
+
+    function addPlayer(name, isFriend) {
+        const playerList = document.getElementById('player-list');
+        
+        if (playerList.children.length >= 4) {
+            alert("Maximum of 4 players allowed in a session.");
+            return;
+        }
+        
+        const playerCard = document.createElement('div');
+        playerCard.className = `player-card ${isFriend ? '' : 'you'}`;
+        playerCard.innerHTML = `
+            <i class="fas fa-user-circle fa-2x"></i>
+            <p>${name}</p>
+            <small>${isFriend ? 'Invited' : 'Ready'}</small>
+        `;
+        
+        playerList.appendChild(playerCard);
+        multiplayerPlayers.push({ name: name, isFriend: isFriend });
+    }
+
+    function showMultiplayerModal() {
+        openTab('multiplayer-tab');
+    }
+
+    function createStudyGroup() {
+        const groupName = prompt("Enter a name for your study group:");
+        if (groupName) {
+            alert(`Study group "${groupName}" created!\n\nShare the group code with friends to invite them.`);
+        }
+    }
+
+    function joinStudyGroup() {
+        const groupCode = prompt("Enter study group code to join:");
+        if (groupCode) {
+            alert(`Joining study group with code: ${groupCode}\n\n(Requires backend integration)`);
+        }
+    }
+
+    function viewLeaderboard() {
+        alert("Global leaderboard feature coming soon!\n\nSee how you rank against other JAMB aspirants.");
+    }
+
+    // Initialize with Practice tab open
     window.onload = function() {
-        // Set initial session timer
         updateSessionTimer();
+        openTab('practice-tab');
+        
+        // Add sample multiplayer players for demo
+        setTimeout(() => {
+            addPlayer("Chidinma", true);
+            addPlayer("Emeka", true);
+        }, 1000);
     };
 </script>
 
