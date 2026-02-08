@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAMB Practice Hub - Orient Neo 7 Edition</title>
+    <title>JAMB Mastermind 300 - Orient Neo 7 Edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -138,10 +138,6 @@
         }
         .tab-content {
             padding: 20px;
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
         }
         .grid { 
             display: grid; 
@@ -440,6 +436,27 @@
             color: white; 
         }
         
+        /* BACK BUTTON */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
         /* RESULTS SCREEN */
         #results-section {
             display: none;
@@ -557,6 +574,7 @@
             .btn { width: 100%; justify-content: center; }
             .header-buttons { position: static; justify-content: center; margin-top: 15px; }
             .setup-options { grid-template-columns: 1fr; }
+            .back-btn { position: static; margin: 10px 0; }
         }
     </style>
 </head>
@@ -564,16 +582,19 @@
 
 <div class="app-container">
     <div class="header">
-        <h2>JAMB PRACTICE HUB</h2>
-        <div class="header-subtitle">Orient Neo 7 Edition - Your Ultimate UTME Preparation Platform</div>
+        <button class="back-btn" id="back-to-dashboard" style="display: none;" onclick="returnToDashboard()">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </button>
+        <h2>JAMB MASTERMIND 300</h2>
+        <div class="header-subtitle">Orient Neo 7 Edition - Ultimate UTME Preparation Platform</div>
         <div class="study-clock" id="session-timer">
-            <i class="far fa-clock"></i> Session: 00:00:00
+            <i class="far fa-clock"></i> Session: Not Started
         </div>
         <div class="header-buttons">
             <button class="btn btn-accent" onclick="openTab('mock-tab')">
                 <i class="fas fa-graduation-cap"></i> Mock Exam
             </button>
-            <button class="btn btn-purple" onclick="showMultiplayerModal()">
+            <button class="btn btn-purple" onclick="openTab('multiplayer-tab')">
                 <i class="fas fa-users"></i> Multiplayer
             </button>
         </div>
@@ -598,45 +619,45 @@
             <button class="tab-btn" onclick="openTab('multiplayer-tab')">Study Groups</button>
         </div>
         
-        <div id="practice-tab" class="tab-content active">
+        <div id="practice-tab" class="tab-content" style="display: block;">
             <div class="grid">
-                <div class="card" onclick="startQuiz('english')">
+                <div class="card" onclick="startPractice('english')">
                     <div class="value-bet-tag">VALUE BET</div>
                     <i class="fas fa-book fa-2x" style="color:#004a99"></i>
                     <p>English Language</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('math')">
+                <div class="card" onclick="startPractice('math')">
                     <i class="fas fa-calculator fa-2x" style="color:#004a99"></i>
                     <p>Mathematics</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('physics')">
+                <div class="card" onclick="startPractice('physics')">
                     <i class="fas fa-atom fa-2x" style="color:#004a99"></i>
                     <p>Physics</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('biology')">
+                <div class="card" onclick="startPractice('biology')">
                     <i class="fas fa-dna fa-2x" style="color:#004a99"></i>
                     <p>Biology</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('chemistry')">
+                <div class="card" onclick="startPractice('chemistry')">
                     <i class="fas fa-flask fa-2x" style="color:#004a99"></i>
                     <p>Chemistry</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('government')">
+                <div class="card" onclick="startPractice('government')">
                     <i class="fas fa-landmark fa-2x" style="color:#004a99"></i>
                     <p>Government</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('economics')">
+                <div class="card" onclick="startPractice('economics')">
                     <i class="fas fa-chart-bar fa-2x" style="color:#004a99"></i>
                     <p>Economics</p>
                     <small>2,000 Questions</small>
                 </div>
-                <div class="card" onclick="startQuiz('literature')">
+                <div class="card" onclick="startPractice('literature')">
                     <i class="fas fa-pen-alt fa-2x" style="color:#004a99"></i>
                     <p>Literature</p>
                     <small>2,000 Questions</small>
@@ -644,7 +665,7 @@
             </div>
         </div>
         
-        <div id="mock-tab" class="tab-content">
+        <div id="mock-tab" class="tab-content" style="display: none;">
             <div class="mock-setup">
                 <h3><i class="fas fa-graduation-cap"></i> JAMB Mock Exam Simulation</h3>
                 <p>Simulate the actual JAMB exam experience with random questions from all subjects.</p>
@@ -740,7 +761,7 @@
             </div>
         </div>
         
-        <div id="multiplayer-tab" class="tab-content">
+        <div id="multiplayer-tab" class="tab-content" style="display: none;">
             <div style="text-align: center; padding: 40px 20px;">
                 <i class="fas fa-users fa-4x" style="color: var(--purple); margin-bottom: 20px;"></i>
                 <h3>Study Groups & Multiplayer</h3>
@@ -771,13 +792,13 @@
 
     <div id="quiz-section">
         <div class="quiz-header">
-            <div class="subject-title" id="subject-title">Mock Exam</div>
+            <div class="subject-title" id="subject-title">Practice Mode</div>
             <div id="mock-timer" class="mock-timer" style="display: none;">
                 <i class="fas fa-hourglass-half"></i> Time Left: <span id="time-left">120:00</span>
             </div>
             <div style="flex-grow: 1; margin-left: 20px;">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                    <span>Question <span id="current-q">1</span> of <span id="total-q">180</span></span>
+                    <span>Question <span id="current-q">1</span> of <span id="total-q">50</span></span>
                     <span id="score-display">Score: 0%</span>
                 </div>
                 <div class="progress-bar">
@@ -802,7 +823,7 @@
                 <i class="fas fa-chevron-left"></i> Previous
             </button>
             <button class="btn btn-danger" onclick="exitQuiz()">
-                <i class="fas fa-sign-out-alt"></i> Exit Exam
+                <i class="fas fa-sign-out-alt"></i> Exit Practice
             </button>
             <button class="btn btn-secondary" onclick="nextQuestion()">
                 Next <i class="fas fa-chevron-right"></i>
@@ -815,9 +836,9 @@
             <div class="result-icon">
                 <i class="fas fa-trophy"></i>
             </div>
-            <h2>Mock Exam Completed!</h2>
+            <h2 id="result-title">Practice Completed!</h2>
             <div class="score-display" id="final-score">85%</div>
-            <p id="result-message">You've completed the JAMB Mock Exam Simulation</p>
+            <p id="result-message">You've completed the practice session</p>
         </div>
         
         <div class="result-details">
@@ -839,7 +860,7 @@
             </div>
         </div>
         
-        <div class="score-breakdown">
+        <div class="score-breakdown" id="score-breakdown-section" style="display: none;">
             <h3>Subject Performance Breakdown</h3>
             <div id="subject-scores">
                 <!-- Subject scores will be dynamically inserted here -->
@@ -860,8 +881,8 @@
             <button class="btn btn-secondary" onclick="reviewAnswers()">
                 <i class="fas fa-clipboard-check"></i> Review Answers
             </button>
-            <button class="btn btn-accent" onclick="startNewMock()">
-                <i class="fas fa-redo"></i> New Mock Exam
+            <button class="btn btn-accent" onclick="restartPractice()" id="restart-btn">
+                <i class="fas fa-redo"></i> Restart Practice
             </button>
         </div>
     </div>
@@ -875,7 +896,7 @@
         </div>
         <hr style="margin: 10px auto; width: 80%; opacity: 0.3;">
         <p>Support: orientalgrid@gmail.com | 2348103365359</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 JAMB Practice Hub - Orient Neo 7 Edition. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 JAMB Mastermind 300 - Orient Neo 7 Edition. All Rights Reserved.</p>
     </div>
 </div>
 
@@ -890,9 +911,6 @@
                 { q: "Which of these is a figure of speech?", o: ["Metaphor", "Paragraph", "Sentence", "Chapter"], c: 0, tip: "Literary Devices" },
                 { q: "The synonym of 'Benevolent' is:", o: ["Kind", "Cruel", "Selfish", "Greedy"], c: 0, tip: "Vocabulary Builder" },
                 { q: "Identify the grammatical error: 'Neither John nor Mary are coming.'", o: ["No error", "Neither John nor", "Mary are", "coming"], c: 2, tip: "Subject-Verb Agreement" },
-                { q: "What is the plural form of 'analysis'?", o: ["Analyses", "Analysises", "Analysises", "Analysis"], c: 0, tip: "Plural Forms" },
-                { q: "Which word is correctly spelled?", o: ["Occurrence", "Occurence", "Occurrance", "Ocurrence"], c: 0, tip: "Spelling Check" },
-                { q: "Select the correct sentence:", o: ["She sings beautiful.", "She sings beautifully.", "She sing beautiful.", "She sing beautifully."], c: 1, tip: "Adverb Usage" },
             ],
             math: [
                 { q: "Solve for x: 2x + 4 = 12", o: ["2", "4", "6", "8"], c: 1, tip: "Algebra Basics" },
@@ -900,9 +918,6 @@
                 { q: "If a triangle has angles 60° and 70°, what is the third angle?", o: ["50°", "60°", "40°", "30°"], c: 0, tip: "Triangle Angle Sum" },
                 { q: "Calculate 15% of 200", o: ["15", "30", "20", "25"], c: 1, tip: "Percentage Calculation" },
                 { q: "Simplify: (3x²y)(4xy³)", o: ["12x³y⁴", "7x³y⁴", "12x²y³", "7x²y³"], c: 0, tip: "Algebraic Expressions" },
-                { q: "What is the square root of 144?", o: ["12", "14", "16", "18"], c: 0, tip: "Basic Arithmetic" },
-                { q: "Solve: 5! (5 factorial)", o: ["120", "60", "24", "720"], c: 0, tip: "Factorials" },
-                { q: "What is the area of a circle with radius 7cm?", o: ["154 cm²", "44 cm²", "49 cm²", "22 cm²"], c: 0, tip: "Area Calculation" },
             ],
             physics: [
                 { q: "What is the SI unit of force?", o: ["Newton", "Joule", "Watt", "Pascal"], c: 0, tip: "Physics Fundamentals" },
@@ -910,9 +925,6 @@
                 { q: "What type of lens converges light?", o: ["Convex", "Concave", "Plano-concave", "Diverging"], c: 0, tip: "Optics" },
                 { q: "Calculate velocity if distance is 100m and time is 10s", o: ["10 m/s", "5 m/s", "20 m/s", "15 m/s"], c: 0, tip: "Kinematics" },
                 { q: "Which is a vector quantity?", o: ["Temperature", "Mass", "Velocity", "Time"], c: 2, tip: "Scalars vs Vectors" },
-                { q: "What is the formula for kinetic energy?", o: ["½mv²", "mgh", "F=ma", "PV=nRT"], c: 0, tip: "Energy Formulas" },
-                { q: "Which color has the longest wavelength?", o: ["Red", "Blue", "Green", "Violet"], c: 0, tip: "Light Spectrum" },
-                { q: "What instrument measures electric current?", o: ["Ammeter", "Voltmeter", "Ohmmeter", "Galvanometer"], c: 0, tip: "Electrical Instruments" },
             ],
             biology: [
                 { q: "Which organelle is the powerhouse of the cell?", o: ["Mitochondria", "Nucleus", "Ribosome", "Golgi Apparatus"], c: 0, tip: "Cell Biology" },
@@ -920,9 +932,6 @@
                 { q: "How many chromosomes do humans have?", o: ["46", "23", "48", "24"], c: 0, tip: "Genetics" },
                 { q: "Which system transports blood in the body?", o: ["Circulatory", "Respiratory", "Digestive", "Nervous"], c: 0, tip: "Human Anatomy" },
                 { q: "Enzymes are primarily made of:", o: ["Proteins", "Carbohydrates", "Lipids", "Nucleic Acids"], c: 0, tip: "Biochemistry" },
-                { q: "What is the basic unit of life?", o: ["Cell", "Tissue", "Organ", "Molecule"], c: 0, tip: "Biology Fundamentals" },
-                { q: "Which blood type is the universal donor?", o: ["O-", "O+", "AB+", "A-"], c: 0, tip: "Blood Groups" },
-                { q: "What process do plants use to make food?", o: ["Photosynthesis", "Respiration", "Transpiration", "Fermentation"], c: 0, tip: "Plant Processes" },
             ],
             chemistry: [
                 { q: "What is the atomic number of Hydrogen?", o: ["1", "2", "3", "4"], c: 0, tip: "Periodic Table" },
@@ -942,6 +951,12 @@
                 { q: "Who is considered the father of economics?", o: ["Adam Smith", "John Keynes", "Karl Marx", "David Ricardo"], c: 0, tip: "Economic History" },
                 { q: "What is inflation?", o: ["Increase in general price level", "Decrease in money supply", "Increase in exports", "Decrease in imports"], c: 0, tip: "Economic Concepts" },
                 { q: "Which organization regulates banks in Nigeria?", o: ["CBN", "NDIC", "SEC", "NCC"], c: 0, tip: "Financial Institutions" },
+            ],
+            literature: [
+                { q: "Who wrote 'Things Fall Apart'?", o: ["Chinua Achebe", "Wole Soyinka", "Chimamanda Adichie", "Ben Okri"], c: 0, tip: "African Literature" },
+                { q: "What is a sonnet?", o: ["A 14-line poem", "A short story", "A novel", "A play"], c: 0, tip: "Poetry Forms" },
+                { q: "Who wrote 'Romeo and Juliet'?", o: ["William Shakespeare", "Charles Dickens", "Jane Austen", "Mark Twain"], c: 0, tip: "Classic Literature" },
+                { q: "What is the main character in a story called?", o: ["Protagonist", "Antagonist", "Narrator", "Supporting Character"], c: 0, tip: "Literary Terms" },
             ]
         };
 
@@ -969,29 +984,32 @@
         chemistry: generateQuestions('chemistry', 50),
         government: generateQuestions('government', 50),
         economics: generateQuestions('economics', 50),
-        literature: generateQuestions('english', 50)
+        literature: generateQuestions('literature', 50)
     };
 
     // App State Variables
     let currentSubject = '';
+    let currentMode = ''; // 'practice' or 'mock'
     let currentQIndex = 0;
     let userAnswers = [];
     let sessionSeconds = 0;
     let quizSeconds = 0;
-    let quizTimer;
-    let sessionTimer;
-    let mockTimer;
+    let quizTimer = null;
+    let sessionTimer = null;
     let mockExamData = null;
-    let multiplayerPlayers = [];
     let isMultiplayerMode = false;
-    let mockExamDuration = 120; // minutes
-    let mockExamTimeLeft = 120 * 60; // seconds
+    let mockExamDuration = 120;
+    let mockExamTimeLeft = 120 * 60;
 
-    // Session timer
-    sessionTimer = setInterval(() => {
-        sessionSeconds++;
-        updateSessionTimer();
-    }, 1000);
+    // Session timer - ONLY starts when user starts practicing
+    function startSessionTimer() {
+        if (sessionTimer) clearInterval(sessionTimer);
+        sessionSeconds = 0;
+        sessionTimer = setInterval(() => {
+            sessionSeconds++;
+            updateSessionTimer();
+        }, 1000);
+    }
 
     function updateSessionTimer() {
         let h = Math.floor(sessionSeconds / 3600);
@@ -1003,9 +1021,11 @@
 
     // Tab Navigation
     function openTab(tabId) {
+        console.log("Opening tab:", tabId);
+        
         // Hide all tab contents
         document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
+            tab.style.display = 'none';
         });
         
         // Remove active class from all tab buttons
@@ -1014,43 +1034,138 @@
         });
         
         // Show selected tab content
-        document.getElementById(tabId).classList.add('active');
+        const tabContent = document.getElementById(tabId);
+        if (tabContent) {
+            tabContent.style.display = 'block';
+            
+            // Activate corresponding tab button
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
         
-        // Activate corresponding tab button
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            if (btn.onclick.toString().includes(tabId)) {
-                btn.classList.add('active');
-            }
-        });
+        // Show dashboard (hide quiz/results)
+        document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('quiz-section').style.display = 'none';
+        document.getElementById('results-section').style.display = 'none';
+        document.getElementById('back-to-dashboard').style.display = 'none';
+    }
+
+    // Practice Mode Functions
+    function startPractice(subject) {
+        console.log("Starting practice for:", subject);
+        
+        currentSubject = subject;
+        currentMode = 'practice';
+        currentQIndex = 0;
+        userAnswers = [];
+        quizSeconds = 0;
+        
+        // Start session timer if not already started
+        if (!sessionTimer) {
+            startSessionTimer();
+        }
+        
+        // Hide dashboard, show quiz section
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+        document.getElementById('results-section').style.display = 'none';
+        document.getElementById('back-to-dashboard').style.display = 'flex';
+        document.getElementById('mock-timer').style.display = 'none';
+        
+        // Set subject title
+        const subjectNames = {
+            english: "English Language",
+            math: "Mathematics",
+            physics: "Physics",
+            biology: "Biology",
+            chemistry: "Chemistry",
+            government: "Government",
+            economics: "Economics",
+            literature: "Literature"
+        };
+        
+        const subjectTitle = subjectNames[subject] || subject;
+        document.getElementById('subject-title').textContent = subjectTitle;
+        document.getElementById('subject-indicator').innerHTML = `<i class="fas fa-book"></i> Subject: ${subjectTitle}`;
+        
+        // Clear any existing timers
+        if (quizTimer) clearInterval(quizTimer);
+        
+        // Start quiz timer
+        quizTimer = setInterval(() => {
+            quizSeconds++;
+        }, 1000);
+        
+        loadQuestion();
     }
 
     // Mock Exam Functions
     function startMockExam() {
+        console.log("Starting mock exam...");
+        
         // Get mock exam settings
-        const duration = document.querySelector('input[name="duration"]:checked').value;
-        const questionCount = document.querySelector('input[name="questions"]:checked').value;
+        const duration = document.querySelector('input[name="duration"]:checked')?.value || 120;
+        const questionCount = document.querySelector('input[name="questions"]:checked')?.value || 180;
         const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked'))
                                     .map(cb => cb.value);
         
-        // Check if at least one subject is selected
+        // If no subjects selected, use default
         if (selectedSubjects.length === 0) {
-            alert("Please select at least one subject for the mock exam.");
-            return;
+            selectedSubjects.push('english', 'math');
         }
         
-        // Check multiplayer status
-        const playerCards = document.querySelectorAll('.player-card');
-        isMultiplayerMode = playerCards.length > 1;
+        console.log("Settings:", {duration, questionCount, selectedSubjects});
         
         // Generate mock exam questions
         mockExamData = generateMockExam(selectedSubjects, parseInt(questionCount));
+        
+        // Start session timer if not already started
+        if (!sessionTimer) {
+            startSessionTimer();
+        }
         
         // Set mock exam duration
         mockExamDuration = parseInt(duration);
         mockExamTimeLeft = mockExamDuration * 60;
         
         // Start the exam
-        startQuiz('mock');
+        currentMode = 'mock';
+        currentSubject = 'mock';
+        currentQIndex = 0;
+        userAnswers = [];
+        quizSeconds = 0;
+        
+        // Hide dashboard, show quiz section
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+        document.getElementById('results-section').style.display = 'none';
+        document.getElementById('back-to-dashboard').style.display = 'flex';
+        
+        // Set up mock exam UI
+        document.getElementById('subject-title').textContent = "JAMB Mock Exam";
+        document.getElementById('mock-timer').style.display = 'block';
+        document.getElementById('subject-indicator').innerHTML = '<i class="fas fa-graduation-cap"></i> Mock Exam Mode';
+        updateMockTimerDisplay();
+        
+        // Clear any existing timers
+        if (quizTimer) clearInterval(quizTimer);
+        
+        // Start mock exam timer
+        quizTimer = setInterval(() => {
+            quizSeconds++;
+            mockExamTimeLeft--;
+            
+            if (mockExamTimeLeft <= 0) {
+                finishQuiz(); // Auto-submit when time is up
+            }
+            
+            updateMockTimerDisplay();
+        }, 1000);
+        
+        loadQuestion();
     }
 
     function generateMockExam(subjects, questionCount) {
@@ -1085,122 +1200,46 @@
         };
     }
 
-    // Start Quiz (Practice or Mock)
-    function startQuiz(mode, subject = '') {
-        if (mode === 'mock') {
-            currentSubject = 'mock';
-            currentQIndex = 0;
-            userAnswers = [];
-            quizSeconds = 0;
-            
-            // Hide dashboard, show quiz section
-            document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('quiz-section').style.display = 'block';
-            document.getElementById('results-section').style.display = 'none';
-            
-            // Set up mock exam UI
-            document.getElementById('subject-title').textContent = "JAMB Mock Exam";
-            document.getElementById('mock-timer').style.display = 'block';
-            updateMockTimerDisplay();
-            
-            // Start timers
-            clearInterval(quizTimer);
-            quizTimer = setInterval(() => {
-                quizSeconds++;
-                mockExamTimeLeft--;
-                
-                if (mockExamTimeLeft <= 0) {
-                    finishQuiz(); // Auto-submit when time is up
-                }
-                
-                updateMockTimerDisplay();
-            }, 1000);
-            
-            loadQuestion();
-            
-        } else {
-            // Regular practice mode
-            currentSubject = subject;
-            currentQIndex = 0;
-            userAnswers = [];
-            quizSeconds = 0;
-            
-            document.getElementById('dashboard').style.display = 'none';
-            document.getElementById('quiz-section').style.display = 'block';
-            document.getElementById('results-section').style.display = 'none';
-            document.getElementById('mock-timer').style.display = 'none';
-            
-            // Set subject title
-            const subjectNames = {
-                english: "English Language",
-                math: "Mathematics",
-                physics: "Physics",
-                biology: "Biology",
-                chemistry: "Chemistry",
-                government: "Government",
-                economics: "Economics",
-                literature: "Literature"
-            };
-            
-            document.getElementById('subject-title').textContent = subjectNames[subject] || subject;
-            
-            // Start quiz timer
-            clearInterval(quizTimer);
-            quizTimer = setInterval(() => {
-                quizSeconds++;
-            }, 1000);
-            
-            loadQuestion();
-        }
-    }
-
     function updateMockTimerDisplay() {
         let minutes = Math.floor(mockExamTimeLeft / 60);
         let seconds = mockExamTimeLeft % 60;
         
         // Change color when time is running low
         let timerElement = document.getElementById('time-left');
-        timerElement.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-        
-        if (minutes < 5) {
-            timerElement.parentElement.style.background = '#dc3545'; // Red
-        } else if (minutes < 15) {
-            timerElement.parentElement.style.background = '#ffc107'; // Yellow
-            timerElement.parentElement.style.color = '#000';
+        if (timerElement) {
+            timerElement.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+            
+            const timerParent = timerElement.parentElement;
+            if (minutes < 5) {
+                timerParent.style.background = '#dc3545'; // Red
+            } else if (minutes < 15) {
+                timerParent.style.background = '#ffc107'; // Yellow
+                timerParent.style.color = '#000';
+            }
         }
     }
 
     function loadQuestion() {
         let q, totalQuestions, subject;
         
-        if (currentSubject === 'mock') {
+        if (currentMode === 'mock') {
             // Mock exam questions
+            if (!mockExamData || !mockExamData.questions[currentQIndex]) {
+                alert("Error loading questions. Please restart mock exam.");
+                returnToDashboard();
+                return;
+            }
+            
             q = mockExamData.questions[currentQIndex];
             totalQuestions = mockExamData.totalQuestions;
             subject = q.subject;
             
-            // Show subject indicator for mock exam
-            const subjectNames = {
-                english: "English",
-                math: "Mathematics",
-                physics: "Physics",
-                biology: "Biology",
-                chemistry: "Chemistry",
-                government: "Government",
-                economics: "Economics",
-                literature: "Literature"
-            };
-            document.getElementById('subject-indicator').innerHTML = 
-                `<i class="fas fa-book"></i> Subject: ${subjectNames[subject] || subject}`;
-                
         } else {
-            // Regular practice questions
+            // Practice mode questions
             const subjectData = database[currentSubject] || database.english;
             totalQuestions = subjectData.length;
             q = subjectData[currentQIndex];
             subject = currentSubject;
-            
-            document.getElementById('subject-indicator').innerHTML = '';
         }
         
         document.getElementById('q-text').textContent = `${currentQIndex + 1}. ${q.q}`;
@@ -1252,8 +1291,8 @@
     }
 
     function selectOption(el, index) {
-        // If already answered, don't allow change (except in practice mode)
-        if (userAnswers[currentQIndex] && currentSubject === 'mock') return;
+        // If already answered, don't allow change in mock exam
+        if (userAnswers[currentQIndex] && currentMode === 'mock') return;
         
         // Remove selected class from all options
         document.querySelectorAll('.option').forEach(b => {
@@ -1265,7 +1304,7 @@
         
         // Check if correct
         let q;
-        if (currentSubject === 'mock') {
+        if (currentMode === 'mock') {
             q = mockExamData.questions[currentQIndex];
         } else {
             const subjectData = database[currentSubject];
@@ -1278,11 +1317,11 @@
         userAnswers[currentQIndex] = {
             selectedIndex: index,
             isCorrect: isCorrect,
-            subject: q.subject
+            subject: currentMode === 'mock' ? q.subject : currentSubject
         };
         
         // Show correct/wrong styling immediately in practice mode
-        if (currentSubject !== 'mock') {
+        if (currentMode === 'practice') {
             setTimeout(() => {
                 el.classList.remove('selected');
                 el.classList.add(isCorrect ? 'correct' : 'wrong');
@@ -1301,8 +1340,11 @@
     }
 
     function nextQuestion() {
-        if (currentSubject === 'mock') {
-            if (currentQIndex < mockExamData.totalQuestions - 1) {
+        let totalQuestions;
+        
+        if (currentMode === 'mock') {
+            totalQuestions = mockExamData.totalQuestions;
+            if (currentQIndex < totalQuestions - 1) {
                 currentQIndex++;
                 loadQuestion();
             } else {
@@ -1310,7 +1352,8 @@
             }
         } else {
             const subjectData = database[currentSubject];
-            if (currentQIndex < subjectData.length - 1) {
+            totalQuestions = subjectData.length;
+            if (currentQIndex < totalQuestions - 1) {
                 currentQIndex++;
                 loadQuestion();
             } else {
@@ -1331,7 +1374,7 @@
         
         let totalQuestions, correctAnswers, subjectScores = {};
         
-        if (currentSubject === 'mock') {
+        if (currentMode === 'mock') {
             // Mock exam results
             totalQuestions = mockExamData.totalQuestions;
             correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
@@ -1351,11 +1394,37 @@
                 }
             });
             
+            // Update UI for mock exam
+            document.getElementById('result-title').textContent = "Mock Exam Completed!";
+            document.getElementById('result-message').textContent = "You've completed the JAMB Mock Exam Simulation";
+            document.getElementById('score-breakdown-section').style.display = 'block';
+            document.getElementById('restart-btn').innerHTML = '<i class="fas fa-redo"></i> New Mock Exam';
+            document.getElementById('restart-btn').onclick = startNewMock;
+            
         } else {
             // Practice mode results
             const subjectData = database[currentSubject];
             totalQuestions = subjectData.length;
             correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
+            
+            // Update UI for practice
+            const subjectNames = {
+                english: "English Language",
+                math: "Mathematics",
+                physics: "Physics",
+                biology: "Biology",
+                chemistry: "Chemistry",
+                government: "Government",
+                economics: "Economics",
+                literature: "Literature"
+            };
+            
+            document.getElementById('result-title').textContent = "Practice Completed!";
+            document.getElementById('result-message').textContent = 
+                `You've completed the ${subjectNames[currentSubject] || currentSubject} practice session`;
+            document.getElementById('score-breakdown-section').style.display = 'none';
+            document.getElementById('restart-btn').innerHTML = '<i class="fas fa-redo"></i> Restart Practice';
+            document.getElementById('restart-btn').onclick = restartPractice;
         }
         
         const scorePercent = Math.round((correctAnswers / totalQuestions) * 100);
@@ -1379,10 +1448,8 @@
         document.getElementById('time-spent').textContent = timeSpent;
         document.getElementById('performance').textContent = performance;
         
-        if (currentSubject === 'mock') {
-            document.getElementById('result-message').textContent = "You've completed the JAMB Mock Exam Simulation";
-            
-            // Show subject breakdown for mock exam
+        // Show subject breakdown for mock exam
+        if (currentMode === 'mock') {
             const subjectScoresDiv = document.getElementById('subject-scores');
             subjectScoresDiv.innerHTML = '';
             
@@ -1412,63 +1479,12 @@
                 `;
                 subjectScoresDiv.appendChild(div);
             });
-            
-            // Show multiplayer results if in multiplayer mode
-            if (isMultiplayerMode) {
-                document.getElementById('multiplayer-results').style.display = 'block';
-                updateLeaderboard();
-            }
-            
-        } else {
-            const subjectNames = {
-                english: "English Language",
-                math: "Mathematics",
-                physics: "Physics",
-                biology: "Biology",
-                chemistry: "Chemistry",
-                government: "Government",
-                economics: "Economics",
-                literature: "Literature"
-            };
-            
-            document.getElementById('result-message').textContent = 
-                `You've completed the ${subjectNames[currentSubject] || currentSubject} practice session`;
-                
-            document.getElementById('subject-scores').innerHTML = '';
         }
         
         // Show results
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
-    }
-
-    function updateLeaderboard() {
-        // Simulated leaderboard data
-        const leaderboardData = [
-            { name: "You", score: 85, time: "1:45:20" },
-            { name: "Chidinma", score: 92, time: "1:30:10" },
-            { name: "Emeka", score: 78, time: "1:55:40" },
-            { name: "Aisha", score: 65, time: "2:00:15" }
-        ];
-        
-        // Sort by score (descending)
-        leaderboardData.sort((a, b) => b.score - a.score);
-        
-        const leaderboardList = document.getElementById('leaderboard-list');
-        leaderboardList.innerHTML = '';
-        
-        leaderboardData.forEach((player, index) => {
-            const div = document.createElement('div');
-            div.className = `leaderboard-item ${player.name === "You" ? "you" : ""}`;
-            div.innerHTML = `
-                <div>
-                    <strong>#${index + 1} ${player.name}</strong>
-                    <div style="font-size: 0.8rem; color: #666;">Time: ${player.time}</div>
-                </div>
-                <div style="font-weight: bold; font-size: 1.2rem;">${player.score}%</div>
-            `;
-            leaderboardList.appendChild(div);
-        });
+        document.getElementById('back-to-dashboard').style.display = 'flex';
     }
 
     function exitQuiz() {
@@ -1482,15 +1498,21 @@
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'none';
         document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('back-to-dashboard').style.display = 'none';
+        openTab('practice-tab');
     }
 
-    function reviewAnswers() {
-        alert("Answer review feature coming soon! You'll be able to see all questions with your answers and explanations.");
+    function restartPractice() {
+        startPractice(currentSubject);
     }
 
     function startNewMock() {
         openTab('mock-tab');
         returnToDashboard();
+    }
+
+    function reviewAnswers() {
+        alert("Answer review feature coming soon! You'll be able to see all questions with your answers and explanations.");
     }
 
     // Multiplayer Functions
@@ -1505,7 +1527,6 @@
         const code = prompt("Enter a friend's session code to join their mock exam:");
         if (code) {
             alert(`Attempting to join session: ${code}\n\n(Session joining functionality requires backend integration)`);
-            // In a real app, this would connect to a backend service
             addPlayer("You (Joined)", false);
         }
     }
@@ -1514,7 +1535,6 @@
         const friendCode = document.getElementById('friend-code').value;
         if (friendCode.trim()) {
             alert(`Invitation sent to ${friendCode}\n\n(Requires backend integration for actual invites)`);
-            // In a real app, this would send an invitation
             addPlayer("Friend", true);
             document.getElementById('friend-code').value = '';
         } else {
@@ -1539,11 +1559,6 @@
         `;
         
         playerList.appendChild(playerCard);
-        multiplayerPlayers.push({ name: name, isFriend: isFriend });
-    }
-
-    function showMultiplayerModal() {
-        openTab('multiplayer-tab');
     }
 
     function createStudyGroup() {
@@ -1564,18 +1579,23 @@
         alert("Global leaderboard feature coming soon!\n\nSee how you rank against other JAMB aspirants.");
     }
 
-    // Initialize with Practice tab open
+    // Initialize on load
     window.onload = function() {
-        updateSessionTimer();
+        // Initialize tabs
         openTab('practice-tab');
         
         // Add sample multiplayer players for demo
         setTimeout(() => {
-            addPlayer("Chidinma", true);
-            addPlayer("Emeka", true);
+            if (document.getElementById('player-list').children.length === 1) {
+                addPlayer("Chidinma", true);
+                addPlayer("Emeka", true);
+            }
         }, 1000);
     };
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
