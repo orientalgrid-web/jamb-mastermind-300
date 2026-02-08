@@ -902,7 +902,19 @@
 
 <script>
     // Enhanced Question Database (2,000 questions simulation)
-    const generateQuestions = (subject, count) => {
+    // Enhanced Question Database (2,000 questions simulation)
+const generateQuestions = (subject, count) => {
+    const questions = [];
+    const templates = {
+        english: [
+            { q: "Choose the word opposite in meaning to 'Arrogant':", o: ["Humble", "Proud", "Wealthy", "Angry"], c: 0, tip: "Value Bet: Antonyms" },
+            { q: "The boys ___ gone to the field.", o: ["has", "have", "is", "was"], c: 1, tip: "Subject-Verb Agreement" },
+            // ... rest of existing questions
+        ],
+        // ... other subjects
+    };
+    // ... rest of code
+};
         const questions = [];
         const templates = {
             english: [
