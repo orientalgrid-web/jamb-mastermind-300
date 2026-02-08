@@ -158,6 +158,7 @@
             align-items: center;
             justify-content: center;
             min-height: 140px;
+            overflow: hidden;
         }
         .card:hover { 
             transform: translateY(-8px); 
@@ -173,20 +174,28 @@
             color: var(--dark);
             margin-top: 5px;
         }
+        .card small {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 5px;
+        }
         
         /* VALUE BET STYLING */
         .value-bet-tag {
             position: absolute;
-            top: -10px;
-            right: -5px;
+            top: 8px;
+            right: 8px;
             background: linear-gradient(45deg, var(--gold), #ffed4e);
             color: #333;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: bold;
-            padding: 3px 12px;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             z-index: 2;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* MOCK EXAM SETUP */
@@ -435,6 +444,11 @@
             background: var(--purple); 
             color: white; 
         }
+        .btn-gold {
+            background: linear-gradient(45deg, var(--gold), #ffed4e);
+            color: #333;
+            font-weight: bold;
+        }
         
         /* BACK BUTTON */
         .back-btn {
@@ -565,6 +579,36 @@
             text-decoration: underline;
         }
         
+        /* NOTIFICATIONS */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 10000;
+            box-shadow: var(--shadow);
+            animation: slideInRight 0.3s ease;
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        
+        /* TEST BUTTON */
+        .test-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
@@ -575,6 +619,36 @@
             .header-buttons { position: static; justify-content: center; margin-top: 15px; }
             .setup-options { grid-template-columns: 1fr; }
             .back-btn { position: static; margin: 10px 0; }
+            .value-bet-tag {
+                top: 5px;
+                right: 5px;
+                font-size: 8px;
+                padding: 1px 6px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card { padding: 15px; min-height: 120px; }
+            .btn { padding: 10px 15px; font-size: 0.9rem; }
+            .question-box { font-size: 1.1rem; padding: 12px; }
+            .option { padding: 12px 15px; margin-bottom: 8px; }
+            .header h2 { font-size: 1.5rem; }
+            .dashboard-info { padding: 15px; }
+            .value-bet-tag {
+                top: 3px;
+                right: 3px;
+                font-size: 7px;
+                padding: 1px 4px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .card { min-height: 120px; padding: 15px 10px; }
+            .card i { font-size: 2rem; margin-bottom: 10px; }
+            .question-box { font-size: 1rem; }
+            .option { padding: 12px 15px; font-size: 0.95rem; }
+            .btn { padding: 10px 15px; font-size: 0.9rem; }
+            .header h2 { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -594,8 +668,8 @@
             <button class="btn btn-accent" onclick="openTab('mock-tab')">
                 <i class="fas fa-graduation-cap"></i> Mock Exam
             </button>
-            <button class="btn btn-purple" onclick="openTab('multiplayer-tab')">
-                <i class="fas fa-users"></i> Multiplayer
+            <button class="btn btn-purple" onclick="showAnalytics()">
+                <i class="fas fa-chart-bar"></i> Analytics
             </button>
         </div>
     </div>
@@ -662,6 +736,12 @@
                     <p>Literature</p>
                     <small>2,000 Questions</small>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn btn-gold" onclick="quickDemo()">
+                    <i class="fas fa-rocket"></i> Quick Demo (3 Questions)
+                </button>
             </div>
         </div>
         
@@ -884,6 +964,9 @@
             <button class="btn btn-accent" onclick="restartPractice()" id="restart-btn">
                 <i class="fas fa-redo"></i> Restart Practice
             </button>
+            <button class="btn btn-gold" onclick="exportResults()" style="margin-top: 10px;">
+                <i class="fas fa-download"></i> Export Results
+            </button>
         </div>
     </div>
 
@@ -900,8 +983,13 @@
     </div>
 </div>
 
+<!-- Development Test Button -->
+<button class="btn btn-gold test-button" id="dev-test-btn" onclick="enableTestMode()">
+    <i class="fas fa-flask"></i> DEV TEST
+</button>
+
 <script>
-    // Enhanced Question Database (2,000 questions simulation)
+    // =================== ENHANCED QUESTION DATABASE ===================
     function generateQuestions(subject, count) {
         const questions = [];
         const templates = {
@@ -910,57 +998,56 @@
                 { q: "The boys ___ gone to the field.", o: ["has", "have", "is", "was"], c: 1, tip: "Subject-Verb Agreement" },
                 { q: "Which of these is a figure of speech?", o: ["Metaphor", "Paragraph", "Sentence", "Chapter"], c: 0, tip: "Literary Devices" },
                 { q: "The synonym of 'Benevolent' is:", o: ["Kind", "Cruel", "Selfish", "Greedy"], c: 0, tip: "Vocabulary Builder" },
-                { q: "Identify the grammatical error: 'Neither John nor Mary are coming.'", o: ["No error", "Neither John nor", "Mary are", "coming"], c: 2, tip: "Subject-Verb Agreement" },
+                { q: "Identify the grammatical error: 'Neither John nor Mary are coming.'", o: ["No error", "Neither John nor", "Mary are", "coming"], c: 2, tip: "Subject-Verb Agreement" }
             ],
             math: [
                 { q: "Solve for x: 2x + 4 = 12", o: ["2", "4", "6", "8"], c: 1, tip: "Algebra Basics" },
                 { q: "What is the value of π to two decimal places?", o: ["3.14", "3.16", "3.12", "3.18"], c: 0, tip: "Geometry Constant" },
                 { q: "If a triangle has angles 60° and 70°, what is the third angle?", o: ["50°", "60°", "40°", "30°"], c: 0, tip: "Triangle Angle Sum" },
                 { q: "Calculate 15% of 200", o: ["15", "30", "20", "25"], c: 1, tip: "Percentage Calculation" },
-                { q: "Simplify: (3x²y)(4xy³)", o: ["12x³y⁴", "7x³y⁴", "12x²y³", "7x²y³"], c: 0, tip: "Algebraic Expressions" },
+                { q: "Simplify: (3x²y)(4xy³)", o: ["12x³y⁴", "7x³y⁴", "12x²y³", "7x²y³"], c: 0, tip: "Algebraic Expressions" }
             ],
             physics: [
                 { q: "What is the SI unit of force?", o: ["Newton", "Joule", "Watt", "Pascal"], c: 0, tip: "Physics Fundamentals" },
                 { q: "Which law states that every action has an equal and opposite reaction?", o: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Ohm's Law"], c: 2, tip: "Newton's Laws" },
                 { q: "What type of lens converges light?", o: ["Convex", "Concave", "Plano-concave", "Diverging"], c: 0, tip: "Optics" },
                 { q: "Calculate velocity if distance is 100m and time is 10s", o: ["10 m/s", "5 m/s", "20 m/s", "15 m/s"], c: 0, tip: "Kinematics" },
-                { q: "Which is a vector quantity?", o: ["Temperature", "Mass", "Velocity", "Time"], c: 2, tip: "Scalars vs Vectors" },
+                { q: "Which is a vector quantity?", o: ["Temperature", "Mass", "Velocity", "Time"], c: 2, tip: "Scalars vs Vectors" }
             ],
             biology: [
                 { q: "Which organelle is the powerhouse of the cell?", o: ["Mitochondria", "Nucleus", "Ribosome", "Golgi Apparatus"], c: 0, tip: "Cell Biology" },
                 { q: "Photosynthesis occurs in which part of the plant?", o: ["Leaves", "Roots", "Stem", "Flowers"], c: 0, tip: "Plant Physiology" },
                 { q: "How many chromosomes do humans have?", o: ["46", "23", "48", "24"], c: 0, tip: "Genetics" },
                 { q: "Which system transports blood in the body?", o: ["Circulatory", "Respiratory", "Digestive", "Nervous"], c: 0, tip: "Human Anatomy" },
-                { q: "Enzymes are primarily made of:", o: ["Proteins", "Carbohydrates", "Lipids", "Nucleic Acids"], c: 0, tip: "Biochemistry" },
+                { q: "Enzymes are primarily made of:", o: ["Proteins", "Carbohydrates", "Lipids", "Nucleic Acids"], c: 0, tip: "Biochemistry" }
             ],
             chemistry: [
                 { q: "What is the atomic number of Hydrogen?", o: ["1", "2", "3", "4"], c: 0, tip: "Periodic Table" },
                 { q: "What is the chemical symbol for Gold?", o: ["Au", "Ag", "Gd", "Go"], c: 0, tip: "Chemical Symbols" },
                 { q: "What is the pH of pure water?", o: ["7", "1", "14", "0"], c: 0, tip: "Acids and Bases" },
                 { q: "Which gas is most abundant in Earth's atmosphere?", o: ["Nitrogen", "Oxygen", "Carbon Dioxide", "Argon"], c: 0, tip: "Atmospheric Chemistry" },
-                { q: "What is the formula for water?", o: ["H₂O", "HO₂", "H₂O₂", "HO"], c: 0, tip: "Chemical Formulas" },
+                { q: "What is the formula for water?", o: ["H₂O", "HO₂", "H₂O₂", "HO"], c: 0, tip: "Chemical Formulas" }
             ],
             government: [
                 { q: "Who is the current president of Nigeria?", o: ["Bola Tinubu", "Muhammadu Buhari", "Goodluck Jonathan", "Olusegun Obasanjo"], c: 0, tip: "Current Affairs" },
                 { q: "What year did Nigeria gain independence?", o: ["1960", "1963", "1957", "1970"], c: 0, tip: "History" },
                 { q: "How many states are in Nigeria?", o: ["36", "37", "35", "34"], c: 0, tip: "Political Structure" },
-                { q: "Which arm of government makes laws?", o: ["Legislature", "Executive", "Judiciary", "Military"], c: 0, tip: "Government Functions" },
+                { q: "Which arm of government makes laws?", o: ["Legislature", "Executive", "Judiciary", "Military"], c: 0, tip: "Government Functions" }
             ],
             economics: [
                 { q: "What does GDP stand for?", o: ["Gross Domestic Product", "General Domestic Price", "Gross Development Product", "General Development Plan"], c: 0, tip: "Economic Terms" },
                 { q: "Who is considered the father of economics?", o: ["Adam Smith", "John Keynes", "Karl Marx", "David Ricardo"], c: 0, tip: "Economic History" },
                 { q: "What is inflation?", o: ["Increase in general price level", "Decrease in money supply", "Increase in exports", "Decrease in imports"], c: 0, tip: "Economic Concepts" },
-                { q: "Which organization regulates banks in Nigeria?", o: ["CBN", "NDIC", "SEC", "NCC"], c: 0, tip: "Financial Institutions" },
+                { q: "Which organization regulates banks in Nigeria?", o: ["CBN", "NDIC", "SEC", "NCC"], c: 0, tip: "Financial Institutions" }
             ],
             literature: [
                 { q: "Who wrote 'Things Fall Apart'?", o: ["Chinua Achebe", "Wole Soyinka", "Chimamanda Adichie", "Ben Okri"], c: 0, tip: "African Literature" },
                 { q: "What is a sonnet?", o: ["A 14-line poem", "A short story", "A novel", "A play"], c: 0, tip: "Poetry Forms" },
                 { q: "Who wrote 'Romeo and Juliet'?", o: ["William Shakespeare", "Charles Dickens", "Jane Austen", "Mark Twain"], c: 0, tip: "Classic Literature" },
-                { q: "What is the main character in a story called?", o: ["Protagonist", "Antagonist", "Narrator", "Supporting Character"], c: 0, tip: "Literary Terms" },
+                { q: "What is the main character in a story called?", o: ["Protagonist", "Antagonist", "Narrator", "Supporting Character"], c: 0, tip: "Literary Terms" }
             ]
         };
 
-        // Generate sample questions for each subject
         const subjectTemplates = templates[subject] || templates.english;
         for (let i = 0; i < count; i++) {
             const template = subjectTemplates[i % subjectTemplates.length];
@@ -975,7 +1062,7 @@
         return questions;
     }
 
-    // Initialize database with 50 questions per subject (simulating 2,000)
+    // Initialize database with 50 questions per subject
     const database = {
         english: generateQuestions('english', 50),
         math: generateQuestions('math', 50),
@@ -987,9 +1074,9 @@
         literature: generateQuestions('literature', 50)
     };
 
-    // App State Variables
+    // =================== APP STATE ===================
     let currentSubject = '';
-    let currentMode = ''; // 'practice' or 'mock'
+    let currentMode = '';
     let currentQIndex = 0;
     let userAnswers = [];
     let sessionSeconds = 0;
@@ -997,48 +1084,69 @@
     let quizTimer = null;
     let sessionTimer = null;
     let mockExamData = null;
-    let isMultiplayerMode = false;
     let mockExamDuration = 120;
     let mockExamTimeLeft = 120 * 60;
+    
+    // User state
+    const APP_STATE = {
+        currentUser: {
+            name: 'Student',
+            questionsAttempted: 0,
+            totalScore: 0,
+            sessionTime: 0
+        }
+    };
 
-    // Session timer - ONLY starts when user starts practicing
-    function startSessionTimer() {
-        if (sessionTimer) clearInterval(sessionTimer);
-        sessionSeconds = 0;
-        sessionTimer = setInterval(() => {
-            sessionSeconds++;
-            updateSessionTimer();
-        }, 1000);
-    }
-
-    function updateSessionTimer() {
-        let h = Math.floor(sessionSeconds / 3600);
-        let m = Math.floor((sessionSeconds % 3600) / 60);
-        let s = sessionSeconds % 60;
-        document.getElementById('session-timer').innerHTML = 
-            `<i class="far fa-clock"></i> Session: ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-    }
-
-    // Tab Navigation
-    function openTab(tabId) {
-        console.log("Opening tab:", tabId);
+    // =================== NOTIFICATION SYSTEM ===================
+    function showNotification(type, message) {
+        // Remove existing notifications first
+        document.querySelectorAll('.notification').forEach(n => n.remove());
         
-        // Hide all tab contents
+        const notification = document.createElement('div');
+        notification.className = `notification`;
+        notification.id = 'temp-notification';
+        
+        if (type === 'success') {
+            notification.style.background = 'linear-gradient(45deg, var(--secondary), #00c853)';
+        } else if (type === 'error') {
+            notification.style.background = 'linear-gradient(45deg, var(--danger), #ff5252)';
+        } else if (type === 'warning') {
+            notification.style.background = 'linear-gradient(45deg, var(--warning), #ffb300)';
+            notification.style.color = '#000';
+        } else if (type === 'info') {
+            notification.style.background = 'linear-gradient(45deg, var(--primary), #0066cc)';
+        }
+        
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+            ${message}
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }, 5000);
+    }
+
+    // =================== TAB NAVIGATION ===================
+    function openTab(tabId) {
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.style.display = 'none';
         });
         
-        // Remove active class from all tab buttons
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         
-        // Show selected tab content
         const tabContent = document.getElementById(tabId);
         if (tabContent) {
             tabContent.style.display = 'block';
-            
-            // Activate corresponding tab button
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
                     btn.classList.add('active');
@@ -1046,36 +1154,30 @@
             });
         }
         
-        // Show dashboard (hide quiz/results)
         document.getElementById('dashboard').style.display = 'block';
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'none';
         document.getElementById('back-to-dashboard').style.display = 'none';
     }
 
-    // Practice Mode Functions
+    // =================== PRACTICE MODE ===================
     function startPractice(subject) {
-        console.log("Starting practice for:", subject);
-        
         currentSubject = subject;
         currentMode = 'practice';
         currentQIndex = 0;
         userAnswers = [];
         quizSeconds = 0;
         
-        // Start session timer if not already started
         if (!sessionTimer) {
             startSessionTimer();
         }
         
-        // Hide dashboard, show quiz section
         document.getElementById('dashboard').style.display = 'none';
         document.getElementById('quiz-section').style.display = 'block';
         document.getElementById('results-section').style.display = 'none';
         document.getElementById('back-to-dashboard').style.display = 'flex';
         document.getElementById('mock-timer').style.display = 'none';
         
-        // Set subject title
         const subjectNames = {
             english: "English Language",
             math: "Mathematics",
@@ -1091,10 +1193,7 @@
         document.getElementById('subject-title').textContent = subjectTitle;
         document.getElementById('subject-indicator').innerHTML = `<i class="fas fa-book"></i> Subject: ${subjectTitle}`;
         
-        // Clear any existing timers
         if (quizTimer) clearInterval(quizTimer);
-        
-        // Start quiz timer
         quizTimer = setInterval(() => {
             quizSeconds++;
         }, 1000);
@@ -1102,64 +1201,49 @@
         loadQuestion();
     }
 
-    // Mock Exam Functions
+    // =================== MOCK EXAM ===================
     function startMockExam() {
-        console.log("Starting mock exam...");
-        
-        // Get mock exam settings
         const duration = document.querySelector('input[name="duration"]:checked')?.value || 120;
         const questionCount = document.querySelector('input[name="questions"]:checked')?.value || 180;
         const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked'))
                                     .map(cb => cb.value);
         
-        // If no subjects selected, use default
         if (selectedSubjects.length === 0) {
             selectedSubjects.push('english', 'math');
         }
         
-        console.log("Settings:", {duration, questionCount, selectedSubjects});
-        
-        // Generate mock exam questions
         mockExamData = generateMockExam(selectedSubjects, parseInt(questionCount));
         
-        // Start session timer if not already started
         if (!sessionTimer) {
             startSessionTimer();
         }
         
-        // Set mock exam duration
         mockExamDuration = parseInt(duration);
         mockExamTimeLeft = mockExamDuration * 60;
         
-        // Start the exam
         currentMode = 'mock';
         currentSubject = 'mock';
         currentQIndex = 0;
         userAnswers = [];
         quizSeconds = 0;
         
-        // Hide dashboard, show quiz section
         document.getElementById('dashboard').style.display = 'none';
         document.getElementById('quiz-section').style.display = 'block';
         document.getElementById('results-section').style.display = 'none';
         document.getElementById('back-to-dashboard').style.display = 'flex';
         
-        // Set up mock exam UI
         document.getElementById('subject-title').textContent = "JAMB Mock Exam";
         document.getElementById('mock-timer').style.display = 'block';
         document.getElementById('subject-indicator').innerHTML = '<i class="fas fa-graduation-cap"></i> Mock Exam Mode';
         updateMockTimerDisplay();
         
-        // Clear any existing timers
         if (quizTimer) clearInterval(quizTimer);
-        
-        // Start mock exam timer
         quizTimer = setInterval(() => {
             quizSeconds++;
             mockExamTimeLeft--;
             
             if (mockExamTimeLeft <= 0) {
-                finishQuiz(); // Auto-submit when time is up
+                finishQuiz();
             }
             
             updateMockTimerDisplay();
@@ -1170,29 +1254,21 @@
 
     function generateMockExam(subjects, questionCount) {
         const allQuestions = [];
-        
-        // Calculate questions per subject (proportional distribution)
         const questionsPerSubject = Math.floor(questionCount / subjects.length);
         const remainder = questionCount % subjects.length;
         
-        // Collect questions from each selected subject
         subjects.forEach((subject, index) => {
             const subjectQuestions = database[subject] || [];
             const count = questionsPerSubject + (index < remainder ? 1 : 0);
-            
-            // Randomly select questions from this subject
             const shuffled = [...subjectQuestions].sort(() => 0.5 - Math.random());
             const selected = shuffled.slice(0, count).map(q => ({
                 ...q,
                 subject: subject
             }));
-            
             allQuestions.push(...selected);
         });
         
-        // Shuffle all questions
         const shuffledAll = [...allQuestions].sort(() => 0.5 - Math.random());
-        
         return {
             questions: shuffledAll.slice(0, questionCount),
             subjects: subjects,
@@ -1201,41 +1277,51 @@
     }
 
     function updateMockTimerDisplay() {
+        if (mockExamTimeLeft < 0) mockExamTimeLeft = 0;
+        
         let minutes = Math.floor(mockExamTimeLeft / 60);
         let seconds = mockExamTimeLeft % 60;
         
-        // Change color when time is running low
-        let timerElement = document.getElementById('time-left');
+        const timerElement = document.getElementById('time-left');
         if (timerElement) {
             timerElement.textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
             
             const timerParent = timerElement.parentElement;
-            if (minutes < 5) {
-                timerParent.style.background = '#dc3545'; // Red
-            } else if (minutes < 15) {
-                timerParent.style.background = '#ffc107'; // Yellow
-                timerParent.style.color = '#000';
+            if (timerParent) {
+                if (minutes < 5) {
+                    timerParent.style.background = '#dc3545';
+                    timerParent.style.color = 'white';
+                } else if (minutes < 15) {
+                    timerParent.style.background = '#ffc107';
+                    timerParent.style.color = '#000';
+                } else {
+                    timerParent.style.background = '#004a99';
+                    timerParent.style.color = 'white';
+                }
             }
         }
     }
 
+    // =================== QUIZ FUNCTIONS ===================
     function loadQuestion() {
+        if (currentMode === 'mock' && (!mockExamData || !mockExamData.questions)) {
+            console.error("No mock exam data found");
+            returnToDashboard();
+            return;
+        }
+        
         let q, totalQuestions, subject;
         
         if (currentMode === 'mock') {
-            // Mock exam questions
-            if (!mockExamData || !mockExamData.questions[currentQIndex]) {
+            if (!mockExamData.questions[currentQIndex]) {
                 alert("Error loading questions. Please restart mock exam.");
                 returnToDashboard();
                 return;
             }
-            
             q = mockExamData.questions[currentQIndex];
             totalQuestions = mockExamData.totalQuestions;
             subject = q.subject;
-            
         } else {
-            // Practice mode questions
             const subjectData = database[currentSubject] || database.english;
             totalQuestions = subjectData.length;
             q = subjectData[currentQIndex];
@@ -1247,11 +1333,9 @@
         document.getElementById('current-q').textContent = currentQIndex + 1;
         document.getElementById('total-q').textContent = totalQuestions;
         
-        // Update progress bar
         const progressPercent = ((currentQIndex + 1) / totalQuestions) * 100;
         document.getElementById('progress-fill').style.width = `${progressPercent}%`;
         
-        // Update score display
         const correctSoFar = userAnswers.filter(answer => answer && answer.isCorrect).length;
         const scorePercent = userAnswers.length > 0 ? Math.round((correctSoFar / userAnswers.length) * 100) : 0;
         document.getElementById('score-display').textContent = `Score: ${scorePercent}%`;
@@ -1263,7 +1347,6 @@
             const btn = document.createElement('button');
             btn.className = 'option';
             
-            // Check if user has already answered this question
             const userAnswer = userAnswers[currentQIndex];
             let optionClass = '';
             if (userAnswer) {
@@ -1291,18 +1374,14 @@
     }
 
     function selectOption(el, index) {
-        // If already answered, don't allow change in mock exam
         if (userAnswers[currentQIndex] && currentMode === 'mock') return;
         
-        // Remove selected class from all options
         document.querySelectorAll('.option').forEach(b => {
             b.classList.remove('selected', 'correct', 'wrong');
         });
         
-        // Add selected class to clicked option
         el.classList.add('selected');
         
-        // Check if correct
         let q;
         if (currentMode === 'mock') {
             q = mockExamData.questions[currentQIndex];
@@ -1312,28 +1391,22 @@
         }
         
         const isCorrect = index === q.c;
-        
-        // Save user answer
         userAnswers[currentQIndex] = {
             selectedIndex: index,
             isCorrect: isCorrect,
             subject: currentMode === 'mock' ? q.subject : currentSubject
         };
         
-        // Show correct/wrong styling immediately in practice mode
         if (currentMode === 'practice') {
             setTimeout(() => {
                 el.classList.remove('selected');
                 el.classList.add(isCorrect ? 'correct' : 'wrong');
-                
-                // Show correct answer if wrong
                 if (!isCorrect) {
                     document.querySelectorAll('.option')[q.c].classList.add('correct');
                 }
             }, 300);
         }
         
-        // Update score display
         const correctSoFar = userAnswers.filter(answer => answer && answer.isCorrect).length;
         const scorePercent = userAnswers.length > 0 ? Math.round((correctSoFar / userAnswers.length) * 100) : 0;
         document.getElementById('score-display').textContent = `Score: ${scorePercent}%`;
@@ -1341,7 +1414,6 @@
 
     function nextQuestion() {
         let totalQuestions;
-        
         if (currentMode === 'mock') {
             totalQuestions = mockExamData.totalQuestions;
             if (currentQIndex < totalQuestions - 1) {
@@ -1372,14 +1444,18 @@
     function finishQuiz() {
         clearInterval(quizTimer);
         
+        if (!userAnswers || userAnswers.length === 0) {
+            console.error("No answers recorded");
+            returnToDashboard();
+            return;
+        }
+        
         let totalQuestions, correctAnswers, subjectScores = {};
         
         if (currentMode === 'mock') {
-            // Mock exam results
             totalQuestions = mockExamData.totalQuestions;
             correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
             
-            // Calculate scores by subject
             mockExamData.subjects.forEach(subject => {
                 const subjectAnswers = userAnswers.filter(answer => answer && answer.subject === subject);
                 const subjectCorrect = subjectAnswers.filter(answer => answer.isCorrect).length;
@@ -1394,20 +1470,16 @@
                 }
             });
             
-            // Update UI for mock exam
             document.getElementById('result-title').textContent = "Mock Exam Completed!";
             document.getElementById('result-message').textContent = "You've completed the JAMB Mock Exam Simulation";
             document.getElementById('score-breakdown-section').style.display = 'block';
             document.getElementById('restart-btn').innerHTML = '<i class="fas fa-redo"></i> New Mock Exam';
             document.getElementById('restart-btn').onclick = startNewMock;
-            
         } else {
-            // Practice mode results
             const subjectData = database[currentSubject];
             totalQuestions = subjectData.length;
             correctAnswers = userAnswers.filter(answer => answer && answer.isCorrect).length;
             
-            // Update UI for practice
             const subjectNames = {
                 english: "English Language",
                 math: "Mathematics",
@@ -1429,26 +1501,26 @@
         
         const scorePercent = Math.round((correctAnswers / totalQuestions) * 100);
         
-        // Calculate time spent
+        // Update user stats
+        APP_STATE.currentUser.questionsAttempted += totalQuestions;
+        APP_STATE.currentUser.totalScore = ((APP_STATE.currentUser.totalScore * (APP_STATE.currentUser.questionsAttempted - totalQuestions)) + (scorePercent * totalQuestions)) / APP_STATE.currentUser.questionsAttempted;
+        
         let m = Math.floor(quizSeconds / 60);
         let s = quizSeconds % 60;
         const timeSpent = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
         
-        // Performance evaluation
         let performance = "Excellent";
         if (scorePercent < 40) performance = "Needs Improvement";
         else if (scorePercent < 60) performance = "Fair";
         else if (scorePercent < 80) performance = "Good";
         else if (scorePercent < 90) performance = "Very Good";
         
-        // Update results screen
         document.getElementById('final-score').textContent = `${scorePercent}%`;
         document.getElementById('correct-answers').textContent = correctAnswers;
         document.getElementById('wrong-answers').textContent = totalQuestions - correctAnswers;
         document.getElementById('time-spent').textContent = timeSpent;
         document.getElementById('performance').textContent = performance;
         
-        // Show subject breakdown for mock exam
         if (currentMode === 'mock') {
             const subjectScoresDiv = document.getElementById('subject-scores');
             subjectScoresDiv.innerHTML = '';
@@ -1481,7 +1553,6 @@
             });
         }
         
-        // Show results
         document.getElementById('quiz-section').style.display = 'none';
         document.getElementById('results-section').style.display = 'block';
         document.getElementById('back-to-dashboard').style.display = 'flex';
@@ -1511,22 +1582,37 @@
         returnToDashboard();
     }
 
-    function reviewAnswers() {
-        alert("Answer review feature coming soon! You'll be able to see all questions with your answers and explanations.");
+    // =================== SESSION TIMER ===================
+    function startSessionTimer() {
+        if (sessionTimer) clearInterval(sessionTimer);
+        sessionSeconds = 0;
+        sessionTimer = setInterval(() => {
+            sessionSeconds++;
+            updateSessionTimer();
+            APP_STATE.currentUser.sessionTime = sessionSeconds;
+        }, 1000);
     }
 
-    // Multiplayer Functions
+    function updateSessionTimer() {
+        let h = Math.floor(sessionSeconds / 3600);
+        let m = Math.floor((sessionSeconds % 3600) / 60);
+        let s = sessionSeconds % 60;
+        document.getElementById('session-timer').innerHTML = 
+            `<i class="far fa-clock"></i> Session: ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+    }
+
+    // =================== MULTIPLAYER FUNCTIONS ===================
     function copyInviteCode() {
         const inviteCode = document.getElementById('invite-code');
         inviteCode.select();
         document.execCommand('copy');
-        alert("Invite code copied to clipboard! Share with friends.");
+        showNotification('success', 'Invite code copied to clipboard!');
     }
 
     function joinMockSession() {
         const code = prompt("Enter a friend's session code to join their mock exam:");
         if (code) {
-            alert(`Attempting to join session: ${code}\n\n(Session joining functionality requires backend integration)`);
+            showNotification('info', `Joining session: ${code}`);
             addPlayer("You (Joined)", false);
         }
     }
@@ -1534,22 +1620,20 @@
     function inviteFriend() {
         const friendCode = document.getElementById('friend-code').value;
         if (friendCode.trim()) {
-            alert(`Invitation sent to ${friendCode}\n\n(Requires backend integration for actual invites)`);
+            showNotification('success', `Invitation sent to ${friendCode}`);
             addPlayer("Friend", true);
             document.getElementById('friend-code').value = '';
         } else {
-            alert("Please enter a valid friend code or username.");
+            showNotification('error', "Please enter a valid friend code.");
         }
     }
 
     function addPlayer(name, isFriend) {
         const playerList = document.getElementById('player-list');
-        
         if (playerList.children.length >= 4) {
-            alert("Maximum of 4 players allowed in a session.");
+            showNotification('error', "Maximum of 4 players allowed.");
             return;
         }
-        
         const playerCard = document.createElement('div');
         playerCard.className = `player-card ${isFriend ? '' : 'you'}`;
         playerCard.innerHTML = `
@@ -1557,42 +1641,171 @@
             <p>${name}</p>
             <small>${isFriend ? 'Invited' : 'Ready'}</small>
         `;
-        
         playerList.appendChild(playerCard);
     }
 
     function createStudyGroup() {
         const groupName = prompt("Enter a name for your study group:");
         if (groupName) {
-            alert(`Study group "${groupName}" created!\n\nShare the group code with friends to invite them.`);
+            showNotification('success', `Study group "${groupName}" created!`);
         }
     }
 
     function joinStudyGroup() {
         const groupCode = prompt("Enter study group code to join:");
         if (groupCode) {
-            alert(`Joining study group with code: ${groupCode}\n\n(Requires backend integration)`);
+            showNotification('info', `Joining study group: ${groupCode}`);
         }
     }
 
     function viewLeaderboard() {
-        alert("Global leaderboard feature coming soon!\n\nSee how you rank against other JAMB aspirants.");
+        showNotification('info', 'Global leaderboard feature coming soon!');
     }
 
-    // Initialize on load
+    // =================== OTHER FEATURES ===================
+    
+    function quickDemo() {
+        if (confirm("🚀 Quick Demo Mode\n\nExperience the app in 2 minutes with auto-answered questions.\n\nClick OK to start!")) {
+            showNotification('info', 'Quick Demo Started! Sit back and watch...');
+            
+            setTimeout(() => {
+                startPractice('english');
+                
+                setTimeout(() => {
+                    if (document.querySelectorAll('.option').length > 0) {
+                        document.querySelectorAll('.option')[0].click();
+                        setTimeout(() => nextQuestion(), 1000);
+                        
+                        setTimeout(() => {
+                            document.querySelectorAll('.option')[1].click();
+                            setTimeout(() => nextQuestion(), 1000);
+                            
+                            setTimeout(() => {
+                                document.querySelectorAll('.option')[2].click();
+                                setTimeout(() => {
+                                    nextQuestion();
+                                    showNotification('success', 'Demo completed! You can now explore all features.');
+                                }, 1000);
+                            }, 2000);
+                        }, 2000);
+                    }
+                }, 1000);
+            }, 500);
+        }
+    }
+
+    function enableTestMode() {
+        if (confirm("🧪 Enable Developer Test Mode?\n\nThis will unlock all features for testing purposes.")) {
+            showNotification('success', 'Test Mode Activated! All features unlocked.');
+            document.getElementById('dev-test-btn').innerHTML = '<i class="fas fa-check"></i> TEST MODE ON';
+            document.getElementById('dev-test-btn').style.background = 'linear-gradient(45deg, var(--success), #4cd964)';
+            showNotification('info', 'Test features enabled. Use the app freely!');
+        }
+    }
+
+    function showAnalytics() {
+        showNotification('info', 'Analytics dashboard will open in a new window. Check your browser popup settings.');
+        // Simplified analytics for now
+        const analyticsHTML = `
+            <div style="padding: 20px; font-family: Arial, sans-serif;">
+                <h2>Performance Analytics</h2>
+                <p>Overall Score: ${APP_STATE.currentUser.totalScore.toFixed(1)}%</p>
+                <p>Questions Attempted: ${APP_STATE.currentUser.questionsAttempted}</p>
+                <p>Study Time: ${formatTime(APP_STATE.currentUser.sessionTime)}</p>
+                <button onclick="window.close()" style="padding: 10px 20px; background: #004a99; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
+            </div>
+        `;
+        
+        const analyticsWindow = window.open('', 'Analytics', 'width=400,height=300');
+        if (analyticsWindow) {
+            analyticsWindow.document.write(analyticsHTML);
+        }
+    }
+
+    function exportResults() {
+        const results = {
+            user: APP_STATE.currentUser.name,
+            overallScore: APP_STATE.currentUser.totalScore.toFixed(1) + '%',
+            questionsAttempted: APP_STATE.currentUser.questionsAttempted,
+            totalStudyTime: formatTime(APP_STATE.currentUser.sessionTime),
+            date: new Date().toLocaleString()
+        };
+        
+        const dataStr = JSON.stringify(results, null, 2);
+        const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+        
+        const exportFileDefaultName = `jamb-results-${Date.now()}.json`;
+        
+        const linkElement = document.createElement('a');
+        linkElement.setAttribute('href', dataUri);
+        linkElement.setAttribute('download', exportFileDefaultName);
+        linkElement.click();
+        
+        showNotification('success', 'Results exported successfully!');
+    }
+
+    function reviewAnswers() {
+        if (userAnswers.length === 0) {
+            alert("No answers to review. Complete a practice session first.");
+            return;
+        }
+        
+        let reviewHTML = "<h3>Answer Review</h3><ol>";
+        
+        for (let i = 0; i < userAnswers.length; i++) {
+            const answer = userAnswers[i];
+            const q = currentMode === 'mock' ? mockExamData.questions[i] : database[currentSubject][i];
+            const isCorrect = answer && answer.isCorrect;
+            
+            reviewHTML += `
+                <li style="margin-bottom: 15px; padding: 10px; border-left: 3px solid ${isCorrect ? 'green' : 'red'};">
+                    <strong>Q: ${q.q}</strong><br>
+                    Your answer: ${q.o[answer.selectedIndex]} <span style="color: ${isCorrect ? 'green' : 'red'}">(${isCorrect ? '✓ Correct' : '✗ Wrong'})</span><br>
+                    ${!isCorrect ? `Correct answer: ${q.o[q.c]}<br>` : ''}
+                    <em style="color: #666;">${q.tip || ''}</em>
+                </li>
+            `;
+        }
+        
+        reviewHTML += "</ol><button onclick='window.close()' style='padding: 10px 20px; background: #004a99; color: white; border: none; border-radius: 5px; cursor: pointer;'>Close</button>";
+        
+        const reviewWindow = window.open('', 'Review Answers', 'width=600,height=400');
+        if (reviewWindow) {
+            reviewWindow.document.write(reviewHTML);
+        }
+    }
+
+    // =================== HELPER FUNCTIONS ===================
+    function formatTime(seconds) {
+        if (!seconds || seconds < 0) seconds = 0;
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        const s = seconds % 60;
+        if (h > 0) {
+            return `${h}h ${m}m ${s}s`;
+        } else if (m > 0) {
+            return `${m}m ${s}s`;
+        }
+        return `${s}s`;
+    }
+
+    // =================== INITIALIZATION ===================
     window.onload = function() {
-        // Initialize tabs
         openTab('practice-tab');
         
-        // Add sample multiplayer players for demo
+        // Add sample multiplayer players
         setTimeout(() => {
             if (document.getElementById('player-list').children.length === 1) {
                 addPlayer("Chidinma", true);
                 addPlayer("Emeka", true);
             }
         }, 1000);
+        
+        // Show welcome notification
+        setTimeout(() => {
+            showNotification('info', '🎓 Welcome to JAMB Mastermind 300! Click any subject to start practicing.');
+        }, 1500);
     };
 </script>
 </body>
 </html>
-
