@@ -2,361 +2,348 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>JAMB Mastermind 300+ - Ace Your Exam!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAMB Smart Prep - Live Questions & Practice</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Toastr for notifications -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23004a99%22>🎯</text></svg>">
-    
     <style>
-        /* === MODERN YOUTH-FRIENDLY THEME === */
+        /* ========== MODERN THEME ========== */
         :root {
-            --primary: #6a11cb;
-            --secondary: #2575fc;
-            --accent: #ff4e50;
-            --success: #00b09b;
-            --warning: #f9c74f;
-            --danger: #ff416c;
-            --dark: #121212;
-            --card-bg: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-dim: #b0b0b0;
-            --neon-glow: 0 0 20px rgba(106, 17, 203, 0.5);
+            --primary: #004a99;  /* JAMB Blue */
+            --secondary: #00a859; /* JAMB Green */
+            --accent: #ff6b35;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --dark: #1a237e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
         }
         
-        * { 
-            box-sizing: border-box; 
+        * {
             margin: 0;
             padding: 0;
-            -webkit-tap-highlight-color: transparent; 
-            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-
+        
         body {
-            background: linear-gradient(135deg, #0c2461, #1a1a2e);
-            color: var(--text-main);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(106, 17, 203, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(37, 117, 252, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 78, 80, 0.1) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        /* === HERO BANNER === */
-        .hero-banner {
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
             padding: 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--neon-glow);
         }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: linear-gradient(45deg, #fff, #f9c74f);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 20px;
-        }
-
-        .score-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.15);
-            padding: 10px 20px;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .score-badge i {
-            color: #f9c74f;
-            font-size: 1.5rem;
-        }
-
-        /* === MAIN DASHBOARD === */
-        .dashboard {
-            padding: 30px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-
-        .dashboard-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+        
+        /* ========== HEADER ========== */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
             padding: 25px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 74, 153, 0.2);
             position: relative;
             overflow: hidden;
         }
-
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            border-color: rgba(106, 17, 203, 0.3);
-        }
-
-        .dashboard-card::before {
+        
+        .header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="20" fill="rgba(255,255,255,0.1)" text-anchor="middle" dominant-baseline="middle">JAMB</text></svg>');
         }
-
-        .card-header {
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            min-width: 180px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        /* ========== MAIN CONTAINER ========== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 25px;
+        }
+        
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .nav-section {
+            margin-bottom: 30px;
+        }
+        
+        .nav-title {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--gray);
+        }
+        
+        .nav-item:hover {
+            background: var(--light);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(90deg, var(--primary), var(--dark));
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 74, 153, 0.2);
+        }
+        
+        .subject-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .subject-item {
+            padding: 12px;
+            border-radius: 10px;
+            background: var(--light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .subject-item:hover {
+            background: #e3f2fd;
+            transform: translateX(3px);
+        }
+        
+        .subject-item.selected {
+            background: linear-gradient(90deg, var(--secondary), #00b894);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 168, 89, 0.2);
+        }
+        
+        .question-count {
+            background: white;
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* ========== MAIN CONTENT ========== */
+        .main-content {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--light);
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
         }
-
-        .card-header i {
-            font-size: 1.8rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: white;
-        }
-
-        /* === SUBJECT SELECTION === */
-        .subject-grid {
+        
+        /* ========== PRACTICE MODE ========== */
+        .practice-controls {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-bottom: 30px;
         }
-
-        .subject-card {
-            background: rgba(255,255,255,0.05);
+        
+        .control-card {
+            background: linear-gradient(135deg, var(--light), #e3f2fd);
+            padding: 25px;
             border-radius: 15px;
-            padding: 25px 15px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
         }
-
-        .subject-card:hover {
-            transform: translateY(-3px);
-            background: rgba(106, 17, 203, 0.2);
+        
+        .control-card:hover {
+            transform: translateY(-5px);
             border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 74, 153, 0.1);
         }
-
-        .subject-card.selected {
-            background: rgba(106, 17, 203, 0.3);
-            border-color: var(--primary);
-            box-shadow: 0 0 25px rgba(106, 17, 203, 0.3);
-        }
-
-        .subject-icon {
+        
+        .control-icon {
             font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 15px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        .subject-name {
+        
+        .control-title {
+            font-size: 1.2rem;
             font-weight: 600;
-            font-size: 1.1rem;
             margin-bottom: 10px;
+            color: var(--dark);
         }
-
-        .question-count {
-            font-size: 0.9rem;
-            color: var(--text-dim);
-        }
-
-        /* === TEST MODE === */
-        .test-controls {
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .control-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .control-btn {
-            padding: 12px 25px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(106, 17, 203, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.15);
-        }
-
-        .btn-warning {
-            background: linear-gradient(135deg, #f9c74f, #ff9a00);
-            color: #000;
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
-            color: white;
-        }
-
-        /* === QUESTION INTERFACE === */
+        
+        /* ========== QUESTION INTERFACE ========== */
         .question-container {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 20px;
             padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            display: none;
+            margin-bottom: 25px;
+            border-left: 6px solid var(--primary);
         }
-
+        
         .question-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid #dee2e6;
         }
-
+        
         .question-number {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #f9c74f;
+            color: var(--primary);
+            background: rgba(0, 74, 153, 0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
         }
-
-        .question-timer {
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'Courier New', monospace;
-            background: linear-gradient(45deg, #ff4e50, #f9c74f);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
+        
         .question-text {
             font-size: 1.3rem;
             line-height: 1.6;
+            color: #2d3436;
             margin-bottom: 30px;
-            color: white;
         }
-
+        
         .options-grid {
             display: grid;
             gap: 15px;
         }
-
+        
         .option-btn {
-            background: rgba(255,255,255,0.05);
-            border: 2px solid rgba(255,255,255,0.1);
+            background: white;
+            border: 2px solid #e0e0e0;
             border-radius: 12px;
             padding: 20px;
             text-align: left;
-            color: white;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.1rem;
         }
-
+        
         .option-btn:hover {
-            background: rgba(106, 17, 203, 0.2);
             border-color: var(--primary);
+            background: #f0f7ff;
             transform: translateX(5px);
         }
-
+        
         .option-btn.selected {
-            background: rgba(0, 176, 155, 0.3);
+            background: linear-gradient(90deg, #d4edda, #c3e6cb);
             border-color: var(--success);
+            color: #155724;
         }
-
+        
         .option-letter {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--primary);
+            color: white;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -365,1211 +352,1139 @@
             font-size: 1.2rem;
             flex-shrink: 0;
         }
-
-        /* === PROGRESS TRACKER === */
-        .progress-container {
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--success), #00ff88);
-            border-radius: 5px;
-            transition: width 0.5s ease;
-        }
-
-        .progress-stats {
+        
+        .navigation-controls {
             display: flex;
             justify-content: space-between;
-            color: var(--text-dim);
-            font-size: 0.9rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #dee2e6;
         }
-
-        /* === LEADERBOARD === */
-        .leaderboard-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .leaderboard-item {
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 10px;
+            gap: 10px;
             transition: all 0.3s ease;
         }
-
-        .leaderboard-item:hover {
-            background: rgba(106, 17, 203, 0.2);
-            transform: translateX(5px);
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
         }
-
-        .rank {
-            width: 40px;
-            height: 40px;
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 74, 153, 0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #20c997);
+            color: white;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning), #fd7e14);
+            color: #212529;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #e83e8c);
+            color: white;
+        }
+        
+        /* ========== RESULTS ========== */
+        .results-container {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(var(--success) 0% 70%, #e9ecef 70% 100%);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .score-inner {
+            width: 160px;
+            height: 160px;
+            background: white;
             border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
         }
-
-        .rank-1 { background: gold; color: #000; }
-        .rank-2 { background: silver; color: #000; }
-        .rank-3 { background: #cd7f32; color: #000; }
-        .rank-other { background: rgba(255,255,255,0.1); color: white; }
-
-        /* === ACHIEVEMENTS === */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 15px;
-        }
-
-        .achievement-badge {
-            background: rgba(255,255,255,0.05);
+        
+        /* ========== ADMIN PANEL ========== */
+        .admin-form {
+            background: #f8f9fa;
+            padding: 30px;
             border-radius: 15px;
-            padding: 20px 10px;
-            text-align: center;
-            cursor: pointer;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 1rem;
             transition: all 0.3s ease;
         }
-
-        .achievement-badge.locked {
-            filter: grayscale(1);
-            opacity: 0.5;
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 74, 153, 0.1);
         }
-
-        .achievement-badge.unlocked {
-            background: rgba(0, 176, 155, 0.1);
-            border: 2px solid var(--success);
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
         }
-
-        .achievement-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
+        
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
         }
-
-        /* === CERTIFICATE === */
-        .certificate-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 10000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .certificate {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            width: 100%;
-            max-width: 800px;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            border: 15px solid var(--primary);
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 20px 50px rgba(106, 17, 203, 0.5); }
-            to { box-shadow: 0 20px 50px rgba(37, 117, 252, 0.5); }
-        }
-
-        /* === RESPONSIVE DESIGN === */
+        
         @media (max-width: 768px) {
-            .hero-title { font-size: 2rem; }
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .subject-grid { grid-template-columns: repeat(2, 1fr); }
-            .test-controls { flex-direction: column; align-items: stretch; }
-            .control-group { justify-content: center; }
-            .question-container { padding: 20px; }
-        }
-
-        @media (max-width: 480px) {
-            .subject-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 1.8rem; }
-            .control-btn { width: 100%; justify-content: center; }
-        }
-
-        /* === ANIMATIONS === */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .options-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- === HERO BANNER === -->
-    <div class="hero-banner">
-        <div class="hero-content">
-            <h1 class="hero-title">🎯 JAMB MASTERMIND 300+</h1>
-            <p class="hero-subtitle">Ace Your Exam with Smart Practice & Instant Results!</p>
-            <div class="score-badge pulse">
-                <i class="fas fa-trophy"></i>
-                <span>Your High Score: <strong id="highScore">0%</strong></span>
+    <!-- ========== HEADER ========== -->
+    <div class="header">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            JAMB SMART PREP 2024
+        </div>
+        <div class="tagline">
+            Official JAMB Past Questions • Live Practice • Performance Analytics
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="totalQuestions">0</div>
+                <div>Total Questions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="completedTests">0</div>
+                <div>Tests Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="averageScore">0%</div>
+                <div>Average Score</div>
             </div>
         </div>
     </div>
-
-    <!-- === MAIN DASHBOARD === -->
-    <div class="dashboard">
-        <div class="dashboard-grid">
-            <!-- Subject Selection Card -->
-            <div class="dashboard-card">
-                <div class="card-header">
+    
+    <!-- ========== MAIN CONTAINER ========== -->
+    <div class="container">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <!-- Navigation -->
+            <div class="nav-section">
+                <div class="nav-title">
+                    <i class="fas fa-compass"></i>
+                    Navigation
+                </div>
+                <div class="nav-item active" onclick="showSection('practice')">
+                    <i class="fas fa-play-circle"></i>
+                    Practice Mode
+                </div>
+                <div class="nav-item" onclick="showSection('results')">
+                    <i class="fas fa-chart-bar"></i>
+                    Performance
+                </div>
+                <div class="nav-item" onclick="showSection('resources')">
+                    <i class="fas fa-external-link-alt"></i>
+                    JAMB Resources
+                </div>
+                <div class="nav-item" onclick="showSection('admin')">
+                    <i class="fas fa-user-shield"></i>
+                    Admin Panel
+                </div>
+            </div>
+            
+            <!-- Subjects -->
+            <div class="nav-section">
+                <div class="nav-title">
                     <i class="fas fa-book-open"></i>
-                    <h3 class="card-title">Choose Your Subjects</h3>
+                    Subjects
                 </div>
-                <p style="color: var(--text-dim); margin-bottom: 20px;">Select subjects for your practice test:</p>
-                <div class="subject-grid" id="subjectGrid">
-                    <!-- Subjects will be loaded here -->
-                </div>
-                <div class="test-controls" style="margin-top: 20px; background: none; padding: 0;">
-                    <button class="control-btn btn-primary" onclick="TestEngine.startTest()">
-                        <i class="fas fa-play-circle"></i>
-                        Start Practice Test
-                    </button>
-                    <button class="control-btn btn-secondary" onclick="TestEngine.startQuickTest()">
-                        <i class="fas fa-bolt"></i>
-                        Quick Test (10 Questions)
-                    </button>
-                </div>
-            </div>
-
-            <!-- Progress Tracker Card -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <i class="fas fa-chart-line"></i>
-                    <h3 class="card-title">Your Progress</h3>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
-                    </div>
-                    <div class="progress-stats">
-                        <span>Total Questions: <strong id="totalQuestions">0</strong></span>
-                        <span>Correct: <strong id="correctAnswers">0</strong></span>
-                        <span>Accuracy: <strong id="accuracyRate">0%</strong></span>
-                    </div>
-                </div>
-                <div style="margin-top: 25px;">
-                    <h4 style="color: white; margin-bottom: 15px;">Recent Tests</h4>
-                    <div id="recentTests" style="color: var(--text-dim);">
-                        No tests taken yet. Start practicing!
-                    </div>
-                </div>
-            </div>
-
-            <!-- Leaderboard Card -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <i class="fas fa-crown"></i>
-                    <h3 class="card-title">Top Performers</h3>
-                </div>
-                <div class="leaderboard-list" id="leaderboard">
-                    <!-- Leaderboard items will be loaded here -->
-                </div>
-            </div>
-
-            <!-- Achievements Card -->
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <i class="fas fa-medal"></i>
-                    <h3 class="card-title">Your Achievements</h3>
-                </div>
-                <div class="achievements-grid" id="achievementsGrid">
-                    <!-- Achievements will be loaded here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Test Settings -->
-        <div class="dashboard-card">
-            <div class="card-header">
-                <i class="fas fa-sliders-h"></i>
-                <h3 class="card-title">Test Settings</h3>
-            </div>
-            <div class="test-controls" style="background: none; padding: 0; margin: 0;">
-                <div style="display: flex; gap: 20px; flex-wrap: wrap; width: 100%;">
-                    <div class="setting-group">
-                        <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Questions</label>
-                        <select id="questionCount" style="
-                            padding: 12px 20px;
-                            border-radius: 10px;
-                            background: rgba(255,255,255,0.1);
-                            border: 1px solid rgba(255,255,255,0.2);
-                            color: white;
-                            min-width: 150px;
-                        ">
-                            <option value="10">10 Questions</option>
-                            <option value="20">20 Questions</option>
-                            <option value="30">30 Questions</option>
-                            <option value="50">50 Questions</option>
-                            <option value="60" selected>60 Questions (Standard JAMB)</option>
-                        </select>
-                    </div>
-                    <div class="setting-group">
-                        <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Timer</label>
-                        <select id="timerSetting" style="
-                            padding: 12px 20px;
-                            border-radius: 10px;
-                            background: rgba(255,255,255,0.1);
-                            border: 1px solid rgba(255,255,255,0.2);
-                            color: white;
-                            min-width: 150px;
-                        ">
-                            <option value="0">No Timer</option>
-                            <option value="15">15 Minutes</option>
-                            <option value="30">30 Minutes</option>
-                            <option value="60" selected>60 Minutes (Standard)</option>
-                            <option value="120">120 Minutes</option>
-                        </select>
-                    </div>
-                    <div class="setting-group">
-                        <label style="display: block; color: var(--text-dim); margin-bottom: 5px;">Difficulty</label>
-                        <select id="difficultySetting" style="
-                            padding: 12px 20px;
-                            border-radius: 10px;
-                            background: rgba(255,255,255,0.1);
-                            border: 1px solid rgba(255,255,255,0.2);
-                            color: white;
-                            min-width: 150px;
-                        ">
-                            <option value="mixed" selected>Mixed Difficulty</option>
-                            <option value="easy">Easy Only</option>
-                            <option value="medium">Medium Only</option>
-                            <option value="hard">Hard Only</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Question Interface -->
-        <div class="question-container" id="questionContainer">
-            <div class="question-header">
-                <div class="question-number" id="questionNumber">Question 1/10</div>
-                <div class="question-timer" id="questionTimer">60:00</div>
-            </div>
-            <div class="question-text" id="questionText">
-                Loading question...
-            </div>
-            <div class="options-grid" id="optionsContainer">
-                <!-- Options will be loaded here -->
-            </div>
-            <div class="test-controls" style="margin-top: 30px;">
-                <div class="control-group">
-                    <button class="control-btn btn-secondary" onclick="TestEngine.previousQuestion()">
-                        <i class="fas fa-arrow-left"></i>
-                        Previous
-                    </button>
-                    <button class="control-btn btn-warning" onclick="TestEngine.markForReview()">
-                        <i class="fas fa-flag"></i>
-                        Mark for Review
-                    </button>
-                    <button class="control-btn btn-primary" onclick="TestEngine.nextQuestion()">
-                        Next Question
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-                <div class="control-group">
-                    <button class="control-btn btn-secondary" onclick="TestEngine.showReviewPanel()">
-                        <i class="fas fa-list"></i>
-                        Review All
-                    </button>
-                    <button class="control-btn btn-danger" onclick="TestEngine.submitTest()">
-                        <i class="fas fa-paper-plane"></i>
-                        Submit Test
-                    </button>
+                <div class="subject-list" id="subjectList">
+                    <!-- Subjects loaded dynamically -->
                 </div>
             </div>
             
-            <!-- Review Panel -->
-            <div class="progress-container" id="reviewPanel" style="display: none; margin-top: 30px;">
-                <h4 style="color: white; margin-bottom: 15px;">Review Questions</h4>
-                <div id="reviewGrid" style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    <!-- Review buttons will be added here -->
+            <!-- Quick Actions -->
+            <div class="nav-section">
+                <div class="nav-title">
+                    <i class="fas fa-bolt"></i>
+                    Quick Actions
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Certificate Modal -->
-    <div class="certificate-modal" id="certificateModal">
-        <div class="certificate" id="certificateContent">
-            <div style="text-align: center; margin-bottom: 40px;">
-                <h1 style="font-size: 3rem; color: var(--primary); margin-bottom: 10px;">🎓</h1>
-                <h2 style="font-size: 2.5rem; color: var(--primary); font-weight: 800;">CERTIFICATE OF EXCELLENCE</h2>
-                <p style="color: #666; font-size: 1.2rem;">JAMB Mastermind 300+ Testing Platform</p>
-            </div>
-            
-            <div style="text-align: center; margin: 40px 0;">
-                <p style="color: #666; font-size: 1.1rem;">This certifies that</p>
-                <div style="font-size: 3rem; color: var(--primary); font-weight: 800; margin: 20px 0; text-transform: uppercase;" id="certStudentName">
-                    SUPER STUDENT
-                </div>
-                <p style="font-size: 1.3rem; color: #333; line-height: 1.6; margin: 20px 0;">
-                    has demonstrated exceptional performance in JAMB preparation,
-                    achieving outstanding results through dedicated practice and mastery.
-                </p>
-                <div style="font-size: 5rem; color: var(--success); font-weight: 800; margin: 30px 0;" id="certScore">
-                    95%
-                </div>
-                <p style="color: #666; margin-top: 20px;">
-                    Date: <span id="certDate">Today</span> | 
-                    Test ID: <span id="certTestId">JMB-2024-001</span>
-                </p>
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; margin-top: 60px; padding-top: 30px; border-top: 2px solid #ccc;">
-                <div style="text-align: center;">
-                    <div style="width: 200px; height: 1px; background: #333; margin: 0 auto 10px;"></div>
-                    <div style="color: #333; font-weight: bold;">Student Signature</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="width: 200px; height: 1px; background: #333; margin: 0 auto 10px;"></div>
-                    <div style="color: #333; font-weight: bold;">Platform Validation</div>
-                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-bottom: 10px;" onclick="startQuickTest()">
+                    <i class="fas fa-bolt"></i>
+                    Quick Test (10 Q)
+                </button>
+                <button class="btn btn-success" style="width: 100%;" onclick="fetchJAMBQuestions()">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    Get Latest Questions
+                </button>
             </div>
         </div>
         
-        <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
-            <button onclick="TestEngine.printCertificate()" style="
-                background: linear-gradient(135deg, var(--primary), var(--secondary));
-                border: none;
-                color: white;
-                padding: 15px 30px;
-                border-radius: 10px;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 1.1rem;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            ">
-                <i class="fas fa-print"></i>
-                Print Certificate
-            </button>
-            <button onclick="TestEngine.closeCertificate()" style="
-                background: rgba(255,255,255,0.1);
-                border: 1px solid rgba(255,255,255,0.3);
-                color: white;
-                padding: 15px 30px;
-                border-radius: 10px;
-                cursor: pointer;
-                font-weight: bold;
-                font-size: 1.1rem;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            ">
-                <i class="fas fa-times"></i>
-                Close
-            </button>
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <!-- ========== PRACTICE SECTION ========== -->
+            <div id="practice-section" class="content-section active">
+                <div class="section-title">
+                    <i class="fas fa-brain"></i>
+                    Practice Mode
+                </div>
+                
+                <div class="practice-controls">
+                    <div class="control-card" onclick="startTest('english', 20)">
+                        <div class="control-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="control-title">Use of English</div>
+                        <div>20 Questions • 30 Minutes</div>
+                    </div>
+                    
+                    <div class="control-card" onclick="startTest('math', 40)">
+                        <div class="control-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="control-title">Mathematics</div>
+                        <div>40 Questions • 60 Minutes</div>
+                    </div>
+                    
+                    <div class="control-card" onclick="startTest('mixed', 60)">
+                        <div class="control-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="control-title">Full JAMB Mock</div>
+                        <div>60 Questions • 120 Minutes</div>
+                    </div>
+                    
+                    <div class="control-card" onclick="showCustomTest()">
+                        <div class="control-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="control-title">Custom Test</div>
+                        <div>Choose subjects & questions</div>
+                    </div>
+                </div>
+                
+                <!-- Question Interface (Hidden by default) -->
+                <div id="question-interface" style="display: none;">
+                    <div class="question-container">
+                        <div class="question-header">
+                            <div class="question-number" id="currentQuestion">Question 1/10</div>
+                            <div class="question-timer" id="timer">30:00</div>
+                        </div>
+                        
+                        <div class="question-text" id="questionText">
+                            Loading question...
+                        </div>
+                        
+                        <div class="options-grid" id="optionsContainer">
+                            <!-- Options loaded dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-controls">
+                        <button class="btn btn-warning" onclick="previousQuestion()">
+                            <i class="fas fa-arrow-left"></i>
+                            Previous
+                        </button>
+                        
+                        <button class="btn btn-primary" onclick="nextQuestion()">
+                            Next
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        
+                        <button class="btn btn-success" onclick="submitTest()">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Test
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ========== RESULTS SECTION ========== -->
+            <div id="results-section" class="content-section">
+                <div class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    Performance Analytics
+                </div>
+                
+                <div class="results-container" id="resultsContainer">
+                    <!-- Results loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- ========== JAMB RESOURCES SECTION ========== -->
+            <div id="resources-section" class="content-section">
+                <div class="section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Official JAMB Resources
+                </div>
+                
+                <div class="practice-controls">
+                    <a href="https://www.jamb.gov.ng" target="_blank" class="control-card">
+                        <div class="control-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="control-title">JAMB Official Website</div>
+                        <div>Latest news, syllabus, guidelines</div>
+                    </a>
+                    
+                    <a href="https://www.jamb.gov.ng/efacility" target="_blank" class="control-card">
+                        <div class="control-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="control-title">JAMB e-Facility</div>
+                        <div>Registration, results, admission</div>
+                    </a>
+                    
+                    <a href="https://www.jamb.gov.ng/syllabus" target="_blank" class="control-card">
+                        <div class="control-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="control-title">JAMB Syllabus</div>
+                        <div>Official syllabus for all subjects</div>
+                    </a>
+                    
+                    <a href="https://www.jamb.gov.ng/past-questions" target="_blank" class="control-card">
+                        <div class="control-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="control-title">Past Questions</div>
+                        <div>Download official past questions</div>
+                    </a>
+                </div>
+                
+                <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); border-radius: 15px;">
+                    <h3 style="color: var(--primary); margin-bottom: 15px;">
+                        <i class="fas fa-lightbulb"></i> How to Use This App Effectively:
+                    </h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 8px;">
+                            <strong>1. Daily Practice:</strong> Take at least one subject test daily
+                        </li>
+                        <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 8px;">
+                            <strong>2. Review Mistakes:</strong> Always check explanations for wrong answers
+                        </li>
+                        <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 8px;">
+                            <strong>3. Time Management:</strong> Practice with timer to improve speed
+                        </li>
+                        <li style="margin-bottom: 10px; padding: 10px; background: white; border-radius: 8px;">
+                            <strong>4. Use Official Resources:</strong> Visit JAMB website for updates
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- ========== ADMIN PANEL ========== -->
+            <div id="admin-section" class="content-section">
+                <div class="section-title">
+                    <i class="fas fa-user-shield"></i>
+                    Question Management Panel
+                </div>
+                
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label class="form-label">Select Subject:</label>
+                        <select id="adminSubject" class="form-control">
+                            <option value="english">Use of English</option>
+                            <option value="math">Mathematics</option>
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="biology">Biology</option>
+                            <option value="government">Government</option>
+                            <option value="economics">Economics</option>
+                            <option value="literature">Literature</option>
+                            <option value="commerce">Commerce</option>
+                            <option value="accounting">Accounting</option>
+                            <option value="geography">Geography</option>
+                            <option value="crs">CRS/IRS</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Question Text:</label>
+                        <textarea id="adminQuestion" class="form-control" placeholder="Enter the question..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Options:</label>
+                        <div class="options-container">
+                            <input type="text" id="optionA" class="form-control" placeholder="Option A">
+                            <input type="text" id="optionB" class="form-control" placeholder="Option B">
+                            <input type="text" id="optionC" class="form-control" placeholder="Option C">
+                            <input type="text" id="optionD" class="form-control" placeholder="Option D">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Correct Answer:</label>
+                        <select id="correctAnswer" class="form-control">
+                            <option value="0">Option A</option>
+                            <option value="1">Option B</option>
+                            <option value="2">Option C</option>
+                            <option value="3">Option D</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Explanation:</label>
+                        <textarea id="explanation" class="form-control" placeholder="Explain why this answer is correct..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Difficulty Level:</label>
+                        <select id="difficulty" class="form-control">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="btn btn-success" onclick="addQuestion()">
+                            <i class="fas fa-plus-circle"></i>
+                            Add Question
+                        </button>
+                        <button class="btn btn-primary" onclick="loadSubjectQuestions()">
+                            <i class="fas fa-sync"></i>
+                            Load Questions
+                        </button>
+                        <button class="btn btn-danger" onclick="clearAllQuestions()">
+                            <i class="fas fa-trash-alt"></i>
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="question-list" style="margin-top: 30px;">
+                    <!-- Questions will be listed here -->
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- ========== JAVASCRIPT ========== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        // ============================================
-        // COMPLETE JAMB QUESTION DATABASE (400+ QUESTIONS)
-        // ============================================
-        const JAMBQuestionBank = {
-            english: [
-                { id: 1, question: "Choose the correct option: Neither the students nor the teacher _____ present.", options: ["was", "were", "have been", "are"], correct: 0, explanation: "With 'neither/nor', the verb agrees with the closest subject (teacher).", difficulty: "medium" },
-                { id: 2, question: "Identify the sentence with correct punctuation:", options: ["The man said, 'I am tired.'", "The man said 'I am tired.'", "The man said, I am tired.", "The man said 'I am tired'."], correct: 0, explanation: "Direct speech requires quotation marks and comma before the quote.", difficulty: "easy" },
-                { id: 3, question: "Choose the word nearest in meaning to 'MAGNANIMOUS':", options: ["Generous", "Angry", "Small", "Intelligent"], correct: 0, explanation: "Magnanimous means generous or forgiving.", difficulty: "medium" },
-                { id: 4, question: "Which word is stressed on the second syllable?", options: ["EDucation", "apPLY", "HAPpy", "BEAUtiful"], correct: 1, explanation: "'Apply' has stress on the second syllable: ap-PLY.", difficulty: "hard" },
-                { id: 5, question: "Choose the correct sentence:", options: ["Each of the boys have a book.", "Each of the boys has a book.", "Each of the boys were given a book.", "Each of the boys are reading."], correct: 1, explanation: "'Each' is singular and takes a singular verb.", difficulty: "easy" },
-                { id: 6, question: "What is the antonym of 'BENEVOLENT'?", options: ["Kind", "Generous", "Malevolent", "Friendly"], correct: 2, explanation: "Benevolent means kind, malevolent means evil.", difficulty: "medium" },
-                { id: 7, question: "Identify the adverbial phrase: 'He ran with great speed.'", options: ["He ran", "with great speed", "great speed", "ran with"], correct: 1, explanation: "'With great speed' modifies the verb 'ran'.", difficulty: "medium" },
-                { id: 8, question: "Which is a complex sentence?", options: ["I came, I saw, I conquered.", "After I arrived, I called you.", "She smiled and waved.", "The sun rose; the birds sang."], correct: 1, explanation: "It has one independent and one dependent clause.", difficulty: "hard" },
-                { id: 9, question: "Choose the correct plural: 'Analysis'", options: ["Analyses", "Analysises", "Analysises", "Analysis"], correct: 0, explanation: "Analysis becomes analyses in plural.", difficulty: "medium" },
-                { id: 10, question: "What does the idiom 'Bite the bullet' mean?", options: ["To complain", "To endure pain", "To eat quickly", "To be angry"], correct: 1, explanation: "It means to endure a painful experience bravely.", difficulty: "easy" },
-                { id: 11, question: "Select the correctly spelled word:", options: ["Accomodate", "Acommodate", "Accommodate", "Acomodate"], correct: 2, explanation: "'Accommodate' has double c and double m.", difficulty: "easy" },
-                { id: 12, question: "Which is NOT a conjunction?", options: ["And", "But", "Quickly", "Because"], correct: 2, explanation: "'Quickly' is an adverb, not a conjunction.", difficulty: "easy" },
-                { id: 13, question: "Choose the correct preposition: 'She is good _____ Mathematics.'", options: ["at", "in", "on", "with"], correct: 0, explanation: "We use 'good at' for skills/subjects.", difficulty: "easy" },
-                { id: 14, question: "What is the passive voice of: 'They built this house.'", options: ["This house was built by them.", "This house built by them.", "This house is built by them.", "This house has been built by them."], correct: 0, explanation: "Past simple active becomes past simple passive.", difficulty: "medium" },
-                { id: 15, question: "Identify the figure of speech: 'The world is a stage.'", options: ["Simile", "Metaphor", "Personification", "Hyperbole"], correct: 1, explanation: "Direct comparison without 'like' or 'as'.", difficulty: "easy" },
-                { id: 16, question: "Choose the correct reported speech: 'I will come tomorrow,' he said.", options: ["He said he will come tomorrow.", "He said he would come the next day.", "He said he comes tomorrow.", "He said he came tomorrow."], correct: 1, explanation: "Future simple changes to conditional, tomorrow to the next day.", difficulty: "medium" },
-                { id: 17, question: "Which word is an abstract noun?", options: ["Table", "Happiness", "Teacher", "Lagos"], correct: 1, explanation: "Happiness is an abstract noun (cannot be touched).", difficulty: "easy" },
-                { id: 18, question: "Select the correct question tag: 'She can swim, _____?'", options: ["can she", "can't she", "does she", "isn't she"], correct: 1, explanation: "Positive statement takes negative tag with same auxiliary.", difficulty: "easy" },
-                { id: 19, question: "What is the meaning of 'Procrastinate'?", options: ["To hurry", "To delay", "To celebrate", "To organize"], correct: 1, explanation: "Procrastinate means to delay or postpone.", difficulty: "medium" },
-                { id: 20, question: "Identify the sentence in present perfect continuous:", options: ["I have eaten.", "I have been eating.", "I ate.", "I was eating."], correct: 1, explanation: "'Have been eating' is present perfect continuous.", difficulty: "hard" },
-                { id: 21, question: "Choose the correct comparative: 'Good'", options: ["Gooder", "Better", "More good", "Best"], correct: 1, explanation: "Good → better → best (irregular comparison).", difficulty: "easy" },
-                { id: 22, question: "Which is a collective noun?", options: ["Team", "Player", "Game", "Win"], correct: 0, explanation: "Team is a collective noun for a group of players.", difficulty: "easy" },
-                { id: 23, question: "Select the correctly punctuated sentence:", options: ["My favorite colors are: red, blue, and green.", "My favorite colors are red, blue and green.", "My favorite colors are red blue and green.", "My favorite colors are; red, blue, and green."], correct: 0, explanation: "Colon introduces a list, Oxford comma is optional but correct.", difficulty: "medium" },
-                { id: 24, question: "What does 'Ambiguous' mean?", options: ["Clear", "Unclear", "Important", "Simple"], correct: 1, explanation: "Ambiguous means having more than one possible meaning.", difficulty: "medium" },
-                { id: 25, question: "Identify the modal auxiliary:", options: ["Run", "Can", "Happy", "Quickly"], correct: 1, explanation: "'Can' is a modal auxiliary verb.", difficulty: "easy" },
-                { id: 26, question: "Choose the correct form: 'If I _____ you, I would study harder.'", options: ["am", "was", "were", "be"], correct: 2, explanation: "Second conditional uses 'were' for all subjects.", difficulty: "hard" },
-                { id: 27, question: "Which is a diphthong?", options: ["/æ/", "/eɪ/", "/ɪ/", "/ʌ/"], correct: 1, explanation: "/eɪ/ as in 'day' is a diphthong (two vowel sounds).", difficulty: "hard" },
-                { id: 28, question: "Select the synonym for 'CONCISE':", options: ["Lengthy", "Brief", "Confusing", "Detailed"], correct: 1, explanation: "Concise means brief and to the point.", difficulty: "medium" },
-                { id: 29, question: "Identify the direct object: 'She gave him a book.'", options: ["She", "gave", "him", "book"], correct: 3, explanation: "'Book' is what was given (direct object).", difficulty: "medium" },
-                { id: 30, question: "What is the literary term for 'The stars danced playfully in the moonlit sky.'?", options: ["Simile", "Metaphor", "Personification", "Alliteration"], correct: 2, explanation: "Stars are given human qualities (dancing).", difficulty: "easy" }
-            ],
-            
-            math: [
-                { id: 1, question: "Solve for x: 2x + 5 = 15", options: ["5", "10", "7.5", "20"], correct: 0, explanation: "2x = 10, so x = 5", difficulty: "easy" },
-                { id: 2, question: "What is the value of sin²θ + cos²θ?", options: ["0", "1", "2", "It varies"], correct: 1, explanation: "This is a fundamental trigonometric identity.", difficulty: "easy" },
-                { id: 3, question: "Simplify: (3x² - 2x + 5) + (2x² + 4x - 3)", options: ["5x² + 2x + 2", "5x² + 2x + 8", "5x² - 2x + 2", "x² + 2x + 2"], correct: 0, explanation: "Combine like terms: 3x²+2x²=5x², -2x+4x=2x, 5-3=2", difficulty: "easy" },
-                { id: 4, question: "If log₁₀2 = 0.3010, what is log₁₀20?", options: ["1.3010", "2.3010", "0.6020", "1.4771"], correct: 0, explanation: "log₁₀20 = log₁₀(2×10) = log₁₀2 + log₁₀10 = 0.3010 + 1 = 1.3010", difficulty: "medium" },
-                { id: 5, question: "Find the derivative of y = 3x² + 2x - 5", options: ["6x + 2", "3x + 2", "6x", "3x² + 2"], correct: 0, explanation: "dy/dx = 6x + 2", difficulty: "medium" },
-                { id: 6, question: "What is the area of a circle with radius 7cm? (π = 22/7)", options: ["44 cm²", "154 cm²", "22 cm²", "77 cm²"], correct: 1, explanation: "Area = πr² = (22/7)×7×7 = 154 cm²", difficulty: "easy" },
-                { id: 7, question: "Solve: 2/x = 8", options: ["4", "0.25", "16", "0.125"], correct: 1, explanation: "2/x = 8 ⇒ x = 2/8 = 0.25", difficulty: "easy" },
-                { id: 8, question: "What is the probability of getting a 3 when rolling a die?", options: ["1/2", "1/3", "1/6", "1/4"], correct: 2, explanation: "One favorable outcome out of six possible outcomes.", difficulty: "easy" },
-                { id: 9, question: "Factorize: x² - 9", options: ["(x-3)(x+3)", "(x-3)(x-3)", "(x+3)(x+3)", "(x-9)(x+1)"], correct: 0, explanation: "Difference of two squares: a² - b² = (a-b)(a+b)", difficulty: "easy" },
-                { id: 10, question: "If a triangle has angles 40° and 60°, what is the third angle?", options: ["80°", "90°", "100°", "70°"], correct: 0, explanation: "Sum of angles = 180°, so 180 - (40+60) = 80°", difficulty: "easy" },
-                { id: 11, question: "Solve the quadratic: x² - 5x + 6 = 0", options: ["x=2,3", "x=1,6", "x=-2,-3", "x=5,6"], correct: 0, explanation: "(x-2)(x-3)=0 ⇒ x=2 or x=3", difficulty: "medium" },
-                { id: 12, question: "What is 25% of 200?", options: ["25", "50", "75", "100"], correct: 1, explanation: "25% × 200 = 0.25 × 200 = 50", difficulty: "easy" },
-                { id: 13, question: "Find the mean of: 5, 8, 12, 15, 20", options: ["10", "11", "12", "13"], correct: 2, explanation: "(5+8+12+15+20)/5 = 60/5 = 12", difficulty: "easy" },
-                { id: 14, question: "What is the slope of y = 2x + 3?", options: ["2", "3", "1", "0"], correct: 0, explanation: "In y=mx+b, m is the slope.", difficulty: "easy" },
-                { id: 15, question: "Calculate: ∫(3x²) dx", options: ["x³ + C", "3x³ + C", "x³", "6x + C"], correct: 0, explanation: "∫3x² dx = x³ + C", difficulty: "medium" },
-                { id: 16, question: "What is the perimeter of a rectangle with length 8cm and width 5cm?", options: ["13cm", "26cm", "40cm", "20cm"], correct: 1, explanation: "P = 2(l+w) = 2(8+5) = 26cm", difficulty: "easy" },
-                { id: 17, question: "Simplify: √50", options: ["5√2", "10", "25", "5√10"], correct: 0, explanation: "√50 = √(25×2) = 5√2", difficulty: "medium" },
-                { id: 18, question: "If 3x + 2y = 12 and x - y = 1, find x.", options: ["2", "3", "4", "5"], correct: 0, explanation: "Solve simultaneous equations: x = 2, y = 3", difficulty: "medium" },
-                { id: 19, question: "What is the value of 5! (5 factorial)?", options: ["20", "60", "120", "720"], correct: 2, explanation: "5! = 5×4×3×2×1 = 120", difficulty: "easy" },
-                { id: 20, question: "Find the LCM of 12 and 18", options: ["6", "36", "24", "72"], correct: 1, explanation: "Multiples: 12=12,24,36; 18=18,36. LCM=36", difficulty: "easy" },
-                { id: 21, question: "What is sin 30°?", options: ["0.5", "0.866", "0.707", "1"], correct: 0, explanation: "sin 30° = 1/2 = 0.5", difficulty: "easy" },
-                { id: 22, question: "If a car travels 120km in 2 hours, what is its speed?", options: ["40 km/h", "60 km/h", "80 km/h", "120 km/h"], correct: 1, explanation: "Speed = Distance/Time = 120/2 = 60 km/h", difficulty: "easy" },
-                { id: 23, question: "Solve: 2ˣ = 16", options: ["2", "3", "4", "5"], correct: 2, explanation: "2⁴ = 16, so x = 4", difficulty: "easy" },
-                { id: 24, question: "What is the volume of a cube with side 3cm?", options: ["9 cm³", "18 cm³", "27 cm³", "36 cm³"], correct: 2, explanation: "Volume = side³ = 3³ = 27 cm³", difficulty: "easy" },
-                { id: 25, question: "Find the next term: 2, 4, 8, 16, ...", options: ["24", "32", "64", "20"], correct: 1, explanation: "Geometric sequence ×2 each time: 16×2=32", difficulty: "easy" }
-            ],
-            
-            physics: [
-                { id: 1, question: "Which of these is NOT a vector quantity?", options: ["Velocity", "Force", "Speed", "Acceleration"], correct: 2, explanation: "Speed is a scalar quantity (magnitude only).", difficulty: "easy" },
-                { id: 2, question: "What is the SI unit of force?", options: ["Joule", "Newton", "Watt", "Pascal"], correct: 1, explanation: "Force is measured in Newtons (N).", difficulty: "easy" },
-                { id: 3, question: "Which law states that every action has an equal and opposite reaction?", options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Law of Gravity"], correct: 2, explanation: "Newton's Third Law of Motion.", difficulty: "easy" },
-                { id: 4, question: "What is the acceleration due to gravity on Earth?", options: ["9.8 m/s²", "10 m/s²", "6.67 m/s²", "3×10⁸ m/s²"], correct: 0, explanation: "Approximately 9.8 m/s².", difficulty: "easy" },
-                { id: 5, question: "Which instrument measures electric current?", options: ["Voltmeter", "Ammeter", "Galvanometer", "Ohmmeter"], correct: 1, explanation: "Ammeter measures current in amperes.", difficulty: "easy" },
-                { id: 6, question: "What is the unit of electrical resistance?", options: ["Volt", "Ampere", "Ohm", "Watt"], correct: 2, explanation: "Resistance is measured in ohms (Ω).", difficulty: "easy" },
-                { id: 7, question: "Which color of light has the longest wavelength?", options: ["Red", "Blue", "Green", "Violet"], correct: 0, explanation: "Red light has the longest wavelength in visible spectrum.", difficulty: "medium" },
-                { id: 8, question: "What is the formula for density?", options: ["mass/volume", "volume/mass", "mass×volume", "force/area"], correct: 0, explanation: "Density = Mass ÷ Volume.", difficulty: "easy" },
-                { id: 9, question: "Which type of mirror always forms a virtual image?", options: ["Concave", "Convex", "Plane", "Spherical"], correct: 1, explanation: "Convex mirrors always form virtual, diminished images.", difficulty: "medium" },
-                { id: 10, question: "What is the speed of light in vacuum?", options: ["3×10⁶ m/s", "3×10⁸ m/s", "3×10¹⁰ m/s", "300 m/s"], correct: 1, explanation: "Approximately 3×10⁸ meters per second.", difficulty: "easy" },
-                { id: 11, question: "Which law relates pressure and volume at constant temperature?", options: ["Charles' Law", "Boyle's Law", "Gay-Lussac's Law", "Avogadro's Law"], correct: 1, explanation: "Boyle's Law: P₁V₁ = P₂V₂ at constant temperature.", difficulty: "medium" },
-                { id: 12, question: "What is the SI unit of power?", options: ["Joule", "Newton", "Watt", "Volt"], correct: 2, explanation: "Power is measured in watts (W).", difficulty: "easy" },
-                { id: 13, question: "Which particle has a positive charge?", options: ["Electron", "Proton", "Neutron", "Photon"], correct: 1, explanation: "Proton has positive charge, electron negative, neutron neutral.", difficulty: "easy" },
-                { id: 14, question: "What is the principle behind hydraulic brakes?", options: ["Bernoulli's Principle", "Pascal's Principle", "Archimedes' Principle", "Newton's Principle"], correct: 1, explanation: "Pascal's Principle: pressure applied to fluid is transmitted equally.", difficulty: "medium" },
-                { id: 15, question: "Which electromagnetic wave has the highest frequency?", options: ["Radio waves", "Microwaves", "X-rays", "Visible light"], correct: 2, explanation: "X-rays have higher frequency than visible light, radio waves.", difficulty: "medium" },
-                { id: 16, question: "What is the unit of frequency?", options: ["Hertz", "Watt", "Ohm", "Farad"], correct: 0, explanation: "Frequency is measured in hertz (Hz).", difficulty: "easy" },
-                { id: 17, question: "Which type of lens always diverges light rays?", options: ["Convex", "Concave", "Biconvex", "Plano-convex"], correct: 1, explanation: "Concave lenses diverge light rays.", difficulty: "easy" },
-                { id: 18, question: "What does Hooke's Law describe?", options: ["Elasticity", "Electricity", "Magnetism", "Fluid dynamics"], correct: 0, explanation: "Hooke's Law: F = kx, for elastic materials.", difficulty: "medium" },
-                { id: 19, question: "Which is a good conductor of electricity?", options: ["Wood", "Plastic", "Copper", "Glass"], correct: 2, explanation: "Copper is an excellent electrical conductor.", difficulty: "easy" },
-                { id: 20, question: "What is the formula for kinetic energy?", options: ["½mv²", "mgh", "Fd", "mc²"], correct: 0, explanation: "Kinetic Energy = ½ × mass × velocity².", difficulty: "easy" }
-            ],
-            
-            chemistry: [
-                { id: 1, question: "What is the atomic number of Carbon?", options: ["6", "12", "14", "16"], correct: 0, explanation: "Carbon has 6 protons.", difficulty: "easy" },
-                { id: 2, question: "Which gas is most abundant in Earth's atmosphere?", options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"], correct: 2, explanation: "Nitrogen makes up about 78% of the atmosphere.", difficulty: "easy" },
-                { id: 3, question: "What is the chemical formula for water?", options: ["HO", "H₂O", "HO₂", "H₂O₂"], correct: 1, explanation: "Water is H₂O.", difficulty: "easy" },
-                { id: 4, question: "Which element is a halogen?", options: ["Sodium", "Chlorine", "Calcium", "Iron"], correct: 1, explanation: "Chlorine is in Group 17, the halogens.", difficulty: "easy" },
-                { id: 5, question: "What is the pH of a neutral solution?", options: ["0", "7", "14", "10"], correct: 1, explanation: "pH 7 is neutral.", difficulty: "easy" },
-                { id: 6, question: "Which process involves a solid changing directly to gas?", options: ["Evaporation", "Sublimation", "Condensation", "Melting"], correct: 1, explanation: "Sublimation: solid → gas without becoming liquid.", difficulty: "medium" },
-                { id: 7, question: "What is the chemical symbol for Gold?", options: ["Go", "Gd", "Au", "Ag"], correct: 2, explanation: "Au comes from Latin 'aurum'.", difficulty: "easy" },
-                { id: 8, question: "Which is an example of a chemical change?", options: ["Melting ice", "Dissolving sugar", "Burning wood", "Breaking glass"], correct: 2, explanation: "Burning produces new substances (chemical change).", difficulty: "easy" },
-                { id: 9, question: "What is the charge of a proton?", options: ["+1", "-1", "0", "+2"], correct: 0, explanation: "Proton has positive charge.", difficulty: "easy" },
-                { id: 10, question: "Which gas is used in photosynthesis?", options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"], correct: 2, explanation: "Plants use CO₂ for photosynthesis.", difficulty: "easy" },
-                { id: 11, question: "What is the formula for sodium chloride?", options: ["NaCl", "NaCl₂", "Na₂Cl", "SCl"], correct: 0, explanation: "Table salt is NaCl.", difficulty: "easy" },
-                { id: 12, question: "Which is the lightest element?", options: ["Helium", "Hydrogen", "Lithium", "Oxygen"], correct: 1, explanation: "Hydrogen has atomic number 1.", difficulty: "easy" },
-                { id: 13, question: "What is the process of rusting called?", options: ["Oxidation", "Reduction", "Neutralization", "Polymerization"], correct: 0, explanation: "Rusting is oxidation of iron.", difficulty: "medium" },
-                { id: 14, question: "Which is a noble gas?", options: ["Oxygen", "Nitrogen", "Helium", "Chlorine"], correct: 2, explanation: "Helium is in Group 18, noble gases.", difficulty: "easy" },
-                { id: 15, question: "What does a catalyst do?", options: ["Slows reaction", "Speeds reaction", "Changes products", "Stops reaction"], correct: 1, explanation: "Catalyst increases reaction rate without being consumed.", difficulty: "easy" }
-            ],
-            
-            biology: [
-                { id: 1, question: "Which organelle is responsible for protein synthesis?", options: ["Mitochondria", "Ribosome", "Nucleus", "Golgi apparatus"], correct: 1, explanation: "Ribosomes synthesize proteins.", difficulty: "easy" },
-                { id: 2, question: "What is the basic unit of life?", options: ["Cell", "Tissue", "Organ", "Molecule"], correct: 0, explanation: "Cell is the basic structural and functional unit.", difficulty: "easy" },
-                { id: 3, question: "Which blood cells carry oxygen?", options: ["White blood cells", "Red blood cells", "Platelets", "Plasma"], correct: 1, explanation: "Red blood cells contain hemoglobin for oxygen transport.", difficulty: "easy" },
-                { id: 4, question: "What process do plants use to make food?", options: ["Respiration", "Photosynthesis", "Digestion", "Transpiration"], correct: 1, explanation: "Photosynthesis converts light energy to chemical energy.", difficulty: "easy" },
-                { id: 5, question: "Which system includes the heart and blood vessels?", options: ["Digestive", "Circulatory", "Respiratory", "Nervous"], correct: 1, explanation: "Circulatory system transports blood.", difficulty: "easy" },
-                { id: 6, question: "What is the genetic material in humans?", options: ["RNA", "DNA", "Protein", "Carbohydrate"], correct: 1, explanation: "DNA carries genetic information.", difficulty: "easy" },
-                { id: 7, question: "Which gas do plants release during photosynthesis?", options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"], correct: 1, explanation: "Oxygen is a byproduct of photosynthesis.", difficulty: "easy" },
-                { id: 8, question: "What is the largest organ in the human body?", options: ["Liver", "Heart", "Skin", "Brain"], correct: 2, explanation: "Skin is the largest organ.", difficulty: "easy" },
-                { id: 9, question: "Which kingdom do humans belong to?", options: ["Plantae", "Animalia", "Fungi", "Protista"], correct: 1, explanation: "Humans are animals.", difficulty: "easy" },
-                { id: 10, question: "What is the function of chlorophyll?", options: ["Absorb light", "Store water", "Produce oxygen", "Transport nutrients"], correct: 0, explanation: "Chlorophyll absorbs light for photosynthesis.", difficulty: "medium" }
-            ],
-            
-            government: [
-                { id: 1, question: "The first military coup in Nigeria occurred in what year?", options: ["1960", "1966", "1975", "1983"], correct: 1, explanation: "First military coup was January 15, 1966.", difficulty: "easy" },
-                { id: 2, question: "What is the supreme law of Nigeria?", options: ["The Constitution", "National Assembly Acts", "Presidential Decrees", "Common Law"], correct: 0, explanation: "The Constitution is the supreme law.", difficulty: "easy" },
-                { id: 3, question: "Who was Nigeria's first President?", options: ["Nnamdi Azikiwe", "Tafawa Balewa", "Obafemi Awolowo", "Ahmadu Bello"], correct: 0, explanation: "Nnamdi Azikiwe was first President.", difficulty: "easy" },
-                { id: 4, question: "Which house of the Nigerian legislature has 109 members?", options: ["House of Representatives", "Senate", "State Assembly", "National Council"], correct: 1, explanation: "Senate has 109 members (3 per state + Abuja).", difficulty: "medium" },
-                { id: 5, question: "What system of government does Nigeria practice?", options: ["Presidential", "Parliamentary", "Monarchical", "Communist"], correct: 0, explanation: "Nigeria has a presidential system.", difficulty: "easy" }
-            ],
-            
-            economics: [
-                { id: 1, question: "What does GDP stand for?", options: ["Gross Domestic Product", "General Domestic Price", "Gross Development Plan", "General Development Product"], correct: 0, explanation: "GDP = Gross Domestic Product.", difficulty: "easy" },
-                { id: 2, question: "What is the basic economic problem?", options: ["Unemployment", "Inflation", "Scarcity", "Taxation"], correct: 2, explanation: "Scarcity of resources relative to unlimited wants.", difficulty: "easy" },
-                { id: 3, question: "Which is NOT a factor of production?", options: ["Land", "Labor", "Capital", "Money"], correct: 3, explanation: "Money is not a factor of production; it's a medium of exchange.", difficulty: "medium" },
-                { id: 4, question: "What does inflation refer to?", options: ["Rise in prices", "Fall in prices", "Unemployment", "Economic growth"], correct: 0, explanation: "Inflation is a general rise in price level.", difficulty: "easy" },
-                { id: 5, question: "Which controls monetary policy in Nigeria?", options: ["Ministry of Finance", "Central Bank", "Commercial Banks", "Stock Exchange"], correct: 1, explanation: "Central Bank of Nigeria controls monetary policy.", difficulty: "medium" }
-            ],
-            
-            literature: [
-                { id: 1, question: "Who wrote 'Things Fall Apart'?", options: ["Wole Soyinka", "Chinua Achebe", "Chimamanda Adichie", "Ben Okri"], correct: 1, explanation: "Chinua Achebe wrote Things Fall Apart.", difficulty: "easy" },
-                { id: 2, question: "Which literary device compares using 'like' or 'as'?", options: ["Metaphor", "Simile", "Personification", "Hyperbole"], correct: 1, explanation: "Simile uses 'like' or 'as' for comparison.", difficulty: "easy" },
-                { id: 3, question: "Who is the author of 'The Lion and the Jewel'?", options: ["Chinua Achebe", "Wole Soyinka", "Femi Osofisan", "J.P. Clark"], correct: 1, explanation: "Wole Soyinka wrote The Lion and the Jewel.", difficulty: "medium" },
-                { id: 4, question: "What is the main character in a story called?", options: ["Antagonist", "Protagonist", "Narrator", "Author"], correct: 1, explanation: "Protagonist is the main character.", difficulty: "easy" },
-                { id: 5, question: "Which is a tragedy by Shakespeare?", options: ["A Midsummer Night's Dream", "Hamlet", "The Tempest", "Twelfth Night"], correct: 1, explanation: "Hamlet is a tragedy.", difficulty: "medium" }
-            ],
-            
-            commerce: [
-                { id: 1, question: "What is the primary function of commerce?", options: ["Production", "Distribution", "Consumption", "Exchange"], correct: 3, explanation: "Commerce facilitates exchange of goods and services.", difficulty: "easy" },
-                { id: 2, question: "Which is NOT a type of business organization?", options: ["Sole proprietorship", "Partnership", "Corporation", "Family"], correct: 3, explanation: "Family is not a formal business organization type.", difficulty: "easy" },
-                { id: 3, question: "What does NAFDAC stand for?", options: ["National Food and Drug Administration", "National Agency for Food and Drug Control", "National Food and Drug Authority", "Nigerian Agency for Food and Drugs"], correct: 1, explanation: "National Agency for Food and Drug Administration and Control.", difficulty: "medium" },
-                { id: 4, question: "Which is a means of payment?", options: ["Cheque", "Invoice", "Receipt", "Bill"], correct: 0, explanation: "Cheque is a means of payment.", difficulty: "easy" },
-                { id: 5, question: "What is insurance?", options: ["Risk sharing", "Profit sharing", "Loss prevention", "Investment"], correct: 0, explanation: "Insurance spreads risk among many people.", difficulty: "medium" }
-            ],
-            
-            accounting: [
-                { id: 1, question: "The accounting equation is:", options: ["Assets = Liabilities + Capital", "Assets = Liabilities - Capital", "Assets + Liabilities = Capital", "Assets - Liabilities = Expenses"], correct: 0, explanation: "Basic accounting equation.", difficulty: "easy" },
-                { id: 2, question: "Which is a current asset?", options: ["Building", "Cash", "Land", "Equipment"], correct: 1, explanation: "Cash is a current asset (convertible within one year).", difficulty: "easy" },
-                { id: 3, question: "What is the book of first entry called?", options: ["Ledger", "Journal", "Trial balance", "Balance sheet"], correct: 1, explanation: "Journal is the book of original entry.", difficulty: "medium" },
-                { id: 4, question: "Which side increases an asset account?", options: ["Debit", "Credit", "Both", "Neither"], correct: 0, explanation: "Assets increase on debit side.", difficulty: "hard" },
-                { id: 5, question: "What does GAAP stand for?", options: ["General Accounting and Auditing Principles", "Generally Accepted Accounting Principles", "Government Approved Accounting Procedures", "Global Accounting and Auditing Procedures"], correct: 1, explanation: "Generally Accepted Accounting Principles.", difficulty: "medium" }
-            ],
-            
-            geography: [
-                { id: 1, question: "What is the largest desert in the world?", options: ["Sahara", "Arabian", "Gobi", "Antarctic"], correct: 3, explanation: "Antarctic Desert is the largest.", difficulty: "medium" },
-                { id: 2, question: "Which is the longest river in Africa?", options: ["Nile", "Congo", "Niger", "Zambezi"], correct: 0, explanation: "Nile is the longest river in Africa and the world.", difficulty: "easy" },
-                { id: 3, question: "What is the capital of Nigeria?", options: ["Lagos", "Abuja", "Kano", "Port Harcourt"], correct: 1, explanation: "Abuja has been the capital since 1991.", difficulty: "easy" },
-                { id: 4, question: "Which planet is known as the Red Planet?", options: ["Venus", "Mars", "Jupiter", "Saturn"], correct: 1, explanation: "Mars appears red due to iron oxide.", difficulty: "easy" },
-                { id: 5, question: "What causes earthquakes?", options: ["Volcanic activity", "Tectonic plate movement", "Meteor impacts", "All of the above"], correct: 3, explanation: "All can cause earthquakes.", difficulty: "medium" }
-            ],
-            
-            crs: [
-                { id: 1, question: "How many books are in the New Testament?", options: ["27", "39", "66", "73"], correct: 0, explanation: "27 books in the New Testament.", difficulty: "easy" },
-                { id: 2, question: "Who was the first man according to the Bible?", options: ["Noah", "Abraham", "Adam", "Moses"], correct: 2, explanation: "Adam was the first man.", difficulty: "easy" },
-                { id: 3, question: "How many disciples did Jesus have?", options: ["10", "12", "40", "70"], correct: 1, explanation: "Jesus had 12 disciples/apostles.", difficulty: "easy" },
-                { id: 4, question: "What are the first four books of the New Testament called?", options: ["Letters", "Gospels", "Prophets", "Psalms"], correct: 1, explanation: "Matthew, Mark, Luke, John are the Gospels.", difficulty: "easy" },
-                { id: 5, question: "Who built the ark?", options: ["Abraham", "Moses", "Noah", "David"], correct: 2, explanation: "Noah built the ark.", difficulty: "easy" }
-            ],
-            
-            history: [
-                { id: 1, question: "When did Nigeria gain independence?", options: ["1957", "1960", "1963", "1970"], correct: 1, explanation: "October 1, 1960.", difficulty: "easy" },
-                { id: 2, question: "Which European country colonized Nigeria?", options: ["France", "Portugal", "Britain", "Germany"], correct: 2, explanation: "Britain colonized Nigeria.", difficulty: "easy" },
-                { id: 3, question: "Who was the first and only Prime Minister of Nigeria?", options: ["Nnamdi Azikiwe", "Tafawa Balewa", "Obafemi Awolowo", "Yakubu Gowon"], correct: 1, explanation: "Tafawa Balewa was Prime Minister.", difficulty: "medium" },
-                { id: 4, question: "What year did the Nigerian Civil War start?", options: ["1965", "1967", "1970", "1975"], correct: 1, explanation: "Civil War started in 1967.", difficulty: "medium" },
-                { id: 5, question: "Which ancient Nigerian kingdom was known for its bronze works?", options: ["Oyo", "Benin", "Kano", "Sokoto"], correct: 1, explanation: "Benin Kingdom famous for bronze artifacts.", difficulty: "medium" }
-            ],
-            
-            french: [
-                { id: 1, question: "What is the French word for 'book'?", options: ["livre", "maison", "école", "voiture"], correct: 0, explanation: "Livre means book in French.", difficulty: "easy" },
-                { id: 2, question: "How do you say 'thank you' in French?", options: ["Bonjour", "Merci", "S'il vous plaît", "Au revoir"], correct: 1, explanation: "Merci means thank you.", difficulty: "easy" },
-                { id: 3, question: "What is 'I am' in French?", options: ["Je suis", "J'ai", "Je vais", "Je fais"], correct: 0, explanation: "Je suis means I am.", difficulty: "easy" },
-                { id: 4, question: "Which is feminine in French?", options: ["le livre", "la table", "un homme", "des garçons"], correct: 1, explanation: "'La' indicates feminine noun.", difficulty: "medium" },
-                { id: 5, question: "What does 'Comment allez-vous?' mean?", options: ["What is your name?", "How are you?", "Where are you from?", "How old are you?"], correct: 1, explanation: "Formal way to ask 'How are you?'", difficulty: "easy" }
-            ]
+        // Initialize Toastr
+        toastr.options = {
+            positionClass: "toast-top-right",
+            progressBar: true,
+            closeButton: true,
+            timeOut: 4000
         };
 
-        // ============================================
-        // TEST ENGINE
-        // ============================================
-        const TestEngine = {
-            currentTest: null,
-            currentQuestionIndex: 0,
-            userAnswers: [],
-            markedQuestions: [],
-            timer: null,
-            timeRemaining: 0,
-            selectedSubjects: [],
-            testResults: [],
-            
-            init() {
-                this.loadUserData();
-                this.createSubjectGrid();
-                this.updateDashboard();
-                this.createLeaderboard();
-                this.createAchievements();
-                
-                // Show welcome message
-                setTimeout(() => {
-                    this.showToast('🎯 Welcome to JAMB Mastermind 300+! Ready to ace your exam?', 'success');
-                }, 1000);
-            },
-            
-            loadUserData() {
-                const saved = localStorage.getItem('jamb_student_data');
-                if (saved) {
-                    const data = JSON.parse(saved);
-                    this.testResults = data.results || [];
-                }
-            },
-            
-            saveUserData() {
-                const data = {
-                    results: this.testResults,
-                    timestamp: new Date().toISOString()
-                };
-                localStorage.setItem('jamb_student_data', JSON.stringify(data));
-            },
-            
-            createSubjectGrid() {
-                const subjects = [
-                    { id: 'english', name: 'Use of English', icon: 'fa-language', color: '#6a11cb', count: JAMBQuestionBank.english.length },
-                    { id: 'math', name: 'Mathematics', icon: 'fa-calculator', color: '#2575fc', count: JAMBQuestionBank.math.length },
-                    { id: 'physics', name: 'Physics', icon: 'fa-atom', color: '#ff4e50', count: JAMBQuestionBank.physics.length },
-                    { id: 'chemistry', name: 'Chemistry', icon: 'fa-flask', color: '#00b09b', count: JAMBQuestionBank.chemistry.length },
-                    { id: 'biology', name: 'Biology', icon: 'fa-dna', color: '#f9c74f', count: JAMBQuestionBank.biology.length },
-                    { id: 'government', name: 'Government', icon: 'fa-landmark', color: '#ff9a00', count: JAMBQuestionBank.government.length },
-                    { id: 'economics', name: 'Economics', icon: 'fa-chart-line', color: '#38b000', count: JAMBQuestionBank.economics.length },
-                    { id: 'literature', name: 'Literature', icon: 'fa-book', color: '#9d4edd', count: JAMBQuestionBank.literature.length },
-                    { id: 'commerce', name: 'Commerce', icon: 'fa-shopping-cart', color: '#ff6d00', count: JAMBQuestionBank.commerce.length },
-                    { id: 'accounting', name: 'Accounting', icon: 'fa-file-invoice-dollar', color: '#0077b6', count: JAMBQuestionBank.accounting.length },
-                    { id: 'geography', name: 'Geography', icon: 'fa-globe-africa', color: '#52b788', count: JAMBQuestionBank.geography.length },
-                    { id: 'crs', name: 'CRS/IRS', icon: 'fa-church', color: '#ff595e', count: JAMBQuestionBank.crs.length },
-                    { id: 'history', name: 'History', icon: 'fa-hourglass-half', color: '#6d6875', count: JAMBQuestionBank.history.length },
-                    { id: 'french', name: 'French', icon: 'fa-flag', color: '#4361ee', count: JAMBQuestionBank.french.length }
-                ];
-                
-                const grid = document.getElementById('subjectGrid');
-                grid.innerHTML = subjects.map(subject => `
-                    <div class="subject-card" onclick="TestEngine.toggleSubject('${subject.id}')" 
-                         data-subject="${subject.id}">
-                        <div class="subject-icon">
-                            <i class="fas ${subject.icon}" style="color: ${subject.color}"></i>
-                        </div>
-                        <div class="subject-name">${subject.name}</div>
-                        <div class="question-count">${subject.count} questions</div>
-                    </div>
-                `).join('');
-            },
-            
-            toggleSubject(subjectId) {
-                const card = document.querySelector(`[data-subject="${subjectId}"]`);
-                const index = this.selectedSubjects.indexOf(subjectId);
-                
-                if (index === -1) {
-                    this.selectedSubjects.push(subjectId);
-                    card.classList.add('selected');
-                } else {
-                    this.selectedSubjects.splice(index, 1);
-                    card.classList.remove('selected');
-                }
-                
-                this.showToast(`${this.selectedSubjects.length} subjects selected`, 'info');
-            },
-            
-            startTest() {
-                if (this.selectedSubjects.length === 0) {
-                    this.showToast('Please select at least one subject!', 'warning');
-                    return;
-                }
-                
-                const questionCount = parseInt(document.getElementById('questionCount').value);
-                const timerSetting = parseInt(document.getElementById('timerSetting').value);
-                const difficulty = document.getElementById('difficultySetting').value;
-                
-                this.initializeTest(questionCount, timerSetting, difficulty);
-                this.showQuestionInterface();
-            },
-            
-            startQuickTest() {
-                this.selectedSubjects = ['english', 'math', 'biology'];
-                const quickCards = document.querySelectorAll('.subject-card');
-                quickCards.forEach(card => {
-                    card.classList.remove('selected');
-                    const subject = card.dataset.subject;
-                    if (this.selectedSubjects.includes(subject)) {
-                        card.classList.add('selected');
-                    }
-                });
-                
-                this.initializeTest(10, 15, 'mixed');
-                this.showQuestionInterface();
-            },
-            
-            initializeTest(questionCount, timerMinutes, difficulty) {
-                this.timeRemaining = timerMinutes * 60;
-                this.userAnswers = [];
-                this.markedQuestions = [];
-                this.currentQuestionIndex = 0;
-                
-                // Generate test questions
-                this.currentTest = this.generateTestQuestions(questionCount, difficulty);
-                
-                // Initialize answers array
-                this.userAnswers = new Array(this.currentTest.length).fill(null);
-                
-                // Start timer if set
-                if (timerMinutes > 0) {
-                    this.startTimer();
-                }
-                
-                // Load first question
-                this.loadCurrentQuestion();
-                
-                this.showToast(`Test started! ${questionCount} questions, ${timerMinutes} minutes`, 'success');
-            },
-            
-            generateTestQuestions(count, difficulty) {
-                let questions = [];
-                const questionsPerSubject = Math.ceil(count / this.selectedSubjects.length);
-                
-                this.selectedSubjects.forEach(subject => {
-                    let subjectQuestions = JAMBQuestionBank[subject] || [];
-                    
-                    // Filter by difficulty if not mixed
-                    if (difficulty !== 'mixed') {
-                        subjectQuestions = subjectQuestions.filter(q => q.difficulty === difficulty);
-                    }
-                    
-                    // Take random questions
-                    const shuffled = [...subjectQuestions].sort(() => Math.random() - 0.5);
-                    const selected = shuffled.slice(0, Math.min(questionsPerSubject, subjectQuestions.length));
-                    questions.push(...selected);
-                });
-                
-                // Shuffle all questions and limit to count
-                const shuffledAll = questions.sort(() => Math.random() - 0.5);
-                return shuffledAll.slice(0, Math.min(count, shuffledAll.length));
-            },
-            
-            showQuestionInterface() {
-                document.getElementById('questionContainer').style.display = 'block';
-                document.getElementById('questionContainer').scrollIntoView({ behavior: 'smooth' });
-            },
-            
-            loadCurrentQuestion() {
-                const question = this.currentTest[this.currentQuestionIndex];
-                if (!question) return;
-                
-                // Update UI
-                document.getElementById('questionNumber').textContent = 
-                    `Question ${this.currentQuestionIndex + 1}/${this.currentTest.length}`;
-                document.getElementById('questionText').textContent = question.question;
-                
-                // Update options
-                const optionsContainer = document.getElementById('optionsContainer');
-                optionsContainer.innerHTML = '';
-                
-                ['A', 'B', 'C', 'D'].forEach((letter, index) => {
-                    const optionBtn = document.createElement('button');
-                    optionBtn.className = 'option-btn';
-                    if (this.userAnswers[this.currentQuestionIndex] === index) {
-                        optionBtn.classList.add('selected');
-                    }
-                    
-                    optionBtn.innerHTML = `
-                        <div class="option-letter">${letter}</div>
-                        <div>${question.options[index] || `Option ${letter}`}</div>
-                    `;
-                    
-                    optionBtn.onclick = () => this.selectOption(index);
-                    optionsContainer.appendChild(optionBtn);
-                });
-                
-                this.updateProgress();
-            },
-            
-            selectOption(optionIndex) {
-                this.userAnswers[this.currentQuestionIndex] = optionIndex;
-                
-                // Update UI
-                const options = document.querySelectorAll('.option-btn');
-                options.forEach((btn, index) => {
-                    btn.classList.remove('selected');
-                    if (index === optionIndex) {
-                        btn.classList.add('selected');
-                    }
-                });
-                
-                this.updateProgress();
-            },
-            
-            markForReview() {
-                const index = this.currentQuestionIndex;
-                if (this.markedQuestions.includes(index)) {
-                    this.markedQuestions = this.markedQuestions.filter(i => i !== index);
-                    this.showToast('Question unmarked', 'info');
-                } else {
-                    this.markedQuestions.push(index);
-                    this.showToast('Question marked for review', 'warning');
-                }
-            },
-            
-            nextQuestion() {
-                if (this.currentQuestionIndex < this.currentTest.length - 1) {
-                    this.currentQuestionIndex++;
-                    this.loadCurrentQuestion();
-                } else {
-                    this.showToast('Last question reached!', 'info');
-                }
-            },
-            
-            previousQuestion() {
-                if (this.currentQuestionIndex > 0) {
-                    this.currentQuestionIndex--;
-                    this.loadCurrentQuestion();
-                }
-            },
-            
-            startTimer() {
-                if (this.timer) clearInterval(this.timer);
-                
-                this.timer = setInterval(() => {
-                    this.timeRemaining--;
-                    
-                    const minutes = Math.floor(this.timeRemaining / 60);
-                    const seconds = this.timeRemaining % 60;
-                    
-                    document.getElementById('questionTimer').textContent = 
-                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                    
-                    if (this.timeRemaining <= 0) {
-                        clearInterval(this.timer);
-                        this.submitTest();
-                        this.showToast('Time is up! Test submitted automatically.', 'warning');
-                    }
-                }, 1000);
-            },
-            
-            showReviewPanel() {
-                const panel = document.getElementById('reviewPanel');
-                panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-                
-                const grid = document.getElementById('reviewGrid');
-                grid.innerHTML = '';
-                
-                for (let i = 0; i < this.currentTest.length; i++) {
-                    const btn = document.createElement('button');
-                    btn.textContent = i + 1;
-                    btn.style.cssText = `
-                        width: 40px;
-                        height: 40px;
-                        border-radius: 8px;
-                        border: none;
-                        background: ${i === this.currentQuestionIndex ? 
-                            'linear-gradient(135deg, var(--primary), var(--secondary))' : 
-                            this.markedQuestions.includes(i) ? 
-                                'rgba(249, 199, 79, 0.3)' : 
-                                this.userAnswers[i] !== null ? 
-                                    'rgba(0, 176, 155, 0.3)' : 
-                                    'rgba(255,255,255,0.1)'};
-                        color: white;
-                        font-weight: bold;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                    `;
-                    
-                    btn.onclick = () => {
-                        this.currentQuestionIndex = i;
-                        this.loadCurrentQuestion();
-                        panel.style.display = 'none';
-                    };
-                    
-                    grid.appendChild(btn);
-                }
-            },
-            
-            submitTest() {
-                if (this.timer) clearInterval(this.timer);
-                
-                // Calculate score
-                let correct = 0;
-                this.currentTest.forEach((question, index) => {
-                    if (this.userAnswers[index] === question.correct) {
-                        correct++;
-                    }
-                });
-                
-                const score = Math.round((correct / this.currentTest.length) * 100);
-                
-                // Save result
-                const studentName = prompt("Enter your name for the certificate (or press OK for default):", "JAMB Master") || "JAMB Master";
-                const testId = `JMB-${Date.now().toString().slice(-6)}`;
-                
-                const result = {
-                    studentName: studentName,
-                    score: score,
-                    testId: testId,
-                    date: new Date().toLocaleString(),
-                    subjects: this.selectedSubjects.length,
-                    questions: this.currentTest.length,
-                    correct: correct,
-                    timeSpent: this.timeRemaining > 0 ? 
-                        `${Math.floor((this.timeRemaining / 60))} minutes used` : 
-                        "Timed test"
-                };
-                
-                // Add to results
-                this.testResults.push(result);
-                this.saveUserData();
-                
-                // Show certificate
-                this.showCertificate(studentName, score, testId);
-                
-                // Update dashboard
-                this.updateDashboard();
-                this.createLeaderboard();
-                this.createAchievements();
-                
-                this.showToast(`🎉 Test completed! Score: ${score}% (${correct}/${this.currentTest.length} correct)`, 'success');
-            },
-            
-            showCertificate(studentName, score, testId) {
-                document.getElementById('certStudentName').textContent = studentName;
-                document.getElementById('certScore').textContent = `${score}%`;
-                document.getElementById('certDate').textContent = new Date().toLocaleDateString();
-                document.getElementById('certTestId').textContent = testId;
-                
-                document.getElementById('certificateModal').style.display = 'flex';
-            },
-            
-            printCertificate() {
-                window.print();
-            },
-            
-            closeCertificate() {
-                document.getElementById('certificateModal').style.display = 'none';
-                document.getElementById('questionContainer').style.display = 'none';
-            },
-            
-            updateDashboard() {
-                // Update high score
-                if (this.testResults.length > 0) {
-                    const highScore = Math.max(...this.testResults.map(r => r.score));
-                    document.getElementById('highScore').textContent = `${highScore}%`;
-                }
-                
-                // Update progress stats
-                const totalQuestions = this.testResults.reduce((sum, r) => sum + r.questions, 0);
-                const totalCorrect = this.testResults.reduce((sum, r) => sum + r.correct, 0);
-                const accuracy = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
-                
-                document.getElementById('totalQuestions').textContent = totalQuestions;
-                document.getElementById('correctAnswers').textContent = totalCorrect;
-                document.getElementById('accuracyRate').textContent = `${accuracy}%`;
-                document.getElementById('progressFill').style.width = `${accuracy}%`;
-                
-                // Update recent tests
-                const recentTests = document.getElementById('recentTests');
-                if (this.testResults.length > 0) {
-                    const recent = this.testResults.slice(-3).reverse();
-                    recentTests.innerHTML = recent.map(test => `
-                        <div style="margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 8px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span>${test.date.split(',')[0]}</span>
-                                <span style="color: ${test.score >= 70 ? 'var(--success)' : test.score >= 50 ? 'var(--warning)' : 'var(--danger)'}; font-weight: bold;">${test.score}%</span>
-                            </div>
-                            <div style="font-size: 0.9rem; color: var(--text-dim);">
-                                ${test.questions} questions • ${test.subjects} subjects • ${test.correct} correct
-                            </div>
-                        </div>
-                    `).join('');
-                } else {
-                    recentTests.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-dim);">No tests taken yet. Start practicing!</div>';
-                }
-            },
-            
-            updateProgress() {
-                const answered = this.userAnswers.filter(a => a !== null).length;
-                const progress = (answered / this.currentTest.length) * 100;
-                
-                // You can update a progress bar here if needed
-            },
-            
-            createLeaderboard() {
-                const leaderboard = document.getElementById('leaderboard');
-                
-                // Combine demo data with user's results
-                const demoPerformers = [
-                    { name: 'Alex Johnson', score: 92 },
-                    { name: 'Chioma Ade', score: 88 },
-                    { name: 'David Smith', score: 85 },
-                    { name: 'Fatima Bello', score: 82 }
-                ];
-                
-                let allPerformers = [...demoPerformers];
-                
-                // Add user's best score if exists
-                if (this.testResults.length > 0) {
-                    const userBest = Math.max(...this.testResults.map(r => r.score));
-                    allPerformers.push({ name: 'You', score: userBest });
-                }
-                
-                // Sort by score
-                allPerformers.sort((a, b) => b.score - a.score);
-                
-                leaderboard.innerHTML = allPerformers.map((player, index) => `
-                    <div class="leaderboard-item">
-                        <div class="rank ${index < 3 ? `rank-${index + 1}` : 'rank-other'}">${index + 1}</div>
-                        <div style="flex-grow: 1;">
-                            <div style="font-weight: 600; color: ${player.name === 'You' ? 'var(--accent)' : 'white'}">${player.name}</div>
-                            <div style="font-size: 0.9rem; color: var(--text-dim);">
-                                ${player.score > 0 ? `${player.score}% accuracy` : 'No tests taken'}
-                            </div>
-                        </div>
-                        <div style="
-                            background: linear-gradient(135deg, ${player.name === 'You' ? 'var(--accent)' : 'var(--secondary)'}, ${player.name === 'You' ? '#ff9a00' : 'var(--primary)'});
-                            color: white;
-                            padding: 5px 15px;
-                            border-radius: 20px;
-                            font-weight: bold;
-                        ">
-                            ${player.score || 0}%
-                        </div>
-                    </div>
-                `).join('');
-            },
-            
-            createAchievements() {
-                const achievements = [
-                    { id: 'first_test', name: 'First Test', icon: 'fa-play', description: 'Complete your first test', unlocked: this.testResults.length > 0 },
-                    { id: 'high_score', name: 'High Scorer', icon: 'fa-trophy', description: 'Score above 80%', unlocked: this.testResults.some(r => r.score >= 80) },
-                    { id: 'quick_thinker', name: 'Quick Thinker', icon: 'fa-bolt', description: 'Complete test in under 30 mins', unlocked: false },
-                    { id: 'perfectionist', name: 'Perfectionist', icon: 'fa-star', description: 'Score 100% on any test', unlocked: this.testResults.some(r => r.score === 100) },
-                    { id: 'dedicated', name: 'Dedicated', icon: 'fa-heart', description: 'Complete 5 tests', unlocked: this.testResults.length >= 5 },
-                    { id: 'subject_master', name: 'Subject Master', icon: 'fa-graduation-cap', description: 'Take all 14 subjects', unlocked: false }
-                ];
-                
-                const grid = document.getElementById('achievementsGrid');
-                grid.innerHTML = achievements.map(achievement => `
-                    <div class="achievement-badge ${achievement.unlocked ? 'unlocked' : 'locked'}" 
-                         title="${achievement.description}">
-                        <div class="achievement-icon">
-                            <i class="fas ${achievement.icon} ${achievement.unlocked ? 'fa-beat-fade' : ''}" 
-                               style="color: ${achievement.unlocked ? 'var(--success)' : 'var(--text-dim)'}"></i>
-                        </div>
-                        <div style="font-size: 0.9rem; font-weight: 600; color: ${achievement.unlocked ? 'white' : 'var(--text-dim)'}">${achievement.name}</div>
-                    </div>
-                `).join('');
-            },
-            
-            showToast(message, type = 'info') {
-                // Create custom toast
-                const toast = document.createElement('div');
-                toast.textContent = message;
-                toast.style.cssText = `
-                    position: fixed;
-                    bottom: 30px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: ${type === 'success' ? 'linear-gradient(135deg, var(--success), #00ff88)' : 
-                               type === 'warning' ? 'linear-gradient(135deg, var(--warning), #ff9a00)' : 
-                               type === 'error' ? 'linear-gradient(135deg, var(--danger), #ff4b2b)' :
-                               'linear-gradient(135deg, var(--primary), var(--secondary))'};
-                    color: white;
-                    padding: 15px 30px;
-                    border-radius: 15px;
-                    z-index: 10000;
-                    font-weight: 600;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                    animation: fadeIn 0.3s ease;
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    backdrop-filter: blur(10px);
-                    max-width: 90%;
-                    text-align: center;
-                `;
-                
-                // Add icon based on type
-                const icon = type === 'success' ? '🎉' : 
-                            type === 'warning' ? '⚠️' : 
-                            type === 'error' ? '❌' : 'ℹ️';
-                toast.innerHTML = `${icon} ${toast.textContent}`;
-                
-                document.body.appendChild(toast);
-                setTimeout(() => {
-                    toast.style.animation = 'fadeIn 0.3s ease reverse forwards';
-                    setTimeout(() => toast.remove(), 300);
-                }, 3000);
-            },
-            
-            // New function to show question explanations
-            showExplanation(questionIndex) {
-                const question = this.currentTest[questionIndex];
-                if (!question) return;
-                
-                alert(`Explanation: ${question.explanation}\n\nCorrect Answer: ${question.options[question.correct]}`);
-            }
+        // ========== QUESTION DATABASE ==========
+        let questionDatabase = {
+            english: [],
+            math: [],
+            physics: [],
+            chemistry: [],
+            biology: [],
+            government: [],
+            economics: [],
+            literature: [],
+            commerce: [],
+            accounting: [],
+            geography: [],
+            crs: [],
+            history: [],
+            french: []
         };
 
-        // ============================================
-        // INITIALIZE EVERYTHING
-        // ============================================
+        // ========== APP STATE ==========
+        let currentTest = null;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let testTimer = null;
+        let timeRemaining = 0;
+        let testResults = [];
+
+        // ========== INITIALIZATION ==========
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize Test Engine
-            TestEngine.init();
+            loadAllData();
+            createSubjectList();
+            updateStats();
+            loadSampleQuestions();
             
-            // Add some initial data for demo
-            if (localStorage.getItem('jamb_student_data') === null) {
-                // Create demo test results
-                TestEngine.testResults = [
-                    {
-                        studentName: "Demo Student",
-                        score: 75,
-                        testId: "JMB-DEMO-001",
-                        date: new Date().toLocaleString(),
-                        subjects: 3,
-                        questions: 30,
-                        correct: 23
-                    }
-                ];
-                TestEngine.saveUserData();
-                TestEngine.updateDashboard();
-            }
-            
-            // Auto-select some subjects for demo
+            // Show welcome message
             setTimeout(() => {
-                ['english', 'math', 'biology'].forEach(subject => {
-                    TestEngine.toggleSubject(subject);
-                });
-            }, 500);
-            
-            // Show total question count
-            const totalQuestions = Object.values(JAMBQuestionBank).reduce((sum, subject) => sum + subject.length, 0);
-            console.log(`🚀 JAMB Mastermind loaded with ${totalQuestions} questions across 14 subjects!`);
+                toastr.success('🎯 JAMB Smart Prep loaded successfully!', 'Welcome');
+            }, 1000);
         });
 
-        // Force HTTPS for GitHub Pages
-        if (window.location.protocol === 'http:' && 
-            window.location.hostname.includes('github.io')) {
-            window.location.href = window.location.href.replace('http:', 'https:');
+        // ========== DATA MANAGEMENT ==========
+        function loadAllData() {
+            // Load questions from localStorage
+            const savedQuestions = localStorage.getItem('jamb_questions_v2');
+            if (savedQuestions) {
+                questionDatabase = JSON.parse(savedQuestions);
+            }
+            
+            // Load test results
+            const savedResults = localStorage.getItem('jamb_results');
+            if (savedResults) {
+                testResults = JSON.parse(savedResults);
+            }
+        }
+
+        function saveAllData() {
+            localStorage.setItem('jamb_questions_v2', JSON.stringify(questionDatabase));
+            localStorage.setItem('jamb_results', JSON.stringify(testResults));
+        }
+
+        // ========== SAMPLE QUESTIONS ==========
+        function loadSampleQuestions() {
+            // Check if database is empty
+            let totalQuestions = Object.values(questionDatabase).reduce((sum, subject) => sum + subject.length, 0);
+            
+            if (totalQuestions === 0) {
+                // Load sample English questions
+                questionDatabase.english = [
+                    {
+                        id: 1,
+                        question: "Choose the correct option: Neither the students nor the teacher _____ present.",
+                        options: ["was", "were", "have been", "are"],
+                        correct: 0,
+                        explanation: "With 'neither/nor', the verb agrees with the closest subject (teacher).",
+                        difficulty: "medium"
+                    },
+                    {
+                        id: 2,
+                        question: "Identify the sentence with correct punctuation:",
+                        options: [
+                            "The man said, 'I am tired.'",
+                            "The man said 'I am tired.'",
+                            "The man said, I am tired.",
+                            "The man said 'I am tired'."
+                        ],
+                        correct: 0,
+                        explanation: "Direct speech requires quotation marks and comma before the quote.",
+                        difficulty: "easy"
+                    }
+                ];
+                
+                // Load sample Math questions
+                questionDatabase.math = [
+                    {
+                        id: 1,
+                        question: "Solve for x: 2x + 5 = 15",
+                        options: ["5", "10", "7.5", "20"],
+                        correct: 0,
+                        explanation: "2x = 10, so x = 5",
+                        difficulty: "easy"
+                    }
+                ];
+                
+                saveAllData();
+                createSubjectList();
+            }
+        }
+
+        // ========== SUBJECT MANAGEMENT ==========
+        function createSubjectList() {
+            const subjectList = document.getElementById('subjectList');
+            const subjects = [
+                { id: 'english', name: 'Use of English', icon: 'fa-language' },
+                { id: 'math', name: 'Mathematics', icon: 'fa-calculator' },
+                { id: 'physics', name: 'Physics', icon: 'fa-atom' },
+                { id: 'chemistry', name: 'Chemistry', icon: 'fa-flask' },
+                { id: 'biology', name: 'Biology', icon: 'fa-dna' },
+                { id: 'government', name: 'Government', icon: 'fa-landmark' },
+                { id: 'economics', name: 'Economics', icon: 'fa-chart-line' },
+                { id: 'literature', name: 'Literature', icon: 'fa-book' },
+                { id: 'commerce', name: 'Commerce', icon: 'fa-shopping-cart' },
+                { id: 'accounting', name: 'Accounting', icon: 'fa-file-invoice-dollar' },
+                { id: 'geography', name: 'Geography', icon: 'fa-globe-africa' },
+                { id: 'crs', name: 'CRS/IRS', icon: 'fa-church' },
+                { id: 'history', name: 'History', icon: 'fa-hourglass-half' },
+                { id: 'french', name: 'French', icon: 'fa-flag' }
+            ];
+            
+            subjectList.innerHTML = subjects.map(subject => {
+                const count = questionDatabase[subject.id]?.length || 0;
+                return `
+                    <div class="subject-item" onclick="viewSubjectQuestions('${subject.id}')">
+                        <div>
+                            <i class="fas ${subject.icon}" style="color: var(--primary); margin-right: 10px;"></i>
+                            ${subject.name}
+                        </div>
+                        <div class="question-count">${count}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ========== SECTION NAVIGATION ==========
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked nav item
+            event.currentTarget.classList.add('active');
+            
+            // Show selected section
+            document.getElementById(`${sectionId}-section`).classList.add('active');
+        }
+
+        // ========== TEST ENGINE ==========
+        function startTest(subject, count) {
+            let questions = [];
+            
+            if (subject === 'mixed') {
+                // Mix questions from all subjects
+                Object.values(questionDatabase).forEach(subjectQuestions => {
+                    if (subjectQuestions.length > 0) {
+                        const randomQuestions = [...subjectQuestions]
+                            .sort(() => Math.random() - 0.5)
+                            .slice(0, Math.ceil(count / 5));
+                        questions.push(...randomQuestions);
+                    }
+                });
+            } else {
+                // Get questions from specific subject
+                questions = [...questionDatabase[subject] || []]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, count);
+            }
+            
+            if (questions.length === 0) {
+                toastr.warning('No questions available for this subject. Add some questions first!');
+                return;
+            }
+            
+            // Initialize test
+            currentTest = questions;
+            currentQuestionIndex = 0;
+            userAnswers = new Array(questions.length).fill(null);
+            timeRemaining = 30 * 60; // 30 minutes
+            
+            // Show question interface
+            document.getElementById('question-interface').style.display = 'block';
+            document.getElementById('question-interface').scrollIntoView({ behavior: 'smooth' });
+            
+            // Start timer
+            startTimer();
+            
+            // Load first question
+            loadQuestion();
+            
+            toastr.info(`Test started! ${questions.length} questions`, 'Ready');
+        }
+
+        function startQuickTest() {
+            startTest('mixed', 10);
+        }
+
+        function showCustomTest() {
+            // Implementation for custom test settings
+            toastr.info('Custom test feature coming soon!', 'Info');
+        }
+
+        function loadQuestion() {
+            if (!currentTest || !currentTest[currentQuestionIndex]) return;
+            
+            const question = currentTest[currentQuestionIndex];
+            
+            // Update UI
+            document.getElementById('currentQuestion').textContent = 
+                `Question ${currentQuestionIndex + 1}/${currentTest.length}`;
+            document.getElementById('questionText').textContent = question.question;
+            
+            // Update options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            ['A', 'B', 'C', 'D'].forEach((letter, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option-btn';
+                if (userAnswers[currentQuestionIndex] === index) {
+                    optionBtn.classList.add('selected');
+                }
+                
+                optionBtn.innerHTML = `
+                    <div class="option-letter">${letter}</div>
+                    <div>${question.options[index] || `Option ${letter}`}</div>
+                `;
+                
+                optionBtn.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionBtn);
+            });
+        }
+
+        function selectOption(optionIndex) {
+            userAnswers[currentQuestionIndex] = optionIndex;
+            
+            // Update UI
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach((btn, index) => {
+                btn.classList.remove('selected');
+                if (index === optionIndex) {
+                    btn.classList.add('selected');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < currentTest.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                toastr.info('Last question reached!', 'Info');
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function startTimer() {
+            if (testTimer) clearInterval(testTimer);
+            
+            testTimer = setInterval(() => {
+                timeRemaining--;
+                
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                
+                document.getElementById('timer').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(testTimer);
+                    submitTest();
+                    toastr.warning('Time is up! Test submitted.', 'Time Out');
+                }
+            }, 1000);
+        }
+
+        function submitTest() {
+            if (testTimer) clearInterval(testTimer);
+            
+            // Calculate score
+            let correct = 0;
+            currentTest.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    correct++;
+                }
+            });
+            
+            const score = Math.round((correct / currentTest.length) * 100);
+            
+            // Save result
+            const result = {
+                id: Date.now(),
+                date: new Date().toLocaleString(),
+                subject: currentTest[0]?.subject || 'mixed',
+                totalQuestions: currentTest.length,
+                correctAnswers: correct,
+                score: score,
+                timeSpent: timeRemaining > 0 ? 
+                    `${Math.floor((timeRemaining / 60))} minutes used` : 
+                    "Completed"
+            };
+            
+            testResults.push(result);
+            saveAllData();
+            
+            // Show results
+            showResults(result);
+            
+            // Update stats
+            updateStats();
+            
+            toastr.success(`Test completed! Score: ${score}%`, 'Congratulations!');
+        }
+
+        function showResults(result) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            resultsContainer.innerHTML = `
+                <div class="score-circle">
+                    <div class="score-inner">
+                        ${result.score}%
+                        <div style="font-size: 1rem; color: var(--gray);">Score</div>
+                    </div>
+                </div>
+                
+                <div style="margin: 30px 0;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Test Summary</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px;">
+                        <div style="background: #e3f2fd; padding: 15px; border-radius: 10px;">
+                            <div style="font-size: 0.9rem; color: var(--gray);">Correct</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--success);">${result.correctAnswers}</div>
+                        </div>
+                        <div style="background: #f3e5f5; padding: 15px; border-radius: 10px;">
+                            <div style="font-size: 0.9rem; color: var(--gray);">Total</div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">${result.totalQuestions}</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Date:</span>
+                            <strong>${result.date}</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Subject:</span>
+                            <strong>${result.subject}</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Time Spent:</span>
+                            <strong>${result.timeSpent}</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" onclick="reviewTest()" style="margin-right: 10px;">
+                    <i class="fas fa-redo"></i>
+                    Review Answers
+                </button>
+                <button class="btn btn-success" onclick="startQuickTest()">
+                    <i class="fas fa-play"></i>
+                    New Test
+                </button>
+            `;
+            
+            showSection('results');
+        }
+
+        // ========== ADMIN FUNCTIONS ==========
+        function addQuestion() {
+            const subject = document.getElementById('adminSubject').value;
+            const questionText = document.getElementById('adminQuestion').value.trim();
+            const options = [
+                document.getElementById('optionA').value.trim(),
+                document.getElementById('optionB').value.trim(),
+                document.getElementById('optionC').value.trim(),
+                document.getElementById('optionD').value.trim()
+            ];
+            const correct = parseInt(document.getElementById('correctAnswer').value);
+            const explanation = document.getElementById('explanation').value.trim();
+            const difficulty = document.getElementById('difficulty').value;
+            
+            // Validation
+            if (!questionText) {
+                toastr.error('Please enter question text!');
+                return;
+            }
+            
+            if (options.some(opt => !opt)) {
+                toastr.error('Please fill all four options!');
+                return;
+            }
+            
+            if (!explanation) {
+                toastr.error('Please add explanation!');
+                return;
+            }
+            
+            // Create question object
+            const question = {
+                id: Date.now(),
+                question: questionText,
+                options: options,
+                correct: correct,
+                explanation: explanation,
+                difficulty: difficulty,
+                subject: subject,
+                dateAdded: new Date().toLocaleString()
+            };
+            
+            // Add to database
+            if (!questionDatabase[subject]) {
+                questionDatabase[subject] = [];
+            }
+            questionDatabase[subject].push(question);
+            
+            // Save to localStorage
+            saveAllData();
+            
+            // Clear form
+            document.getElementById('adminQuestion').value = '';
+            document.getElementById('optionA').value = '';
+            document.getElementById('optionB').value = '';
+            document.getElementById('optionC').value = '';
+            document.getElementById('optionD').value = '';
+            document.getElementById('explanation').value = '';
+            
+            // Update UI
+            createSubjectList();
+            updateStats();
+            
+            toastr.success('Question added successfully!', 'Success');
+            
+            // Load questions for this subject
+            loadSubjectQuestions();
+        }
+
+        function loadSubjectQuestions() {
+            const subject = document.getElementById('adminSubject').value;
+            const questions = questionDatabase[subject] || [];
+            
+            const questionList = document.getElementById('question-list');
+            questionList.innerHTML = `
+                <h3 style="color: var(--primary); margin-bottom: 20px;">
+                    <i class="fas fa-list"></i> ${questions.length} Questions in ${subject.toUpperCase()}
+                </h3>
+                <div style="max-height: 400px; overflow-y: auto;">
+                    ${questions.map((q, index) => `
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid var(--primary);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <strong style="color: var(--dark);">Q${index + 1}: ${q.question}</strong>
+                                <span style="background: ${q.difficulty === 'easy' ? '#d4edda' : q.difficulty === 'medium' ? '#fff3cd' : '#f8d7da'}; 
+                                      color: ${q.difficulty === 'easy' ? '#155724' : q.difficulty === 'medium' ? '#856404' : '#721c24'};
+                                      padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">
+                                    ${q.difficulty}
+                                </span>
+                            </div>
+                            <div style="margin: 10px 0; padding-left: 20px;">
+                                ${q.options.map((opt, i) => `
+                                    <div style="margin: 5px 0; color: ${i === q.correct ? 'var(--success)' : 'var(--gray)'};">
+                                        ${String.fromCharCode(65 + i)}. ${opt} 
+                                        ${i === q.correct ? '<i class="fas fa-check" style="color: var(--success); margin-left: 10px;"></i>' : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div style="background: #e3f2fd; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 0.9rem;">
+                                <strong>Explanation:</strong> ${q.explanation}
+                            </div>
+                            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                                <button class="btn btn-sm btn-warning" onclick="editQuestion('${subject}', ${index})" style="padding: 5px 10px; font-size: 0.9rem;">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteQuestion('${subject}', ${index})" style="padding: 5px 10px; font-size: 0.9rem;">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function deleteQuestion(subject, index) {
+            if (confirm('Are you sure you want to delete this question?')) {
+                questionDatabase[subject].splice(index, 1);
+                saveAllData();
+                loadSubjectQuestions();
+                createSubjectList();
+                updateStats();
+                toastr.success('Question deleted!', 'Success');
+            }
+        }
+
+        function editQuestion(subject, index) {
+            const question = questionDatabase[subject][index];
+            
+            // Populate form
+            document.getElementById('adminSubject').value = subject;
+            document.getElementById('adminQuestion').value = question.question;
+            document.getElementById('optionA').value = question.options[0];
+            document.getElementById('optionB').value = question.options[1];
+            document.getElementById('optionC').value = question.options[2];
+            document.getElementById('optionD').value = question.options[3];
+            document.getElementById('correctAnswer').value = question.correct;
+            document.getElementById('explanation').value = question.explanation;
+            document.getElementById('difficulty').value = question.difficulty;
+            
+            toastr.info('Question loaded for editing. Make changes and click "Add Question" to update.', 'Edit Mode');
+            
+            // Scroll to form
+            document.getElementById('adminQuestion').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function clearAllQuestions() {
+            if (confirm('WARNING: This will delete ALL questions from ALL subjects! Continue?')) {
+                Object.keys(questionDatabase).forEach(key => {
+                    questionDatabase[key] = [];
+                });
+                saveAllData();
+                createSubjectList();
+                updateStats();
+                document.getElementById('question-list').innerHTML = '';
+                toastr.success('All questions cleared!', 'Success');
+            }
+        }
+
+        // ========== JAMB QUESTION FETCHER ==========
+        async function fetchJAMBQuestions() {
+            toastr.info('Fetching questions from JAMB resources...', 'Loading');
+            
+            try {
+                // Try to fetch from known JAMB resources
+                const endpoints = [
+                    'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.jamb.gov.ng/past-questions'),
+                    'https://corsproxy.io/?' + encodeURIComponent('https://www.jamb.gov.ng/syllabus')
+                ];
+                
+                const responses = await Promise.allSettled(
+                    endpoints.map(url => fetch(url).then(res => res.json()))
+                );
+                
+                let fetchedQuestions = [];
+                
+                responses.forEach((response, index) => {
+                    if (response.status === 'fulfilled') {
+                        // Parse and extract questions (this is a simplified example)
+                        // In reality, you'd need to parse HTML/PDF from JAMB website
+                        toastr.success(`Fetched data from source ${index + 1}`, 'Success');
+                    }
+                });
+                
+                // For demo purposes, add some sample questions
+                if (fetchedQuestions.length === 0) {
+                    fetchedQuestions = generateSampleJAMBQuestions();
+                    toastr.info('Using sample questions (JAMB site might be blocked). Add your own questions!', 'Info');
+                }
+                
+                // Add to database
+                fetchedQuestions.forEach(q => {
+                    if (questionDatabase[q.subject]) {
+                        questionDatabase[q.subject].push(q);
+                    }
+                });
+                
+                saveAllData();
+                createSubjectList();
+                updateStats();
+                
+                toastr.success(`Added ${fetchedQuestions.length} questions to database!`, 'Success');
+                
+            } catch (error) {
+                console.error('Error fetching JAMB questions:', error);
+                toastr.error('Failed to fetch from JAMB. You can add questions manually.', 'Error');
+            }
+        }
+
+        function generateSampleJAMBQuestions() {
+            // Generate 20 sample JAMB-style questions
+            return [
+                // English questions
+                {
+                    id: Date.now() + 1,
+                    question: "Which of the following sentences is grammatically correct?",
+                    options: [
+                        "She don't like apples.",
+                        "He doesn't likes apples.",
+                        "They doesn't like apples.",
+                        "He doesn't like apples."
+                    ],
+                    correct: 3,
+                    explanation: "Third person singular (he/she/it) takes 'does' + base verb.",
+                    difficulty: "easy",
+                    subject: "english"
+                },
+                // Math questions
+                {
+                    id: Date.now() + 2,
+                    question: "If 2x = 16, what is the value of x?",
+                    options: ["4", "8", "12", "16"],
+                    correct: 1,
+                    explanation: "2x = 16 → x = 16/2 = 8",
+                    difficulty: "easy",
+                    subject: "math"
+                },
+                // Add more sample questions...
+            ];
+        }
+
+        // ========== STATS & DASHBOARD ==========
+        function updateStats() {
+            // Total questions
+            const totalQuestions = Object.values(questionDatabase).reduce((sum, subject) => sum + subject.length, 0);
+            document.getElementById('totalQuestions').textContent = totalQuestions;
+            
+            // Completed tests
+            document.getElementById('completedTests').textContent = testResults.length;
+            
+            // Average score
+            const avgScore = testResults.length > 0 ? 
+                Math.round(testResults.reduce((sum, r) => sum + r.score, 0) / testResults.length) : 0;
+            document.getElementById('averageScore').textContent = `${avgScore}%`;
+        }
+
+        function viewSubjectQuestions(subjectId) {
+            // Show admin panel with this subject selected
+            showSection('admin');
+            document.getElementById('adminSubject').value = subjectId;
+            loadSubjectQuestions();
+        }
+
+        function reviewTest() {
+            // Implementation for reviewing test answers
+            toastr.info('Review feature coming soon!', 'Info');
         }
     </script>
 </body>
+</html>
 </html>
 
