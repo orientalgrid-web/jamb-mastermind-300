@@ -7,6 +7,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Keep all existing CSS styles from the original code */
         :root {
             --primary: #004a99;
             --secondary: #00a859;
@@ -1088,7 +1089,7 @@
                             </div>
                             <h3>English Language</h3>
                             <p>Comprehension, Grammar, Vocabulary, Oral English</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="english-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1099,7 +1100,7 @@
                             </div>
                             <h3>Mathematics</h3>
                             <p>Algebra, Geometry, Calculus, Statistics</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="math-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1110,7 +1111,7 @@
                             </div>
                             <h3>Physics</h3>
                             <p>Mechanics, Waves, Electricity, Modern Physics</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="physics-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1121,7 +1122,7 @@
                             </div>
                             <h3>Chemistry</h3>
                             <p>Organic, Inorganic, Physical Chemistry</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="chemistry-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1132,7 +1133,7 @@
                             </div>
                             <h3>Biology</h3>
                             <p>Genetics, Ecology, Human Physiology, Botany</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="biology-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1143,7 +1144,7 @@
                             </div>
                             <h3>Government</h3>
                             <p>Political Theory, Nigerian Government, Constitution</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="government-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1154,7 +1155,7 @@
                             </div>
                             <h3>Economics</h3>
                             <p>Microeconomics, Macroeconomics, Development</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="economics-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
 
@@ -1165,7 +1166,7 @@
                             </div>
                             <h3>Literature in English</h3>
                             <p>Prose, Poetry, Drama, Literary Devices</p>
-                            <div class="question-count">500+ Questions</div>
+                            <div class="question-count" id="literature-count">500+ Questions</div>
                             <div class="premium-tag">Premium</div>
                         </div>
                     </div>
@@ -1342,88 +1343,230 @@
     </div>
 
     <script>
-        // Enhanced Question Database with 500+ questions per subject
+        // Initialize QUESTION_DATABASE with sample questions
         const QUESTION_DATABASE = {
-            english: Array.from({length: 500}, (_, i) => ({
-                id: `ENG${String(i+1).padStart(3, '0')}`,
-                question: `English Question ${i+1}: Choose the option that best completes the sentence...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "This is the explanation for the correct answer.",
-                topic: i < 100 ? "Comprehension" : i < 200 ? "Grammar" : i < 300 ? "Vocabulary" : i < 400 ? "Oral English" : "Literary Appreciation",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            english: [
+                {
+                    id: "ENG001",
+                    question: "Choose the option that has the same vowel sound as the one represented by the letter(s) underlined: 'b<u>oo</u>k'",
+                    options: ["cook", "boot", "moon", "soon"],
+                    correct: 0,
+                    explanation: "The 'oo' in 'book' makes the /ʊ/ sound as in 'cook', not the /u:/ sound as in 'boot', 'moon', or 'soon'.",
+                    topic: "Phonetics",
+                    difficulty: "easy"
+                },
+                {
+                    id: "ENG002",
+                    question: "Select the word that has the correct stress pattern: 'education'",
+                    options: ["ED-u-ca-tion", "e-DU-ca-tion", "e-du-CA-tion", "e-du-ca-TION"],
+                    correct: 2,
+                    explanation: "The correct stress in 'education' falls on the third syllable: e-du-CA-tion.",
+                    topic: "Stress",
+                    difficulty: "medium"
+                },
+                {
+                    id: "ENG003",
+                    question: "Choose the option that best completes the sentence: 'Neither the students nor the teacher _____ aware of the changes.'",
+                    options: ["was", "were", "are", "have been"],
+                    correct: 0,
+                    explanation: "When using 'neither...nor', the verb agrees with the subject closest to it. 'Teacher' is singular, so we use 'was'.",
+                    topic: "Concord",
+                    difficulty: "medium"
+                },
+                {
+                    id: "ENG004",
+                    question: "Identify the sentence with the correct punctuation:",
+                    options: [
+                        "The man who is wearing a blue shirt, is my brother.",
+                        "The man, who is wearing a blue shirt is my brother.",
+                        "The man who is wearing a blue shirt is my brother.",
+                        "The man, who is wearing a blue shirt, is my brother."
+                    ],
+                    correct: 2,
+                    explanation: "No commas are needed because 'who is wearing a blue shirt' is a restrictive clause essential to the meaning.",
+                    topic: "Punctuation",
+                    difficulty: "hard"
+                },
+                {
+                    id: "ENG005",
+                    question: "Choose the option that means the opposite of 'MAGNANIMOUS':",
+                    options: ["generous", "petty", "courageous", "wealthy"],
+                    correct: 1,
+                    explanation: "Magnanimous means generous or forgiving, especially toward a rival. The opposite is petty.",
+                    topic: "Antonyms",
+                    difficulty: "medium"
+                }
+            ],
             
-            math: Array.from({length: 500}, (_, i) => ({
-                id: `MATH${String(i+1).padStart(3, '0')}`,
-                question: `Mathematics Question ${i+1}: Solve the equation...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Mathematical solution explanation.",
-                topic: i < 100 ? "Algebra" : i < 200 ? "Geometry" : i < 300 ? "Calculus" : i < 400 ? "Statistics" : "Trigonometry",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            math: [
+                {
+                    id: "MATH001",
+                    question: "Simplify: (3x² - 2x + 5) + (2x² + 3x - 1)",
+                    options: ["5x² + x + 4", "5x² - 5x + 6", "x² + 5x + 4", "5x² + 5x + 6"],
+                    correct: 0,
+                    explanation: "Combine like terms: 3x² + 2x² = 5x²; -2x + 3x = x; 5 + (-1) = 4",
+                    topic: "Algebra",
+                    difficulty: "easy"
+                },
+                {
+                    id: "MATH002",
+                    question: "If y varies directly as x² and y = 12 when x = 2, find y when x = 5",
+                    options: ["30", "75", "48", "60"],
+                    correct: 1,
+                    explanation: "y = kx². First find k: 12 = k(2)² => k = 3. Then y = 3(5)² = 3(25) = 75",
+                    topic: "Variation",
+                    difficulty: "medium"
+                },
+                {
+                    id: "MATH003",
+                    question: "A triangle has sides 6cm, 8cm, and 10cm. What type of triangle is it?",
+                    options: ["Acute", "Obtuse", "Right-angled", "Equilateral"],
+                    correct: 2,
+                    explanation: "Check Pythagorean theorem: 6² + 8² = 36 + 64 = 100 = 10². Therefore it's right-angled.",
+                    topic: "Geometry",
+                    difficulty: "easy"
+                },
+                {
+                    id: "MATH004",
+                    question: "Find the derivative of f(x) = 3x³ - 2x² + 5x - 1",
+                    options: ["9x² - 4x + 5", "6x² - 4x + 5", "9x² - 2x + 5", "3x² - 2x + 5"],
+                    correct: 0,
+                    explanation: "Using power rule: d/dx(3x³) = 9x²; d/dx(-2x²) = -4x; d/dx(5x) = 5; d/dx(-1) = 0",
+                    topic: "Calculus",
+                    difficulty: "medium"
+                },
+                {
+                    id: "MATH005",
+                    question: "In how many ways can 5 students be arranged in a row?",
+                    options: ["25", "60", "120", "625"],
+                    correct: 2,
+                    explanation: "5! = 5 × 4 × 3 × 2 × 1 = 120 ways",
+                    topic: "Permutations",
+                    difficulty: "easy"
+                }
+            ],
             
-            physics: Array.from({length: 500}, (_, i) => ({
-                id: `PHY${String(i+1).padStart(3, '0')}`,
-                question: `Physics Question ${i+1}: Calculate the force...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Physics principle explanation.",
-                topic: i < 100 ? "Mechanics" : i < 200 ? "Waves" : i < 300 ? "Electricity" : i < 400 ? "Thermodynamics" : "Modern Physics",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            physics: [
+                {
+                    id: "PHY001",
+                    question: "Which of the following is a vector quantity?",
+                    options: ["Mass", "Temperature", "Distance", "Velocity"],
+                    correct: 3,
+                    explanation: "Velocity has both magnitude and direction, making it a vector quantity.",
+                    topic: "Measurement",
+                    difficulty: "easy"
+                }
+            ],
             
-            chemistry: Array.from({length: 500}, (_, i) => ({
-                id: `CHEM${String(i+1).padStart(3, '0')}`,
-                question: `Chemistry Question ${i+1}: Identify the compound...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Chemical reaction explanation.",
-                topic: i < 100 ? "Organic" : i < 200 ? "Inorganic" : i < 300 ? "Physical" : i < 400 ? "Analytical" : "Industrial",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            chemistry: [
+                {
+                    id: "CHEM001",
+                    question: "Which of the following elements is a halogen?",
+                    options: ["Sodium", "Chlorine", "Calcium", "Iron"],
+                    correct: 1,
+                    explanation: "Chlorine is in group 17, the halogen group.",
+                    topic: "Periodic Table",
+                    difficulty: "easy"
+                }
+            ],
             
-            biology: Array.from({length: 500}, (_, i) => ({
-                id: `BIO${String(i+1).padStart(3, '0')}`,
-                question: `Biology Question ${i+1}: Which organelle...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Biological process explanation.",
-                topic: i < 100 ? "Genetics" : i < 200 ? "Ecology" : i < 300 ? "Physiology" : i < 400 ? "Botany" : "Zoology",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            biology: [
+                {
+                    id: "BIO001",
+                    question: "Which organelle is responsible for protein synthesis?",
+                    options: ["Mitochondria", "Ribosome", "Nucleus", "Golgi apparatus"],
+                    correct: 1,
+                    explanation: "Ribosomes are the sites of protein synthesis in cells.",
+                    topic: "Cell Biology",
+                    difficulty: "easy"
+                }
+            ],
             
-            government: Array.from({length: 500}, (_, i) => ({
-                id: `GOV${String(i+1).padStart(3, '0')}`,
-                question: `Government Question ${i+1}: Which constitution...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Government structure explanation.",
-                topic: i < 100 ? "Political Theory" : i < 200 ? "Nigerian Government" : i < 300 ? "Constitution" : i < 400 ? "International Relations" : "Public Administration",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            government: [
+                {
+                    id: "GOV001",
+                    question: "The first military coup in Nigeria occurred in which year?",
+                    options: ["1960", "1966", "1970", "1975"],
+                    correct: 1,
+                    explanation: "The first military coup in Nigeria took place on January 15, 1966.",
+                    topic: "Nigerian Government",
+                    difficulty: "easy"
+                }
+            ],
             
-            economics: Array.from({length: 500}, (_, i) => ({
-                id: `ECO${String(i+1).padStart(3, '0')}`,
-                question: `Economics Question ${i+1}: What is GDP...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Economic principle explanation.",
-                topic: i < 100 ? "Microeconomics" : i < 200 ? "Macroeconomics" : i < 300 ? "Development" : i < 400 ? "International" : "Mathematics for Economics",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            })),
+            economics: [
+                {
+                    id: "ECO001",
+                    question: "What does GDP stand for?",
+                    options: [
+                        "Gross Domestic Product",
+                        "General Domestic Price",
+                        "Gross Development Plan",
+                        "General Development Product"
+                    ],
+                    correct: 0,
+                    explanation: "GDP stands for Gross Domestic Product, the total value of goods produced and services provided in a country.",
+                    topic: "Macroeconomics",
+                    difficulty: "easy"
+                }
+            ],
             
-            literature: Array.from({length: 500}, (_, i) => ({
-                id: `LIT${String(i+1).padStart(3, '0')}`,
-                question: `Literature Question ${i+1}: Who wrote...`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: Math.floor(Math.random() * 4),
-                explanation: "Literary analysis explanation.",
-                topic: i < 100 ? "Prose" : i < 200 ? "Poetry" : i < 300 ? "Drama" : i < 400 ? "Literary Devices" : "African Literature",
-                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
-            }))
+            literature: [
+                {
+                    id: "LIT001",
+                    question: "Who wrote 'Things Fall Apart'?",
+                    options: ["Wole Soyinka", "Chinua Achebe", "Chimamanda Adichie", "Ben Okri"],
+                    correct: 1,
+                    explanation: "'Things Fall Apart' was written by Chinua Achebe, published in 1958.",
+                    topic: "African Literature",
+                    difficulty: "easy"
+                }
+            ]
         };
+
+        // Fill remaining questions with generated content
+        function fillQuestionDatabase() {
+            const subjects = Object.keys(QUESTION_DATABASE);
+            const topics = {
+                english: ["Comprehension", "Grammar", "Vocabulary", "Oral English", "Literary Appreciation"],
+                math: ["Algebra", "Geometry", "Calculus", "Statistics", "Trigonometry"],
+                physics: ["Mechanics", "Waves", "Electricity", "Thermodynamics", "Modern Physics"],
+                chemistry: ["Organic", "Inorganic", "Physical", "Analytical", "Industrial"],
+                biology: ["Genetics", "Ecology", "Physiology", "Botany", "Zoology"],
+                government: ["Political Theory", "Nigerian Government", "Constitution", "International Relations", "Public Administration"],
+                economics: ["Microeconomics", "Macroeconomics", "Development", "International", "Mathematics for Economics"],
+                literature: ["Prose", "Poetry", "Drama", "Literary Devices", "African Literature"]
+            };
+
+            subjects.forEach(subject => {
+                const currentCount = QUESTION_DATABASE[subject].length;
+                const targetCount = 10; // Reduced to 10 for testing, change to 500 for full version
+                
+                for (let i = currentCount + 1; i <= targetCount; i++) {
+                    const topicIndex = Math.floor((i-1) / 2) % topics[subject].length;
+                    const topic = topics[subject][topicIndex];
+                    const difficulty = i <= 3 ? "easy" : i <= 7 ? "medium" : "hard";
+                    
+                    QUESTION_DATABASE[subject].push({
+                        id: `${subject.toUpperCase()}${String(i).padStart(3, '0')}`,
+                        question: `${subject.charAt(0).toUpperCase() + subject.slice(1)} Question ${i}: What is the correct answer to this ${topic} question?`,
+                        options: [
+                            `Option A for question ${i}`,
+                            `Option B for question ${i}`,
+                            `Option C for question ${i}`,
+                            `Option D for question ${i}`
+                        ],
+                        correct: Math.floor(Math.random() * 4),
+                        explanation: `This is the detailed explanation for question ${i} in ${subject}, topic: ${topic}. The correct answer is based on fundamental principles of ${topic.toLowerCase()}.`,
+                        topic: topic,
+                        difficulty: difficulty
+                    });
+                }
+            });
+        }
+
+        // Call this function to fill the database
+        fillQuestionDatabase();
 
         // App State
         const APP_STATE = {
@@ -1459,6 +1602,7 @@
             openTab('practice-tab');
             startSessionTimer();
             updateStats();
+            updateQuestionCounts();
             showNotification('success', '🎓 Welcome to JAMB Mastermind 3000+! Start your preparation now.');
         };
 
@@ -1485,6 +1629,17 @@
                 ? Math.round((APP_STATE.currentUser.correctAnswers / APP_STATE.currentUser.questionsAttempted) * 100)
                 : 0;
             document.getElementById('accuracy-rate').textContent = `${accuracy}%`;
+        }
+
+        function updateQuestionCounts() {
+            const subjects = ['english', 'math', 'physics', 'chemistry', 'biology', 'government', 'economics', 'literature'];
+            subjects.forEach(subject => {
+                const count = QUESTION_DATABASE[subject].length;
+                const element = document.getElementById(`${subject}-count`);
+                if (element) {
+                    element.textContent = `${count}+ Questions`;
+                }
+            });
         }
 
         // Navigation
@@ -1535,7 +1690,7 @@
             const subjectName = subject.charAt(0).toUpperCase() + subject.slice(1);
             APP_STATE.currentSession = {
                 subject: subjectName,
-                questions: getRandomQuestions(subject, 20),
+                questions: getRandomQuestions(subject, 5), // Start with 5 questions for testing
                 currentIndex: 0,
                 score: 0,
                 selectedAnswers: [],
@@ -1602,7 +1757,9 @@
                     
                     <div class="question-card">
                         <div class="question-number">Question ${session.currentIndex + 1}</div>
-                        <div class="question-text">${question.question}</div>
+                        <div class="question-text">
+                            <strong>${question.question}</strong>
+                        </div>
                         
                         <div class="options-grid">
             `;
@@ -1615,7 +1772,7 @@
                 html += `
                     <div class="option ${isSelected ? 'selected' : ''}" onclick="selectAnswer(${index})">
                         <span class="option-letter">${optionLetters[index]}</span>
-                        ${option}
+                        <span>${option}</span>
                     </div>
                 `;
             });
@@ -1755,7 +1912,7 @@
                     <div class="question-review">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
-                                <strong>Q${index + 1}:</strong> ${q.question.substring(0, 80)}...
+                                <strong>Q${index + 1}:</strong> ${q.question}
                                 <div style="margin-top: 10px; font-size: 0.9rem;">
                                     <span style="color: ${isCorrect ? 'var(--success)' : 'var(--danger)'}">
                                         Your answer: ${userAnswer !== undefined ? optionLetters[userAnswer] : 'Not answered'}
@@ -1764,11 +1921,9 @@
                                         Correct: ${optionLetters[q.correct]}
                                     </span>
                                 </div>
-                                ${!isCorrect ? `
-                                    <div style="font-size: 0.85rem; color: #666; margin-top: 10px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
-                                        <strong>Explanation:</strong> ${q.explanation}
-                                    </div>
-                                ` : ''}
+                                <div style="font-size: 0.85rem; color: #666; margin-top: 10px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+                                    <strong>Explanation:</strong> ${q.explanation}
+                                </div>
                             </div>
                             <div>
                                 ${isCorrect ? 
