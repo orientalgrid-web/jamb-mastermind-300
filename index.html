@@ -2550,6 +2550,48 @@
         // Update mock exam limits display
         updateMockExamLimits();
     };
+<script>
+  // Service Worker Registration
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          console.log('✅ Service Worker registered:', registration);
+          
+          // Check for updates
+          registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            console.log('🔄 Service Worker update found!');
+            
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('🆕 New content available. Please refresh!');
+                // Show update notification to user
+                showNotification('info', 'New update available! Refresh the page to get the latest version.');
+              }
+            });
+          });
+        })
+        .catch(error => {
+          console.error('❌ Service Worker registration failed:', error);
+        });
+    });
+    
+    // Check for offline status
+    window.addEventListener('online', () => {
+      showNotification('success', 'You are back online!');
+    });
+    
+    window.addEventListener('offline', () => {
+      showNotification('warning', 'You are offline. Some features may not work.');
+    });
+  }
+  
+  // Function to show notifications (use your existing showNotification function)
+  function showNotification(type, message) {
+    // Use your existing notification system
+    console.log(`[${type.toUpperCase()}] ${message}`);
+  }
 </script>
 </body>
 </html>
