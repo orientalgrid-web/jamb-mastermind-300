@@ -1,0 +1,41 @@
+{
+  "database": {
+    "name": "jamb_mastermind_db",
+    "version": "1.0",
+    "tables": {
+      "users": {
+        "fields": ["id", "name", "email", "plan", "subscription_date", "expiry_date", "questions_attempted", "total_score", "session_time", "mock_exams_taken", "created_at"],
+        "indexes": ["email", "plan"]
+      },
+      "results": {
+        "fields": ["id", "user_id", "subject", "score", "total_questions", "percentage", "time_taken", "date_taken", "questions_data"],
+        "indexes": ["user_id", "subject", "date_taken"]
+      },
+      "payments": {
+        "fields": ["id", "user_id", "plan", "amount", "currency", "transaction_id", "payment_method", "status", "date"],
+        "indexes": ["user_id", "transaction_id", "date"]
+      },
+      "progress": {
+        "fields": ["id", "user_id", "subject", "questions_attempted", "correct_answers", "average_score", "last_attempt"],
+        "indexes": ["user_id", "subject"]
+      }
+    }
+  },
+  "settings": {
+    "free_plan_limits": {
+      "mock_exams": 2,
+      "questions_per_subject": 50,
+      "premium_subjects": ["english", "physics", "chemistry", "economics"]
+    },
+    "pricing": {
+      "basic": 2500,
+      "pro": 5000,
+      "ultimate": 12000
+    },
+    "exam_settings": {
+      "default_duration": 120,
+      "default_questions": 180,
+      "passing_score": 50
+    }
+  }
+}
