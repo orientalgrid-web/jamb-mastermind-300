@@ -1,0 +1,63 @@
+{
+  "subject": "English Language",
+  "questions": [
+    {
+      "id": "ENG001",
+      "question": "Choose the option that best completes the sentence: If I had known, I _____ come earlier.",
+      "options": ["would have", "will have", "would", "will"],
+      "correct": 0,
+      "explanation": "The correct answer is 'would have' because it's a third conditional sentence expressing a past unreal condition.",
+      "difficulty": "medium",
+      "topic": "Conditionals",
+      "year": "2023",
+      "category": "Grammar"
+    },
+    {
+      "id": "ENG002",
+      "question": "Identify the grammatically correct sentence:",
+      "options": ["She don't like apples", "She doesn't likes apples", "She doesn't like apples", "She not likes apples"],
+      "correct": 2,
+      "explanation": "'She doesn't like apples' is correct because with third person singular (she), we use 'doesn't' + base form of verb.",
+      "difficulty": "easy",
+      "topic": "Subject-Verb Agreement",
+      "year": "2023",
+      "category": "Grammar"
+    },
+    {
+      "id": "ENG003",
+      "question": "What is the synonym of 'Benevolent'?",
+      "options": ["Cruel", "Kind", "Selfish", "Stingy"],
+      "correct": 1,
+      "explanation": "Benevolent means well-meaning and kindly, which is synonymous with 'kind'.",
+      "difficulty": "medium",
+      "topic": "Vocabulary",
+      "year": "2023",
+      "category": "Lexis"
+    },
+    {
+      "id": "ENG004",
+      "question": "Which word is stressed on the first syllable?",
+      "options": ["about", "before", "present", "receive"],
+      "correct": 2,
+      "explanation": "'Present' (noun) is stressed on the first syllable: PRE-sent.",
+      "difficulty": "hard",
+      "topic": "Stress",
+      "year": "2023",
+      "category": "Oral English"
+    },
+    {
+      "id": "ENG005",
+      "question": "Choose the correct idiomatic expression: He's _____ thin air.",
+      "options": ["vanishing into", "disappearing in", "evaporating to", "melting into"],
+      "correct": 0,
+      "explanation": "The correct idiom is 'vanishing into thin air' meaning to disappear completely.",
+      "difficulty": "medium",
+      "topic": "Idioms",
+      "year": "2023",
+      "category": "Oral English"
+    }
+  ],
+  "totalQuestions": 2000,
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-15"
+}
