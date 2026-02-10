@@ -1,83 +1,23 @@
 {
   "name": "JAMB Mastermind 300",
   "short_name": "JAMB Master",
-  "description": "Ultimate UTME Preparation Platform - Orient Neo 7 Edition",
+  "description": "Orient Neo 7 Edition - Ultimate UTME Preparation Platform",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#004a99",
   "theme_color": "#004a99",
-  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "assets/images/icon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/images/icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/images/icon-128x128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/images/icon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/images/icon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/images/icon-192x192.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/2237/2237282.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "assets/images/icon-384x384.png",
-      "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "assets/images/icon-512x512.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/2237/2237282.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "categories": ["education", "productivity", "utilities"],
-  "screenshots": [
-    {
-      "src": "assets/images/screenshot1.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "assets/images/screenshot2.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Start Practice",
-      "short_name": "Practice",
-      "description": "Start practicing questions",
-      "url": "/#practice"
-    },
-    {
-      "name": "Mock Exam",
-      "short_name": "Mock",
-      "description": "Take a mock exam",
-      "url": "/#mock"
-    }
-  ],
-  "prefer_related_applications": false
+  "categories": ["education", "productivity"],
+  "orientation": "portrait"
 }
