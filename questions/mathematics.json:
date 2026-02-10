@@ -1,0 +1,63 @@
+{
+  "subject": "Mathematics",
+  "questions": [
+    {
+      "id": "MATH001",
+      "question": "Solve for x: 2x + 5 = 15",
+      "options": ["5", "10", "7.5", "20"],
+      "correct": 0,
+      "explanation": "2x + 5 = 15 → 2x = 15 - 5 → 2x = 10 → x = 5",
+      "difficulty": "easy",
+      "topic": "Linear Equations",
+      "year": "2023",
+      "category": "Algebra"
+    },
+    {
+      "id": "MATH002",
+      "question": "What is the value of π (pi) to two decimal places?",
+      "options": ["3.14", "3.16", "3.12", "3.18"],
+      "correct": 0,
+      "explanation": "π is approximately 3.14159, which rounds to 3.14 to two decimal places.",
+      "difficulty": "easy",
+      "topic": "Geometry",
+      "year": "2023",
+      "category": "Geometry"
+    },
+    {
+      "id": "MATH003",
+      "question": "Calculate the area of a triangle with base 6cm and height 8cm",
+      "options": ["24 cm²", "48 cm²", "14 cm²", "32 cm²"],
+      "correct": 0,
+      "explanation": "Area = ½ × base × height = ½ × 6 × 8 = 24 cm²",
+      "difficulty": "easy",
+      "topic": "Area",
+      "year": "2023",
+      "category": "Geometry"
+    },
+    {
+      "id": "MATH004",
+      "question": "Simplify: (x²)(x³)",
+      "options": ["x⁵", "x⁶", "x", "2x⁵"],
+      "correct": 0,
+      "explanation": "When multiplying with same base, add exponents: x² × x³ = x^(2+3) = x⁵",
+      "difficulty": "easy",
+      "topic": "Indices",
+      "year": "2023",
+      "category": "Algebra"
+    },
+    {
+      "id": "MATH005",
+      "question": "What is 25% of 200?",
+      "options": ["50", "25", "75", "100"],
+      "correct": 0,
+      "explanation": "25% of 200 = 0.25 × 200 = 50",
+      "difficulty": "easy",
+      "topic": "Percentage",
+      "year": "2023",
+      "category": "Arithmetic"
+    }
+  ],
+  "totalQuestions": 2000,
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-15"
+}
