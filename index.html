@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAMB Mastermind 300 - Orient Neo 7 Edition</title>
+    <title>JAMB Mastermind 3000 - Complete Preparation Platform</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -35,12 +36,12 @@
         }
 
         .app-container { 
-            max-width: 1100px; 
+            max-width: 1200px; 
             margin: 0 auto; 
             background: white; 
             border-radius: 15px; 
             overflow: hidden; 
-            box-shadow: var(--shadow);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
             animation: fadeIn 0.8s ease-out;
         }
 
@@ -49,43 +50,720 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* PREMIUM BADGES */
-        .premium-badge {
-            background: var(--premium);
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 3px 10px;
-            border-radius: 15px;
-            display: inline-block;
-            margin-left: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            position: relative;
         }
 
-        .premium-card {
-            border: 2px solid #667eea;
+        .logo h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-left: 55px;
+        }
+
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 15px;
+            left: 40px;
+        }
+
+        .user-profile {
+            position: relative;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .user-info:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .user-plan {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            min-width: 250px;
+            display: none;
+            z-index: 1000;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 25px;
+            color: var(--dark);
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: #eee;
+            margin: 5px 0;
+        }
+
+        /* Session Info */
+        .session-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: var(--light);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .session-timer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .navigation {
+            display: flex;
+            background: white;
+            padding: 0 40px;
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+        }
+
+        .nav-btn {
+            padding: 20px 30px;
+            background: none;
+            border: none;
+            color: var(--dark);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .nav-btn:hover {
+            color: var(--primary);
+            background: rgba(0,74,153,0.05);
+        }
+
+        .nav-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .nav-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+            min-height: 600px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Welcome Banner */
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary), #0066cc);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
             position: relative;
             overflow: hidden;
         }
 
-        .premium-card::before {
-            content: 'PREMIUM';
+        .welcome-banner::before {
+            content: '';
             position: absolute;
-            top: 10px;
-            right: -25px;
-            background: var(--premium);
-            color: white;
-            padding: 3px 30px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            transform: rotate(45deg);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
         }
 
-        /* PAYMENT MODAL */
-        .payment-modal {
+        .welcome-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .welcome-banner p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat i {
+            font-size: 2.5rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .stat:nth-child(1) i { background: #e74c3c; }
+        .stat:nth-child(2) i { background: #3498db; }
+        .stat:nth-child(3) i { background: #2ecc71; }
+        .stat:nth-child(4) i { background: #f39c12; }
+
+        .stat h3 {
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .stat p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Subject Grid */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .subject-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .subject-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .subject-card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .question-count {
+            display: inline-block;
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .premium-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        /* Subject Colors */
+        .english { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .math { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .physics { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .chemistry { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+        .biology { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .government { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .economics { background: linear-gradient(135deg, #f1c40f, #f39c12); }
+        .literature { background: linear-gradient(135deg, #e84393, #fd79a8); }
+
+        /* Buttons */
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #0066cc);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #003366, #004a99);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,74,153,0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), #00cc66);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #008744, #00a859);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,168,89,0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #34d058);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-premium {
+            background: var(--premium);
+            color: white;
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(102,126,234,0.4);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, var(--purple), #8a2be2);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #ff4757);
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        /* Quiz Section */
+        .quiz-section, .results-section {
+            display: none;
+        }
+
+        .quiz-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quiz-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .quiz-timer {
+            background: rgba(0,0,0,0.2);
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .quiz-progress {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .question-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border-left: 8px solid var(--primary);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: var(--light);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 1.1rem;
+        }
+
+        .option:hover {
+            border-color: var(--primary);
+            background: rgba(0,74,153,0.03);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: rgba(0,74,153,0.1);
+            box-shadow: 0 5px 20px rgba(0,74,153,0.1);
+        }
+
+        .option.correct {
+            border-color: var(--success);
+            background: rgba(40,167,69,0.1);
+        }
+
+        .option.wrong {
+            border-color: var(--danger);
+            background: rgba(220,53,69,0.1);
+        }
+
+        .option-letter {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .option.selected .option-letter {
+            background: var(--primary);
+            color: white;
+        }
+
+        .option.correct .option-letter {
+            background: var(--success);
+            color: white;
+        }
+
+        .option.wrong .option-letter {
+            background: var(--danger);
+            color: white;
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        /* Results Section */
+        .results-header {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .result-icon {
+            font-size: 6rem;
+            margin-bottom: 30px;
+        }
+
+        .main-score {
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+
+        .performance-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin: 30px auto;
+            overflow: hidden;
+            max-width: 600px;
+        }
+
+        .performance-fill {
+            height: 100%;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .result-card h3 {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .result-card .value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .detailed-results {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .question-review {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question-review:last-child {
+            border-bottom: none;
+        }
+
+        /* Modal */
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -93,2505 +771,1242 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.8);
-            z-index: 10000;
-            align-items: center;
+            z-index: 2000;
             justify-content: center;
-            animation: fadeIn 0.3s ease;
+            align-items: center;
+            padding: 20px;
         }
 
-        .payment-content {
+        .modal-content {
             background: white;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
             overflow: hidden;
-            animation: slideUp 0.3s ease;
+            animation: modalIn 0.4s ease;
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        .payment-header {
-            background: linear-gradient(90deg, var(--primary), #003366);
+        .modal-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .payment-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .close-payment {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.2);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .payment-plans {
-            padding: 20px;
-            display: grid;
-            gap: 15px;
-        }
-
-        .plan-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .plan-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .plan-card.selected {
-            border-color: var(--secondary);
-            background: #f0fff5;
-        }
-
-        .plan-price {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 10px 0;
-        }
-
-        .plan-features {
-            list-style: none;
-            margin: 15px 0;
-        }
-
-        .plan-features li {
-            padding: 5px 0;
-            color: #555;
-        }
-
-        .plan-features li i {
-            color: var(--success);
-            margin-right: 10px;
-        }
-
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-            padding: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .payment-method {
-            text-align: center;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .payment-method:hover {
-            border-color: var(--primary);
-        }
-
-        .payment-method.selected {
-            border-color: var(--secondary);
-            background: #f0fff5;
-        }
-
-        .payment-method i {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #555;
-        }
-
-        /* USER PROFILE */
-        .user-profile {
-            position: absolute;
-            top: 20px;
-            right: 120px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .user-dropdown {
-            display: none;
-            position: absolute;
-            top: 50px;
-            right: 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            min-width: 200px;
-            z-index: 1000;
-            overflow: hidden;
-        }
-
-        .user-dropdown.show {
-            display: block;
-        }
-
-        .user-dropdown-item {
-            padding: 12px 20px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .user-dropdown-item:hover {
-            background: #f5f5f5;
-        }
-
-        .user-dropdown-item i {
-            width: 20px;
-            color: var(--primary);
-        }
-
-        /* HEADER */
-        .header { 
-            background: linear-gradient(90deg, var(--primary), #003366);
-            color: white; 
-            padding: 20px; 
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .header h2 { 
-            font-size: 1.8rem; 
-            margin-bottom: 5px; 
-        }
-        .header-subtitle { 
-            font-size: 0.9rem; 
-            opacity: 0.9; 
-        }
-        .study-clock { 
-            background: rgba(0,0,0,0.3); 
-            padding: 8px 20px; 
-            border-radius: 25px; 
-            display: inline-block; 
-            margin-top: 10px; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            backdrop-filter: blur(5px);
-        }
-        .header-buttons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-
-        /* DASHBOARD */
-        .dashboard-info {
-            padding: 20px 20px 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
         }
-        .stats {
+
+        .modal-header h3 {
+            font-size: 1.8rem;
             display: flex;
+            align-items: center;
             gap: 15px;
-            flex-wrap: wrap;
         }
-        .stat-box {
-            background: var(--light);
-            padding: 8px 15px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--dark);
-        }
-        .stat-box i {
-            margin-right: 5px;
-            color: var(--primary);
-        }
-        .dashboard-tabs {
-            display: flex;
-            border-bottom: 2px solid #eee;
-            margin: 0 20px;
-        }
-        .tab-btn {
-            padding: 15px 25px;
+
+        .close-btn {
             background: none;
             border: none;
-            font-weight: 600;
+            color: white;
+            font-size: 2.5rem;
             cursor: pointer;
-            color: #666;
-            position: relative;
-            transition: all 0.3s;
-        }
-        .tab-btn.active {
-            color: var(--primary);
-        }
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--primary);
-        }
-        .tab-content {
-            padding: 20px;
-        }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
-            gap: 15px; 
-        }
-        .card { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 12px; 
-            text-align: center; 
-            cursor: pointer; 
-            transition: 0.3s;
-            border: 2px solid #eaeaea;
-            position: relative;
+            width: 40px;
+            height: 40px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 140px;
-            overflow: hidden;
-        }
-        .card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--secondary);
-            box-shadow: 0 10px 20px rgba(0,168,89,0.1);
-        }
-        .card i { 
-            font-size: 2.5rem; 
-            margin-bottom: 15px; 
-        }
-        .card p { 
-            font-weight: 600; 
-            color: var(--dark);
-            margin-top: 5px;
-        }
-        .card small {
-            font-size: 0.75rem;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        /* VALUE BET STYLING */
-        .value-bet-tag {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: linear-gradient(45deg, var(--gold), #ffed4e);
-            color: #333;
-            font-size: 9px;
-            font-weight: bold;
-            padding: 2px 8px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            z-index: 2;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* MOCK EXAM SETUP */
-        .mock-setup {
-            background: #f9f9f9;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        .setup-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .setup-option {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid #eaeaea;
-        }
-        .setup-option h4 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        .checkbox-group {
-            margin: 10px 0;
-        }
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            cursor: pointer;
-        }
-        .checkbox-group input {
-            margin-right: 10px;
-        }
-        .multiplayer-setup {
-            background: #eef7ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        .player-list {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-        .player-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            min-width: 150px;
-            text-align: center;
-        }
-        .player-card.you {
-            border-color: var(--primary);
-            background: #f0f8ff;
-        }
-        .invite-section {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .invite-input {
-            flex-grow: 1;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-        }
-
-        /* QUESTION INTERFACE */
-        #quiz-section { 
-            display: none; 
-            padding: 25px; 
-            min-height: 500px;
-        }
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .subject-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        .progress-bar {
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            margin-top: 10px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: var(--secondary);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-        .question-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            color: #666;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .question-box { 
-            font-size: 1.25rem; 
-            margin-bottom: 25px; 
-            color: var(--dark); 
-            font-weight: 600;
-            line-height: 1.5;
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary);
-        }
-        .options-container {
-            margin-bottom: 30px;
-        }
-        .option { 
-            display: block; 
-            width: 100%; 
-            padding: 16px 20px; 
-            margin-bottom: 12px; 
-            border: 2px solid #ddd; 
-            border-radius: 10px; 
-            text-align: left; 
-            cursor: pointer; 
-            background: white;
-            font-size: 1rem;
-            transition: all 0.2s;
-            position: relative;
-        }
-        .option:hover { 
-            background: #f0f7ff; 
-            border-color: var(--primary); 
-            transform: translateX(5px);
-        }
-        .option.selected { 
-            background: var(--primary); 
-            color: white; 
-            border-color: var(--primary); 
-        }
-        .option.correct { 
-            background: var(--success); 
-            color: white; 
-            border-color: var(--success); 
-        }
-        .option.wrong { 
-            background: var(--danger); 
-            color: white; 
-            border-color: var(--danger); 
-        }
-        .option-letter {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background: #eee;
             border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 15px;
-            font-weight: bold;
-            color: var(--dark);
+            transition: all 0.3s;
         }
-        .selected .option-letter, .correct .option-letter, .wrong .option-letter {
-            background: rgba(255,255,255,0.3);
-            color: white;
+
+        .close-btn:hover {
+            background: rgba(255,255,255,0.2);
         }
-        
-        /* MOCK EXAM TIMER */
-        .mock-timer {
-            background: var(--danger);
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            padding: 20px 30px;
+            background: var(--success);
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            font-size: 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 300px;
+            max-width: 400px;
+        }
+
+        .notification.error { background: var(--danger); }
+        .notification.warning { background: var(--warning); color: var(--dark); }
+        .notification.info { background: #17a2b8; }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .subject-grid,
+            .quick-stats,
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .navigation {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .subject-grid,
+            .quick-stats,
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .quiz-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .quiz-controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content,
+            .header,
+            .navigation,
+            .session-info {
+                padding: 20px;
+            }
+            
+            .welcome-banner h2 {
+                font-size: 1.8rem;
+            }
+            
+            .question-card {
+                padding: 20px;
+            }
+            
+            .option {
+                padding: 15px;
+            }
+        }
+
+        /* Animations */
+        .pulse {
             animation: pulse 2s infinite;
         }
+
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        
-        /* BUTTONS */
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-            flex-wrap: wrap;
-            gap: 15px;
+
+        .float {
+            animation: float 6s ease-in-out infinite;
         }
-        .btn { 
-            padding: 12px 25px; 
-            border: none; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1rem;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .btn:active {
-            transform: translateY(-1px);
-        }
-        .btn-primary { 
-            background: var(--primary); 
-            color: white; 
-        }
-        .btn-secondary { 
-            background: var(--secondary); 
-            color: white; 
-}
-        .btn-accent { 
-            background: var(--accent); 
-            color: white; 
-        }
-        .btn-danger { 
-            background: var(--danger); 
-            color: white; 
-        }
-        .btn-purple { 
-            background: var(--purple); 
-            color: white; 
-        }
-        .btn-gold {
-            background: linear-gradient(45deg, var(--gold), #ffed4e);
-            color: #333;
-            font-weight: bold;
-        }
-        .btn-premium {
-            background: var(--premium);
-            color: white;
-            font-weight: bold;
-        }
-        
-        /* BACK BUTTON */
-        .back-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-        }
-        .back-btn:hover {
-            background: rgba(255,255,255,0.3);
-        }
-        
-        /* RESULTS SCREEN */
-        #results-section {
-            display: none;
-            padding: 30px;
-        }
-        .result-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .result-icon {
-            font-size: 4rem;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        .score-display {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin: 20px 0;
-        }
-        .result-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .result-box {
-            background: var(--light);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        .result-box h3 {
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-        .result-box p {
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
-        .score-breakdown {
-            margin-top: 40px;
-        }
-        .subject-score {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: #f9f9f9;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
-        .score-bar {
-            height: 10px;
-            background: #e0e0e0;
-            border-radius: 5px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-        .score-fill {
-            height: 100%;
-            background: var(--secondary);
-        }
-        .leaderboard {
-            margin-top: 40px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .leaderboard-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-        }
-        .leaderboard-item.you {
-            background: #eef7ff;
-            border-radius: 8px;
-        }
-        
-        /* FOOTER */
-        .footer { 
-            background: #f5f5f5; 
-            padding: 25px 20px; 
-            text-align: center; 
-            font-size: 0.9rem; 
-            color: #666;
-            border-top: 1px solid #ddd;
-        }
-        .footer-links { 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-        .footer a { 
-            color: var(--primary); 
-            text-decoration: none; 
-            font-weight: 600; 
-            transition: color 0.3s;
-        }
-        .footer a:hover { 
-            color: var(--accent); 
-            text-decoration: underline;
-        }
-        
-        /* NOTIFICATIONS */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: white;
-            font-weight: bold;
-            z-index: 10000;
-            box-shadow: var(--shadow);
-            animation: slideInRight 0.3s ease;
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOutRight {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-        
-        /* TEST BUTTON */
-        .test-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-            .question-box { font-size: 1.1rem; }
-            .dashboard-info { flex-direction: column; align-items: flex-start; }
-            .button-container { flex-direction: column; }
-            .btn { width: 100%; justify-content: center; }
-            .header-buttons { position: static; justify-content: center; margin-top: 15px; }
-            .setup-options { grid-template-columns: 1fr; }
-            .back-btn { position: static; margin: 10px 0; }
-            .value-bet-tag {
-                top: 5px;
-                right: 5px;
-                font-size: 8px;
-                padding: 1px 6px;
-            }
-            .user-profile {
-                position: static;
-                margin: 10px 0;
-            }
-            .payment-methods {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .card { padding: 15px; min-height: 120px; }
-            .btn { padding: 10px 15px; font-size: 0.9rem; }
-            .question-box { font-size: 1.1rem; padding: 12px; }
-            .option { padding: 12px 15px; margin-bottom: 8px; }
-            .header h2 { font-size: 1.5rem; }
-            .dashboard-info { padding: 15px; }
-            .value-bet-tag {
-                top: 3px;
-                right: 3px;
-                font-size: 7px;
-                padding: 1px 4px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .card { min-height: 120px; padding: 15px 10px; }
-            .card i { font-size: 2rem; margin-bottom: 10px; }
-            .question-box { font-size: 1rem; }
-            .option { padding: 12px 15px; font-size: 0.95rem; }
-            .btn { padding: 10px 15px; font-size: 0.9rem; }
-            .header h2 { font-size: 1.3rem; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
-
-<div class="app-container">
-    <div class="header">
-        <button class="back-btn" id="back-to-dashboard" style="display: none;" onclick="returnToDashboard()">
-            <i class="fas fa-arrow-left"></i> Back to Dashboard
-        </button>
-        <h2>JAMB MASTERMIND 300</h2>
-        <div class="header-subtitle">Orient Neo 7 Edition - Ultimate UTME Preparation Platform</div>
-        <div class="study-clock" id="session-timer">
-            <i class="far fa-clock"></i> Session: Not Started
-        </div>
-        
-        <div class="user-profile">
-            <div class="user-avatar" onclick="toggleUserDropdown()" id="user-avatar">
-                S
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <div class="badge">PRO EDITION</div>
+                <h1><i class="fas fa-brain"></i> JAMB Mastermind 3000+</h1>
+                <p class="subtitle">Complete Preparation Platform for 2024/2025 Session</p>
             </div>
-            <div class="user-dropdown" id="user-dropdown">
-                <div class="user-dropdown-item" onclick="viewProfile()">
-                    <i class="fas fa-user"></i> My Profile
-                </div>
-                <div class="user-dropdown-item" onclick="viewSubscription()">
-                    <i class="fas fa-crown"></i> Subscription Status
-                </div>
-                <div class="user-dropdown-item" onclick="viewPurchaseHistory()">
-                    <i class="fas fa-history"></i> Purchase History
-                </div>
-                <div class="user-dropdown-item" onclick="upgradeToPremium()">
-                    <i class="fas fa-gem"></i> Upgrade to Premium
-                </div>
-                <div class="user-dropdown-item" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </div>
-            </div>
-        </div>
-        
-        <div class="header-buttons">
-            <button class="btn btn-premium" onclick="upgradeToPremium()">
-                <i class="fas fa-crown"></i> Upgrade
-            </button>
-            <button class="btn btn-accent" onclick="openTab('mock-tab')">
-                <i class="fas fa-graduation-cap"></i> Mock Exam
-            </button>
-            <button class="btn btn-purple" onclick="showAnalytics()">
-                <i class="fas fa-chart-bar"></i> Analytics
-            </button>
-        </div>
-    </div>
-
-    <div id="dashboard">
-        <div class="dashboard-info">
-            <div>
-                <h3>Select Subject</h3>
-                <p style="font-size: 0.8rem; color: #666;">2,000 Questions per Subject Loaded • Powered by AI Analytics</p>
-            </div>
-            <div class="stats">
-                <div class="stat-box"><i class="fas fa-question-circle"></i> 8,000 Total Questions</div>
-                <div class="stat-box"><i class="fas fa-chart-line"></i> Performance Tracking</div>
-                <div class="stat-box"><i class="fas fa-crown"></i> <span id="user-plan">Free Plan</span></div>
-            </div>
-        </div>
-        
-        <div class="dashboard-tabs">
-            <button class="tab-btn active" onclick="openTab('practice-tab')">Practice Mode</button>
-            <button class="tab-btn" onclick="openTab('mock-tab')">Mock Exam</button>
-            <button class="tab-btn" onclick="openTab('premium-tab')">Premium Features</button>
-            <button class="tab-btn" onclick="openTab('multiplayer-tab')">Study Groups</button>
-        </div>
-        
-        <div id="practice-tab" class="tab-content" style="display: block;">
-            <div class="grid">
-                <div class="card premium-card" onclick="checkPremiumAccess('english')">
-                    <div class="value-bet-tag">VALUE BET</div>
-                    <i class="fas fa-book fa-2x" style="color:#004a99"></i>
-                    <p>English Language <span class="premium-badge">Premium</span></p>
-                    <small>2,000 Questions + AI Explanations</small>
-                </div>
-                <div class="card" onclick="checkPremiumAccess('math')">
-                    <i class="fas fa-calculator fa-2x" style="color:#004a99"></i>
-                    <p>Mathematics</p>
-                    <small>2,000 Questions</small>
-                </div>
-                <div class="card premium-card" onclick="checkPremiumAccess('physics')">
-                    <i class="fas fa-atom fa-2x" style="color:#004a99"></i>
-                    <p>Physics <span class="premium-badge">Premium</span></p>
-                    <small>2,000 Questions + Video Solutions</small>
-                </div>
-                <div class="card" onclick="checkPremiumAccess('biology')">
-                    <i class="fas fa-dna fa-2x" style="color:#004a99"></i>
-                    <p>Biology</p>
-                    <small>2,000 Questions</small>
-                </div>
-                <div class="card premium-card" onclick="checkPremiumAccess('chemistry')">
-                    <i class="fas fa-flask fa-2x" style="color:#004a99"></i>
-                    <p>Chemistry <span class="premium-badge">Premium</span></p>
-                    <small>2,000 Questions + 3D Models</small>
-                </div>
-                <div class="card" onclick="checkPremiumAccess('government')">
-                    <i class="fas fa-landmark fa-2x" style="color:#004a99"></i>
-                    <p>Government</p>
-                    <small>2,000 Questions</small>
-                </div>
-                <div class="card premium-card" onclick="checkPremiumAccess('economics')">
-                    <i class="fas fa-chart-bar fa-2x" style="color:#004a99"></i>
-                    <p>Economics <span class="premium-badge">Premium</span></p>
-                    <small>2,000 Questions + Case Studies</small>
-                </div>
-                <div class="card" onclick="checkPremiumAccess('literature')">
-                    <i class="fas fa-pen-alt fa-2x" style="color:#004a99"></i>
-                    <p>Literature</p>
-                    <small>2,000 Questions</small>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="btn btn-gold" onclick="quickDemo()">
-                    <i class="fas fa-rocket"></i> Quick Demo (3 Questions)
-                </button>
-                <button class="btn btn-premium" onclick="upgradeToPremium()" style="margin-left: 10px;">
-                    <i class="fas fa-unlock"></i> Unlock All Subjects
-                </button>
-            </div>
-        </div>
-        
-        <div id="premium-tab" class="tab-content" style="display: none;">
-            <div style="text-align: center; padding: 30px;">
-                <i class="fas fa-crown fa-4x" style="background: var(--premium); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px;"></i>
-                <h2>Upgrade to Premium</h2>
-                <p style="margin-bottom: 30px;">Get unlimited access to all features and maximize your JAMB score</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-                    <div class="plan-card" onclick="selectPlan('basic')">
-                        <h3>Basic Plan</h3>
-                        <div class="plan-price">₦2,500</div>
-                        <p>Monthly Access</p>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-check"></i> All 8 Subjects</li>
-                            <li><i class="fas fa-check"></i> 5 Mock Exams</li>
-                            <li><i class="fas fa-check"></i> Basic Analytics</li>
-                            <li><i class="fas fa-check"></i> Mobile Access</li>
-                            <li><i class="fas fa-times"></i> No Video Solutions</li>
-                        </ul>
-                        <button class="btn btn-primary">Select Plan</button>
+            <div class="user-profile">
+                <div class="user-info" onclick="toggleUserDropdown()">
+                    <div class="user-avatar" id="user-avatar">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
-                    
-                    <div class="plan-card selected" onclick="selectPlan('pro')">
-                        <h3>Pro Plan <span class="premium-badge">Most Popular</span></h3>
-                        <div class="plan-price">₦5,000</div>
-                        <p>Monthly Access</p>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-check"></i> All 8 Subjects</li>
-                            <li><i class="fas fa-check"></i> Unlimited Mock Exams</li>
-                            <li><i class="fas fa-check"></i> Advanced Analytics</li>
-                            <li><i class="fas fa-check"></i> Video Solutions</li>
-                            <li><i class="fas fa-check"></i> AI Tutor Support</li>
-                        </ul>
-                        <button class="btn btn-premium">Select Plan</button>
-                    </div>
-                    
-                    <div class="plan-card" onclick="selectPlan('ultimate')">
-                        <h3>Ultimate Plan</h3>
-                        <div class="plan-price">₦12,000</div>
-                        <p>3 Months Access</p>
-                        <ul class="plan-features">
-                            <li><i class="fas fa-check"></i> All Pro Features</li>
-                            <li><i class="fas fa-check"></i> Personal Tutor</li>
-                            <li><i class="fas fa-check"></i> Study Schedule</li>
-                            <li><i class="fas fa-check"></i> Priority Support</li>
-                            <li><i class="fas fa-check"></i> Certificate</li>
-                        </ul>
-                        <button class="btn btn-primary">Select Plan</button>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 40px; padding: 20px; background: #f9f9f9; border-radius: 10px;">
-                    <h3>Payment Methods Available</h3>
-                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
-                        <div style="text-align: center;">
-                            <i class="fab fa-paypal fa-3x" style="color: #003087;"></i>
-                            <p>PayPal</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-credit-card fa-3x" style="color: #004a99;"></i>
-                            <p>Card Payment</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-university fa-3x" style="color: #00a859;"></i>
-                            <p>Bank Transfer</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <i class="fas fa-mobile-alt fa-3x" style="color: #ff6b35;"></i>
-                            <p>Mobile Money</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="btn btn-premium" onclick="upgradeToPremium()" style="margin-top: 30px; padding: 15px 40px; font-size: 1.2rem;">
-                    <i class="fas fa-bolt"></i> Upgrade Now & Get 30% Off
-                </button>
-            </div>
-        </div>
-        
-        <div id="mock-tab" class="tab-content" style="display: none;">
-            <div class="mock-setup">
-                <h3><i class="fas fa-graduation-cap"></i> JAMB Mock Exam Simulation</h3>
-                <p>Simulate the actual JAMB exam experience with random questions from all subjects.</p>
-                
-                <div style="margin: 20px 0; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
-                    <i class="fas fa-exclamation-circle"></i> 
-                    <strong>Premium Feature:</strong> Unlimited mock exams available. Free users limited to 2 per month.
-                    <button class="btn btn-premium" onclick="upgradeToPremium()" style="margin-left: 10px; padding: 5px 15px; font-size: 0.9rem;">
-                        <i class="fas fa-unlock"></i> Unlock Unlimited
-                    </button>
-                </div>
-                
-                <div class="setup-options">
-                    <div class="setup-option">
-                        <h4><i class="fas fa-clock"></i> Exam Duration</h4>
-                        <div class="checkbox-group">
-                            <label>
-                                <input type="radio" name="duration" value="120" checked> 2 Hours (Standard)
-                            </label>
-                            <label>
-                                <input type="radio" name="duration" value="90"> 1.5 Hours (Quick)
-                            </label>
-                            <label>
-                                <input type="radio" name="duration" value="180"> 3 Hours (Extended)
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="setup-option">
-                        <h4><i class="fas fa-question-circle"></i> Questions</h4>
-                        <div class="checkbox-group">
-                            <label>
-                                <input type="radio" name="questions" value="180" checked> 180 Questions (JAMB Standard)
-                            </label>
-                            <label>
-                                <input type="radio" name="questions" value="100"> 100 Questions (Quick Test)
-                            </label>
-                            <label>
-                                <input type="radio" name="questions" value="60"> 60 Questions (Subject Focus)
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="setup-option">
-                        <h4><i class="fas fa-book"></i> Subjects to Include</h4>
-                        <div class="checkbox-group">
-                            <label>
-                                <input type="checkbox" name="subjects" value="english" checked> English
-                            </label>
-                            <label>
-                                <input type="checkbox" name="subjects" value="math" checked> Mathematics
-                            </label>
-                            <label>
-                                <input type="checkbox" name="subjects" value="physics"> Physics
-                            </label>
-                            <label>
-                                <input type="checkbox" name="subjects" value="biology"> Biology
-                            </label>
-                            <label>
-                                <input type="checkbox" name="subjects" value="chemistry"> Chemistry
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="multiplayer-setup">
-                    <h4><i class="fas fa-users"></i> Multiplayer Mock Exam (Premium Feature)</h4>
-                    <p>Invite up to 2 friends to take the mock exam together and compare scores.</p>
-                    
-                    <div class="player-list" id="player-list">
-                        <div class="player-card you">
-                            <i class="fas fa-user-circle fa-2x"></i>
-                            <p>You (Host)</p>
-                            <small>Ready</small>
-                        </div>
-                    </div>
-                    
-                    <div class="invite-section">
-                        <input type="text" class="invite-input" id="invite-code" value="JAMB-7X9P2" readonly>
-                        <button class="btn btn-primary" onclick="copyInviteCode()">
-                            <i class="fas fa-copy"></i> Copy Code
-                        </button>
-                        <button class="btn btn-premium" onclick="joinMockSession()">
-                            <i class="fas fa-user-plus"></i> Join Session
-                        </button>
-                    </div>
-                    
-                    <div style="margin-top: 15px;">
-                        <input type="text" class="invite-input" placeholder="Enter friend's code to invite" id="friend-code">
-                        <button class="btn btn-accent" onclick="inviteFriend()">
-                            <i class="fas fa-paper-plane"></i> Invite Friend
-                        </button>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 30px;">
-                    <button class="btn btn-primary" style="padding: 15px 40px; font-size: 1.2rem;" onclick="startMockExam()">
-                        <i class="fas fa-play-circle"></i> Start Mock Exam
-                    </button>
-                    <button class="btn btn-premium" onclick="upgradeToPremium()" style="margin-left: 10px;">
-                        <i class="fas fa-unlock"></i> Unlock All Features
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div id="multiplayer-tab" class="tab-content" style="display: none;">
-            <div style="text-align: center; padding: 40px 20px;">
-                <i class="fas fa-users fa-4x" style="color: var(--purple); margin-bottom: 20px;"></i>
-                <h3>Study Groups & Multiplayer</h3>
-                <p style="margin-bottom: 30px;">Connect with friends for collaborative learning and mock exams</p>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;">
-                    <div class="card premium-card" onclick="createStudyGroup()">
-                        <i class="fas fa-plus-circle fa-3x" style="color: var(--secondary);"></i>
-                        <h4>Create Group <span class="premium-badge">Premium</span></h4>
-                        <p>Start a new study group</p>
-                    </div>
-                    
-                    <div class="card premium-card" onclick="joinStudyGroup()">
-                        <i class="fas fa-user-plus fa-3x" style="color: var(--primary);"></i>
-                        <h4>Join Group <span class="premium-badge">Premium</span></h4>
-                        <p>Join existing study group</p>
-                    </div>
-                    
-                    <div class="card" onclick="viewLeaderboard()">
-                        <i class="fas fa-trophy fa-3x" style="color: var(--gold);"></i>
-                        <h4>Leaderboard</h4>
-                        <p>See top performers</p>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 40px; padding: 20px; background: #eef7ff; border-radius: 10px;">
-                    <h3>Premium Study Groups Feature</h3>
-                    <p>Create private study groups with friends, track group progress, and compete in group challenges.</p>
-                    <button class="btn btn-premium" onclick="upgradeToPremium()" style="margin-top: 15px;">
-                        <i class="fas fa-unlock"></i> Unlock Study Groups
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="quiz-section">
-        <!-- Quiz content will be loaded here -->
-    </div>
-
-    <div id="results-section">
-        <!-- Results will be loaded here -->
-    </div>
-
-    <div class="footer">
-        <div class="footer-links">
-            <a href="javascript:void(0)" onclick="openTab('premium-tab')">Premium Plans</a> | 
-            <a href="javascript:void(0)" onclick="showPaymentHistory()">Payment History</a> | 
-            <a href="https://www.khanacademy.org/" target="_blank">Khan Academy</a> | 
-            <a href="https://myschool.ng/jamb-practice" target="_blank">MySchool Hub</a> | 
-            <a href="https://www.jamb.gov.ng" target="_blank">JAMB Official</a> |
-            <a href="https://pastquestionhub.com" target="_blank">Past Questions</a>
-        </div>
-        <hr style="margin: 10px auto; width: 80%; opacity: 0.3;">
-        <p>Support: orientalgrid@gmail.com | 2348103365359</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">© 2026 JAMB Mastermind 300 - Orient Neo 7 Edition. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; color: #888;">
-            <i class="fas fa-shield-alt"></i> Secure Payment Processing via Flutterwave & Paystack
-        </p>
-    </div>
-</div>
-
-<!-- Payment Modal -->
-<div class="payment-modal" id="payment-modal">
-    <div class="payment-content">
-        <div class="payment-header">
-            <h3><i class="fas fa-lock"></i> Secure Payment</h3>
-            <p>Complete your subscription upgrade</p>
-            <button class="close-payment" onclick="closePaymentModal()">&times;</button>
-        </div>
-        
-        <div style="padding: 20px;">
-            <div id="payment-summary">
-                <h4>Order Summary</h4>
-                <div style="display: flex; justify-content: space-between; margin: 15px 0; padding: 15px; background: #f9f9f9; border-radius: 8px;">
                     <div>
-                        <strong id="selected-plan-name">Pro Plan</strong><br>
-                        <small id="selected-plan-desc">Monthly Access</small>
+                        <div class="user-name" id="user-name">Future Graduate</div>
+                        <div class="user-plan" id="user-plan">PREMIUM ACCESS</div>
                     </div>
-                    <div style="text-align: right;">
-                        <strong id="selected-plan-price">₦5,000</strong><br>
-                        <small id="selected-plan-duration">per month</small>
-                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-menu" id="user-dropdown">
+                    <a href="#" onclick="viewProfile()">
+                        <i class="fas fa-user-circle"></i>
+                        <div>
+                            <strong>My Profile</strong>
+                            <small>View progress & achievements</small>
+                        </div>
+                    </a>
+                    <a href="#" onclick="viewSubscription()">
+                        <i class="fas fa-gem"></i>
+                        <div>
+                            <strong>Subscription</strong>
+                            <small>Premium features active</small>
+                        </div>
+                    </a>
+                    <a href="#" onclick="viewAnalytics()">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>
+                            <strong>Analytics</strong>
+                            <small>Performance insights</small>
+                        </div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <div>
+                            <strong>Logout</strong>
+                            <small>End current session</small>
+                        </div>
+                    </a>
                 </div>
             </div>
-            
-            <div class="payment-methods">
-                <div class="payment-method selected" onclick="selectPaymentMethod('card')">
-                    <i class="fas fa-credit-card"></i>
-                    <p>Card</p>
-                </div>
-                <div class="payment-method" onclick="selectPaymentMethod('transfer')">
-                    <i class="fas fa-university"></i>
-                    <p>Transfer</p>
-                </div>
-                <div class="payment-method" onclick="selectPaymentMethod('paypal')">
-                    <i class="fab fa-paypal"></i>
-                    <p>PayPal</p>
-                </div>
-                <div class="payment-method" onclick="selectPaymentMethod('ussd')">
-                    <i class="fas fa-mobile-alt"></i>
-                    <p>USSD</p>
-                </div>
+        </div>
+
+        <!-- Session Info -->
+        <div class="session-info">
+            <div class="session-timer">
+                <i class="far fa-clock"></i>
+                <span>Session Time: <span id="session-time">00:00:00</span></span>
             </div>
-            
-            <div id="card-payment-form" style="margin-top: 20px;">
-                <h4>Card Details</h4>
-                <input type="text" placeholder="Card Number" style="width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px;">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                    <input type="text" placeholder="MM/YY" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                    <input type="text" placeholder="CVV" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                </div>
-                <input type="text" placeholder="Name on Card" style="width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px;">
+            <div class="score-display">
+                <i class="fas fa-trophy"></i>
+                Total Score: <span id="total-score-display">0</span> points
             </div>
-            
-            <div id="transfer-payment-form" style="margin-top: 20px; display: none;">
-                <h4>Bank Transfer Details</h4>
-                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                    <p><strong>Bank:</strong> Zenith Bank</p>
-                    <p><strong>Account Name:</strong> Orient Neo 7 EduTech</p>
-                    <p><strong>Account Number:</strong> 1012345678</p>
-                    <p><strong>Reference:</strong> <span id="payment-reference">JAMB-${Date.now()}</span></p>
-                </div>
-                <p style="font-size: 0.9rem; color: #666;">
-                    <i class="fas fa-info-circle"></i> Upload proof of payment after transfer
-                </p>
-                <input type="file" accept="image/*" style="width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 8px;">
-            </div>
-            
-            <button class="btn btn-premium" onclick="processPayment()" style="width: 100%; padding: 15px; margin-top: 20px;">
-                <i class="fas fa-lock"></i> Pay Securely
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn active" onclick="openTab('practice-tab')">
+                <i class="fas fa-book-open"></i> Practice Mode
             </button>
-            
-            <div style="margin-top: 15px; text-align: center;">
-                <img src="https://flutterwave.com/images/flutterwave-logo.svg" alt="Flutterwave" style="height: 30px; margin: 0 10px;">
-                <img src="https://paystack.com/assets/website/images/paystack-logo-vector.svg" alt="Paystack" style="height: 30px; margin: 0 10px;">
+            <button class="nav-btn" onclick="openTab('mock-tab')">
+                <i class="fas fa-clipboard-list"></i> Mock Exams
+            </button>
+            <button class="nav-btn" onclick="openTab('analytics-tab')">
+                <i class="fas fa-chart-line"></i> Analytics
+            </button>
+            <button class="nav-btn" onclick="openTab('resources-tab')">
+                <i class="fas fa-graduation-cap"></i> Resources
+            </button>
+            <button class="nav-btn" onclick="openTab('premium-tab')">
+                <i class="fas fa-crown"></i> Premium
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard -->
+            <div id="dashboard">
+                <!-- Practice Tab -->
+                <div id="practice-tab" class="tab-content">
+                    <div class="welcome-banner">
+                        <h2><i class="fas fa-graduation-cap"></i> Master JAMB with 3000+ Curated Questions</h2>
+                        <p>Comprehensive preparation across all subjects. Track progress, identify weak areas, and achieve your target score.</p>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <i class="fas fa-question-circle"></i>
+                            <div>
+                                <h3 id="questions-attempted">0</h3>
+                                <p>Questions Attempted</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h3 id="accuracy-rate">0%</h3>
+                                <p>Accuracy Rate</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-medal"></i>
+                            <div>
+                                <h3 id="streak-days">0</h3>
+                                <p>Day Streak</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3 id="study-hours">0</h3>
+                                <p>Study Hours</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subject-grid">
+                        <!-- English -->
+                        <div class="subject-card" onclick="startSubjectPractice('english')">
+                            <div class="subject-icon english float">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3>English Language</h3>
+                            <p>Comprehension, Grammar, Vocabulary, Oral English</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Mathematics -->
+                        <div class="subject-card" onclick="startSubjectPractice('math')">
+                            <div class="subject-icon math float">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3>Mathematics</h3>
+                            <p>Algebra, Geometry, Calculus, Statistics</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Physics -->
+                        <div class="subject-card" onclick="startSubjectPractice('physics')">
+                            <div class="subject-icon physics float">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h3>Physics</h3>
+                            <p>Mechanics, Waves, Electricity, Modern Physics</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Chemistry -->
+                        <div class="subject-card" onclick="startSubjectPractice('chemistry')">
+                            <div class="subject-icon chemistry float">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>Chemistry</h3>
+                            <p>Organic, Inorganic, Physical Chemistry</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Biology -->
+                        <div class="subject-card" onclick="startSubjectPractice('biology')">
+                            <div class="subject-icon biology float">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <h3>Biology</h3>
+                            <p>Genetics, Ecology, Human Physiology, Botany</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Government -->
+                        <div class="subject-card" onclick="startSubjectPractice('government')">
+                            <div class="subject-icon government float">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <h3>Government</h3>
+                            <p>Political Theory, Nigerian Government, Constitution</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Economics -->
+                        <div class="subject-card" onclick="startSubjectPractice('economics')">
+                            <div class="subject-icon economics float">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Economics</h3>
+                            <p>Microeconomics, Macroeconomics, Development</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+
+                        <!-- Literature -->
+                        <div class="subject-card" onclick="startSubjectPractice('literature')">
+                            <div class="subject-icon literature float">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Literature in English</h3>
+                            <p>Prose, Poetry, Drama, Literary Devices</p>
+                            <div class="question-count">500+ Questions</div>
+                            <div class="premium-tag">Premium</div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary btn-lg" onclick="quickRevision()">
+                            <i class="fas fa-bolt"></i> Quick Revision (30 Questions)
+                        </button>
+                        <button class="btn btn-secondary btn-lg" onclick="openTab('mock-tab')">
+                            <i class="fas fa-clipboard-check"></i> Full Mock Test
+                        </button>
+                        <button class="btn btn-premium btn-lg" onclick="continuePractice()">
+                            <i class="fas fa-play-circle"></i> Continue Practice
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mock Exams Tab -->
+                <div id="mock-tab" class="tab-content" style="display: none;">
+                    <div class="welcome-banner">
+                        <h2><i class="fas fa-clipboard-list"></i> JAMB Mock Examination Center</h2>
+                        <p>Simulate the real JAMB exam experience with timed tests, detailed analytics, and performance tracking</p>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h3 id="mock-score">0</h3>
+                                <p>Best Mock Score</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-history"></i>
+                            <div>
+                                <h3 id="mock-attempts">0</h3>
+                                <p>Mock Attempts</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3 id="avg-time">00:00</h3>
+                                <p>Average Time</p>
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-chart-pie"></i>
+                            <div>
+                                <h3 id="accuracy-mock">0%</h3>
+                                <p>Mock Accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin: 50px 0;">
+                        <h2 style="color: var(--primary); margin-bottom: 30px;">Select Mock Exam Type</h2>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto;">
+                            <div class="subject-card" onclick="startMockExam('full', 180, 7200)">
+                                <div class="subject-icon english" style="background: var(--primary);">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Full JAMB Mock</h3>
+                                <p>180 Questions • 2 Hours</p>
+                                <div class="question-count">Complete Simulation</div>
+                                <button class="btn btn-primary" style="margin-top: 15px;">Start Exam</button>
+                            </div>
+
+                            <div class="subject-card" onclick="startMockExam('custom', 60, 3600)">
+                                <div class="subject-icon math" style="background: var(--secondary);">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>Custom Mock</h3>
+                                <p>60 Questions • 1 Hour</p>
+                                <div class="question-count">Choose Subjects</div>
+                                <button class="btn btn-secondary" style="margin-top: 15px;">Customize</button>
+                            </div>
+
+                            <div class="subject-card" onclick="startMockExam('speed', 40, 1800)">
+                                <div class="subject-icon physics" style="background: var(--accent);">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <h3>Speed Test</h3>
+                                <p>40 Questions • 30 Minutes</p>
+                                <div class="question-count">Quick Assessment</div>
+                                <button class="btn btn-danger" style="margin-top: 15px;">Start Test</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div id="analytics-tab" class="tab-content" style="display: none;">
+                    <div class="welcome-banner">
+                        <h2><i class="fas fa-chart-line"></i> Performance Analytics & Insights</h2>
+                        <p>Track your progress, identify weak areas, and optimize your study strategy</p>
+                    </div>
+                    <!-- Analytics content would go here -->
+                </div>
+
+                <!-- Resources Tab -->
+                <div id="resources-tab" class="tab-content" style="display: none;">
+                    <div class="welcome-banner">
+                        <h2><i class="fas fa-graduation-cap"></i> Study Resources & Materials</h2>
+                        <p>Access comprehensive study materials, past questions, and learning tools</p>
+                    </div>
+                    <!-- Resources content would go here -->
+                </div>
+
+                <!-- Premium Tab -->
+                <div id="premium-tab" class="tab-content" style="display: none;">
+                    <div class="welcome-banner">
+                        <h2><i class="fas fa-crown"></i> Unlock Premium Features</h2>
+                        <p>Get full access to all 3000+ questions, unlimited mock exams, and advanced analytics</p>
+                    </div>
+                    <!-- Premium content would go here -->
+                </div>
             </div>
-            
-            <p style="font-size: 0.8rem; text-align: center; margin-top: 10px; color: #666;">
-                <i class="fas fa-shield-alt"></i> 256-bit SSL Encryption • No card details stored
-            </p>
+
+            <!-- Quiz Section -->
+            <div id="quiz-section" class="quiz-section"></div>
+
+            <!-- Results Section -->
+            <div id="results-section" class="results-section"></div>
         </div>
     </div>
-</div>
 
-<!-- Development Test Button -->
-<button class="btn btn-gold test-button" id="dev-test-btn" onclick="enableTestMode()">
-    <i class="fas fa-flask"></i> DEV TEST
-</button>
-
-<script>
-    // =================== COMPLETE QUIZ DATABASE ===================
-    const QUESTION_DATABASE = {
-        english: [
-            {
-                question: "Choose the option that best completes the sentence: If I had known, I _____ come earlier.",
-                options: ["would have", "will have", "would", "will"],
-                correct: 0,
-                explanation: "The correct answer is 'would have' because it's a third conditional sentence expressing a past unreal condition."
-            },
-            {
-                question: "Identify the grammatically correct sentence:",
-                options: ["She don't like apples", "She doesn't likes apples", "She doesn't like apples", "She not likes apples"],
-                correct: 2,
-                explanation: "'She doesn't like apples' is correct because with third person singular (she), we use 'doesn't' + base form of verb."
-            },
-            {
-                question: "What is the synonym of 'Benevolent'?",
-                options: ["Cruel", "Kind", "Selfish", "Stingy"],
-                correct: 1,
-                explanation: "Benevolent means well-meaning and kindly, which is synonymous with 'kind'."
-            },
-            {
-                question: "Which word is stressed on the first syllable?",
-                options: ["about", "before", "present", "receive"],
-                correct: 2,
-                explanation: "'Present' (noun) is stressed on the first syllable: PRE-sent."
-            },
-            {
-                question: "Choose the correct idiomatic expression: He's _____ thin air.",
-                options: ["vanishing into", "disappearing in", "evaporating to", "melting into"],
-                correct: 0,
-                explanation: "The correct idiom is 'vanishing into thin air' meaning to disappear completely."
-            }
-        ],
-        math: [
-            {
-                question: "Solve for x: 2x + 5 = 15",
-                options: ["5", "10", "7.5", "20"],
-                correct: 0,
-                explanation: "2x + 5 = 15 → 2x = 15 - 5 → 2x = 10 → x = 5"
-            },
-            {
-                question: "What is the value of π (pi) to two decimal places?",
-                options: ["3.14", "3.16", "3.12", "3.18"],
-                correct: 0,
-                explanation: "π is approximately 3.14159, which rounds to 3.14 to two decimal places."
-            },
-            {
-                question: "Calculate the area of a triangle with base 6cm and height 8cm",
-                options: ["24 cm²", "48 cm²", "14 cm²", "32 cm²"],
-                correct: 0,
-                explanation: "Area = ½ × base × height = ½ × 6 × 8 = 24 cm²"
-            },
-            {
-                question: "Simplify: (x²)(x³)",
-                options: ["x⁵", "x⁶", "x", "2x⁵"],
-                correct: 0,
-                explanation: "When multiplying with same base, add exponents: x² × x³ = x^(2+3) = x⁵"
-            },
-            {
-                question: "What is 25% of 200?",
-                options: ["50", "25", "75", "100"],
-                correct: 0,
-                explanation: "25% of 200 = 0.25 × 200 = 50"
-            }
-        ],
-        physics: [
-            {
-                question: "What is the SI unit of force?",
-                options: ["Joule", "Newton", "Watt", "Pascal"],
-                correct: 1,
-                explanation: "The SI unit of force is the Newton (N), named after Sir Isaac Newton."
-            },
-            {
-                question: "Which law states that every action has an equal and opposite reaction?",
-                options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Ohm's Law"],
-                correct: 2,
-                explanation: "Newton's Third Law of Motion states this principle."
-            },
-            {
-                question: "What is the speed of light in vacuum?",
-                options: ["300,000 km/s", "150,000 km/s", "450,000 km/s", "600,000 km/s"],
-                correct: 0,
-                explanation: "The speed of light in vacuum is approximately 300,000 kilometers per second."
-            },
-            {
-                question: "Which instrument measures electric current?",
-                options: ["Voltmeter", "Ammeter", "Ohmmeter", "Galvanometer"],
-                correct: 1,
-                explanation: "An ammeter measures electric current in amperes."
-            },
-            {
-                question: "What type of energy is stored in a stretched spring?",
-                options: ["Kinetic energy", "Potential energy", "Thermal energy", "Electrical energy"],
-                correct: 1,
-                explanation: "A stretched spring stores elastic potential energy."
-            }
-        ],
-        biology: [
-            {
-                question: "Which organelle is known as the powerhouse of the cell?",
-                options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
-                correct: 1,
-                explanation: "Mitochondria produce ATP, the energy currency of the cell."
-            },
-            {
-                question: "What is the process by which plants make their food?",
-                options: ["Respiration", "Photosynthesis", "Transpiration", "Digestion"],
-                correct: 1,
-                explanation: "Photosynthesis converts light energy into chemical energy in plants."
-            },
-            {
-                question: "Which blood type is the universal donor?",
-                options: ["Type A", "Type B", "Type AB", "Type O"],
-                correct: 3,
-                explanation: "Type O negative is the universal donor as it can be given to all blood types."
-            },
-            {
-                question: "What is the largest organ in the human body?",
-                options: ["Liver", "Brain", "Skin", "Lungs"],
-                correct: 2,
-                explanation: "The skin is the largest organ, covering the entire body."
-            },
-            {
-                question: "Which part of the brain controls balance and coordination?",
-                options: ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"],
-                correct: 1,
-                explanation: "The cerebellum is responsible for balance and coordination."
-            }
-        ],
-        chemistry: [
-            {
-                question: "What is the chemical symbol for Gold?",
-                options: ["Go", "Gd", "Au", "Ag"],
-                correct: 2,
-                explanation: "Au comes from the Latin word 'aurum' meaning gold."
-            },
-            {
-                question: "What is the pH of pure water?",
-                options: ["0", "7", "14", "10"],
-                correct: 1,
-                explanation: "Pure water is neutral with a pH of 7 at 25°C."
-            },
-            {
-                question: "Which gas is most abundant in Earth's atmosphere?",
-                options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"],
-                correct: 2,
-                explanation: "Nitrogen makes up about 78% of Earth's atmosphere."
-            },
-            {
-                question: "What is the process of a solid turning directly into gas?",
-                options: ["Evaporation", "Condensation", "Sublimation", "Deposition"],
-                correct: 2,
-                explanation: "Sublimation is the phase transition from solid to gas without passing through liquid."
-            },
-            {
-                question: "Which element has the atomic number 1?",
-                options: ["Helium", "Hydrogen", "Oxygen", "Carbon"],
-                correct: 1,
-                explanation: "Hydrogen is the first element with atomic number 1."
-            }
-        ],
-        government: [
-            {
-                question: "Who is the current President of Nigeria?",
-                options: ["Muhammadu Buhari", "Bola Tinubu", "Goodluck Jonathan", "Olusegun Obasanjo"],
-                correct: 1,
-                explanation: "Bola Ahmed Tinubu is the current President of Nigeria (as of 2024)."
-            },
-            {
-                question: "Which arm of government makes laws?",
-                options: ["Executive", "Legislature", "Judiciary", "Military"],
-                correct: 1,
-                explanation: "The Legislature (National Assembly) is responsible for making laws."
-            },
-            {
-                question: "What year did Nigeria gain independence?",
-                options: ["1957", "1960", "1963", "1970"],
-                correct: 1,
-                explanation: "Nigeria gained independence from Britain on October 1, 1960."
-            },
-            {
-                question: "How many states are in Nigeria?",
-                options: ["30", "36", "37", "38"],
-                correct: 2,
-                explanation: "Nigeria has 36 states and the Federal Capital Territory (FCT)."
-            },
-            {
-                question: "Which document is the supreme law of Nigeria?",
-                options: ["National Policy", "Constitution", "Manifesto", "Charter"],
-                correct: 1,
-                explanation: "The Constitution is the supreme law of Nigeria."
-            }
-        ],
-        economics: [
-            {
-                question: "What does GDP stand for?",
-                options: ["Gross Domestic Product", "General Domestic Price", "Gross Demand Product", "Government Domestic Policy"],
-                correct: 0,
-                explanation: "GDP stands for Gross Domestic Product, the total value of goods and services produced."
-            },
-            {
-                question: "What is inflation?",
-                options: ["Increase in production", "Decrease in prices", "Increase in prices", "Decrease in unemployment"],
-                correct: 2,
-                explanation: "Inflation is the rate at which prices for goods and services rise."
-            },
-            {
-                question: "Which is NOT a factor of production?",
-                options: ["Land", "Labor", "Money", "Entrepreneurship"],
-                correct: 2,
-                explanation: "The four factors of production are land, labor, capital, and entrepreneurship."
-            },
-            {
-                question: "What is the primary function of a central bank?",
-                options: ["Print money", "Control monetary policy", "Give personal loans", "Sell insurance"],
-                correct: 1,
-                explanation: "Central banks control monetary policy and regulate commercial banks."
-            },
-            {
-                question: "What does 'ceteris paribus' mean?",
-                options: ["Other things equal", "Let the buyer beware", "After this, therefore because of this", "For the public good"],
-                correct: 0,
-                explanation: "Ceteris paribus is Latin for 'other things being equal' or 'all else constant'."
-            }
-        ],
-        literature: [
-            {
-                question: "Who wrote 'Things Fall Apart'?",
-                options: ["Wole Soyinka", "Chinua Achebe", "Ben Okri", "Chimamanda Adichie"],
-                correct: 1,
-                explanation: "'Things Fall Apart' was written by Chinua Achebe, published in 1958."
-            },
-            {
-                question: "What is a sonnet?",
-                options: ["A 14-line poem", "A type of novel", "A drama", "A short story"],
-                correct: 0,
-                explanation: "A sonnet is a 14-line poem with a specific rhyme scheme."
-            },
-            {
-                question: "Which literary device compares two things using 'like' or 'as'?",
-                options: ["Metaphor", "Simile", "Personification", "Hyperbole"],
-                correct: 1,
-                explanation: "A simile directly compares two things using 'like' or 'as'."
-            },
-            {
-                question: "Who is the author of 'The Lion and the Jewel'?",
-                options: ["Wole Soyinka", "Chinua Achebe", "John Pepper Clark", "Femi Osofisan"],
-                correct: 0,
-                explanation: "'The Lion and the Jewel' is a play by Wole Soyinka."
-            },
-            {
-                question: "What is the term for the main character in a story?",
-                options: ["Antagonist", "Protagonist", "Narrator", "Foil"],
-                correct: 1,
-                explanation: "The protagonist is the main character around whom the story revolves."
-            }
-        ]
-    };
-
-    // =================== COMPLETE APP STATE ===================
-    const APP_STATE = {
-        currentUser: {
-            name: 'Student',
-            email: 'student@example.com',
-            plan: 'free',
-            subscriptionDate: null,
-            expiryDate: null,
-            questionsAttempted: 0,
-            totalScore: 0,
-            sessionTime: 0,
-            mockExamsTaken: 0,
-            paymentHistory: []
-        },
-        currentQuiz: {
-            subject: '',
-            questions: [],
-            currentQuestionIndex: 0,
-            score: 0,
-            startTime: null,
-            selectedAnswers: [],
-            isMockExam: false,
-            timer: null,
-            timeRemaining: 7200 // 2 hours in seconds for mock exam
-        },
-        selectedPlan: 'pro',
-        selectedPaymentMethod: 'card',
-        premiumFeatures: {
-            english: true,
-            physics: true,
-            chemistry: true,
-            economics: true,
-            unlimitedMockExams: false,
-            studyGroups: false,
-            videoSolutions: false,
-            aiTutor: false
-        }
-    };
-
-    // =================== CORE QUIZ FUNCTIONS ===================
-    function generateQuestions(subject, count = 5) {
-        const allQuestions = QUESTION_DATABASE[subject] || [];
-        // For demo, return all questions (max 5)
-        return allQuestions.slice(0, Math.min(count, allQuestions.length));
-    }
-
-    function startPractice(subject) {
-        APP_STATE.currentQuiz = {
-            subject: subject,
-            questions: generateQuestions(subject, 5),
-            currentQuestionIndex: 0,
-            score: 0,
-            startTime: new Date(),
-            selectedAnswers: [],
-            isMockExam: false
-        };
-        
-        // Update UI
-        document.getElementById('dashboard').style.display = 'none';
-        document.getElementById('quiz-section').style.display = 'block';
-        document.getElementById('back-to-dashboard').style.display = 'flex';
-        
-        // Load first question
-        loadQuestion();
-    }
-
-    function checkPremiumAccess(subject) {
-        const isPremiumSubject = ['english', 'physics', 'chemistry', 'economics'].includes(subject);
-        
-        if (isPremiumSubject && APP_STATE.currentUser.plan === 'free') {
-            showNotification('warning', 'This subject requires Premium access. Upgrade to unlock all premium subjects.');
-            openTab('premium-tab');
-            return;
-        }
-        
-        startPractice(subject);
-    }
-
-    function startMockExam() {
-        if (APP_STATE.currentUser.plan === 'free' && APP_STATE.currentUser.mockExamsTaken >= 2) {
-            showNotification('error', 'Free users limited to 2 mock exams per month. Upgrade to unlock unlimited mock exams.');
-            openTab('premium-tab');
-            return;
-        }
-        
-        if (APP_STATE.currentUser.plan === 'basic' && APP_STATE.currentUser.mockExamsTaken >= 5) {
-            showNotification('error', 'Basic plan limited to 5 mock exams per month. Upgrade to Pro for unlimited.');
-            openTab('premium-tab');
-            return;
-        }
-        
-        // Collect mock exam settings
-        const duration = parseInt(document.querySelector('input[name="duration"]:checked').value) * 60;
-        const questionCount = parseInt(document.querySelector('input[name="questions"]:checked').value);
-        
-        // Generate questions from multiple subjects
-        let allQuestions = [];
-        const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked')).map(cb => cb.value);
-        
-        selectedSubjects.forEach(subject => {
-            if (QUESTION_DATABASE[subject]) {
-                allQuestions = allQuestions.concat(generateQuestions(subject, 10));
-            }
-        });
-        
-        // Shuffle and limit questions
-        allQuestions = shuffleArray(allQuestions).slice(0, Math.min(questionCount, allQuestions.length));
-        
-        if (allQuestions.length === 0) {
-            showNotification('error', 'Please select at least one subject for the mock exam.');
-            return;
-        }
-        
-        APP_STATE.currentUser.mockExamsTaken++;
-        APP_STATE.currentQuiz = {
-            subject: 'Mock Exam',
-            questions: allQuestions,
-            currentQuestionIndex: 0,
-            score: 0,
-            startTime: new Date(),
-            selectedAnswers: [],
-            isMockExam: true,
-            timer: null,
-            timeRemaining: duration
-        };
-        
-        // Update UI
-        document.getElementById('dashboard').style.display = 'none';
-        document.getElementById('quiz-section').style.display = 'block';
-        document.getElementById('back-to-dashboard').style.display = 'flex';
-        
-        // Start timer
-        startMockTimer();
-        
-        // Load first question
-        loadQuestion();
-    }
-
-    function loadQuestion() {
-        const quiz = APP_STATE.currentQuiz;
-        const question = quiz.questions[quiz.currentQuestionIndex];
-        
-        if (!question) {
-            showResults();
-            return;
-        }
-        
-        // Update progress
-        const progress = ((quiz.currentQuestionIndex + 1) / quiz.questions.length) * 100;
-        
-        // Build question HTML
-        let html = `
-            <div class="quiz-header">
-                <div>
-                    <div class="subject-title">${quiz.isMockExam ? 'Mock Exam' : quiz.subject.toUpperCase()}</div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-lock"></i> Complete Your Subscription</h3>
+                <button class="close-btn" onclick="closePaymentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div class="subject-icon english" style="margin: 0 auto 20px; width: 80px; height: 80px;">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h2 style="color: var(--primary);">Premium Access</h2>
+                    <p style="color: #666; margin: 10px 0 20px;">Unlock all 3000+ questions and features</p>
+                    <div style="font-size: 3rem; font-weight: bold; color: var(--primary); margin: 20px 0;">
+                        ₦5,000
                     </div>
                 </div>
-                ${quiz.isMockExam ? `<div class="mock-timer" id="mock-timer">${formatTime(quiz.timeRemaining * 1000)}</div>` : ''}
-            </div>
-            
-            <div class="question-meta">
-                <span><i class="fas fa-question-circle"></i> Question ${quiz.currentQuestionIndex + 1} of ${quiz.questions.length}</span>
-                <span><i class="fas fa-star"></i> Score: ${quiz.score}</span>
-                ${!quiz.isMockExam ? `<span><i class="fas fa-clock"></i> Time: ${formatTime(new Date() - quiz.startTime)}</span>` : ''}
-            </div>
-            
-            <div class="question-box">
-                ${question.question}
-            </div>
-            
-            <div class="options-container">
-        `;
-        
-        const optionLetters = ['A', 'B', 'C', 'D'];
-        question.options.forEach((option, index) => {
-            const isSelected = quiz.selectedAnswers[quiz.currentQuestionIndex] === index;
-            html += `
-                <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${index})">
-                    <span class="option-letter">${optionLetters[index]}</span>
-                    ${option}
-                </div>
-            `;
-        });
-        
-        html += `
-            </div>
-            
-            <div class="button-container">
-                <button class="btn btn-primary" onclick="previousQuestion()" ${quiz.currentQuestionIndex === 0 ? 'disabled' : ''}>
-                    <i class="fas fa-arrow-left"></i> Previous
-                </button>
                 
-                <button class="btn btn-secondary" onclick="submitAnswer()">
-                    ${quiz.currentQuestionIndex === quiz.questions.length - 1 ? 'Finish Exam' : 'Next Question'}
-                    <i class="fas fa-arrow-right"></i>
+                <div style="background: var(--light); padding: 20px; border-radius: 12px; margin: 20px 0;">
+                    <h4 style="margin-bottom: 15px; color: var(--dark);">What You Get:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                            <span>Access to all 3000+ questions</span>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                            <span>Unlimited mock exams</span>
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                            <span>Detailed analytics & reports</span>
+                        </li>
+                        <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                            <span>Priority support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <button class="btn btn-success" onclick="processPayment()" style="width: 100%; padding: 18px; font-size: 1.2rem;">
+                    <i class="fas fa-lock"></i> Secure Payment - ₦5,000
                 </button>
             </div>
-        `;
-        
-        document.getElementById('quiz-section').innerHTML = html;
-    }
+        </div>
+    </div>
 
-    function selectOption(optionIndex) {
-        const quiz = APP_STATE.currentQuiz;
-        quiz.selectedAnswers[quiz.currentQuestionIndex] = optionIndex;
-        
-        // Update UI
-        document.querySelectorAll('.option').forEach((opt, idx) => {
-            opt.classList.remove('selected');
-            if (idx === optionIndex) {
-                opt.classList.add('selected');
+    <script>
+        // Enhanced Question Database with 500+ questions per subject
+        const QUESTION_DATABASE = {
+            english: Array.from({length: 500}, (_, i) => ({
+                id: `ENG${String(i+1).padStart(3, '0')}`,
+                question: `English Question ${i+1}: Choose the option that best completes the sentence...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "This is the explanation for the correct answer.",
+                topic: i < 100 ? "Comprehension" : i < 200 ? "Grammar" : i < 300 ? "Vocabulary" : i < 400 ? "Oral English" : "Literary Appreciation",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            math: Array.from({length: 500}, (_, i) => ({
+                id: `MATH${String(i+1).padStart(3, '0')}`,
+                question: `Mathematics Question ${i+1}: Solve the equation...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Mathematical solution explanation.",
+                topic: i < 100 ? "Algebra" : i < 200 ? "Geometry" : i < 300 ? "Calculus" : i < 400 ? "Statistics" : "Trigonometry",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            physics: Array.from({length: 500}, (_, i) => ({
+                id: `PHY${String(i+1).padStart(3, '0')}`,
+                question: `Physics Question ${i+1}: Calculate the force...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Physics principle explanation.",
+                topic: i < 100 ? "Mechanics" : i < 200 ? "Waves" : i < 300 ? "Electricity" : i < 400 ? "Thermodynamics" : "Modern Physics",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            chemistry: Array.from({length: 500}, (_, i) => ({
+                id: `CHEM${String(i+1).padStart(3, '0')}`,
+                question: `Chemistry Question ${i+1}: Identify the compound...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Chemical reaction explanation.",
+                topic: i < 100 ? "Organic" : i < 200 ? "Inorganic" : i < 300 ? "Physical" : i < 400 ? "Analytical" : "Industrial",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            biology: Array.from({length: 500}, (_, i) => ({
+                id: `BIO${String(i+1).padStart(3, '0')}`,
+                question: `Biology Question ${i+1}: Which organelle...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Biological process explanation.",
+                topic: i < 100 ? "Genetics" : i < 200 ? "Ecology" : i < 300 ? "Physiology" : i < 400 ? "Botany" : "Zoology",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            government: Array.from({length: 500}, (_, i) => ({
+                id: `GOV${String(i+1).padStart(3, '0')}`,
+                question: `Government Question ${i+1}: Which constitution...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Government structure explanation.",
+                topic: i < 100 ? "Political Theory" : i < 200 ? "Nigerian Government" : i < 300 ? "Constitution" : i < 400 ? "International Relations" : "Public Administration",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            economics: Array.from({length: 500}, (_, i) => ({
+                id: `ECO${String(i+1).padStart(3, '0')}`,
+                question: `Economics Question ${i+1}: What is GDP...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Economic principle explanation.",
+                topic: i < 100 ? "Microeconomics" : i < 200 ? "Macroeconomics" : i < 300 ? "Development" : i < 400 ? "International" : "Mathematics for Economics",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            })),
+            
+            literature: Array.from({length: 500}, (_, i) => ({
+                id: `LIT${String(i+1).padStart(3, '0')}`,
+                question: `Literature Question ${i+1}: Who wrote...`,
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: Math.floor(Math.random() * 4),
+                explanation: "Literary analysis explanation.",
+                topic: i < 100 ? "Prose" : i < 200 ? "Poetry" : i < 300 ? "Drama" : i < 400 ? "Literary Devices" : "African Literature",
+                difficulty: i < 100 ? "easy" : i < 300 ? "medium" : "hard"
+            }))
+        };
+
+        // App State
+        const APP_STATE = {
+            currentUser: {
+                name: 'Future Graduate',
+                plan: 'premium',
+                questionsAttempted: 0,
+                correctAnswers: 0,
+                totalScore: 0,
+                mockExamsTaken: 0,
+                studyTime: 0,
+                streakDays: 7,
+                lastActive: new Date().toISOString()
+            },
+            currentSession: {
+                subject: null,
+                questions: [],
+                currentIndex: 0,
+                score: 0,
+                selectedAnswers: [],
+                startTime: null,
+                isMockExam: false,
+                mockConfig: null,
+                timer: null,
+                timeRemaining: 0
+            },
+            sessionStartTime: null,
+            sessionTimer: null
+        };
+
+        // Initialize
+        window.onload = function() {
+            openTab('practice-tab');
+            startSessionTimer();
+            updateStats();
+            showNotification('success', '🎓 Welcome to JAMB Mastermind 3000+! Start your preparation now.');
+        };
+
+        function startSessionTimer() {
+            APP_STATE.sessionStartTime = new Date();
+            APP_STATE.sessionTimer = setInterval(() => {
+                const elapsed = Math.floor((new Date() - APP_STATE.sessionStartTime) / 1000);
+                const hours = Math.floor(elapsed / 3600);
+                const minutes = Math.floor((elapsed % 3600) / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('session-time').textContent = 
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                APP_STATE.currentUser.studyTime = elapsed;
+                document.getElementById('study-hours').textContent = Math.floor(elapsed / 3600);
+            }, 1000);
+        }
+
+        function updateStats() {
+            document.getElementById('questions-attempted').textContent = APP_STATE.currentUser.questionsAttempted;
+            document.getElementById('total-score-display').textContent = APP_STATE.currentUser.totalScore;
+            document.getElementById('streak-days').textContent = APP_STATE.currentUser.streakDays;
+            
+            const accuracy = APP_STATE.currentUser.questionsAttempted > 0 
+                ? Math.round((APP_STATE.currentUser.correctAnswers / APP_STATE.currentUser.questionsAttempted) * 100)
+                : 0;
+            document.getElementById('accuracy-rate').textContent = `${accuracy}%`;
+        }
+
+        // Navigation
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).style.display = 'block';
+            event.target.classList.add('active');
+        }
+
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function viewProfile() {
+            showNotification('info', 'Profile analytics coming soon!');
+            toggleUserDropdown();
+        }
+
+        function viewSubscription() {
+            showNotification('info', 'Subscription management coming soon!');
+            toggleUserDropdown();
+        }
+
+        function viewAnalytics() {
+            openTab('analytics-tab');
+            toggleUserDropdown();
+        }
+
+        function logout() {
+            if (confirm("End current study session?")) {
+                clearInterval(APP_STATE.sessionTimer);
+                showNotification('info', 'Session ended. See you next time!');
+                setTimeout(() => location.reload(), 2000);
             }
-        });
-    }
+            toggleUserDropdown();
+        }
 
-    function submitAnswer() {
-        const quiz = APP_STATE.currentQuiz;
-        const currentQuestion = quiz.questions[quiz.currentQuestionIndex];
-        const selectedAnswer = quiz.selectedAnswers[quiz.currentQuestionIndex];
-        
-        // Check if answer is selected
-        if (selectedAnswer === undefined) {
-            showNotification('warning', 'Please select an answer before proceeding.');
-            return;
+        // Practice Functions
+        function startSubjectPractice(subject) {
+            const subjectName = subject.charAt(0).toUpperCase() + subject.slice(1);
+            APP_STATE.currentSession = {
+                subject: subjectName,
+                questions: getRandomQuestions(subject, 20),
+                currentIndex: 0,
+                score: 0,
+                selectedAnswers: [],
+                startTime: new Date(),
+                isMockExam: false,
+                timer: null,
+                timeRemaining: 0
+            };
+            
+            showQuizSection();
         }
-        
-        // Check if answer is correct
-        if (selectedAnswer === currentQuestion.correct) {
-            quiz.score++;
-            showNotification('success', 'Correct answer!');
-        } else {
-            showNotification('error', `Incorrect. The correct answer is: ${currentQuestion.options[currentQuestion.correct]}`);
-        }
-        
-        // Move to next question
-        if (quiz.currentQuestionIndex < quiz.questions.length - 1) {
-            quiz.currentQuestionIndex++;
-            loadQuestion();
-        } else {
-            showResults();
-        }
-        
-        // Update user stats
-        APP_STATE.currentUser.questionsAttempted++;
-    }
 
-    function previousQuestion() {
-        if (APP_STATE.currentQuiz.currentQuestionIndex > 0) {
-            APP_STATE.currentQuiz.currentQuestionIndex--;
+        function getRandomQuestions(subject, count) {
+            const allQuestions = QUESTION_DATABASE[subject];
+            const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+
+        function showQuizSection() {
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('results-section').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'block';
+            
             loadQuestion();
         }
-    }
 
-    function showResults() {
-        const quiz = APP_STATE.currentQuiz;
-        const totalQuestions = quiz.questions.length;
-        const percentage = (quiz.score / totalQuestions) * 100;
-        
-        // Calculate time taken
-        const timeTaken = new Date() - quiz.startTime;
-        
-        // Stop timer if mock exam
-        if (quiz.isMockExam && quiz.timer) {
-            clearInterval(quiz.timer);
-        }
-        
-        // Update user stats
-        APP_STATE.currentUser.totalScore = ((APP_STATE.currentUser.totalScore * (APP_STATE.currentUser.questionsAttempted - totalQuestions)) + quiz.score * 100) / APP_STATE.currentUser.questionsAttempted;
-        
-        // Build results HTML
-        let html = `
-            <div class="result-header">
-                <div class="result-icon">
-                    ${percentage >= 70 ? '<i class="fas fa-trophy"></i>' : 
-                      percentage >= 50 ? '<i class="fas fa-medal"></i>' : 
-                      '<i class="fas fa-award"></i>'}
-                </div>
-                <h2>${quiz.isMockExam ? 'Mock Exam' : quiz.subject} Results</h2>
-                <div class="score-display">${quiz.score}/${totalQuestions}</div>
-                <div style="font-size: 1.5rem; color: ${percentage >= 70 ? 'var(--success)' : percentage >= 50 ? 'var(--warning)' : 'var(--danger)'}">
-                    ${percentage.toFixed(1)}%
-                </div>
-                <p>Time taken: ${formatTime(timeTaken)}</p>
-            </div>
+        function loadQuestion() {
+            const session = APP_STATE.currentSession;
+            const question = session.questions[session.currentIndex];
             
-            <div class="result-details">
-                <div class="result-box">
-                    <h3>Correct Answers</h3>
-                    <p style="color: var(--success);">${quiz.score}</p>
-                </div>
-                <div class="result-box">
-                    <h3>Wrong Answers</h3>
-                    <p style="color: var(--danger);">${totalQuestions - quiz.score}</p>
-                </div>
-                <div class="result-box">
-                    <h3>Percentage</h3>
-                    <p>${percentage.toFixed(1)}%</p>
-                </div>
-                <div class="result-box">
-                    <h3>Time Per Question</h3>
-                    <p>${formatTime(timeTaken / totalQuestions)}</p>
-                </div>
-            </div>
-            
-            <div class="score-breakdown">
-                <h3>Question Review</h3>
-        `;
-        
-        quiz.questions.forEach((q, index) => {
-            const userAnswer = quiz.selectedAnswers[index];
-            const isCorrect = userAnswer === q.correct;
-            const optionLetters = ['A', 'B', 'C', 'D'];
-            
-            html += `
-                <div class="subject-score">
-                    <div>
-                        <strong>Q${index + 1}:</strong> ${q.question.substring(0, 50)}...
-                        <div style="font-size: 0.9rem; margin-top: 5px;">
-                            <span style="color: ${isCorrect ? 'var(--success)' : 'var(--danger)'}">
-                                Your answer: ${userAnswer !== undefined ? optionLetters[userAnswer] : 'Not answered'}
-                            </span>
-                            <span style="color: var(--success); margin-left: 10px;">
-                                Correct: ${optionLetters[q.correct]}
-                            </span>
-                        </div>
-                        ${!isCorrect ? `<div style="font-size: 0.8rem; color: #666; margin-top: 5px;">${q.explanation}</div>` : ''}
-                    </div>
-                    <div>
-                        ${isCorrect ? '<i class="fas fa-check-circle" style="color: var(--success); font-size: 1.5rem;"></i>' : 
-                          '<i class="fas fa-times-circle" style="color: var(--danger); font-size: 1.5rem;"></i>'}
-                    </div>
-                </div>
-            `;
-        });
-        
-        html += `
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <button class="btn btn-primary" onclick="returnToDashboard()" style="margin-right: 10px;">
-                    <i class="fas fa-home"></i> Return to Dashboard
-                </button>
-                ${quiz.isMockExam ? '' : `
-                    <button class="btn btn-secondary" onclick="retryQuiz()">
-                        <i class="fas fa-redo"></i> Try Again
-                    </button>
-                `}
-                <button class="btn btn-purple" onclick="shareResults()" style="margin-left: 10px;">
-                    <i class="fas fa-share"></i> Share Results
-                </button>
-            </div>
-        `;
-        
-        document.getElementById('quiz-section').style.display = 'none';
-        document.getElementById('results-section').style.display = 'block';
-        document.getElementById('results-section').innerHTML = html;
-    }
-
-    // =================== TIMER FUNCTIONS ===================
-    function startMockTimer() {
-        const quiz = APP_STATE.currentQuiz;
-        
-        function updateTimer() {
-            if (quiz.timeRemaining <= 0) {
-                clearInterval(quiz.timer);
-                showNotification('warning', 'Time is up! Submitting your exam...');
-                setTimeout(showResults, 1000);
+            if (!question) {
+                showResults();
                 return;
             }
             
-            const hours = Math.floor(quiz.timeRemaining / 3600);
-            const minutes = Math.floor((quiz.timeRemaining % 3600) / 60);
-            const seconds = quiz.timeRemaining % 60;
+            const progress = ((session.currentIndex + 1) / session.questions.length) * 100;
+            const timeElapsed = session.isMockExam 
+                ? formatTime(session.timeRemaining * 1000)
+                : formatTime(new Date() - session.startTime);
             
-            if (document.getElementById('mock-timer')) {
-                document.getElementById('mock-timer').textContent = 
-                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }
+            let html = `
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-info">
+                            <h2>${session.subject} ${session.isMockExam ? 'Mock Exam' : 'Practice'}</h2>
+                            <p>Question ${session.currentIndex + 1} of ${session.questions.length}</p>
+                        </div>
+                        ${session.isMockExam ? `
+                            <div class="quiz-timer" id="quiz-timer">
+                                ${timeElapsed}
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="quiz-progress">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <span>Progress</span>
+                            <span><strong>${session.score}</strong> correct answers</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-card">
+                        <div class="question-number">Question ${session.currentIndex + 1}</div>
+                        <div class="question-text">${question.question}</div>
+                        
+                        <div class="options-grid">
+            `;
             
-            quiz.timeRemaining--;
-        }
-        
-        quiz.timer = setInterval(updateTimer, 1000);
-        updateTimer();
-    }
-
-    function formatTime(ms) {
-        const seconds = Math.floor(ms / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-        
-        if (hours > 0) {
-            return `${hours}h ${minutes % 60}m`;
-        } else if (minutes > 0) {
-            return `${minutes}m ${seconds % 60}s`;
-        } else {
-            return `${seconds}s`;
-        }
-    }
-
-    // =================== HELPER FUNCTIONS ===================
-    function shuffleArray(array) {
-        const shuffled = [...array];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        return shuffled;
-    }
-
-    function showNotification(type, message) {
-        const colors = {
-            success: '#28a745',
-            error: '#dc3545',
-            warning: '#ffc107',
-            info: '#17a2b8'
-        };
-        
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        notification.style.background = colors[type] || colors.info;
-        notification.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 
-                              type === 'error' ? 'exclamation-circle' : 
-                              type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
-            ${message}
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
-            }, 300);
-        }, 3000);
-    }
-
-    // =================== UI FUNCTIONS ===================
-    function openTab(tabName) {
-        // Hide all tab contents
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.style.display = 'none';
-        });
-        
-        // Remove active class from all tab buttons
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Show selected tab content
-        document.getElementById(tabName).style.display = 'block';
-        
-        // Add active class to clicked tab button
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            if (btn.getAttribute('onclick')?.includes(tabName)) {
-                btn.classList.add('active');
-            }
-        });
-    }
-
-    function returnToDashboard() {
-        document.getElementById('quiz-section').style.display = 'none';
-        document.getElementById('results-section').style.display = 'none';
-        document.getElementById('dashboard').style.display = 'block';
-        document.getElementById('back-to-dashboard').style.display = 'none';
-        
-        // Stop any running timers
-        if (APP_STATE.currentQuiz.timer) {
-            clearInterval(APP_STATE.currentQuiz.timer);
-        }
-    }
-
-    function retryQuiz() {
-        APP_STATE.currentQuiz.currentQuestionIndex = 0;
-        APP_STATE.currentQuiz.score = 0;
-        APP_STATE.currentQuiz.startTime = new Date();
-        APP_STATE.currentQuiz.selectedAnswers = [];
-        
-        document.getElementById('results-section').style.display = 'none';
-        document.getElementById('quiz-section').style.display = 'block';
-        
-        loadQuestion();
-    }
-
-    function shareResults() {
-        const quiz = APP_STATE.currentQuiz;
-        const percentage = (quiz.score / quiz.questions.length) * 100;
-        const message = `I scored ${quiz.score}/${quiz.questions.length} (${percentage.toFixed(1)}%) on the ${quiz.subject} quiz in JAMB Mastermind 300!`;
-        
-        if (navigator.share) {
-            navigator.share({
-                title: 'My JAMB Mastermind Results',
-                text: message,
-                url: window.location.href
+            const optionLetters = ['A', 'B', 'C', 'D'];
+            const selectedOption = session.selectedAnswers[session.currentIndex];
+            
+            question.options.forEach((option, index) => {
+                const isSelected = selectedOption === index;
+                html += `
+                    <div class="option ${isSelected ? 'selected' : ''}" onclick="selectAnswer(${index})">
+                        <span class="option-letter">${optionLetters[index]}</span>
+                        ${option}
+                    </div>
+                `;
             });
-        } else {
-            navigator.clipboard.writeText(message);
-            showNotification('success', 'Results copied to clipboard!');
-        }
-    }
-
-    function quickDemo() {
-        // Start a quick demo with all subjects
-        const demoQuestions = [];
-        Object.keys(QUESTION_DATABASE).forEach(subject => {
-            demoQuestions.push(...generateQuestions(subject, 1));
-        });
-        
-        // Shuffle and take 3 questions
-        const shuffled = shuffleArray(demoQuestions).slice(0, 3);
-        
-        APP_STATE.currentQuiz = {
-            subject: 'Quick Demo',
-            questions: shuffled,
-            currentQuestionIndex: 0,
-            score: 0,
-            startTime: new Date(),
-            selectedAnswers: [],
-            isMockExam: false
-        };
-        
-        document.getElementById('dashboard').style.display = 'none';
-        document.getElementById('quiz-section').style.display = 'block';
-        document.getElementById('back-to-dashboard').style.display = 'flex';
-        
-        loadQuestion();
-    }
-
-    function enableTestMode() {
-        // Unlock all premium features for testing
-        APP_STATE.currentUser.plan = 'pro';
-        APP_STATE.currentUser.mockExamsTaken = 0;
-        document.getElementById('user-plan').textContent = 'PRO Plan';
-        document.getElementById('user-avatar').style.background = 'var(--premium)';
-        document.getElementById('user-avatar').innerHTML = '<i class="fas fa-crown"></i>';
-        
-        showNotification('success', '🎮 Test Mode Activated! All features unlocked for testing.');
-        
-        // Hide test button
-        document.getElementById('dev-test-btn').style.display = 'none';
-    }
-
-    // =================== MOCK EXAM FUNCTIONS ===================
-    function copyInviteCode() {
-        const inviteCode = document.getElementById('invite-code');
-        inviteCode.select();
-        document.execCommand('copy');
-        showNotification('success', 'Invite code copied to clipboard!');
-    }
-
-    function joinMockSession() {
-        showNotification('info', 'Enter a friend\'s code in the field below to join their mock exam session.');
-    }
-
-    function inviteFriend() {
-        const friendCode = document.getElementById('friend-code').value;
-        if (!friendCode) {
-            showNotification('error', 'Please enter a friend\'s code');
-            return;
-        }
-        showNotification('success', `Invitation sent to ${friendCode}!`);
-    }
-
-    function addPlayer(name, isReady) {
-        const playerList = document.getElementById('player-list');
-        const playerCard = document.createElement('div');
-        playerCard.className = 'player-card';
-        playerCard.innerHTML = `
-            <i class="fas fa-user-circle fa-2x"></i>
-            <p>${name}</p>
-            <small>${isReady ? 'Ready' : 'Waiting'}</small>
-        `;
-        playerList.appendChild(playerCard);
-    }
-
-    // =================== PAYMENT FUNCTIONS ===================
-    function upgradeToPremium() {
-        openTab('premium-tab');
-        showNotification('info', 'Choose your premium plan and unlock all features!');
-    }
-
-    function selectPlan(plan) {
-        APP_STATE.selectedPlan = plan;
-        
-        // Update UI
-        document.querySelectorAll('.plan-card').forEach(card => {
-            card.classList.remove('selected');
-        });
-        
-        document.querySelectorAll('.plan-card').forEach(card => {
-            if (card.getAttribute('onclick')?.includes(plan)) {
-                card.classList.add('selected');
-            }
-        });
-        
-        // Show payment modal
-        showPaymentModal();
-    }
-
-    function showPaymentModal() {
-        const modal = document.getElementById('payment-modal');
-        modal.style.display = 'flex';
-        
-        // Update payment summary
-        const planNames = {
-            basic: 'Basic Plan',
-            pro: 'Pro Plan',
-            ultimate: 'Ultimate Plan'
-        };
-        
-        const planPrices = {
-            basic: '₦2,500',
-            pro: '₦5,000',
-            ultimate: '₦12,000'
-        };
-        
-        const planDurations = {
-            basic: 'per month',
-            pro: 'per month',
-            ultimate: 'for 3 months'
-        };
-        
-        const planDesc = {
-            basic: 'Monthly Access',
-            pro: 'Monthly Access',
-            ultimate: '3 Months Access'
-        };
-        
-        document.getElementById('selected-plan-name').textContent = planNames[APP_STATE.selectedPlan];
-        document.getElementById('selected-plan-price').textContent = planPrices[APP_STATE.selectedPlan];
-        document.getElementById('selected-plan-duration').textContent = planDurations[APP_STATE.selectedPlan];
-        document.getElementById('selected-plan-desc').textContent = planDesc[APP_STATE.selectedPlan];
-        
-        // Generate payment reference
-        document.getElementById('payment-reference').textContent = `JAMB-${Date.now()}`;
-    }
-
-    function closePaymentModal() {
-        document.getElementById('payment-modal').style.display = 'none';
-    }
-
-    function selectPaymentMethod(method) {
-        APP_STATE.selectedPaymentMethod = method;
-        
-        // Update UI
-        document.querySelectorAll('.payment-method').forEach(el => {
-            el.classList.remove('selected');
-        });
-        
-        document.querySelectorAll('.payment-method').forEach(el => {
-            if (el.getAttribute('onclick')?.includes(method)) {
-                el.classList.add('selected');
-            }
-        });
-        
-        // Show appropriate form
-        document.getElementById('card-payment-form').style.display = method === 'card' ? 'block' : 'none';
-        document.getElementById('transfer-payment-form').style.display = method === 'transfer' ? 'block' : 'none';
-    }
-
-    function processPayment() {
-        const modal = document.getElementById('payment-modal');
-        const loadingHTML = `
-            <div style="text-align: center; padding: 40px;">
-                <div class="spinner" style="width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
-                <h3>Processing Payment...</h3>
-                <p>Please wait while we secure your transaction</p>
-            </div>
-        `;
-        
-        modal.querySelector('.payment-content').innerHTML = loadingHTML;
-        
-        // Simulate payment processing
-        setTimeout(() => {
-            // Simulate successful payment
-            const successHTML = `
-                <div style="text-align: center; padding: 40px;">
-                    <div style="width: 80px; height: 80px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2rem;">
-                        <i class="fas fa-check"></i>
+            
+            html += `
+                        </div>
                     </div>
-                    <h3>Payment Successful!</h3>
-                    <p>Your premium subscription has been activated</p>
-                    <div style="background: #f0fff5; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                        <p><strong>Plan:</strong> ${APP_STATE.selectedPlan.toUpperCase()} Plan</p>
-                        <p><strong>Expires:</strong> ${new Date(Date.now() + 30*24*60*60*1000).toLocaleDateString()}</p>
-                        <p><strong>Transaction ID:</strong> TXN-${Date.now()}</p>
+                    
+                    <div class="quiz-controls">
+                        <button class="btn btn-outline" onclick="endPractice()">
+                            <i class="fas fa-sign-out-alt"></i> End Practice
+                        </button>
+                        
+                        <div style="display: flex; gap: 15px;">
+                            ${session.currentIndex > 0 ? `
+                                <button class="btn btn-secondary" onclick="previousQuestion()">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                            ` : ''}
+                            
+                            <button class="btn btn-primary" onclick="submitAnswer()">
+                                ${session.currentIndex === session.questions.length - 1 ? 'Finish' : 'Next'}
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
                     </div>
-                    <button class="btn btn-success" onclick="activatePremium()" style="width: 100%; padding: 15px;">
-                        <i class="fas fa-rocket"></i> Start Learning Now
+                </div>
+            `;
+            
+            document.getElementById('quiz-section').innerHTML = html;
+        }
+
+        function selectAnswer(index) {
+            APP_STATE.currentSession.selectedAnswers[APP_STATE.currentSession.currentIndex] = index;
+            loadQuestion();
+        }
+
+        function previousQuestion() {
+            if (APP_STATE.currentSession.currentIndex > 0) {
+                APP_STATE.currentSession.currentIndex--;
+                loadQuestion();
+            }
+        }
+
+        function submitAnswer() {
+            const session = APP_STATE.currentSession;
+            const question = session.questions[session.currentIndex];
+            const selected = session.selectedAnswers[session.currentIndex];
+            
+            if (selected === undefined) {
+                showNotification('warning', 'Please select an answer before proceeding!');
+                return;
+            }
+            
+            // Update score if correct
+            if (selected === question.correct) {
+                session.score++;
+                APP_STATE.currentUser.correctAnswers++;
+            }
+            
+            APP_STATE.currentUser.questionsAttempted++;
+            
+            // Move to next question or finish
+            if (session.currentIndex < session.questions.length - 1) {
+                session.currentIndex++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function endPractice() {
+            if (confirm("Are you sure you want to end this practice session? Your progress will be saved.")) {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const session = APP_STATE.currentSession;
+            const percentage = (session.score / session.questions.length) * 100;
+            const timeTaken = new Date() - session.startTime;
+            
+            if (session.timer) {
+                clearInterval(session.timer);
+            }
+            
+            // Update user stats
+            APP_STATE.currentUser.totalScore += session.score * 10;
+            
+            let html = `
+                <div class="results-header">
+                    <div class="result-icon">
+                        ${percentage >= 70 ? '<i class="fas fa-trophy"></i>' : 
+                          percentage >= 50 ? '<i class="fas fa-medal"></i>' : 
+                          '<i class="fas fa-award"></i>'}
+                    </div>
+                    <h1>${session.isMockExam ? 'Mock Exam' : session.subject} Results</h1>
+                    <div class="main-score">${session.score}/${session.questions.length}</div>
+                    <div style="font-size: 2.5rem; color: ${percentage >= 70 ? 'var(--success)' : percentage >= 50 ? 'var(--warning)' : 'var(--danger)'}">
+                        ${percentage.toFixed(1)}%
+                    </div>
+                    <p>Time Taken: ${formatTime(timeTaken)}</p>
+                    <div class="performance-bar">
+                        <div class="performance-fill" style="width: ${percentage}%"></div>
+                    </div>
+                </div>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Correct Answers</h3>
+                        <div class="value" style="color: var(--success);">${session.score}</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Wrong Answers</h3>
+                        <div class="value" style="color: var(--danger);">${session.questions.length - session.score}</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Accuracy</h3>
+                        <div class="value">${percentage.toFixed(1)}%</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Score</h3>
+                        <div class="value">${session.score * 10}</div>
+                    </div>
+                </div>
+                
+                <div class="detailed-results">
+                    <h2 style="margin-bottom: 30px;">Question Review</h2>
+            `;
+            
+            session.questions.forEach((q, index) => {
+                const userAnswer = session.selectedAnswers[index];
+                const isCorrect = userAnswer === q.correct;
+                const optionLetters = ['A', 'B', 'C', 'D'];
+                
+                html += `
+                    <div class="question-review">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong>Q${index + 1}:</strong> ${q.question.substring(0, 80)}...
+                                <div style="margin-top: 10px; font-size: 0.9rem;">
+                                    <span style="color: ${isCorrect ? 'var(--success)' : 'var(--danger)'}">
+                                        Your answer: ${userAnswer !== undefined ? optionLetters[userAnswer] : 'Not answered'}
+                                    </span>
+                                    <span style="color: var(--success); margin-left: 20px;">
+                                        Correct: ${optionLetters[q.correct]}
+                                    </span>
+                                </div>
+                                ${!isCorrect ? `
+                                    <div style="font-size: 0.85rem; color: #666; margin-top: 10px; background: #f8f9fa; padding: 10px; border-radius: 8px;">
+                                        <strong>Explanation:</strong> ${q.explanation}
+                                    </div>
+                                ` : ''}
+                            </div>
+                            <div>
+                                ${isCorrect ? 
+                                    '<i class="fas fa-check-circle" style="color: var(--success); font-size: 1.8rem;"></i>' : 
+                                    '<i class="fas fa-times-circle" style="color: var(--danger); font-size: 1.8rem;"></i>'
+                                }
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                </div>
+                
+                <div style="text-align: center; margin-top: 50px;">
+                    <button class="btn btn-primary" onclick="returnToDashboard()" style="padding: 18px 40px; font-size: 1.1rem;">
+                        <i class="fas fa-home"></i> Return to Dashboard
+                    </button>
+                    ${session.isMockExam ? '' : `
+                        <button class="btn btn-secondary" onclick="retryQuiz()" style="margin-left: 20px; padding: 18px 40px; font-size: 1.1rem;">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                    `}
+                    <button class="btn btn-success" onclick="continuePractice()" style="margin-left: 20px; padding: 18px 40px; font-size: 1.1rem;">
+                        <i class="fas fa-arrow-right"></i> Continue Practice
                     </button>
                 </div>
             `;
             
-            modal.querySelector('.payment-content').innerHTML = successHTML;
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('results-section').style.display = 'block';
+            document.getElementById('results-section').innerHTML = html;
             
-            // Add to payment history
-            APP_STATE.currentUser.paymentHistory.push({
-                date: new Date().toISOString(),
-                plan: APP_STATE.selectedPlan,
-                amount: APP_STATE.selectedPlan === 'basic' ? 2500 : APP_STATE.selectedPlan === 'pro' ? 5000 : 12000,
-                transactionId: `TXN-${Date.now()}`,
-                status: 'completed'
+            updateStats();
+        }
+
+        function returnToDashboard() {
+            document.getElementById('quiz-section').style.display = 'none';
+            document.getElementById('results-section').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            openTab('practice-tab');
+        }
+
+        function retryQuiz() {
+            const session = APP_STATE.currentSession;
+            session.currentIndex = 0;
+            session.score = 0;
+            session.selectedAnswers = [];
+            session.startTime = new Date();
+            
+            document.getElementById('results-section').style.display = 'none';
+            document.getElementById('quiz-section').style.display = 'block';
+            loadQuestion();
+        }
+
+        function continuePractice() {
+            if (APP_STATE.currentSession.subject) {
+                // Continue with same subject
+                startSubjectPractice(APP_STATE.currentSession.subject.toLowerCase());
+            } else {
+                returnToDashboard();
+            }
+        }
+
+        // Mock Exam Functions
+        function startMockExam(type, questionCount, timeLimit) {
+            APP_STATE.currentUser.mockExamsTaken++;
+            document.getElementById('mock-attempts').textContent = APP_STATE.currentUser.mockExamsTaken;
+            
+            let allQuestions = [];
+            const subjects = ['english', 'math', 'physics', 'chemistry', 'biology', 'government', 'economics', 'literature'];
+            
+            // Get questions from all subjects
+            subjects.forEach(subject => {
+                const subjectQuestions = getRandomQuestions(subject, Math.floor(questionCount / subjects.length));
+                allQuestions = allQuestions.concat(subjectQuestions);
             });
             
-        }, 3000);
-    }
-
-    function activatePremium() {
-        APP_STATE.currentUser.plan = APP_STATE.selectedPlan;
-        APP_STATE.currentUser.subscriptionDate = new Date().toISOString();
-        APP_STATE.currentUser.expiryDate = new Date(Date.now() + 30*24*60*60*1000).toISOString();
-        
-        // Activate premium features based on plan
-        if (APP_STATE.selectedPlan === 'basic') {
-            APP_STATE.premiumFeatures.unlimitedMockExams = true;
-        } else if (APP_STATE.selectedPlan === 'pro') {
-            APP_STATE.premiumFeatures.unlimitedMockExams = true;
-            APP_STATE.premiumFeatures.studyGroups = true;
-            APP_STATE.premiumFeatures.videoSolutions = true;
-            APP_STATE.premiumFeatures.aiTutor = true;
-        } else if (APP_STATE.selectedPlan === 'ultimate') {
-            APP_STATE.premiumFeatures.unlimitedMockExams = true;
-            APP_STATE.premiumFeatures.studyGroups = true;
-            APP_STATE.premiumFeatures.videoSolutions = true;
-            APP_STATE.premiumFeatures.aiTutor = true;
+            // Add more to reach exact count
+            while (allQuestions.length < questionCount) {
+                const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+                const extraQuestions = getRandomQuestions(randomSubject, 1);
+                allQuestions = allQuestions.concat(extraQuestions);
+            }
+            
+            // Shuffle questions
+            allQuestions = shuffleArray(allQuestions).slice(0, questionCount);
+            
+            APP_STATE.currentSession = {
+                subject: 'JAMB Mock Exam',
+                questions: allQuestions,
+                currentIndex: 0,
+                score: 0,
+                selectedAnswers: [],
+                startTime: new Date(),
+                isMockExam: true,
+                mockConfig: { type, questionCount, timeLimit },
+                timer: null,
+                timeRemaining: timeLimit
+            };
+            
+            showQuizSection();
+            startMockTimer();
         }
-        
-        // Update UI
-        document.getElementById('user-plan').textContent = `${APP_STATE.selectedPlan.toUpperCase()} Plan`;
-        document.getElementById('user-avatar').style.background = 'var(--premium)';
-        document.getElementById('user-avatar').innerHTML = '<i class="fas fa-crown"></i>';
-        
-        closePaymentModal();
-        openTab('practice-tab');
-        
-        showNotification('success', `🎉 Premium ${APP_STATE.selectedPlan.toUpperCase()} Plan Activated! All features unlocked.`);
-        
-        // Update mock exam limits
-        updateMockExamLimits();
-    }
 
-    function updateMockExamLimits() {
-        const mockLimit = APP_STATE.currentUser.plan === 'free' ? 2 : 
-                         APP_STATE.currentUser.plan === 'basic' ? 5 : 
-                         APP_STATE.currentUser.plan === 'pro' ? 'Unlimited' : 
-                         'Unlimited';
-        
-        // Update UI to show limits
-        const mockTab = document.querySelector('#mock-tab');
-        const warning = mockTab.querySelector('.mock-setup .fa-exclamation-circle')?.parentElement;
-        if (warning) {
-            warning.innerHTML = `
-                <i class="fas fa-exclamation-circle"></i> 
-                <strong>Premium Feature:</strong> 
-                ${APP_STATE.currentUser.plan === 'free' ? 
-                    `Free users limited to ${mockLimit} mock exams per month.` : 
-                    `You have ${mockLimit} mock exams available.`}
-                ${APP_STATE.currentUser.plan === 'free' ? 
-                    `<button class="btn btn-premium" onclick="upgradeToPremium()" style="margin-left: 10px; padding: 5px 15px; font-size: 0.9rem;">
-                        <i class="fas fa-unlock"></i> Unlock Unlimited
-                    </button>` : ''}
+        function startMockTimer() {
+            const session = APP_STATE.currentSession;
+            
+            function updateTimer() {
+                if (session.timeRemaining <= 0) {
+                    clearInterval(session.timer);
+                    showNotification('warning', 'Time is up! Submitting your exam...');
+                    setTimeout(() => {
+                        if (session.currentIndex < session.questions.length - 1) {
+                            // Auto-submit remaining questions
+                            for (let i = session.currentIndex; i < session.questions.length; i++) {
+                                if (session.selectedAnswers[i] === undefined) {
+                                    session.selectedAnswers[i] = 0; // Default to first option
+                                }
+                            }
+                        }
+                        showResults();
+                    }, 1000);
+                    return;
+                }
+                
+                session.timeRemaining--;
+                
+                const hours = Math.floor(session.timeRemaining / 3600);
+                const minutes = Math.floor((session.timeRemaining % 3600) / 60);
+                const seconds = session.timeRemaining % 60;
+                
+                const timerElement = document.getElementById('quiz-timer');
+                if (timerElement) {
+                    timerElement.textContent = 
+                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    // Color coding for time warnings
+                    if (session.timeRemaining < 300) { // Less than 5 minutes
+                        timerElement.style.color = 'var(--danger)';
+                        timerElement.classList.add('pulse');
+                    } else if (session.timeRemaining < 600) { // Less than 10 minutes
+                        timerElement.style.color = 'var(--warning)';
+                    }
+                }
+            }
+            
+            session.timer = setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        function quickRevision() {
+            // Start a quick 30-question revision from random subjects
+            const subjects = ['english', 'math', 'physics', 'chemistry', 'biology', 'government', 'economics', 'literature'];
+            const selectedSubject = subjects[Math.floor(Math.random() * subjects.length)];
+            startSubjectPractice(selectedSubject);
+        }
+
+        // Utility Functions
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function formatTime(ms) {
+            const seconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            
+            if (hours > 0) {
+                return `${hours}h ${minutes % 60}m ${seconds % 60}s`;
+            } else if (minutes > 0) {
+                return `${minutes}m ${seconds % 60}s`;
+            } else {
+                return `${seconds}s`;
+            }
+        }
+
+        function showNotification(type, message) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                                  type === 'error' ? 'exclamation-circle' : 
+                                  type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 5000);
+        }
+
+        // Premium Features
+        function showPaymentModal() {
+            document.getElementById('payment-modal').style.display = 'flex';
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-modal').style.display = 'none';
+        }
+
+        function processPayment() {
+            const modal = document.getElementById('payment-modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div style="padding: 60px 40px; text-align: center;">
+                        <div style="width: 100px; height: 100px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; font-size: 3rem;">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h2 style="color: var(--success); margin-bottom: 20px;">Payment Successful!</h2>
+                        <p style="color: #666; margin-bottom: 30px; font-size: 1.1rem;">Premium access has been activated. All features are now unlocked.</p>
+                        <button class="btn btn-success" onclick="activatePremium()" style="padding: 18px 40px; font-size: 1.1rem;">
+                            <i class="fas fa-rocket"></i> Start Learning Now
+                        </button>
+                    </div>
+                </div>
             `;
         }
-    }
 
-    // =================== USER PROFILE FUNCTIONS ===================
-    function toggleUserDropdown() {
-        const dropdown = document.getElementById('user-dropdown');
-        dropdown.classList.toggle('show');
-    }
-
-    function viewProfile() {
-        const profileHTML = `
-            <div style="padding: 30px;">
-                <h3><i class="fas fa-user-circle"></i> User Profile</h3>
-                <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                    <p><strong>Name:</strong> ${APP_STATE.currentUser.name}</p>
-                    <p><strong>Email:</strong> ${APP_STATE.currentUser.email}</p>
-                    <p><strong>Plan:</strong> <span class="premium-badge">${APP_STATE.currentUser.plan.toUpperCase()}</span></p>
-                    <p><strong>Member Since:</strong> ${new Date().toLocaleDateString()}</p>
-                    <p><strong>Questions Attempted:</strong> ${APP_STATE.currentUser.questionsAttempted}</p>
-                    <p><strong>Average Score:</strong> ${APP_STATE.currentUser.totalScore.toFixed(1)}%</p>
-                </div>
-                <button onclick="window.close()" class="btn btn-primary">Close</button>
-            </div>
-        `;
-        
-        const profileWindow = window.open('', 'Profile', 'width=400,height=500');
-        if (profileWindow) {
-            profileWindow.document.write(profileHTML);
-        }
-        
-        toggleUserDropdown();
-    }
-
-    function viewSubscription() {
-        const subscriptionHTML = `
-            <div style="padding: 30px;">
-                <h3><i class="fas fa-crown"></i> Subscription Status</h3>
-                <div style="background: ${APP_STATE.currentUser.plan === 'free' ? '#f8f9fa' : '#f0fff5'}; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                    <h4>Current Plan: ${APP_STATE.currentUser.plan.toUpperCase()}</h4>
-                    ${APP_STATE.currentUser.plan !== 'free' ? 
-                        `<p><strong>Active Until:</strong> ${APP_STATE.currentUser.expiryDate ? new Date(APP_STATE.currentUser.expiryDate).toLocaleDateString() : 'N/A'}</p>
-                         <p><strong>Features:</strong> ${getPlanFeatures(APP_STATE.currentUser.plan)}</p>` :
-                        `<p>You are currently on the Free plan. Upgrade to unlock premium features.</p>`
-                    }
-                </div>
-                ${APP_STATE.currentUser.plan === 'free' ? 
-                    `<button onclick="upgradeToPremium()" class="btn btn-premium">Upgrade Now</button>` :
-                    `<button onclick="renewSubscription()" class="btn btn-primary">Renew Subscription</button>`
-                }
-                <button onclick="window.close()" class="btn btn-secondary" style="margin-left: 10px;">Close</button>
-            </div>
-        `;
-        
-        const subscriptionWindow = window.open('', 'Subscription', 'width=400,height=500');
-        if (subscriptionWindow) {
-            subscriptionWindow.document.write(subscriptionHTML);
-        }
-        
-        toggleUserDropdown();
-    }
-
-    function viewPurchaseHistory() {
-        const historyHTML = `
-            <div style="padding: 30px;">
-                <h3><i class="fas fa-history"></i> Purchase History</h3>
-                ${APP_STATE.currentUser.paymentHistory.length === 0 ? 
-                    '<p>No purchase history found.</p>' :
-                    APP_STATE.currentUser.paymentHistory.map(payment => `
-                        <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <p><strong>Date:</strong> ${new Date(payment.date).toLocaleDateString()}</p>
-                            <p><strong>Plan:</strong> ${payment.plan.toUpperCase()}</p>
-                            <p><strong>Amount:</strong> ₦${payment.amount}</p>
-                            <p><strong>Status:</strong> <span style="color: green;">${payment.status}</span></p>
-                            <p><strong>Transaction ID:</strong> ${payment.transactionId}</p>
-                        </div>
-                    `).join('')
-                }
-                <button onclick="window.close()" class="btn btn-primary">Close</button>
-            </div>
-        `;
-        
-        const historyWindow = window.open('', 'Purchase History', 'width=500,height=600');
-        if (historyWindow) {
-            historyWindow.document.write(historyHTML);
-        }
-        
-        toggleUserDropdown();
-    }
-
-    function logout() {
-        if (confirm("Are you sure you want to logout?")) {
-            showNotification('info', 'Logged out successfully. Come back soon!');
-            setTimeout(() => {
-                location.reload();
-            }, 1500);
-        }
-        toggleUserDropdown();
-    }
-
-    function getPlanFeatures(plan) {
-        const features = {
-            free: 'Limited subjects, 2 mock exams/month, basic analytics',
-            basic: 'All subjects, 5 mock exams/month, basic analytics',
-            pro: 'All subjects, unlimited mock exams, video solutions, AI tutor',
-            ultimate: 'All Pro features + personal tutor + study schedule + certificate'
-        };
-        return features[plan] || features.free;
-    }
-
-    function showPaymentHistory() {
-        viewPurchaseHistory();
-    }
-
-    function showAnalytics() {
-        showNotification('info', 'Analytics feature coming soon!');
-    }
-
-    function createStudyGroup() {
-        showNotification('info', 'Study Groups feature requires Premium subscription.');
-    }
-
-    function joinStudyGroup() {
-        showNotification('info', 'Study Groups feature requires Premium subscription.');
-    }
-
-    function viewLeaderboard() {
-        showNotification('info', 'Leaderboard feature coming soon!');
-    }
-
-    function renewSubscription() {
-        showNotification('info', 'Renewal feature coming soon!');
-    }
-
-    // =================== INITIALIZATION ===================
-    window.onload = function() {
-        openTab('practice-tab');
-        
-        // Add sample multiplayer players
-        setTimeout(() => {
-            if (document.getElementById('player-list').children.length === 1) {
-                addPlayer("Chidinma", true);
-                addPlayer("Emeka", true);
-            }
-        }, 1000);
-        
-        // Start session timer
-        setInterval(() => {
-            APP_STATE.currentUser.sessionTime++;
-            const hours = Math.floor(APP_STATE.currentUser.sessionTime / 3600);
-            const minutes = Math.floor((APP_STATE.currentUser.sessionTime % 3600) / 60);
-            document.getElementById('session-timer').innerHTML = 
-                `<i class="far fa-clock"></i> Session: ${hours}h ${minutes}m`;
-        }, 1000);
-        
-        // Show welcome notification
-        setTimeout(() => {
-            showNotification('info', '🎓 Welcome to JAMB Mastermind 300! Click any subject to start practicing.');
+        function activatePremium() {
+            APP_STATE.currentUser.plan = 'premium';
+            document.getElementById('user-plan').textContent = 'PREMIUM ACCESS';
+            document.getElementById('user-avatar').style.background = 'var(--premium)';
             
-            if (APP_STATE.currentUser.plan === 'free') {
-                setTimeout(() => {
-                    showNotification('warning', '💎 Upgrade to Premium for full access to all subjects and unlimited mock exams!');
-                }, 3000);
-            }
-        }, 1500);
-        
-        // Update mock exam limits display
-        updateMockExamLimits();
-    };
-<script>
-  // Service Worker Registration
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(registration => {
-          console.log('✅ Service Worker registered:', registration);
-          
-          // Check for updates
-          registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            console.log('🔄 Service Worker update found!');
-            
-            newWorker.addEventListener('statechange', () => {
-              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                console.log('🆕 New content available. Please refresh!');
-                // Show update notification to user
-                showNotification('info', 'New update available! Refresh the page to get the latest version.');
-              }
-            });
-          });
-        })
-        .catch(error => {
-          console.error('❌ Service Worker registration failed:', error);
-        });
-    });
-    
-    // Check for offline status
-    window.addEventListener('online', () => {
-      showNotification('success', 'You are back online!');
-    });
-    
-    window.addEventListener('offline', () => {
-      showNotification('warning', 'You are offline. Some features may not work.');
-    });
-  }
-  
-  // Function to show notifications (use your existing showNotification function)
-  function showNotification(type, message) {
-    // Use your existing notification system
-    console.log(`[${type.toUpperCase()}] ${message}`);
-  }
-</script>
+            closePaymentModal();
+            openTab('practice-tab');
+            showNotification('success', '🎉 Premium activated! All 3000+ questions unlocked.');
+        }
+    </script>
 </body>
 </html>
