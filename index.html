@@ -661,7 +661,7 @@
         .btn-secondary { 
             background: var(--secondary); 
             color: white; 
-        }
+}
         .btn-accent { 
             background: var(--accent); 
             color: white; 
@@ -1241,11 +1241,11 @@
     </div>
 
     <div id="quiz-section">
-        <!-- Quiz content remains the same -->
+        <!-- Quiz content will be loaded here -->
     </div>
 
     <div id="results-section">
-        <!-- Results content remains the same -->
+        <!-- Results will be loaded here -->
     </div>
 
     <div class="footer">
@@ -1355,12 +1355,272 @@
 </button>
 
 <script>
-    // =================== ENHANCED APP STATE ===================
+    // =================== COMPLETE QUIZ DATABASE ===================
+    const QUESTION_DATABASE = {
+        english: [
+            {
+                question: "Choose the option that best completes the sentence: If I had known, I _____ come earlier.",
+                options: ["would have", "will have", "would", "will"],
+                correct: 0,
+                explanation: "The correct answer is 'would have' because it's a third conditional sentence expressing a past unreal condition."
+            },
+            {
+                question: "Identify the grammatically correct sentence:",
+                options: ["She don't like apples", "She doesn't likes apples", "She doesn't like apples", "She not likes apples"],
+                correct: 2,
+                explanation: "'She doesn't like apples' is correct because with third person singular (she), we use 'doesn't' + base form of verb."
+            },
+            {
+                question: "What is the synonym of 'Benevolent'?",
+                options: ["Cruel", "Kind", "Selfish", "Stingy"],
+                correct: 1,
+                explanation: "Benevolent means well-meaning and kindly, which is synonymous with 'kind'."
+            },
+            {
+                question: "Which word is stressed on the first syllable?",
+                options: ["about", "before", "present", "receive"],
+                correct: 2,
+                explanation: "'Present' (noun) is stressed on the first syllable: PRE-sent."
+            },
+            {
+                question: "Choose the correct idiomatic expression: He's _____ thin air.",
+                options: ["vanishing into", "disappearing in", "evaporating to", "melting into"],
+                correct: 0,
+                explanation: "The correct idiom is 'vanishing into thin air' meaning to disappear completely."
+            }
+        ],
+        math: [
+            {
+                question: "Solve for x: 2x + 5 = 15",
+                options: ["5", "10", "7.5", "20"],
+                correct: 0,
+                explanation: "2x + 5 = 15 → 2x = 15 - 5 → 2x = 10 → x = 5"
+            },
+            {
+                question: "What is the value of π (pi) to two decimal places?",
+                options: ["3.14", "3.16", "3.12", "3.18"],
+                correct: 0,
+                explanation: "π is approximately 3.14159, which rounds to 3.14 to two decimal places."
+            },
+            {
+                question: "Calculate the area of a triangle with base 6cm and height 8cm",
+                options: ["24 cm²", "48 cm²", "14 cm²", "32 cm²"],
+                correct: 0,
+                explanation: "Area = ½ × base × height = ½ × 6 × 8 = 24 cm²"
+            },
+            {
+                question: "Simplify: (x²)(x³)",
+                options: ["x⁵", "x⁶", "x", "2x⁵"],
+                correct: 0,
+                explanation: "When multiplying with same base, add exponents: x² × x³ = x^(2+3) = x⁵"
+            },
+            {
+                question: "What is 25% of 200?",
+                options: ["50", "25", "75", "100"],
+                correct: 0,
+                explanation: "25% of 200 = 0.25 × 200 = 50"
+            }
+        ],
+        physics: [
+            {
+                question: "What is the SI unit of force?",
+                options: ["Joule", "Newton", "Watt", "Pascal"],
+                correct: 1,
+                explanation: "The SI unit of force is the Newton (N), named after Sir Isaac Newton."
+            },
+            {
+                question: "Which law states that every action has an equal and opposite reaction?",
+                options: ["Newton's First Law", "Newton's Second Law", "Newton's Third Law", "Ohm's Law"],
+                correct: 2,
+                explanation: "Newton's Third Law of Motion states this principle."
+            },
+            {
+                question: "What is the speed of light in vacuum?",
+                options: ["300,000 km/s", "150,000 km/s", "450,000 km/s", "600,000 km/s"],
+                correct: 0,
+                explanation: "The speed of light in vacuum is approximately 300,000 kilometers per second."
+            },
+            {
+                question: "Which instrument measures electric current?",
+                options: ["Voltmeter", "Ammeter", "Ohmmeter", "Galvanometer"],
+                correct: 1,
+                explanation: "An ammeter measures electric current in amperes."
+            },
+            {
+                question: "What type of energy is stored in a stretched spring?",
+                options: ["Kinetic energy", "Potential energy", "Thermal energy", "Electrical energy"],
+                correct: 1,
+                explanation: "A stretched spring stores elastic potential energy."
+            }
+        ],
+        biology: [
+            {
+                question: "Which organelle is known as the powerhouse of the cell?",
+                options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi apparatus"],
+                correct: 1,
+                explanation: "Mitochondria produce ATP, the energy currency of the cell."
+            },
+            {
+                question: "What is the process by which plants make their food?",
+                options: ["Respiration", "Photosynthesis", "Transpiration", "Digestion"],
+                correct: 1,
+                explanation: "Photosynthesis converts light energy into chemical energy in plants."
+            },
+            {
+                question: "Which blood type is the universal donor?",
+                options: ["Type A", "Type B", "Type AB", "Type O"],
+                correct: 3,
+                explanation: "Type O negative is the universal donor as it can be given to all blood types."
+            },
+            {
+                question: "What is the largest organ in the human body?",
+                options: ["Liver", "Brain", "Skin", "Lungs"],
+                correct: 2,
+                explanation: "The skin is the largest organ, covering the entire body."
+            },
+            {
+                question: "Which part of the brain controls balance and coordination?",
+                options: ["Cerebrum", "Cerebellum", "Medulla", "Hypothalamus"],
+                correct: 1,
+                explanation: "The cerebellum is responsible for balance and coordination."
+            }
+        ],
+        chemistry: [
+            {
+                question: "What is the chemical symbol for Gold?",
+                options: ["Go", "Gd", "Au", "Ag"],
+                correct: 2,
+                explanation: "Au comes from the Latin word 'aurum' meaning gold."
+            },
+            {
+                question: "What is the pH of pure water?",
+                options: ["0", "7", "14", "10"],
+                correct: 1,
+                explanation: "Pure water is neutral with a pH of 7 at 25°C."
+            },
+            {
+                question: "Which gas is most abundant in Earth's atmosphere?",
+                options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Argon"],
+                correct: 2,
+                explanation: "Nitrogen makes up about 78% of Earth's atmosphere."
+            },
+            {
+                question: "What is the process of a solid turning directly into gas?",
+                options: ["Evaporation", "Condensation", "Sublimation", "Deposition"],
+                correct: 2,
+                explanation: "Sublimation is the phase transition from solid to gas without passing through liquid."
+            },
+            {
+                question: "Which element has the atomic number 1?",
+                options: ["Helium", "Hydrogen", "Oxygen", "Carbon"],
+                correct: 1,
+                explanation: "Hydrogen is the first element with atomic number 1."
+            }
+        ],
+        government: [
+            {
+                question: "Who is the current President of Nigeria?",
+                options: ["Muhammadu Buhari", "Bola Tinubu", "Goodluck Jonathan", "Olusegun Obasanjo"],
+                correct: 1,
+                explanation: "Bola Ahmed Tinubu is the current President of Nigeria (as of 2024)."
+            },
+            {
+                question: "Which arm of government makes laws?",
+                options: ["Executive", "Legislature", "Judiciary", "Military"],
+                correct: 1,
+                explanation: "The Legislature (National Assembly) is responsible for making laws."
+            },
+            {
+                question: "What year did Nigeria gain independence?",
+                options: ["1957", "1960", "1963", "1970"],
+                correct: 1,
+                explanation: "Nigeria gained independence from Britain on October 1, 1960."
+            },
+            {
+                question: "How many states are in Nigeria?",
+                options: ["30", "36", "37", "38"],
+                correct: 2,
+                explanation: "Nigeria has 36 states and the Federal Capital Territory (FCT)."
+            },
+            {
+                question: "Which document is the supreme law of Nigeria?",
+                options: ["National Policy", "Constitution", "Manifesto", "Charter"],
+                correct: 1,
+                explanation: "The Constitution is the supreme law of Nigeria."
+            }
+        ],
+        economics: [
+            {
+                question: "What does GDP stand for?",
+                options: ["Gross Domestic Product", "General Domestic Price", "Gross Demand Product", "Government Domestic Policy"],
+                correct: 0,
+                explanation: "GDP stands for Gross Domestic Product, the total value of goods and services produced."
+            },
+            {
+                question: "What is inflation?",
+                options: ["Increase in production", "Decrease in prices", "Increase in prices", "Decrease in unemployment"],
+                correct: 2,
+                explanation: "Inflation is the rate at which prices for goods and services rise."
+            },
+            {
+                question: "Which is NOT a factor of production?",
+                options: ["Land", "Labor", "Money", "Entrepreneurship"],
+                correct: 2,
+                explanation: "The four factors of production are land, labor, capital, and entrepreneurship."
+            },
+            {
+                question: "What is the primary function of a central bank?",
+                options: ["Print money", "Control monetary policy", "Give personal loans", "Sell insurance"],
+                correct: 1,
+                explanation: "Central banks control monetary policy and regulate commercial banks."
+            },
+            {
+                question: "What does 'ceteris paribus' mean?",
+                options: ["Other things equal", "Let the buyer beware", "After this, therefore because of this", "For the public good"],
+                correct: 0,
+                explanation: "Ceteris paribus is Latin for 'other things being equal' or 'all else constant'."
+            }
+        ],
+        literature: [
+            {
+                question: "Who wrote 'Things Fall Apart'?",
+                options: ["Wole Soyinka", "Chinua Achebe", "Ben Okri", "Chimamanda Adichie"],
+                correct: 1,
+                explanation: "'Things Fall Apart' was written by Chinua Achebe, published in 1958."
+            },
+            {
+                question: "What is a sonnet?",
+                options: ["A 14-line poem", "A type of novel", "A drama", "A short story"],
+                correct: 0,
+                explanation: "A sonnet is a 14-line poem with a specific rhyme scheme."
+            },
+            {
+                question: "Which literary device compares two things using 'like' or 'as'?",
+                options: ["Metaphor", "Simile", "Personification", "Hyperbole"],
+                correct: 1,
+                explanation: "A simile directly compares two things using 'like' or 'as'."
+            },
+            {
+                question: "Who is the author of 'The Lion and the Jewel'?",
+                options: ["Wole Soyinka", "Chinua Achebe", "John Pepper Clark", "Femi Osofisan"],
+                correct: 0,
+                explanation: "'The Lion and the Jewel' is a play by Wole Soyinka."
+            },
+            {
+                question: "What is the term for the main character in a story?",
+                options: ["Antagonist", "Protagonist", "Narrator", "Foil"],
+                correct: 1,
+                explanation: "The protagonist is the main character around whom the story revolves."
+            }
+        ]
+    };
+
+    // =================== COMPLETE APP STATE ===================
     const APP_STATE = {
         currentUser: {
             name: 'Student',
             email: 'student@example.com',
-            plan: 'free', // free, basic, pro, ultimate
+            plan: 'free',
             subscriptionDate: null,
             expiryDate: null,
             questionsAttempted: 0,
@@ -1368,6 +1628,17 @@
             sessionTime: 0,
             mockExamsTaken: 0,
             paymentHistory: []
+        },
+        currentQuiz: {
+            subject: '',
+            questions: [],
+            currentQuestionIndex: 0,
+            score: 0,
+            startTime: null,
+            selectedAnswers: [],
+            isMockExam: false,
+            timer: null,
+            timeRemaining: 7200 // 2 hours in seconds for mock exam
         },
         selectedPlan: 'pro',
         selectedPaymentMethod: 'card',
@@ -1383,7 +1654,548 @@
         }
     };
 
-    // =================== PAYMENT SYSTEM ===================
+    // =================== CORE QUIZ FUNCTIONS ===================
+    function generateQuestions(subject, count = 5) {
+        const allQuestions = QUESTION_DATABASE[subject] || [];
+        // For demo, return all questions (max 5)
+        return allQuestions.slice(0, Math.min(count, allQuestions.length));
+    }
+
+    function startPractice(subject) {
+        APP_STATE.currentQuiz = {
+            subject: subject,
+            questions: generateQuestions(subject, 5),
+            currentQuestionIndex: 0,
+            score: 0,
+            startTime: new Date(),
+            selectedAnswers: [],
+            isMockExam: false
+        };
+        
+        // Update UI
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+        document.getElementById('back-to-dashboard').style.display = 'flex';
+        
+        // Load first question
+        loadQuestion();
+    }
+
+    function checkPremiumAccess(subject) {
+        const isPremiumSubject = ['english', 'physics', 'chemistry', 'economics'].includes(subject);
+        
+        if (isPremiumSubject && APP_STATE.currentUser.plan === 'free') {
+            showNotification('warning', 'This subject requires Premium access. Upgrade to unlock all premium subjects.');
+            openTab('premium-tab');
+            return;
+        }
+        
+        startPractice(subject);
+    }
+
+    function startMockExam() {
+        if (APP_STATE.currentUser.plan === 'free' && APP_STATE.currentUser.mockExamsTaken >= 2) {
+            showNotification('error', 'Free users limited to 2 mock exams per month. Upgrade to unlock unlimited mock exams.');
+            openTab('premium-tab');
+            return;
+        }
+        
+        if (APP_STATE.currentUser.plan === 'basic' && APP_STATE.currentUser.mockExamsTaken >= 5) {
+            showNotification('error', 'Basic plan limited to 5 mock exams per month. Upgrade to Pro for unlimited.');
+            openTab('premium-tab');
+            return;
+        }
+        
+        // Collect mock exam settings
+        const duration = parseInt(document.querySelector('input[name="duration"]:checked').value) * 60;
+        const questionCount = parseInt(document.querySelector('input[name="questions"]:checked').value);
+        
+        // Generate questions from multiple subjects
+        let allQuestions = [];
+        const selectedSubjects = Array.from(document.querySelectorAll('input[name="subjects"]:checked')).map(cb => cb.value);
+        
+        selectedSubjects.forEach(subject => {
+            if (QUESTION_DATABASE[subject]) {
+                allQuestions = allQuestions.concat(generateQuestions(subject, 10));
+            }
+        });
+        
+        // Shuffle and limit questions
+        allQuestions = shuffleArray(allQuestions).slice(0, Math.min(questionCount, allQuestions.length));
+        
+        if (allQuestions.length === 0) {
+            showNotification('error', 'Please select at least one subject for the mock exam.');
+            return;
+        }
+        
+        APP_STATE.currentUser.mockExamsTaken++;
+        APP_STATE.currentQuiz = {
+            subject: 'Mock Exam',
+            questions: allQuestions,
+            currentQuestionIndex: 0,
+            score: 0,
+            startTime: new Date(),
+            selectedAnswers: [],
+            isMockExam: true,
+            timer: null,
+            timeRemaining: duration
+        };
+        
+        // Update UI
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+        document.getElementById('back-to-dashboard').style.display = 'flex';
+        
+        // Start timer
+        startMockTimer();
+        
+        // Load first question
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        const quiz = APP_STATE.currentQuiz;
+        const question = quiz.questions[quiz.currentQuestionIndex];
+        
+        if (!question) {
+            showResults();
+            return;
+        }
+        
+        // Update progress
+        const progress = ((quiz.currentQuestionIndex + 1) / quiz.questions.length) * 100;
+        
+        // Build question HTML
+        let html = `
+            <div class="quiz-header">
+                <div>
+                    <div class="subject-title">${quiz.isMockExam ? 'Mock Exam' : quiz.subject.toUpperCase()}</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                ${quiz.isMockExam ? `<div class="mock-timer" id="mock-timer">${formatTime(quiz.timeRemaining * 1000)}</div>` : ''}
+            </div>
+            
+            <div class="question-meta">
+                <span><i class="fas fa-question-circle"></i> Question ${quiz.currentQuestionIndex + 1} of ${quiz.questions.length}</span>
+                <span><i class="fas fa-star"></i> Score: ${quiz.score}</span>
+                ${!quiz.isMockExam ? `<span><i class="fas fa-clock"></i> Time: ${formatTime(new Date() - quiz.startTime)}</span>` : ''}
+            </div>
+            
+            <div class="question-box">
+                ${question.question}
+            </div>
+            
+            <div class="options-container">
+        `;
+        
+        const optionLetters = ['A', 'B', 'C', 'D'];
+        question.options.forEach((option, index) => {
+            const isSelected = quiz.selectedAnswers[quiz.currentQuestionIndex] === index;
+            html += `
+                <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${index})">
+                    <span class="option-letter">${optionLetters[index]}</span>
+                    ${option}
+                </div>
+            `;
+        });
+        
+        html += `
+            </div>
+            
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="previousQuestion()" ${quiz.currentQuestionIndex === 0 ? 'disabled' : ''}>
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                
+                <button class="btn btn-secondary" onclick="submitAnswer()">
+                    ${quiz.currentQuestionIndex === quiz.questions.length - 1 ? 'Finish Exam' : 'Next Question'}
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        `;
+        
+        document.getElementById('quiz-section').innerHTML = html;
+    }
+
+    function selectOption(optionIndex) {
+        const quiz = APP_STATE.currentQuiz;
+        quiz.selectedAnswers[quiz.currentQuestionIndex] = optionIndex;
+        
+        // Update UI
+        document.querySelectorAll('.option').forEach((opt, idx) => {
+            opt.classList.remove('selected');
+            if (idx === optionIndex) {
+                opt.classList.add('selected');
+            }
+        });
+    }
+
+    function submitAnswer() {
+        const quiz = APP_STATE.currentQuiz;
+        const currentQuestion = quiz.questions[quiz.currentQuestionIndex];
+        const selectedAnswer = quiz.selectedAnswers[quiz.currentQuestionIndex];
+        
+        // Check if answer is selected
+        if (selectedAnswer === undefined) {
+            showNotification('warning', 'Please select an answer before proceeding.');
+            return;
+        }
+        
+        // Check if answer is correct
+        if (selectedAnswer === currentQuestion.correct) {
+            quiz.score++;
+            showNotification('success', 'Correct answer!');
+        } else {
+            showNotification('error', `Incorrect. The correct answer is: ${currentQuestion.options[currentQuestion.correct]}`);
+        }
+        
+        // Move to next question
+        if (quiz.currentQuestionIndex < quiz.questions.length - 1) {
+            quiz.currentQuestionIndex++;
+            loadQuestion();
+        } else {
+            showResults();
+        }
+        
+        // Update user stats
+        APP_STATE.currentUser.questionsAttempted++;
+    }
+
+    function previousQuestion() {
+        if (APP_STATE.currentQuiz.currentQuestionIndex > 0) {
+            APP_STATE.currentQuiz.currentQuestionIndex--;
+            loadQuestion();
+        }
+    }
+
+    function showResults() {
+        const quiz = APP_STATE.currentQuiz;
+        const totalQuestions = quiz.questions.length;
+        const percentage = (quiz.score / totalQuestions) * 100;
+        
+        // Calculate time taken
+        const timeTaken = new Date() - quiz.startTime;
+        
+        // Stop timer if mock exam
+        if (quiz.isMockExam && quiz.timer) {
+            clearInterval(quiz.timer);
+        }
+        
+        // Update user stats
+        APP_STATE.currentUser.totalScore = ((APP_STATE.currentUser.totalScore * (APP_STATE.currentUser.questionsAttempted - totalQuestions)) + quiz.score * 100) / APP_STATE.currentUser.questionsAttempted;
+        
+        // Build results HTML
+        let html = `
+            <div class="result-header">
+                <div class="result-icon">
+                    ${percentage >= 70 ? '<i class="fas fa-trophy"></i>' : 
+                      percentage >= 50 ? '<i class="fas fa-medal"></i>' : 
+                      '<i class="fas fa-award"></i>'}
+                </div>
+                <h2>${quiz.isMockExam ? 'Mock Exam' : quiz.subject} Results</h2>
+                <div class="score-display">${quiz.score}/${totalQuestions}</div>
+                <div style="font-size: 1.5rem; color: ${percentage >= 70 ? 'var(--success)' : percentage >= 50 ? 'var(--warning)' : 'var(--danger)'}">
+                    ${percentage.toFixed(1)}%
+                </div>
+                <p>Time taken: ${formatTime(timeTaken)}</p>
+            </div>
+            
+            <div class="result-details">
+                <div class="result-box">
+                    <h3>Correct Answers</h3>
+                    <p style="color: var(--success);">${quiz.score}</p>
+                </div>
+                <div class="result-box">
+                    <h3>Wrong Answers</h3>
+                    <p style="color: var(--danger);">${totalQuestions - quiz.score}</p>
+                </div>
+                <div class="result-box">
+                    <h3>Percentage</h3>
+                    <p>${percentage.toFixed(1)}%</p>
+                </div>
+                <div class="result-box">
+                    <h3>Time Per Question</h3>
+                    <p>${formatTime(timeTaken / totalQuestions)}</p>
+                </div>
+            </div>
+            
+            <div class="score-breakdown">
+                <h3>Question Review</h3>
+        `;
+        
+        quiz.questions.forEach((q, index) => {
+            const userAnswer = quiz.selectedAnswers[index];
+            const isCorrect = userAnswer === q.correct;
+            const optionLetters = ['A', 'B', 'C', 'D'];
+            
+            html += `
+                <div class="subject-score">
+                    <div>
+                        <strong>Q${index + 1}:</strong> ${q.question.substring(0, 50)}...
+                        <div style="font-size: 0.9rem; margin-top: 5px;">
+                            <span style="color: ${isCorrect ? 'var(--success)' : 'var(--danger)'}">
+                                Your answer: ${userAnswer !== undefined ? optionLetters[userAnswer] : 'Not answered'}
+                            </span>
+                            <span style="color: var(--success); margin-left: 10px;">
+                                Correct: ${optionLetters[q.correct]}
+                            </span>
+                        </div>
+                        ${!isCorrect ? `<div style="font-size: 0.8rem; color: #666; margin-top: 5px;">${q.explanation}</div>` : ''}
+                    </div>
+                    <div>
+                        ${isCorrect ? '<i class="fas fa-check-circle" style="color: var(--success); font-size: 1.5rem;"></i>' : 
+                          '<i class="fas fa-times-circle" style="color: var(--danger); font-size: 1.5rem;"></i>'}
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += `
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-primary" onclick="returnToDashboard()" style="margin-right: 10px;">
+                    <i class="fas fa-home"></i> Return to Dashboard
+                </button>
+                ${quiz.isMockExam ? '' : `
+                    <button class="btn btn-secondary" onclick="retryQuiz()">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                `}
+                <button class="btn btn-purple" onclick="shareResults()" style="margin-left: 10px;">
+                    <i class="fas fa-share"></i> Share Results
+                </button>
+            </div>
+        `;
+        
+        document.getElementById('quiz-section').style.display = 'none';
+        document.getElementById('results-section').style.display = 'block';
+        document.getElementById('results-section').innerHTML = html;
+    }
+
+    // =================== TIMER FUNCTIONS ===================
+    function startMockTimer() {
+        const quiz = APP_STATE.currentQuiz;
+        
+        function updateTimer() {
+            if (quiz.timeRemaining <= 0) {
+                clearInterval(quiz.timer);
+                showNotification('warning', 'Time is up! Submitting your exam...');
+                setTimeout(showResults, 1000);
+                return;
+            }
+            
+            const hours = Math.floor(quiz.timeRemaining / 3600);
+            const minutes = Math.floor((quiz.timeRemaining % 3600) / 60);
+            const seconds = quiz.timeRemaining % 60;
+            
+            if (document.getElementById('mock-timer')) {
+                document.getElementById('mock-timer').textContent = 
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }
+            
+            quiz.timeRemaining--;
+        }
+        
+        quiz.timer = setInterval(updateTimer, 1000);
+        updateTimer();
+    }
+
+    function formatTime(ms) {
+        const seconds = Math.floor(ms / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        
+        if (hours > 0) {
+            return `${hours}h ${minutes % 60}m`;
+        } else if (minutes > 0) {
+            return `${minutes}m ${seconds % 60}s`;
+        } else {
+            return `${seconds}s`;
+        }
+    }
+
+    // =================== HELPER FUNCTIONS ===================
+    function shuffleArray(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    }
+
+    function showNotification(type, message) {
+        const colors = {
+            success: '#28a745',
+            error: '#dc3545',
+            warning: '#ffc107',
+            info: '#17a2b8'
+        };
+        
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.style.background = colors[type] || colors.info;
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                              type === 'error' ? 'exclamation-circle' : 
+                              type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+            ${message}
+        `;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    // =================== UI FUNCTIONS ===================
+    function openTab(tabName) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.style.display = 'none';
+        });
+        
+        // Remove active class from all tab buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Show selected tab content
+        document.getElementById(tabName).style.display = 'block';
+        
+        // Add active class to clicked tab button
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            if (btn.getAttribute('onclick')?.includes(tabName)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    function returnToDashboard() {
+        document.getElementById('quiz-section').style.display = 'none';
+        document.getElementById('results-section').style.display = 'none';
+        document.getElementById('dashboard').style.display = 'block';
+        document.getElementById('back-to-dashboard').style.display = 'none';
+        
+        // Stop any running timers
+        if (APP_STATE.currentQuiz.timer) {
+            clearInterval(APP_STATE.currentQuiz.timer);
+        }
+    }
+
+    function retryQuiz() {
+        APP_STATE.currentQuiz.currentQuestionIndex = 0;
+        APP_STATE.currentQuiz.score = 0;
+        APP_STATE.currentQuiz.startTime = new Date();
+        APP_STATE.currentQuiz.selectedAnswers = [];
+        
+        document.getElementById('results-section').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+        
+        loadQuestion();
+    }
+
+    function shareResults() {
+        const quiz = APP_STATE.currentQuiz;
+        const percentage = (quiz.score / quiz.questions.length) * 100;
+        const message = `I scored ${quiz.score}/${quiz.questions.length} (${percentage.toFixed(1)}%) on the ${quiz.subject} quiz in JAMB Mastermind 300!`;
+        
+        if (navigator.share) {
+            navigator.share({
+                title: 'My JAMB Mastermind Results',
+                text: message,
+                url: window.location.href
+            });
+        } else {
+            navigator.clipboard.writeText(message);
+            showNotification('success', 'Results copied to clipboard!');
+        }
+    }
+
+    function quickDemo() {
+        // Start a quick demo with all subjects
+        const demoQuestions = [];
+        Object.keys(QUESTION_DATABASE).forEach(subject => {
+            demoQuestions.push(...generateQuestions(subject, 1));
+        });
+        
+        // Shuffle and take 3 questions
+        const shuffled = shuffleArray(demoQuestions).slice(0, 3);
+        
+        APP_STATE.currentQuiz = {
+            subject: 'Quick Demo',
+            questions: shuffled,
+            currentQuestionIndex: 0,
+            score: 0,
+            startTime: new Date(),
+            selectedAnswers: [],
+            isMockExam: false
+        };
+        
+        document.getElementById('dashboard').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+        document.getElementById('back-to-dashboard').style.display = 'flex';
+        
+        loadQuestion();
+    }
+
+    function enableTestMode() {
+        // Unlock all premium features for testing
+        APP_STATE.currentUser.plan = 'pro';
+        APP_STATE.currentUser.mockExamsTaken = 0;
+        document.getElementById('user-plan').textContent = 'PRO Plan';
+        document.getElementById('user-avatar').style.background = 'var(--premium)';
+        document.getElementById('user-avatar').innerHTML = '<i class="fas fa-crown"></i>';
+        
+        showNotification('success', '🎮 Test Mode Activated! All features unlocked for testing.');
+        
+        // Hide test button
+        document.getElementById('dev-test-btn').style.display = 'none';
+    }
+
+    // =================== MOCK EXAM FUNCTIONS ===================
+    function copyInviteCode() {
+        const inviteCode = document.getElementById('invite-code');
+        inviteCode.select();
+        document.execCommand('copy');
+        showNotification('success', 'Invite code copied to clipboard!');
+    }
+
+    function joinMockSession() {
+        showNotification('info', 'Enter a friend\'s code in the field below to join their mock exam session.');
+    }
+
+    function inviteFriend() {
+        const friendCode = document.getElementById('friend-code').value;
+        if (!friendCode) {
+            showNotification('error', 'Please enter a friend\'s code');
+            return;
+        }
+        showNotification('success', `Invitation sent to ${friendCode}!`);
+    }
+
+    function addPlayer(name, isReady) {
+        const playerList = document.getElementById('player-list');
+        const playerCard = document.createElement('div');
+        playerCard.className = 'player-card';
+        playerCard.innerHTML = `
+            <i class="fas fa-user-circle fa-2x"></i>
+            <p>${name}</p>
+            <small>${isReady ? 'Ready' : 'Waiting'}</small>
+        `;
+        playerList.appendChild(playerCard);
+    }
+
+    // =================== PAYMENT FUNCTIONS ===================
     function upgradeToPremium() {
         openTab('premium-tab');
         showNotification('info', 'Choose your premium plan and unlock all features!');
@@ -1549,18 +2361,6 @@
         updateMockExamLimits();
     }
 
-    function checkPremiumAccess(subject) {
-        const isPremiumSubject = ['english', 'physics', 'chemistry', 'economics'].includes(subject);
-        
-        if (isPremiumSubject && APP_STATE.currentUser.plan === 'free') {
-            showNotification('warning', 'This subject requires Premium access. Upgrade to unlock all premium subjects.');
-            openTab('premium-tab');
-            return;
-        }
-        
-        startPractice(subject);
-    }
-
     function updateMockExamLimits() {
         const mockLimit = APP_STATE.currentUser.plan === 'free' ? 2 : 
                          APP_STATE.currentUser.plan === 'basic' ? 5 : 
@@ -1681,7 +2481,6 @@
         toggleUserDropdown();
     }
 
-    // =================== HELPER FUNCTIONS ===================
     function getPlanFeatures(plan) {
         const features = {
             free: 'Limited subjects, 2 mock exams/month, basic analytics',
@@ -1696,25 +2495,24 @@
         viewPurchaseHistory();
     }
 
-    // =================== ENHANCED MOCK EXAM WITH LIMITS ===================
-    function startMockExam() {
-        if (APP_STATE.currentUser.plan === 'free' && APP_STATE.currentUser.mockExamsTaken >= 2) {
-            showNotification('error', 'Free users limited to 2 mock exams per month. Upgrade to unlock unlimited mock exams.');
-            openTab('premium-tab');
-            return;
-        }
-        
-        if (APP_STATE.currentUser.plan === 'basic' && APP_STATE.currentUser.mockExamsTaken >= 5) {
-            showNotification('error', 'Basic plan limited to 5 mock exams per month. Upgrade to Pro for unlimited.');
-            openTab('premium-tab');
-            return;
-        }
-        
-        // Increment mock exam counter
-        APP_STATE.currentUser.mockExamsTaken++;
-        
-        // Original startMockExam function continues...
-        // [Keep the original startMockExam function code here]
+    function showAnalytics() {
+        showNotification('info', 'Analytics feature coming soon!');
+    }
+
+    function createStudyGroup() {
+        showNotification('info', 'Study Groups feature requires Premium subscription.');
+    }
+
+    function joinStudyGroup() {
+        showNotification('info', 'Study Groups feature requires Premium subscription.');
+    }
+
+    function viewLeaderboard() {
+        showNotification('info', 'Leaderboard feature coming soon!');
+    }
+
+    function renewSubscription() {
+        showNotification('info', 'Renewal feature coming soon!');
     }
 
     // =================== INITIALIZATION ===================
@@ -1729,11 +2527,19 @@
             }
         }, 1000);
         
+        // Start session timer
+        setInterval(() => {
+            APP_STATE.currentUser.sessionTime++;
+            const hours = Math.floor(APP_STATE.currentUser.sessionTime / 3600);
+            const minutes = Math.floor((APP_STATE.currentUser.sessionTime % 3600) / 60);
+            document.getElementById('session-timer').innerHTML = 
+                `<i class="far fa-clock"></i> Session: ${hours}h ${minutes}m`;
+        }, 1000);
+        
         // Show welcome notification
         setTimeout(() => {
             showNotification('info', '🎓 Welcome to JAMB Mastermind 300! Click any subject to start practicing.');
             
-            // Show upgrade prompt for free users
             if (APP_STATE.currentUser.plan === 'free') {
                 setTimeout(() => {
                     showNotification('warning', '💎 Upgrade to Premium for full access to all subjects and unlimited mock exams!');
@@ -1744,12 +2550,6 @@
         // Update mock exam limits display
         updateMockExamLimits();
     };
-
-    // =================== KEEP ALL EXISTING FUNCTIONS ===================
-    // [Include all the existing functions from the original code here]
-    // generateQuestions, startPractice, loadQuestion, etc.
-    // [All your existing JavaScript functions should be placed here]
-
 </script>
 </body>
 </html>
