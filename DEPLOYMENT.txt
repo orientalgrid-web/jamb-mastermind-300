@@ -1,0 +1,28 @@
+QUICK DEPLOYMENT GUIDE
+=======================
+
+1. UPLOAD ALL FILES to your web hosting:
+   - Upload index.html, manifest.json, service-worker.js, offline.html
+   - Upload entire 'icons' folder
+   - Upload entire 'screenshots' folder
+
+2. REQUIREMENTS:
+   - Website MUST use HTTPS
+   - All files in same directory
+   - Modern web server
+
+3. TESTING:
+   - Visit yourdomain.com/index.html
+   - Check if "Add to Home Screen" appears
+   - Test offline mode (turn off wifi)
+   - Test all quiz features
+
+4. FOR PLAY STORE:
+   - Use https://www.pwabuilder.com to generate APK
+   - Submit generated APK to Play Store
+
+5. FOR APP STORE:
+   - Use https://capacitorjs.com to package
+   - Submit through Apple Developer account
+
+CONTACT FOR HELP: [Your contact info]
