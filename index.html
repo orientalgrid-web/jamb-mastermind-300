@@ -6,6 +6,8 @@
     <title>JAMB Mastermind 3000 - Complete Preparation Platform</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Paystack Inline JS -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
     <style>
         /* Keep all existing CSS styles from the original code */
         :root {
@@ -209,6 +211,7 @@
             padding: 0 40px;
             border-bottom: 2px solid #f0f0f0;
             position: relative;
+            flex-wrap: wrap;
         }
 
         .nav-btn {
@@ -763,6 +766,196 @@
             border-bottom: none;
         }
 
+        /* Billing & Subscription Styles */
+        .billing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .plan-card.popular {
+            border: 2px solid var(--gold);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--dark);
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .plan-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .plan-price span {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .plan-features li i {
+            color: var(--success);
+        }
+
+        .subscription-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .subscription-info h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .subscription-badge {
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .badge-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-expired {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge-trial {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .transaction-history {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-details {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .transaction-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .transaction-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .invoice-btn {
+            padding: 8px 20px;
+            background: var(--light);
+            border-radius: 20px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .invoice-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -868,7 +1061,8 @@
         @media (max-width: 1024px) {
             .subject-grid,
             .quick-stats,
-            .results-grid {
+            .results-grid,
+            .plan-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
@@ -887,7 +1081,8 @@
             
             .subject-grid,
             .quick-stats,
-            .results-grid {
+            .results-grid,
+            .plan-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -909,6 +1104,12 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .subscription-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
             }
         }
 
@@ -959,7 +1160,7 @@
         <!-- Header -->
         <div class="header">
             <div class="logo">
-                <div class="badge">PRO EDITION</div>
+                <div class="badge" id="plan-badge">PRO EDITION</div>
                 <h1><i class="fas fa-brain"></i> JAMB Mastermind 3000+</h1>
                 <p class="subtitle">Complete Preparation Platform for 2024/2025 Session</p>
             </div>
@@ -970,7 +1171,7 @@
                     </div>
                     <div>
                         <div class="user-name" id="user-name">Future Graduate</div>
-                        <div class="user-plan" id="user-plan">PREMIUM ACCESS</div>
+                        <div class="user-plan" id="user-plan">FREE ACCESS</div>
                     </div>
                     <i class="fas fa-chevron-down"></i>
                 </div>
@@ -982,11 +1183,11 @@
                             <small>View progress & achievements</small>
                         </div>
                     </a>
-                    <a href="#" onclick="viewSubscription()">
-                        <i class="fas fa-gem"></i>
+                    <a href="#" onclick="openTab('billing-tab')">
+                        <i class="fas fa-credit-card"></i>
                         <div>
-                            <strong>Subscription</strong>
-                            <small>Premium features active</small>
+                            <strong>Billing & Subscription</strong>
+                            <small>Manage your plan and invoices</small>
                         </div>
                     </a>
                     <a href="#" onclick="viewAnalytics()">
@@ -1031,8 +1232,8 @@
             <button class="nav-btn" onclick="openTab('analytics-tab')">
                 <i class="fas fa-chart-line"></i> Analytics
             </button>
-            <button class="nav-btn" onclick="openTab('resources-tab')">
-                <i class="fas fa-graduation-cap"></i> Resources
+            <button class="nav-btn" onclick="openTab('billing-tab')">
+                <i class="fas fa-credit-card"></i> Billing
             </button>
             <button class="nav-btn" onclick="openTab('premium-tab')">
                 <i class="fas fa-crown"></i> Premium
@@ -1083,7 +1284,7 @@
 
                     <div class="subject-grid">
                         <!-- English -->
-                        <div class="subject-card" onclick="startSubjectPractice('english')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('english')">
                             <div class="subject-icon english float">
                                 <i class="fas fa-language"></i>
                             </div>
@@ -1094,7 +1295,7 @@
                         </div>
 
                         <!-- Mathematics -->
-                        <div class="subject-card" onclick="startSubjectPractice('math')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('math')">
                             <div class="subject-icon math float">
                                 <i class="fas fa-calculator"></i>
                             </div>
@@ -1105,7 +1306,7 @@
                         </div>
 
                         <!-- Physics -->
-                        <div class="subject-card" onclick="startSubjectPractice('physics')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('physics')">
                             <div class="subject-icon physics float">
                                 <i class="fas fa-atom"></i>
                             </div>
@@ -1116,7 +1317,7 @@
                         </div>
 
                         <!-- Chemistry -->
-                        <div class="subject-card" onclick="startSubjectPractice('chemistry')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('chemistry')">
                             <div class="subject-icon chemistry float">
                                 <i class="fas fa-flask"></i>
                             </div>
@@ -1127,7 +1328,7 @@
                         </div>
 
                         <!-- Biology -->
-                        <div class="subject-card" onclick="startSubjectPractice('biology')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('biology')">
                             <div class="subject-icon biology float">
                                 <i class="fas fa-dna"></i>
                             </div>
@@ -1138,7 +1339,7 @@
                         </div>
 
                         <!-- Government -->
-                        <div class="subject-card" onclick="startSubjectPractice('government')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('government')">
                             <div class="subject-icon government float">
                                 <i class="fas fa-landmark"></i>
                             </div>
@@ -1149,7 +1350,7 @@
                         </div>
 
                         <!-- Economics -->
-                        <div class="subject-card" onclick="startSubjectPractice('economics')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('economics')">
                             <div class="subject-icon economics float">
                                 <i class="fas fa-chart-line"></i>
                             </div>
@@ -1160,7 +1361,7 @@
                         </div>
 
                         <!-- Literature -->
-                        <div class="subject-card" onclick="startSubjectPractice('literature')">
+                        <div class="subject-card" onclick="checkPremiumAndStart('literature')">
                             <div class="subject-icon literature float">
                                 <i class="fas fa-book"></i>
                             </div>
@@ -1178,8 +1379,8 @@
                         <button class="btn btn-secondary btn-lg" onclick="openTab('mock-tab')">
                             <i class="fas fa-clipboard-check"></i> Full Mock Test
                         </button>
-                        <button class="btn btn-premium btn-lg" onclick="continuePractice()">
-                            <i class="fas fa-play-circle"></i> Continue Practice
+                        <button class="btn btn-premium btn-lg" onclick="openTab('billing-tab')">
+                            <i class="fas fa-crown"></i> Go Premium
                         </button>
                     </div>
                 </div>
@@ -1225,7 +1426,7 @@
                     <div style="text-align: center; margin: 50px 0;">
                         <h2 style="color: var(--primary); margin-bottom: 30px;">Select Mock Exam Type</h2>
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto;">
-                            <div class="subject-card" onclick="startMockExam('full', 180, 7200)">
+                            <div class="subject-card" onclick="checkPremiumAndStartMock('full', 180, 7200)">
                                 <div class="subject-icon english" style="background: var(--primary);">
                                     <i class="fas fa-file-alt"></i>
                                 </div>
@@ -1235,7 +1436,7 @@
                                 <button class="btn btn-primary" style="margin-top: 15px;">Start Exam</button>
                             </div>
 
-                            <div class="subject-card" onclick="startMockExam('custom', 60, 3600)">
+                            <div class="subject-card" onclick="checkPremiumAndStartMock('custom', 60, 3600)">
                                 <div class="subject-icon math" style="background: var(--secondary);">
                                     <i class="fas fa-cogs"></i>
                                 </div>
@@ -1245,7 +1446,7 @@
                                 <button class="btn btn-secondary" style="margin-top: 15px;">Customize</button>
                             </div>
 
-                            <div class="subject-card" onclick="startMockExam('speed', 40, 1800)">
+                            <div class="subject-card" onclick="checkPremiumAndStartMock('speed', 40, 1800)">
                                 <div class="subject-icon physics" style="background: var(--accent);">
                                     <i class="fas fa-bolt"></i>
                                 </div>
@@ -1264,16 +1465,37 @@
                         <h2><i class="fas fa-chart-line"></i> Performance Analytics & Insights</h2>
                         <p>Track your progress, identify weak areas, and optimize your study strategy</p>
                     </div>
-                    <!-- Analytics content would go here -->
+                    <div style="text-align: center; padding: 60px 0;">
+                        <i class="fas fa-chart-pie" style="font-size: 5rem; color: var(--primary); opacity: 0.5;"></i>
+                        <h3 style="margin-top: 20px; color: #666;">Analytics dashboard coming soon!</h3>
+                        <p style="color: #999; margin-top: 10px;">Unlock detailed insights with Premium plan</p>
+                        <button class="btn btn-premium" style="margin-top: 30px;" onclick="openTab('billing-tab')">
+                            <i class="fas fa-crown"></i> Go Premium
+                        </button>
+                    </div>
                 </div>
 
-                <!-- Resources Tab -->
-                <div id="resources-tab" class="tab-content" style="display: none;">
+                <!-- Billing Tab (New) -->
+                <div id="billing-tab" class="tab-content" style="display: none;">
                     <div class="welcome-banner">
-                        <h2><i class="fas fa-graduation-cap"></i> Study Resources & Materials</h2>
-                        <p>Access comprehensive study materials, past questions, and learning tools</p>
+                        <h2><i class="fas fa-credit-card"></i> Billing & Subscription</h2>
+                        <p>Manage your subscription, view invoices, and upgrade your learning experience</p>
                     </div>
-                    <!-- Resources content would go here -->
+
+                    <!-- Current Subscription Status -->
+                    <div id="subscription-status-container"></div>
+
+                    <!-- Subscription Plans -->
+                    <div style="margin-top: 50px;">
+                        <h2 style="color: var(--primary); text-align: center; margin-bottom: 40px;">Choose Your Plan</h2>
+                        <div class="plan-grid" id="plan-grid-container"></div>
+                    </div>
+
+                    <!-- Transaction History -->
+                    <div style="margin-top: 60px;">
+                        <h2 style="color: var(--primary); margin-bottom: 30px;">Transaction History</h2>
+                        <div class="transaction-history" id="transaction-history-container"></div>
+                    </div>
                 </div>
 
                 <!-- Premium Tab -->
@@ -1282,7 +1504,30 @@
                         <h2><i class="fas fa-crown"></i> Unlock Premium Features</h2>
                         <p>Get full access to all 3000+ questions, unlimited mock exams, and advanced analytics</p>
                     </div>
-                    <!-- Premium content would go here -->
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 50px 0;">
+                        <div class="subject-card" style="text-align: center;">
+                            <i class="fas fa-infinity" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                            <h3>Unlimited Practice</h3>
+                            <p>Access all 3000+ questions across 8 subjects</p>
+                        </div>
+                        <div class="subject-card" style="text-align: center;">
+                            <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--secondary); margin-bottom: 20px;"></i>
+                            <h3>Advanced Analytics</h3>
+                            <p>Detailed performance insights and weak area identification</p>
+                        </div>
+                        <div class="subject-card" style="text-align: center;">
+                            <i class="fas fa-file-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+                            <h3>Unlimited Mocks</h3>
+                            <p>Take unlimited full-length mock exams</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn btn-premium btn-lg" onclick="openTab('billing-tab')">
+                            <i class="fas fa-credit-card"></i> View Subscription Plans
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -1302,48 +1547,134 @@
                 <button class="close-btn" onclick="closePaymentModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div style="text-align: center; margin-bottom: 30px;">
-                    <div class="subject-icon english" style="margin: 0 auto 20px; width: 80px; height: 80px;">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h2 style="color: var(--primary);">Premium Access</h2>
-                    <p style="color: #666; margin: 10px 0 20px;">Unlock all 3000+ questions and features</p>
-                    <div style="font-size: 3rem; font-weight: bold; color: var(--primary); margin: 20px 0;">
-                        ₦5,000
-                    </div>
+                <div style="text-align: center; margin-bottom: 30px;" id="payment-modal-details">
+                    <!-- Dynamic payment details will be inserted here -->
                 </div>
-                
-                <div style="background: var(--light); padding: 20px; border-radius: 12px; margin: 20px 0;">
-                    <h4 style="margin-bottom: 15px; color: var(--dark);">What You Get:</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
-                            <span>Access to all 3000+ questions</span>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
-                            <span>Unlimited mock exams</span>
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
-                            <span>Detailed analytics & reports</span>
-                        </li>
-                        <li style="padding: 10px 0; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle" style="color: var(--success);"></i>
-                            <span>Priority support</span>
-                        </li>
-                    </ul>
+                <div id="payment-modal-content">
+                    <!-- Payment processing content -->
                 </div>
-                
-                <button class="btn btn-success" onclick="processPayment()" style="width: 100%; padding: 18px; font-size: 1.2rem;">
-                    <i class="fas fa-lock"></i> Secure Payment - ₦5,000
-                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div id="invoice-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header" style="background: linear-gradient(135deg, var(--purple), var(--primary));">
+                <h3><i class="fas fa-file-invoice"></i> Invoice Details</h3>
+                <button class="close-btn" onclick="closeInvoiceModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="invoice-modal-content">
+                <!-- Invoice details will be inserted here -->
             </div>
         </div>
     </div>
 
     <script>
-        // Initialize QUESTION_DATABASE with sample questions
+        // =============== PAYSTACK CONFIGURATION ===============
+        const PAYSTACK_PUBLIC_KEY = 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'; // Replace with your Paystack public key
+        
+        // Subscription Plans
+        const SUBSCRIPTION_PLANS = {
+            monthly: {
+                name: 'Monthly Premium',
+                price: 5000,
+                priceLabel: '₦5,000',
+                period: 'month',
+                features: [
+                    'Access to all 3000+ questions',
+                    'Unlimited mock exams',
+                    'Detailed analytics & reports',
+                    'Priority email support',
+                    'Cancel anytime'
+                ]
+            },
+            quarterly: {
+                name: 'Quarterly Premium',
+                price: 13500,
+                priceLabel: '₦13,500',
+                period: '3 months',
+                features: [
+                    'All Monthly features',
+                    'Save 10% (₦1,500 off)',
+                    'Extended access',
+                    'Progress tracking',
+                    'WhatsApp support group'
+                ]
+            },
+            yearly: {
+                name: 'Yearly Premium',
+                price: 45000,
+                priceLabel: '₦45,000',
+                period: 'year',
+                features: [
+                    'All Quarterly features',
+                    'Save 25% (₦15,000 off)',
+                    'Best value',
+                    'Personalized study plan',
+                    '1-on-1 consultation'
+                ]
+            }
+        };
+
+        // =============== APP STATE ===============
+        const APP_STATE = {
+            currentUser: {
+                name: 'Future Graduate',
+                email: 'student@example.com',
+                plan: 'free',
+                subscription: {
+                    type: null,
+                    status: 'inactive',
+                    startDate: null,
+                    endDate: null,
+                    autoRenew: false
+                },
+                questionsAttempted: 0,
+                correctAnswers: 0,
+                totalScore: 0,
+                mockExamsTaken: 0,
+                studyTime: 0,
+                streakDays: 7,
+                lastActive: new Date().toISOString()
+            },
+            currentSession: {
+                subject: null,
+                questions: [],
+                currentIndex: 0,
+                score: 0,
+                selectedAnswers: [],
+                startTime: null,
+                isMockExam: false,
+                mockConfig: null,
+                timer: null,
+                timeRemaining: 0
+            },
+            transactions: [
+                {
+                    id: 'TXN001',
+                    date: '2024-01-15',
+                    plan: 'Monthly Premium',
+                    amount: 5000,
+                    status: 'success',
+                    reference: 'PAYSTACK_REF_001',
+                    paymentMethod: 'Card'
+                },
+                {
+                    id: 'TXN002',
+                    date: '2024-02-15',
+                    plan: 'Monthly Premium',
+                    amount: 5000,
+                    status: 'success',
+                    reference: 'PAYSTACK_REF_002',
+                    paymentMethod: 'Card'
+                }
+            ],
+            sessionStartTime: null,
+            sessionTimer: null
+        };
+
+        // =============== QUESTION DATABASE ===============
         const QUESTION_DATABASE = {
             english: [
                 {
@@ -1540,7 +1871,7 @@
 
             subjects.forEach(subject => {
                 const currentCount = QUESTION_DATABASE[subject].length;
-                const targetCount = 10; // Reduced to 10 for testing, change to 500 for full version
+                const targetCount = 10; // Reduced to 10 for testing
                 
                 for (let i = currentCount + 1; i <= targetCount; i++) {
                     const topicIndex = Math.floor((i-1) / 2) % topics[subject].length;
@@ -1565,47 +1896,433 @@
             });
         }
 
-        // Call this function to fill the database
         fillQuestionDatabase();
 
-        // App State
-        const APP_STATE = {
-            currentUser: {
-                name: 'Future Graduate',
-                plan: 'premium',
-                questionsAttempted: 0,
-                correctAnswers: 0,
-                totalScore: 0,
-                mockExamsTaken: 0,
-                studyTime: 0,
-                streakDays: 7,
-                lastActive: new Date().toISOString()
-            },
-            currentSession: {
-                subject: null,
-                questions: [],
-                currentIndex: 0,
-                score: 0,
-                selectedAnswers: [],
-                startTime: null,
-                isMockExam: false,
-                mockConfig: null,
-                timer: null,
-                timeRemaining: 0
-            },
-            sessionStartTime: null,
-            sessionTimer: null
-        };
-
-        // Initialize
+        // =============== INITIALIZATION ===============
         window.onload = function() {
             openTab('practice-tab');
             startSessionTimer();
             updateStats();
             updateQuestionCounts();
+            loadBillingData();
+            checkSubscriptionStatus();
             showNotification('success', '🎓 Welcome to JAMB Mastermind 3000+! Start your preparation now.');
         };
 
+        // =============== PAYSTACK PAYMENT HANDLER ===============
+        function initiatePaystackPayment(plan, amount, email) {
+            const handler = PaystackPop.setup({
+                key: PAYSTACK_PUBLIC_KEY,
+                email: email || APP_STATE.currentUser.email,
+                amount: amount * 100, // Convert to kobo
+                currency: 'NGN',
+                ref: 'JAMB_' + Math.floor((Math.random() * 1000000000) + 1),
+                metadata: {
+                    plan_name: plan,
+                    user_name: APP_STATE.currentUser.name,
+                    custom_fields: [
+                        {
+                            display_name: "Plan",
+                            variable_name: "plan",
+                            value: plan
+                        },
+                        {
+                            display_name: "User",
+                            variable_name: "user",
+                            value: APP_STATE.currentUser.name
+                        }
+                    ]
+                },
+                callback: function(response) {
+                    // Payment successful
+                    console.log('Payment successful:', response);
+                    const transaction = {
+                        id: 'TXN' + Date.now(),
+                        date: new Date().toISOString().split('T')[0],
+                        plan: plan,
+                        amount: amount,
+                        status: 'success',
+                        reference: response.reference,
+                        paymentMethod: 'Paystack'
+                    };
+                    
+                    APP_STATE.transactions.unshift(transaction);
+                    activatePremiumSubscription(plan);
+                    closePaymentModal();
+                    showNotification('success', `🎉 Payment successful! Your ${plan} plan is now active.`);
+                    
+                    // Store transaction in localStorage
+                    saveTransactions();
+                    loadBillingData();
+                },
+                onClose: function() {
+                    showNotification('warning', 'Payment cancelled. You can try again anytime.');
+                }
+            });
+            
+            handler.openIframe();
+        }
+
+        // =============== BILLING FUNCTIONS ===============
+        function loadBillingData() {
+            loadSubscriptionStatus();
+            loadPlans();
+            loadTransactionHistory();
+        }
+
+        function loadSubscriptionStatus() {
+            const container = document.getElementById('subscription-status-container');
+            const user = APP_STATE.currentUser;
+            
+            if (user.plan === 'premium' && user.subscription.status === 'active') {
+                const endDate = new Date(user.subscription.endDate);
+                const daysRemaining = Math.ceil((endDate - new Date()) / (1000 * 60 * 60 * 24));
+                
+                container.innerHTML = `
+                    <div class="subscription-card">
+                        <div style="display: flex; align-items: center; gap: 25px;">
+                            <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--success), #34d058); border-radius: 15px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-crown" style="font-size: 2.5rem; color: white;"></i>
+                            </div>
+                            <div class="subscription-info">
+                                <h3 style="font-size: 1.8rem;">${user.subscription.type} Plan</h3>
+                                <p style="color: #666; margin-top: 5px;">
+                                    <i class="fas fa-calendar"></i> Started: ${new Date(user.subscription.startDate).toLocaleDateString()} |
+                                    <i class="fas fa-hourglass-half"></i> Expires: ${new Date(user.subscription.endDate).toLocaleDateString()}
+                                </p>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <span class="subscription-badge badge-active">
+                                <i class="fas fa-check-circle"></i> Active
+                            </span>
+                            <p style="margin-top: 10px; color: var(--primary); font-weight: bold;">
+                                ${daysRemaining} days remaining
+                            </p>
+                            <button class="btn btn-outline" style="margin-top: 15px;" onclick="showRenewalModal()">
+                                <i class="fas fa-redo"></i> Renew
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="subscription-card" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef);">
+                        <div style="display: flex; align-items: center; gap: 25px;">
+                            <div style="width: 70px; height: 70px; background: var(--light); border-radius: 15px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-lock" style="font-size: 2.5rem; color: var(--dark);"></i>
+                            </div>
+                            <div class="subscription-info">
+                                <h3 style="font-size: 1.8rem;">Free Plan</h3>
+                                <p style="color: #666; margin-top: 5px;">
+                                    <i class="fas fa-info-circle"></i> Upgrade to access all 3000+ questions and premium features
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-premium btn-lg" onclick="scrollToPlans()">
+                                <i class="fas fa-crown"></i> Upgrade Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function loadPlans() {
+            const container = document.getElementById('plan-grid-container');
+            let html = '';
+            
+            Object.keys(SUBSCRIPTION_PLANS).forEach((key, index) => {
+                const plan = SUBSCRIPTION_PLANS[key];
+                const isPopular = key === 'quarterly';
+                
+                html += `
+                    <div class="plan-card ${isPopular ? 'popular' : ''}">
+                        ${isPopular ? '<div class="popular-badge">MOST POPULAR</div>' : ''}
+                        <div class="plan-name">${plan.name}</div>
+                        <div class="plan-price">
+                            ${plan.priceLabel}
+                            <span>/${plan.period}</span>
+                        </div>
+                        <ul class="plan-features">
+                            ${plan.features.map(feature => `
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    ${feature}
+                                </li>
+                            `).join('')}
+                        </ul>
+                        <button class="btn ${key === 'yearly' ? 'btn-success' : key === 'quarterly' ? 'btn-primary' : 'btn-secondary'}" 
+                                onclick="showPaymentModal('${key}')" 
+                                style="width: 100%; padding: 15px; font-size: 1.1rem;">
+                            <i class="fas fa-lock"></i> Subscribe Now
+                        </button>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function loadTransactionHistory() {
+            const container = document.getElementById('transaction-history-container');
+            
+            if (APP_STATE.transactions.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 50px;">
+                        <i class="fas fa-receipt" style="font-size: 4rem; color: #ccc; margin-bottom: 20px;"></i>
+                        <h3 style="color: #666; margin-bottom: 10px;">No transactions yet</h3>
+                        <p style="color: #999;">Your payment history will appear here</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; background: var(--light); border-radius: 12px; margin-bottom: 20px;">
+                    <div><strong>Transaction</strong></div>
+                    <div><strong>Plan</strong></div>
+                    <div><strong>Amount</strong></div>
+                    <div><strong>Status</strong></div>
+                    <div><strong>Date</strong></div>
+                    <div></div>
+                </div>
+            `;
+            
+            APP_STATE.transactions.forEach(tx => {
+                html += `
+                    <div class="transaction-item">
+                        <div class="transaction-details">
+                            <div class="transaction-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div>
+                                <strong>${tx.id}</strong>
+                                <div style="font-size: 0.85rem; color: #666;">Ref: ${tx.reference}</div>
+                            </div>
+                        </div>
+                        <div>${tx.plan}</div>
+                        <div><strong>₦${tx.amount.toLocaleString()}</strong></div>
+                        <div>
+                            <span class="transaction-status status-${tx.status}">
+                                ${tx.status.toUpperCase()}
+                            </span>
+                        </div>
+                        <div style="color: #666;">${new Date(tx.date).toLocaleDateString()}</div>
+                        <div>
+                            <button class="invoice-btn" onclick="viewInvoice('${tx.id}')">
+                                <i class="fas fa-download"></i> Invoice
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function saveTransactions() {
+            localStorage.setItem('jamb_transactions', JSON.stringify(APP_STATE.transactions));
+        }
+
+        function showPaymentModal(planKey) {
+            const plan = SUBSCRIPTION_PLANS[planKey];
+            const modal = document.getElementById('payment-modal');
+            const modalDetails = document.getElementById('payment-modal-details');
+            
+            modalDetails.innerHTML = `
+                <div class="subject-icon english" style="margin: 0 auto 20px; width: 80px; height: 80px;">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2 style="color: var(--primary);">${plan.name}</h2>
+                <p style="color: #666; margin: 10px 0 20px;">${plan.period} access to all premium features</p>
+                <div style="font-size: 3rem; font-weight: bold; color: var(--primary); margin: 20px 0;">
+                    ${plan.priceLabel}
+                </div>
+            `;
+            
+            document.getElementById('payment-modal-content').innerHTML = `
+                <div style="background: var(--light); padding: 20px; border-radius: 12px; margin: 20px 0;">
+                    <h4 style="margin-bottom: 15px; color: var(--dark);">What You Get:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        ${plan.features.map(feature => `
+                            <li style="padding: 10px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                                <span>${feature}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+                
+                <div style="display: flex; gap: 15px;">
+                    <button class="btn btn-success" onclick="processPaystackPayment('${planKey}', ${plan.price})" style="flex: 2; padding: 18px; font-size: 1.2rem;">
+                        <i class="fas fa-lock"></i> Pay with Paystack
+                    </button>
+                    <button class="btn btn-outline" onclick="closePaymentModal()" style="flex: 1; padding: 18px;">
+                        Cancel
+                    </button>
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+
+        function processPaystackPayment(planKey, amount) {
+            const email = prompt("Please enter your email address for payment receipt:", APP_STATE.currentUser.email);
+            if (email) {
+                APP_STATE.currentUser.email = email;
+                initiatePaystackPayment(SUBSCRIPTION_PLANS[planKey].name, amount, email);
+            }
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-modal').style.display = 'none';
+        }
+
+        function activatePremiumSubscription(planName) {
+            const now = new Date();
+            const endDate = new Date();
+            
+            if (planName.includes('Yearly')) {
+                endDate.setFullYear(endDate.getFullYear() + 1);
+            } else if (planName.includes('Quarterly')) {
+                endDate.setMonth(endDate.getMonth() + 3);
+            } else {
+                endDate.setMonth(endDate.getMonth() + 1);
+            }
+            
+            APP_STATE.currentUser.plan = 'premium';
+            APP_STATE.currentUser.subscription = {
+                type: planName,
+                status: 'active',
+                startDate: now.toISOString(),
+                endDate: endDate.toISOString(),
+                autoRenew: false
+            };
+            
+            document.getElementById('user-plan').textContent = 'PREMIUM ACCESS';
+            document.getElementById('user-avatar').style.background = 'var(--premium)';
+            document.getElementById('plan-badge').textContent = 'PREMIUM EDITION';
+            
+            showNotification('success', `🎉 Welcome to ${planName}! All premium features unlocked.`);
+            saveUserData();
+            loadBillingData();
+        }
+
+        function checkSubscriptionStatus() {
+            const sub = APP_STATE.currentUser.subscription;
+            if (sub.status === 'active' && sub.endDate) {
+                const now = new Date();
+                const expiry = new Date(sub.endDate);
+                
+                if (now > expiry) {
+                    APP_STATE.currentUser.plan = 'free';
+                    APP_STATE.currentUser.subscription.status = 'expired';
+                    document.getElementById('user-plan').textContent = 'FREE ACCESS';
+                    document.getElementById('user-avatar').style.background = 'rgba(255,255,255,0.2)';
+                    document.getElementById('plan-badge').textContent = 'FREE EDITION';
+                    
+                    showNotification('warning', 'Your subscription has expired. Renew now to continue accessing premium features!');
+                }
+            }
+        }
+
+        function showRenewalModal() {
+            showPaymentModal('monthly');
+        }
+
+        function scrollToPlans() {
+            const container = document.getElementById('plan-grid-container');
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function viewInvoice(transactionId) {
+            const transaction = APP_STATE.transactions.find(tx => tx.id === transactionId);
+            if (!transaction) return;
+            
+            const modal = document.getElementById('invoice-modal');
+            const content = document.getElementById('invoice-modal-content');
+            
+            const invoiceDate = new Date(transaction.date);
+            
+            content.innerHTML = `
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--purple), var(--primary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i class="fas fa-file-invoice" style="font-size: 3rem; color: white;"></i>
+                    </div>
+                    <h2 style="color: var(--primary);">JAMB Mastermind 3000+</h2>
+                    <p style="color: #666;">Invoice #${transaction.id}</p>
+                </div>
+                
+                <div style="border-top: 2px dashed #eee; border-bottom: 2px dashed #eee; padding: 30px 0; margin: 20px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="color: #666;">Date:</span>
+                        <span style="font-weight: bold;">${invoiceDate.toLocaleDateString('en-NG', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="color: #666;">Customer:</span>
+                        <span style="font-weight: bold;">${APP_STATE.currentUser.name}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="color: #666;">Email:</span>
+                        <span style="font-weight: bold;">${APP_STATE.currentUser.email}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="color: #666;">Plan:</span>
+                        <span style="font-weight: bold;">${transaction.plan}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="color: #666;">Reference:</span>
+                        <span style="font-weight: bold; font-size: 0.9rem;">${transaction.reference}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span style="color: #666;">Payment Method:</span>
+                        <span style="font-weight: bold;">${transaction.paymentMethod}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 20px; font-size: 1.3rem;">
+                        <span style="color: var(--primary);">Total:</span>
+                        <span style="font-weight: bold; color: var(--primary);">₦${transaction.amount.toLocaleString()}</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 15px; margin-top: 30px;">
+                    <button class="btn btn-primary" style="flex: 1;" onclick="window.print()">
+                        <i class="fas fa-print"></i> Print Invoice
+                    </button>
+                    <button class="btn btn-success" style="flex: 1;" onclick="closeInvoiceModal()">
+                        <i class="fas fa-check"></i> Done
+                    </button>
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+
+        function closeInvoiceModal() {
+            document.getElementById('invoice-modal').style.display = 'none';
+        }
+
+        // =============== PREMIUM ACCESS CONTROL ===============
+        function checkPremiumAndStart(subject) {
+            if (APP_STATE.currentUser.plan === 'premium') {
+                startSubjectPractice(subject);
+            } else {
+                showNotification('warning', '🔒 This subject requires Premium access. Upgrade to unlock all 3000+ questions!');
+                setTimeout(() => openTab('billing-tab'), 2000);
+            }
+        }
+
+        function checkPremiumAndStartMock(type, count, time) {
+            if (APP_STATE.currentUser.plan === 'premium') {
+                startMockExam(type, count, time);
+            } else {
+                showNotification('warning', '🔒 Mock exams require Premium access. Upgrade to take unlimited mocks!');
+                setTimeout(() => openTab('billing-tab'), 2000);
+            }
+        }
+
+        // =============== SESSION & USER FUNCTIONS ===============
         function startSessionTimer() {
             APP_STATE.sessionStartTime = new Date();
             APP_STATE.sessionTimer = setInterval(() => {
@@ -1642,7 +2359,12 @@
             });
         }
 
-        // Navigation
+        function saveUserData() {
+            localStorage.setItem('jamb_user', JSON.stringify(APP_STATE.currentUser));
+            localStorage.setItem('jamb_transactions', JSON.stringify(APP_STATE.transactions));
+        }
+
+        // =============== NAVIGATION ===============
         function openTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.style.display = 'none';
@@ -1654,6 +2376,10 @@
             
             document.getElementById(tabName).style.display = 'block';
             event.target.classList.add('active');
+            
+            if (tabName === 'billing-tab') {
+                loadBillingData();
+            }
         }
 
         function toggleUserDropdown() {
@@ -1666,11 +2392,6 @@
             toggleUserDropdown();
         }
 
-        function viewSubscription() {
-            showNotification('info', 'Subscription management coming soon!');
-            toggleUserDropdown();
-        }
-
         function viewAnalytics() {
             openTab('analytics-tab');
             toggleUserDropdown();
@@ -1679,18 +2400,19 @@
         function logout() {
             if (confirm("End current study session?")) {
                 clearInterval(APP_STATE.sessionTimer);
+                saveUserData();
                 showNotification('info', 'Session ended. See you next time!');
                 setTimeout(() => location.reload(), 2000);
             }
             toggleUserDropdown();
         }
 
-        // Practice Functions
+        // =============== PRACTICE FUNCTIONS ===============
         function startSubjectPractice(subject) {
             const subjectName = subject.charAt(0).toUpperCase() + subject.slice(1);
             APP_STATE.currentSession = {
                 subject: subjectName,
-                questions: getRandomQuestions(subject, 5), // Start with 5 questions for testing
+                questions: getRandomQuestions(subject, 5),
                 currentIndex: 0,
                 score: 0,
                 selectedAnswers: [],
@@ -1727,9 +2449,6 @@
             }
             
             const progress = ((session.currentIndex + 1) / session.questions.length) * 100;
-            const timeElapsed = session.isMockExam 
-                ? formatTime(session.timeRemaining * 1000)
-                : formatTime(new Date() - session.startTime);
             
             let html = `
                 <div class="quiz-container">
@@ -1740,7 +2459,7 @@
                         </div>
                         ${session.isMockExam ? `
                             <div class="quiz-timer" id="quiz-timer">
-                                ${timeElapsed}
+                                ${formatTimeRemaining(session.timeRemaining)}
                             </div>
                         ` : ''}
                     </div>
@@ -1827,7 +2546,6 @@
                 return;
             }
             
-            // Update score if correct
             if (selected === question.correct) {
                 session.score++;
                 APP_STATE.currentUser.correctAnswers++;
@@ -1835,7 +2553,6 @@
             
             APP_STATE.currentUser.questionsAttempted++;
             
-            // Move to next question or finish
             if (session.currentIndex < session.questions.length - 1) {
                 session.currentIndex++;
                 loadQuestion();
@@ -1859,7 +2576,6 @@
                 clearInterval(session.timer);
             }
             
-            // Update user stats
             APP_STATE.currentUser.totalScore += session.score * 10;
             
             let html = `
@@ -1959,6 +2675,7 @@
             document.getElementById('results-section').innerHTML = html;
             
             updateStats();
+            saveUserData();
         }
 
         function returnToDashboard() {
@@ -1982,14 +2699,13 @@
 
         function continuePractice() {
             if (APP_STATE.currentSession.subject) {
-                // Continue with same subject
                 startSubjectPractice(APP_STATE.currentSession.subject.toLowerCase());
             } else {
                 returnToDashboard();
             }
         }
 
-        // Mock Exam Functions
+        // =============== MOCK EXAM FUNCTIONS ===============
         function startMockExam(type, questionCount, timeLimit) {
             APP_STATE.currentUser.mockExamsTaken++;
             document.getElementById('mock-attempts').textContent = APP_STATE.currentUser.mockExamsTaken;
@@ -1997,20 +2713,17 @@
             let allQuestions = [];
             const subjects = ['english', 'math', 'physics', 'chemistry', 'biology', 'government', 'economics', 'literature'];
             
-            // Get questions from all subjects
             subjects.forEach(subject => {
                 const subjectQuestions = getRandomQuestions(subject, Math.floor(questionCount / subjects.length));
                 allQuestions = allQuestions.concat(subjectQuestions);
             });
             
-            // Add more to reach exact count
             while (allQuestions.length < questionCount) {
                 const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
                 const extraQuestions = getRandomQuestions(randomSubject, 1);
                 allQuestions = allQuestions.concat(extraQuestions);
             }
             
-            // Shuffle questions
             allQuestions = shuffleArray(allQuestions).slice(0, questionCount);
             
             APP_STATE.currentSession = {
@@ -2038,12 +2751,9 @@
                     clearInterval(session.timer);
                     showNotification('warning', 'Time is up! Submitting your exam...');
                     setTimeout(() => {
-                        if (session.currentIndex < session.questions.length - 1) {
-                            // Auto-submit remaining questions
-                            for (let i = session.currentIndex; i < session.questions.length; i++) {
-                                if (session.selectedAnswers[i] === undefined) {
-                                    session.selectedAnswers[i] = 0; // Default to first option
-                                }
+                        for (let i = session.currentIndex; i < session.questions.length; i++) {
+                            if (session.selectedAnswers[i] === undefined) {
+                                session.selectedAnswers[i] = 0;
                             }
                         }
                         showResults();
@@ -2053,20 +2763,14 @@
                 
                 session.timeRemaining--;
                 
-                const hours = Math.floor(session.timeRemaining / 3600);
-                const minutes = Math.floor((session.timeRemaining % 3600) / 60);
-                const seconds = session.timeRemaining % 60;
-                
                 const timerElement = document.getElementById('quiz-timer');
                 if (timerElement) {
-                    timerElement.textContent = 
-                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                    timerElement.textContent = formatTimeRemaining(session.timeRemaining);
                     
-                    // Color coding for time warnings
-                    if (session.timeRemaining < 300) { // Less than 5 minutes
+                    if (session.timeRemaining < 300) {
                         timerElement.style.color = 'var(--danger)';
                         timerElement.classList.add('pulse');
-                    } else if (session.timeRemaining < 600) { // Less than 10 minutes
+                    } else if (session.timeRemaining < 600) {
                         timerElement.style.color = 'var(--warning)';
                     }
                 }
@@ -2077,13 +2781,17 @@
         }
 
         function quickRevision() {
-            // Start a quick 30-question revision from random subjects
-            const subjects = ['english', 'math', 'physics', 'chemistry', 'biology', 'government', 'economics', 'literature'];
-            const selectedSubject = subjects[Math.floor(Math.random() * subjects.length)];
-            startSubjectPractice(selectedSubject);
+            if (APP_STATE.currentUser.plan === 'premium') {
+                const subjects = ['english', 'math', 'physics', 'chemistry', 'biology', 'government', 'economics', 'literature'];
+                const selectedSubject = subjects[Math.floor(Math.random() * subjects.length)];
+                startSubjectPractice(selectedSubject);
+            } else {
+                showNotification('warning', '🔒 Quick Revision requires Premium access. Upgrade to unlock!');
+                setTimeout(() => openTab('billing-tab'), 2000);
+            }
         }
 
-        // Utility Functions
+        // =============== UTILITY FUNCTIONS ===============
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -2106,6 +2814,13 @@
             }
         }
 
+        function formatTimeRemaining(seconds) {
+            const hours = Math.floor(seconds / 3600);
+            const minutes = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
         function showNotification(type, message) {
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
@@ -2126,41 +2841,17 @@
             }, 5000);
         }
 
-        // Premium Features
-        function showPaymentModal() {
-            document.getElementById('payment-modal').style.display = 'flex';
-        }
-
-        function closePaymentModal() {
-            document.getElementById('payment-modal').style.display = 'none';
-        }
-
-        function processPayment() {
-            const modal = document.getElementById('payment-modal');
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <div style="padding: 60px 40px; text-align: center;">
-                        <div style="width: 100px; height: 100px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; font-size: 3rem;">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h2 style="color: var(--success); margin-bottom: 20px;">Payment Successful!</h2>
-                        <p style="color: #666; margin-bottom: 30px; font-size: 1.1rem;">Premium access has been activated. All features are now unlocked.</p>
-                        <button class="btn btn-success" onclick="activatePremium()" style="padding: 18px 40px; font-size: 1.1rem;">
-                            <i class="fas fa-rocket"></i> Start Learning Now
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function activatePremium() {
-            APP_STATE.currentUser.plan = 'premium';
-            document.getElementById('user-plan').textContent = 'PREMIUM ACCESS';
-            document.getElementById('user-avatar').style.background = 'var(--premium)';
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const paymentModal = document.getElementById('payment-modal');
+            const invoiceModal = document.getElementById('invoice-modal');
             
-            closePaymentModal();
-            openTab('practice-tab');
-            showNotification('success', '🎉 Premium activated! All 3000+ questions unlocked.');
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+            if (event.target === invoiceModal) {
+                closeInvoiceModal();
+            }
         }
     </script>
 </body>
