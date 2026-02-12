@@ -1,1250 +1,1233 @@
-// Inside chemistry.questions array, after id: 30:
-{
-    id: 31,
-   [
-  {
-    "question": "The atomic number of an element is the number of:",
-    "options": ["Neutrons in the nucleus", "Protons in the nucleus", "Electrons in the atom", "Both protons and neutrons"],
-    "answer": "Protons in the nucleus"
-  },
-  {
-    "question": "Which element has the electron configuration 1s² 2s² 2p⁶ 3s² 3p¹?",
-    "options": ["Sodium", "Magnesium", "Aluminium", "Silicon"],
-    "answer": "Aluminium"
-  },
-  {
-    "question": "The shape of a water molecule (H₂O) is:",
-    "options": ["Linear", "Trigonal planar", "Bent (V-shaped)", "Tetrahedral"],
-    "answer": "Bent (V-shaped)"
-  },
-  {
-    "question": "The type of bond in HCl is:",
-    "options": ["Ionic", "Covalent", "Metallic", "Hydrogen bond"],
-    "answer": "Covalent"
-  },
-  {
-    "question": "In the reaction 2H₂ + O₂ → 2H₂O, the limiting reactant when 4 moles H₂ and 3 moles O₂ are mixed is:",
-    "options": ["H₂", "O₂", "H₂O", "None"],
-    "answer": "O₂"
-  },
-  {
-    "question": "What volume of CO₂ at STP is produced when 12 g of carbon is completely burned in excess oxygen? (C = 12, molar volume = 22.4 dm³)",
-    "options": ["11.2 dm³", "22.4 dm³", "44.8 dm³", "5.6 dm³"],
-    "answer": "22.4 dm³"
-  },
-  {
-    "question": "The gas law that relates pressure, volume, temperature, and amount of gas is:",
-    "options": ["Boyle's law", "Charles' law", "Ideal gas law", "Dalton's law"],
-    "answer": "Ideal gas law"
-  },
-  {
-    "question": "The pH of a 0.001 M HCl solution is:",
-    "options": ["1", "2", "3", "4"],
-    "answer": "3"
-  },
-  {
-    "question": "Which is a strong acid?",
-    "options": ["CH₃COOH", "H₂SO₄", "H₂CO₃", "HF"],
-    "answer": "H₂SO₄"
-  },
-  {
-    "question": "The salt formed when NaOH reacts with H₂SO₄ is:",
-    "options": ["Na₂SO₄", "NaHSO₄", "Na₂SO₃", "NaCl"],
-    "answer": "Na₂SO₄"
-  },
-  {
-    "question": "The IUPAC name of CH₃CH₂CH₂OH is:",
-    "options": ["Propan-1-ol", "Propan-2-ol", "Ethanol", "Methanol"],
-    "answer": "Propan-1-ol"
-  },
-  {
-    "question": "The functional group in carboxylic acids is:",
-    "options": ["-OH", "-COOH", "-CHO", "-NH₂"],
-    "answer": "-COOH"
-  },
-  {
-    "question": "Alkanes undergo mainly:",
-    "options": ["Addition reactions", "Substitution reactions", "Elimination reactions", "Oxidation reactions"],
-    "answer": "Substitution reactions"
-  },
-  {
-    "question": "The product of cracking of long-chain hydrocarbons is mainly:",
-    "options": ["Alkanes only", "Alkenes and shorter alkanes", "Alkynes only", "Aromatic compounds"],
-    "answer": "Alkenes and shorter alkanes"
-  },
-  {
-    "question": "In the reaction Zn + CuSO₄ → ZnSO₄ + Cu, zinc is:",
-    "options": ["Oxidized", "Reduced", "Neither", "Catalyst"],
-    "answer": "Oxidized"
-  },
-  {
-    "question": "The oxidation number of Cr in K₂Cr₂O₇ is:",
-    "options": ["+6", "+7", "+3", "+4"],
-    "answer": "+6"
-  },
-  {
-    "question": "In electrolysis of brine, the gas liberated at the anode is:",
-    "options": ["H₂", "Cl₂", "O₂", "Na"],
-    "answer": "Cl₂"
-  },
-  {
-    "question": "The rate of reaction increases with:",
-    "options": ["Decrease in temperature", "Increase in concentration", "Decrease in surface area", "Addition of inhibitor"],
-    "answer": "Increase in concentration"
-  },
-  {
-    "question": "Le Chatelier's principle states that if a system at equilibrium is disturbed, it will:",
-    "options": ["Stop reacting", "Shift to oppose the change", "Shift to favour the change", "Remain unchanged"],
-    "answer": "Shift to oppose the change"
-  },
-  {
-    "question": "For the reaction N₂ + 3H₂ ⇌ 2NH₃ (exothermic), increasing temperature will:",
-    "options": ["Increase yield of NH₃", "Decrease yield of NH₃", "Have no effect", "Increase rate only"],
-    "answer": "Decrease yield of NH₃"
-  },
-  {
-    "question": "The Haber process is used to manufacture:",
-    "options": ["Sulphuric acid", "Ammonia", "Nitric acid", "Fertilizers only"],
-    "answer": "Ammonia"
-  },
-  {
-    "question": "The contact process produces:",
-    "options": ["Ammonia", "Sulphuric acid", "Fertilizer", "Caustic soda"],
-    "answer": "Sulphuric acid"
-  },
-  {
-    "question": "Which is a greenhouse gas?",
-    "options": ["N₂", "O₂", "CO₂", "Ar"],
-    "answer": "CO₂"
-  },
-  {
-    "question": "The allotrope of carbon used as lubricant is:",
-    "options": ["Diamond", "Graphite", "Fullerene", "Charcoal"],
-    "answer": "Graphite"
-  },
-  {
-    "question": "The most reactive halogen is:",
-    "options": ["Fluorine", "Chlorine", "Bromine", "Iodine"],
-    "answer": "Fluorine"
-  },
-  {
-    "question": "The oxidation state of oxygen in OF₂ is:",
-    "options": ["-2", "+2", "-1", "0"],
-    "answer": "+2"
-  },
-  {
-    "question": "Which element has the highest electronegativity?",
-    "options": ["Fluorine", "Oxygen", "Nitrogen", "Chlorine"],
-    "answer": "Fluorine"
-  },
-  {
-    "question": "The compound responsible for the brown ring test in nitrates is:",
-    "options": ["[Fe(H₂O)₅NO]SO₄", "FeSO₄", "NO₂", "N₂O"],
-    "answer": "[Fe(H₂O)₅NO]SO₄"
-  },
-  {
-    "question": "The functional group in ketones is:",
-    "options": ["-CHO", "-CO-", "-COOH", "-OH"],
-    "answer": "-CO-"
-  },
-  {
-    "question": "Ethene undergoes addition polymerization to form:",
-    "options": ["Polyethene", "Polyvinyl chloride", "Teflon", "Nylon"],
-    "answer": "Polyethene"
-  },
-  {
-    "question": "The test for unsaturation in alkenes is:",
-    "options": ["Bromine water decolourises", "Litmus turns red", "Effervescence with acid", "Blue flame"],
-    "answer": "Bromine water decolourises"
-  },
-  {
-    "question": "The monomer of natural rubber is:",
-    "options": ["Isoprene", "Ethene", "Styrene", "Vinyl chloride"],
-    "answer": "Isoprene"
-  },
-  {
-    "question": "The reaction CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O is:",
-    "options": ["Esterification", "Saponification", "Hydrolysis", "Neutralization"],
-    "answer": "Esterification"
-  },
-  {
-    "question": "The product of saponification of fats/oils is:",
-    "options": ["Soap and glycerol", "Soap only", "Glycerol only", "Fatty acid"],
-    "answer": "Soap and glycerol"
-  },
-  {
-    "question": "Which is a polysaccharide?",
-    "options": ["Glucose", "Sucrose", "Starch", "Fructose"],
-    "answer": "Starch"
-  },
-  {
-    "question": "The oxidation number of Mn in KMnO₄ is:",
-    "options": ["+7", "+5", "+3", "+4"],
-    "answer": "+7"
-  },
-  {
-    "question": "In the electrochemical series, the metal that displaces hydrogen from acid is:",
-    "options": ["Copper", "Zinc", "Silver", "Gold"],
-    "answer": "Zinc"
-  },
-  {
-    "question": "The standard electrode potential of Zn²⁺/Zn is -0.76 V. This means Zn:",
-    "options": ["Is a strong oxidizing agent", "Is a strong reducing agent", "Is inert", "Forms stable complexes"],
-    "answer": "Is a strong reducing agent"
-  },
-  {
-    "question": "The catalyst used in the Haber process is:",
-    "options": ["Iron", "Platinum", "Vanadium(V) oxide", "Nickel"],
-    "answer": "Iron"
-  },
-  {
-    "question": "The catalyst in the contact process is:",
-    "options": ["V₂O₅", "Fe", "Pt", "Ni"],
-    "answer": "V₂O₅"
-  },
-  {
-    "question": "The gas responsible for acid rain is mainly:",
-    "options": ["CO₂", "SO₂", "NO₂", "O₃"],
-    "answer": "SO₂"
-  },
-  {
-    "question": "The ore of aluminium is:",
-    "options": ["Bauxite", "Haematite", "Cassiterite", "Galena"],
-    "answer": "Bauxite"
-  },
-  {
-    "question": "The extraction of iron occurs in:",
-    "options": ["Blast furnace", "Open hearth furnace", "Bessemer converter", "Electrolytic cell"],
-    "answer": "Blast furnace"
-  },
-  {
-    "question": "Which is not a property of transition metals?",
-    "options": ["Variable oxidation states", "Coloured compounds", "High ionization energy", "Catalytic activity"],
-    "answer": "High ionization energy"
-  },
-  {
-    "question": "The shape of SF₆ molecule is:",
-    "options": ["Octahedral", "Tetrahedral", "Trigonal bipyramidal", "Square planar"],
-    "answer": "Octahedral"
-  },
-  {
-    "question": "The hybridization in ethene (C₂H₄) is:",
-    "options": ["sp³", "sp²", "sp", "sp³d"],
-    "answer": "sp²"
-  },
-  {
-    "question": "The bond angle in methane is:",
-    "options": ["109.5°", "120°", "180°", "90°"],
-    "answer": "109.5°"
-  },
-  {
-    "question": "Which is an electrolyte?",
-    "options": ["Sugar solution", "NaCl solution", "Alcohol", "Benzene"],
-    "answer": "NaCl solution"
-  }
-[
-  {
-    "question": "What is the IUPAC name of CH₃-CH(CH₃)-CH₂-CH₃?",
-    "options": ["2-Methylbutane", "Isopentane", "2-Methylpropane", "n-Pentane"],
-    "answer": "2-Methylbutane",
-    "explanation": "The longest chain has 4 carbons (butane), methyl group on carbon 2."
-  },
-  {
-    "question": "The compound CH₂=CH-CH=CH₂ is classified as:",
-    "options": ["Alkadiene", "Alkyne", "Alkene", "Cycloalkene"],
-    "answer": "Alkadiene",
-    "explanation": "Two double bonds → diene (conjugated diene)."
-  },
-  {
-    "question": "Which compound exhibits cis-trans isomerism?",
-    "options": ["CH₃-CH=CH₂", "CH₃-CH=CH-CH₃", "CH₂=CH₂", "CH₃-C≡CH"],
-    "answer": "CH₃-CH=CH-CH₃",
-    "explanation": "Internal alkene with two different groups on each carbon of the double bond."
-  },
-  {
-    "question": "The type of isomerism shown by CH₃CH₂OH and CH₃OCH₃ is:",
-    "options": ["Chain isomerism", "Functional group isomerism", "Position isomerism", "Metamerism"],
-    "answer": "Functional group isomerism",
-    "explanation": "Alcohol vs ether — different functional groups, same molecular formula (C₂H₆O)."
-  },
-  {
-    "question": "Which compound shows optical isomerism?",
-    "options": ["CH₃CH₂CH₂OH", "CH₃CH(OH)CH₃", "CH₃COCH₃", "CH₃CH=CH₂"],
-    "answer": "CH₃CH(OH)CH₃",
-    "explanation": "Carbon 2 has four different groups: chiral centre."
-  },
-  {
-    "question": "The reagent used to distinguish between ethene and ethyne is:",
-    "options": ["Bromine water", "KMnO₄ (cold, dilute)", "Fehling's solution", "Tollens' reagent"],
-    "answer": "Tollens' reagent",
-    "explanation": "Ethyne (terminal alkyne) gives silver mirror with Tollens'; ethene does not."
-  },
-  {
-    "question": "The major product when propene reacts with HBr in the presence of peroxide is:",
-    "options": ["1-Bromopropane", "2-Bromopropane", "1,2-Dibromopropane", "No reaction"],
-    "answer": "1-Bromopropane",
-    "explanation": "Anti-Markovnikov addition due to free radical mechanism (peroxide effect)."
-  },
-  {
-    "question": "The reaction CH₃CH₂Br + KOH (alc) → CH₂=CH₂ + KBr + H₂O is:",
-    "options": ["Nucleophilic substitution", "Elimination (E2)", "Addition", "Oxidation"],
-    "answer": "Elimination (E2)",
-    "explanation": "Alcoholic KOH → dehydrohalogenation → alkene."
-  },
-  {
-    "question": "The product when ethanol is heated with conc. H₂SO₄ at 170°C is:",
-    "options": ["Ethene", "Ethoxyethane", "Ethanoic acid", "Ethyl hydrogensulphate"],
-    "answer": "Ethene",
-    "explanation": "Dehydration of alcohol at high temperature → alkene."
-  },
-  {
-    "question": "Which alcohol gives a positive iodoform test?",
-    "options": ["CH₃CH₂CH₂OH", "CH₃CH(OH)CH₃", "CH₃CH₂CH(OH)CH₃", "Both B and C"],
-    "answer": "Both B and C",
-    "explanation": "Alcohols with CH₃CH(OH)- group give iodoform (yellow ppt)."
-  },
-  {
-    "question": "The oxidation product of propan-2-ol with acidified KMnO₄ is:",
-    "options": ["Propanone", "Propanoic acid", "Propanal", "Propene"],
-    "answer": "Propanone",
-    "explanation": "Secondary alcohol → ketone."
-  },
-  {
-    "question": "The reagent that distinguishes aldehydes from ketones is:",
-    "options": ["Fehling's solution", "Tollens' reagent", "Both A and B", "2,4-DNPH"],
-    "answer": "Both A and B",
-    "explanation": "Aldehydes reduce Fehling's (red ppt) and Tollens' (silver mirror); ketones do not."
-  },
-  {
-    "question": "The IUPAC name of CH₃CH₂COCH₃ is:",
-    "options": ["Butan-2-one", "Propanone", "Butanal", "Butanoic acid"],
-    "answer": "Butan-2-one",
-    "explanation": "Carbonyl on carbon 2 of 4-carbon chain."
-  },
-  {
-    "question": "The reaction between ethanoic acid and ethanol in the presence of conc. H₂SO₄ produces:",
-    "options": ["Ethyl ethanoate", "Ethyl methanoate", "Methyl ethanoate", "Ethanoic anhydride"],
-    "answer": "Ethyl ethanoate",
-    "explanation": "Esterification → ester + water."
-  },
-  {
-    "question": "The product of saponification of CH₃COOC₂H₅ is:",
-    "options": ["CH₃COOH + C₂H₅OH", "CH₃COONa + C₂H₅OH", "CH₃COONa + C₂H₅ONa", "C₂H₅COONa + CH₃OH"],
-    "answer": "CH₃COONa + C₂H₅OH",
-    "explanation": "Alkaline hydrolysis of ester → sodium carboxylate + alcohol."
-  },
-  {
-    "question": "The test for carboxylic acids is effervescence with:",
-    "options": ["NaHCO₃", "NaOH", "KMnO₄", "Br₂ water"],
-    "answer": "NaHCO₃",
-    "explanation": "Acids liberate CO₂ from bicarbonate."
-  },
-  {
-    "question": "The compound CH₃NH₂ is classified as:",
-    "options": ["Primary amine", "Secondary amine", "Tertiary amine", "Quaternary ammonium salt"],
-    "answer": "Primary amine"
-  },
-  {
-    "question": "The reaction of ethanoyl chloride with ammonia produces:",
-    "options": ["Ethanamide", "Ethylamine", "Acetic acid", "Acetyl nitrate"],
-    "answer": "Ethanamide",
-    "explanation": "Acyl chloride + NH₃ → amide + HCl."
-  },
-  {
-    "question": "Which compound decolourises bromine water rapidly?",
-    "options": ["Ethane", "Ethene", "Benzene", "Cyclohexane"],
-    "answer": "Ethene",
-    "explanation": "Alkenes undergo electrophilic addition with Br₂ (decolourisation)."
-  },
-  {
-    "question": "The monomer of polyethene is:",
-    "options": ["Ethene", "Propene", "Vinyl chloride", "Styrene"],
-    "answer": "Ethene"
-  },
-  {
-    "question": "The polymer used in making non-stick cookware is:",
-    "options": ["Polyethene", "Teflon (PTFE)", "PVC", "Nylon"],
-    "answer": "Teflon (PTFE)"
-  },
-  {
-    "question": "The test to distinguish between glucose and sucrose is:",
-    "options": ["Fehling's test", "Iodine test", "Benedict's test", "Both A and C"],
-    "answer": "Both A and C",
-    "explanation": "Glucose (reducing sugar) gives red ppt; sucrose (non-reducing) does not."
-  },
-  {
-    "question": "The product when benzene reacts with CH₃Cl in presence of AlCl₃ is:",
-    "options": ["Toluene", "Ethylbenzene", "Benzene chloride", "Benzene hexachloride"],
-    "answer": "Toluene",
-    "explanation": "Friedel-Crafts alkylation."
-  },
-  {
-    "question": "The compound responsible for the smell of rotten eggs is:",
-    "options": ["H₂S", "SO₂", "NH₃", "CH₄"],
-    "answer": "H₂S"
-  },
-  {
-    "question": "The functional group in amides is:",
-    "options": ["-CONH₂", "-COOH", "-NH₂", "-CN"],
-    "answer": "-CONH₂"
-  },
-  {
-    "question": "Which is used as an antiknock in petrol?",
-    "options": ["Tetraethyllead", "Ethanol", "MTBE", "All of the above"],
-    "answer": "All of the above"
-  },
-  {
-    "question": "The reaction CH₃COCH₃ + I₂ + NaOH → CHI₃ + CH₃COONa is:",
-    "options": ["Haloform reaction", "Aldol condensation", "Cannizzaro reaction", "Clemmensen reduction"],
-    "answer": "Haloform reaction"
-  },
-  {
-    "question": "The compound that gives a silver mirror with Tollens' reagent is:",
-    "options": ["Ketone", "Aldehyde", "Alcohol", "Ester"],
-    "answer": "Aldehyde"
-  },
-  {
-    "question": "The number of isomers of C₅H₁₂ is:",
-    "options": ["2", "3", "4", "5"],
-    "answer": "3",
-    "explanation": "n-pentane, isopentane (2-methylbutane), neopentane (2,2-dimethylpropane)."
-  },
-  {
-    "question": "The reagent that converts nitrobenzene to aniline is:",
-    "options": ["Sn/HCl", "KMnO₄", "HNO₃", "NaOH"],
-    "answer": "Sn/HCl"
-  },
-  {
-    "question": "The compound CH₃-C≡C-CH₃ is:",
-    "options": ["But-1-yne", "But-2-yne", "Butene", "Butane"],
-    "answer": "But-2-yne"
-  },
-  {
-    "question": "The reaction of alkene with cold, dilute KMnO₄ produces:",
-    "options": ["Vicinal diol", "Aldehyde", "Carboxylic acid", "Alkane"],
-    "answer": "Vicinal diol"
-  },
-  {
-    "question": "The catalyst used in hydrogenation of alkenes is:",
-    "options": ["Ni", "Pt", "Pd", "All of the above"],
-    "answer": "All of the above"
-  },
-  {
-    "question": "The compound formed when ethene reacts with conc. H₂SO₄ is:",
-    "options": ["Ethyl hydrogensulphate", "Ethanol", "Ethene sulphate", "Diethyl ether"],
-    "answer": "Ethyl hydrogensulphate"
-  },
-  {
-    "question": "The product of ozonolysis of but-2-ene is:",
-    "options": ["Ethanal", "Ethanoic acid", "Propanal", "Methanal"],
-    "answer": "Ethanal",
-    "explanation": "CH₃-CH=CH-CH₃ → 2 CH₃CHO."
-  },
-  {
-    "question": "Which is a tertiary alcohol?",
-    "options": ["CH₃CH₂OH", "(CH₃)₂CHOH", "(CH₃)₃COH", "CH₃CH(OH)CH₂CH₃"],
-    "answer": "(CH₃)₃COH"
-  },
-  {
-    "question": "The reaction of phenol with Br₂ water gives:",
-    "options": ["2,4,6-Tribromophenol", "Bromobenzene", "1,3,5-Tribromobenzene", "No reaction"],
-    "answer": "2,4,6-Tribromophenol"
-  },
-  {
-    "question": "The compound used in making nylon-6,6 is:",
-    "options": ["Hexanedioic acid + Hexane-1,6-diamine", "Ethene", "Styrene", "Vinyl chloride"],
-    "answer": "Hexanedioic acid + Hexane-1,6-diamine"
-  },
-  {
-    "question": "The test for ketones is:",
-    "options": ["2,4-DNPH (orange ppt)", "Fehling's solution", "Tollens' reagent", "Iodoform test only for methyl ketones"],
-    "answer": "2,4-DNPH (orange ppt)"
-  },
-  {
-    "question": "The reaction CH₃COCl + C₂H₅OH → CH₃COOC₂H₅ + HCl is:",
-    "options": ["Esterification", "Acylation", "Hydrolysis", "Saponification"],
-    "answer": "Acylation"
-  },
-  {
-    "question": "The compound that undergoes Cannizzaro reaction is:",
-    "options": ["Benzaldehyde", "Acetaldehyde", "Propanone", "Ethanal"],
-    "answer": "Benzaldehyde",
-    "explanation": "Aldehydes without α-hydrogen undergo Cannizzaro."
-  },
-  {
-    "question": "The IUPAC name of CH₃-CH=CH-COOH is:",
-    "options": ["But-2-enoic acid", "Butenoic acid", "But-3-enoic acid", "Propenoic acid"],
-    "answer": "But-2-enoic acid"
-  },
-  {
-    "question": "Which is used as a drying oil?",
-    "options": ["Linseed oil", "Palm oil", "Coconut oil", "Groundnut oil"],
-    "answer": "Linseed oil"
-  },
-  {
-    "question": "The soap molecule has a:",
-    "options": ["Hydrophilic head and hydrophobic tail", "Hydrophobic head and hydrophilic tail", "Only hydrophilic part", "Only hydrophobic part"],
-    "answer": "Hydrophilic head and hydrophobic tail"
-  },
-  {
-    "question": "The compound CH₃COCH₂COCH₃ is:",
-    "options": ["Acetylacetone", "Acetoacetic ester", "Diacetone alcohol", "Propyl ethanoate"],
-    "answer": "Acetylacetone"
-  }
-[
-  {
-    "question": "The maximum number of electrons in the third energy level is:",
-    "options": ["8", "18", "32", "2"],
-    "answer": "18",
-    "explanation": "n = 3 → 2n² = 2×9 = 18"
-  },
-  {
-    "question": "The element with electron configuration 1s² 2s² 2p⁶ 3s² 3p³ is:",
-    "options": ["Phosphorus", "Nitrogen", "Sulphur", "Chlorine"],
-    "answer": "Phosphorus",
-    "explanation": "Atomic number 15 → P"
-  },
-  {
-    "question": "The bond in NaCl is:",
-    "options": ["Covalent", "Ionic", "Metallic", "Hydrogen"],
-    "answer": "Ionic",
-    "explanation": "Electrostatic attraction between Na⁺ and Cl⁻"
-  },
-  {
-    "question": "The shape of NH₃ molecule is:",
-    "options": ["Linear", "Trigonal planar", "Pyramidal", "Tetrahedral"],
-    "answer": "Pyramidal",
-    "explanation": "sp³ hybridization, one lone pair → trigonal pyramidal"
-  },
-  {
-    "question": "In the reaction 2SO₂ + O₂ → 2SO₃, the limiting reactant when 4 moles SO₂ and 3 moles O₂ are mixed is:",
-    "options": ["SO₂", "O₂", "SO₃", "None"],
-    "answer": "SO₂",
-    "explanation": "Ratio 2:1 → 4 SO₂ requires 2 O₂; O₂ is in excess"
-  },
-  {
-    "question": "What volume of CO₂ at STP is produced by heating 50 g CaCO₃? (CaCO₃ → CaO + CO₂, molar mass CaCO₃ = 100 g/mol)",
-    "options": ["11.2 dm³", "22.4 dm³", "5.6 dm³", "44.8 dm³"],
-    "answer": "11.2 dm³",
-    "explanation": "0.5 mol CaCO₃ → 0.5 mol CO₂ → 0.5 × 22.4 = 11.2 dm³"
-  },
-  {
-    "question": "The gas law PV/T = constant is:",
-    "options": ["Boyle's law", "Charles' law", "Gay-Lussac's law", "Combined gas law"],
-    "answer": "Combined gas law",
-    "explanation": "PV/T = k (combines Boyle's, Charles', Gay-Lussac's)"
-  },
-  {
-    "question": "The pH of 0.01 M NaOH is:",
-    "options": ["2", "12", "1", "7"],
-    "answer": "12",
-    "explanation": "[OH⁻] = 0.01 = 10⁻² → pOH = 2 → pH = 14 - 2 = 12"
-  },
-  {
-    "question": "Which is a weak acid?",
-    "options": ["HCl", "H₂SO₄", "CH₃COOH", "HNO₃"],
-    "answer": "CH₃COOH",
-    "explanation": "Acetic acid partially ionizes"
-  },
-  {
-    "question": "The salt produced when NH₃ reacts with HCl is:",
-    "options": ["NH₄Cl", "NH₄OH", "NaCl", "NH₃Cl"],
-    "answer": "NH₄Cl",
-    "explanation": "NH₃ + HCl → NH₄Cl (ammonium chloride)"
-  },
-  {
-    "question": "The IUPAC name of CH₃CH₂CH₂CHO is:",
-    "options": ["Butanal", "Butan-1-ol", "Propanone", "Butanoic acid"],
-    "answer": "Butanal",
-    "explanation": "Aldehyde with 4 carbons → butanal"
-  },
-  {
-    "question": "The functional group in esters is:",
-    "options": ["-COOH", "-COO-", "-CHO", "-OH"],
-    "answer": "-COO-",
-    "explanation": "R-COO-R' (ester linkage)"
-  },
-  {
-    "question": "Alkenes mainly undergo:",
-    "options": ["Substitution", "Addition", "Elimination", "Oxidation"],
-    "answer": "Addition",
-    "explanation": "Double bond breaks → addition (e.g., hydrogenation, halogenation)"
-  },
-  {
-    "question": "The major product of cracking of petroleum is:",
-    "options": ["Alkanes only", "Alkenes and shorter alkanes", "Alkynes", "Aromatic compounds"],
-    "answer": "Alkenes and shorter alkanes",
-    "explanation": "Thermal cracking produces alkenes"
-  },
-  {
-    "question": "In the reaction Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag, copper is:",
-    "options": ["Reduced", "Oxidized", "Catalyst", "Neither"],
-    "answer": "Oxidized",
-    "explanation": "Cu → Cu²⁺ + 2e⁻ (loss of electrons)"
-  },
-  {
-    "question": "The oxidation number of S in H₂SO₄ is:",
-    "options": ["+6", "+4", "+2", "-2"],
-    "answer": "+6",
-    "explanation": "H = +1, O = -2 → 2(+1) + S + 4(-2) = 0 → S = +6"
-  },
-  {
-    "question": "During electrolysis of CuSO₄ using copper electrodes, the anode reaction is:",
-    "options": ["Cu²⁺ + 2e⁻ → Cu", "Cu → Cu²⁺ + 2e⁻", "2H₂O → O₂ + 4H⁺ + 4e⁻", "4OH⁻ → O₂ + 2H₂O + 4e⁻"],
-    "answer": "Cu → Cu²⁺ + 2e⁻",
-    "explanation": "Copper anode dissolves (anodic oxidation)"
-  },
-  {
-    "question": "The rate of reaction increases with all EXCEPT:",
-    "options": ["Increase in temperature", "Increase in concentration", "Increase in catalyst", "Decrease in surface area"],
-    "answer": "Decrease in surface area",
-    "explanation": "Smaller surface area → slower reaction"
-  },
-  {
-    "question": "According to Le Chatelier's principle, increasing pressure on N₂ + 3H₂ ⇌ 2NH₃ will:",
-    "options": ["Shift left", "Shift right", "No effect", "Stop reaction"],
-    "answer": "Shift right",
-    "explanation": "Fewer moles on right (2 vs 4) — pressure favors side with fewer moles"
-  },
-  {
-    "question": "The catalyst in the Haber process is:",
-    "options": ["V₂O₅", "Fe", "Pt", "Ni"],
-    "answer": "Fe",
-    "explanation": "Iron catalyst with promoters (Al₂O₃, K₂O)"
-  },
-  {
-    "question": "The main gas responsible for global warming is:",
-    "options": ["O₂", "N₂", "CO₂", "H₂"],
-    "answer": "CO₂",
-    "explanation": "Greenhouse gas that traps heat"
-  },
-  {
-    "question": "The allotrope of carbon used in pencils is:",
-    "options": ["Diamond", "Graphite", "Fullerene", "Charcoal"],
-    "answer": "Graphite",
-    "explanation": "Graphite is soft and conducts electricity"
-  },
-  {
-    "question": "The most electronegative element is:",
-    "options": ["Fluorine", "Chlorine", "Oxygen", "Nitrogen"],
-    "answer": "Fluorine"
-  },
-  {
-    "question": "The brown ring test confirms the presence of:",
-    "options": ["Nitrate ion", "Sulphate ion", "Chloride ion", "Carbonate ion"],
-    "answer": "Nitrate ion",
-    "explanation": "[Fe(H₂O)₅NO]SO₄ complex gives brown ring"
-  },
-  {
-    "question": "The functional group in amides is:",
-    "options": ["-CONH₂", "-COOH", "-NH₂", "-CN"],
-    "answer": "-CONH₂"
-  },
-  {
-    "question": "The monomer of PVC is:",
-    "options": ["Ethene", "Vinyl chloride", "Styrene", "Isoprene"],
-    "answer": "Vinyl chloride",
-    "explanation": "Polyvinyl chloride = addition polymer of CH₂=CHCl"
-  },
-  {
-    "question": "The test for unsaturation in alkenes is:",
-    "options": ["Bromine water decolourises", "Litmus turns blue", "Effervescence", "Blue flame"],
-    "answer": "Bromine water decolourises",
-    "explanation": "Br₂ adds across double bond"
-  },
-  {
-    "question": "The reaction CH₃COOH + NaOH → CH₃COONa + H₂O is:",
-    "options": ["Esterification", "Neutralization", "Saponification", "Hydrolysis"],
-    "answer": "Neutralization",
-    "explanation": "Acid + base → salt + water"
-  },
-  {
-    "question": "The product of saponification of fats is:",
-    "options": ["Soap and glycerol", "Soap only", "Glycerol only", "Fatty acid"],
-    "answer": "Soap and glycerol",
-    "explanation": "Alkaline hydrolysis of triglycerides"
-  },
-  {
-    "question": "Which is a reducing sugar?",
-    "options": ["Sucrose", "Glucose", "Starch", "Cellulose"],
-    "answer": "Glucose",
-    "explanation": "Has free aldehyde group"
-  },
-  {
-    "question": "The oxidation number of Cr in Cr₂O₇²⁻ is:",
-    "options": ["+6", "+7", "+3", "+4"],
-    "answer": "+6",
-    "explanation": "2Cr + 7(-2) = -2 → 2Cr = +12 → Cr = +6"
-  },
-  {
-    "question": "In the electrochemical series, the metal that displaces zinc from solution is:",
-    "options": ["Copper", "Magnesium", "Silver", "Gold"],
-    "answer": "Magnesium",
-    "explanation": "More reactive metals displace less reactive ones"
-  },
-  {
-    "question": "The standard electrode potential of Zn²⁺/Zn is -0.76 V. This means Zn:",
-    "options": ["Is a strong oxidizing agent", "Is a strong reducing agent", "Is inert", "Forms stable complexes"],
-    "answer": "Is a strong reducing agent",
-    "explanation": "Negative potential → tends to lose electrons"
-  },
-  {
-    "question": "The catalyst in the contact process is:",
-    "options": ["V₂O₅", "Fe", "Pt", "Ni"],
-    "answer": "V₂O₅",
-    "explanation": "Vanadium(V) oxide for SO₂ → SO₃"
-  },
-  {
-    "question": "The main gas causing acid rain is:",
-    "options": ["CO₂", "SO₂", "O₂", "N₂"],
-    "answer": "SO₂",
-    "explanation": "Forms H₂SO₄ in atmosphere"
-  },
-  {
-    "question": "The ore of iron is:",
-    "options": ["Bauxite", "Haematite", "Cassiterite", "Galena"],
-    "answer": "Haematite",
-    "explanation": "Fe₂O₃"
-  },
-  {
-    "question": "The extraction of aluminium occurs by:",
-    "options": ["Reduction with carbon", "Electrolysis of alumina", "Roasting", "Smelting"],
-    "answer": "Electrolysis of alumina",
-    "explanation": "Hall-Héroult process"
-  },
-  {
-    "question": "Transition metals exhibit:",
-    "options": ["Fixed oxidation states", "Variable oxidation states", "Only +1 state", "No colour"],
-    "answer": "Variable oxidation states",
-    "explanation": "Due to incomplete d-orbitals"
-  },
-  {
-    "question": "The shape of XeF₄ is:",
-    "options": ["Octahedral", "Square planar", "Trigonal bipyramidal", "Tetrahedral"],
-    "answer": "Square planar",
-    "explanation": "sp³d² hybridization, two lone pairs"
-  },
-  {
-    "question": "The hybridization in ethyne (C₂H₂) is:",
-    "options": ["sp³", "sp²", "sp", "sp³d"],
-    "answer": "sp",
-    "explanation": "Triple bond → sp hybridized carbon"
-  },
-  {
-    "question": "The bond angle in ammonia (NH₃) is approximately:",
-    "options": ["109.5°", "107°", "120°", "180°"],
-    "answer": "107°",
-    "explanation": "Lone pair repulsion reduces angle from tetrahedral 109.5°"
-  },
-  {
-    "question": "Which conducts electricity in molten state?",
-    "options": ["Sugar", "NaCl", "Alcohol", "Benzene"],
-    "answer": "NaCl",
-    "explanation": "Ionic compound → ions free to move when molten"
-  }
-[
-  {
-    "question": "The atomic number of an element is equal to the number of:",
-    "options": ["Neutrons", "Protons", "Electrons + neutrons", "Protons + neutrons"],
-    "answer": "Protons",
-    "explanation": "Atomic number (Z) = number of protons in the nucleus (defines the element)."
-  },
-  {
-    "question": "The electron configuration of potassium (atomic number 19) is:",
-    "options": ["1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹", "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²", "1s² 2s² 2p⁶ 3s² 3p⁵", "1s² 2s² 2p⁶ 3s² 3p⁶ 3d¹"],
-    "answer": "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
-    "explanation": "K = 19 electrons → fills up to 3p⁶, then 4s¹ (Aufbau principle)."
-  },
-  {
-    "question": "The bond type in HCl is:",
-    "options": ["Ionic", "Polar covalent", "Non-polar covalent", "Metallic"],
-    "answer": "Polar covalent",
-    "explanation": "Shared electrons between H and Cl; Cl more electronegative → polar."
-  },
-  {
-    "question": "The shape of SF₆ molecule is:",
-    "options": ["Tetrahedral", "Trigonal bipyramidal", "Octahedral", "Square planar"],
-    "answer": "Octahedral",
-    "explanation": "6 bonding pairs, no lone pairs → sp³d² hybridization → octahedral."
-  },
-  {
-    "question": "In the reaction 2H₂ + O₂ → 2H₂O, if 4 moles H₂ react with 3 moles O₂, the limiting reactant is:",
-    "options": ["H₂", "O₂", "H₂O", "None"],
-    "answer": "O₂",
-    "explanation": "Ratio 2:1 → 4 H₂ requires 2 O₂; excess H₂, O₂ limits."
-  },
-  {
-    "question": "What volume of CO₂ at STP is produced by complete combustion of 12 g carbon? (C = 12, molar volume = 22.4 dm³/mol)",
-    "options": ["11.2 dm³", "22.4 dm³", "44.8 dm³", "5.6 dm³"],
-    "answer": "22.4 dm³",
-    "explanation": "C + O₂ → CO₂ → 1 mol C → 1 mol CO₂ → 12 g = 1 mol → 22.4 dm³"
-  },
-  {
-    "question": "The combined gas law is expressed as:",
-    "options": ["P₁V₁ = P₂V₂", "V₁/T₁ = V₂/T₂", "P₁V₁/T₁ = P₂V₂/T₂", "P₁/T₁ = P₂/T₂"],
-    "answer": "P₁V₁/T₁ = P₂V₂/T₂",
-    "explanation": "Combines Boyle's, Charles', and Gay-Lussac's laws."
-  },
-  {
-    "question": "The pH of 0.001 M HCl solution is:",
-    "options": ["1", "2", "3", "4"],
-    "answer": "3",
-    "explanation": "[H⁺] = 0.001 = 10⁻³ → pH = -log(10⁻³) = 3"
-  },
-  {
-    "question": "Which is a weak acid?",
-    "options": ["HCl", "HNO₃", "CH₃COOH", "H₂SO₄"],
-    "answer": "CH₃COOH",
-    "explanation": "Acetic acid partially dissociates (Kₐ small)."
-  },
-  {
-    "question": "The salt formed from NaOH + H₂SO₄ (complete neutralization) is:",
-    "options": ["NaHSO₄", "Na₂SO₄", "Na₂SO₃", "NaCl"],
-    "answer": "Na₂SO₄",
-    "explanation": "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O"
-  },
-  {
-    "question": "The IUPAC name of CH₃CH₂CH₂COOH is:",
-    "options": ["Butanoic acid", "Propanoic acid", "Butan-1-ol", "Butanal"],
-    "answer": "Butanoic acid",
-    "explanation": "4-carbon carboxylic acid → butanoic acid"
-  },
-  {
-    "question": "The functional group in ketones is:",
-    "options": ["-CHO", "-CO-", "-COOH", "-OH"],
-    "answer": "-CO-",
-    "explanation": "Carbonyl group between two carbon atoms."
-  },
-  {
-    "question": "Alkanes mainly undergo:",
-    "options": ["Addition", "Substitution", "Elimination", "Condensation"],
-    "answer": "Substitution",
-    "explanation": "Free radical substitution (e.g., halogenation)."
-  },
-  {
-    "question": "The major product of thermal cracking of long-chain alkanes is:",
-    "options": ["Alkanes only", "Alkenes + shorter alkanes", "Alkynes", "Aromatics"],
-    "answer": "Alkenes + shorter alkanes",
-    "explanation": "C–C bonds break → unsaturated products."
-  },
-  {
-    "question": "In the reaction Zn + CuSO₄ → ZnSO₄ + Cu, zinc is:",
-    "options": ["Reduced", "Oxidized", "Catalyst", "Neither"],
-    "answer": "Oxidized",
-    "explanation": "Zn → Zn²⁺ + 2e⁻ (loss of electrons)"
-  },
-  {
-    "question": "The oxidation number of Mn in KMnO₄ is:",
-    "options": ["+7", "+5", "+3", "+4"],
-    "answer": "+7",
-    "explanation": "K = +1, O = -2 → +1 + Mn + 4(-2) = 0 → Mn = +7"
-  },
-  {
-    "question": "During electrolysis of brine (NaCl solution), the gas at the anode is:",
-    "options": ["H₂", "Cl₂", "O₂", "Na"],
-    "answer": "Cl₂",
-    "explanation": "2Cl⁻ → Cl₂ + 2e⁻ (easier discharge than OH⁻)"
-  },
-  {
-    "question": "The factor that does NOT increase rate of reaction is:",
-    "options": ["Increase temperature", "Increase concentration", "Increase surface area", "Add inhibitor"],
-    "answer": "Add inhibitor",
-    "explanation": "Inhibitor decreases rate."
-  },
-  {
-    "question": "For N₂ + 3H₂ ⇌ 2NH₃ (exothermic), decreasing temperature will:",
-    "options": ["Shift left", "Shift right", "No effect", "Increase rate"],
-    "answer": "Shift right",
-    "explanation": "Le Chatelier: decrease temperature favours exothermic direction."
-  },
-  {
-    "question": "The catalyst used in the Haber process is:",
-    "options": ["V₂O₅", "Fe", "Pt", "Ni"],
-    "answer": "Fe",
-    "explanation": "Iron with promoters."
-  },
-  {
-    "question": "The primary greenhouse gas is:",
-    "options": ["O₂", "N₂", "CO₂", "Ar"],
-    "answer": "CO₂",
-    "explanation": "Traps infrared radiation."
-  },
-  {
-    "question": "The allotrope of carbon used as dry lubricant is:",
-    "options": ["Diamond", "Graphite", "Fullerene", "Charcoal"],
-    "answer": "Graphite",
-    "explanation": "Layered structure allows sliding."
-  },
-  {
-    "question": "The most electronegative element is:",
-    "options": ["F", "O", "N", "Cl"],
-    "answer": "F",
-    "explanation": "Fluorine has highest electronegativity (4.0)"
-  },
-  {
-    "question": "The brown ring test confirms:",
-    "options": ["Nitrate", "Sulphate", "Chloride", "Carbonate"],
-    "answer": "Nitrate",
-    "explanation": "[Fe(H₂O)₅NO]SO₄ complex → brown ring"
-  },
-  {
-    "question": "The functional group in amides is:",
-    "options": ["-CONH₂", "-COOH", "-NH₂", "-CN"],
-    "answer": "-CONH₂"
-  },
-  {
-    "question": "The monomer of polythene is:",
-    "options": ["Ethene", "Propene", "Vinyl chloride", "Styrene"],
-    "answer": "Ethene",
-    "explanation": "Addition polymerization of CH₂=CH₂"
-  },
-  {
-    "question": "The test for unsaturation in hydrocarbons is:",
-    "options": ["Bromine water decolourises", "Litmus turns red", "Effervescence", "Blue flame"],
-    "answer": "Bromine water decolourises",
-    "explanation": "Br₂ adds to double/triple bonds"
-  },
-  {
-    "question": "The reaction CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O is:",
-    "options": ["Neutralization", "Esterification", "Saponification", "Hydrolysis"],
-    "answer": "Esterification",
-    "explanation": "Acid + alcohol → ester + water"
-  },
-  {
-    "question": "Saponification produces:",
-    "options": ["Soap and glycerol", "Soap only", "Glycerol only", "Fatty acid"],
-    "answer": "Soap and glycerol",
-    "explanation": "Alkaline hydrolysis of fats/oils"
-  },
-  {
-    "question": "Which sugar gives positive Fehling's test?",
-    "options": ["Sucrose", "Glucose", "Starch", "Cellulose"],
-    "answer": "Glucose",
-    "explanation": "Reducing sugar (free aldehyde group)"
-  },
-  {
-    "question": "The oxidation number of Cr in K₂Cr₂O₇ is:",
-    "options": ["+6", "+7", "+3", "+4"],
-    "answer": "+6",
-    "explanation": "2K(+1) + 2Cr + 7O(-2) = 0 → 2Cr = +12 → Cr = +6"
-  },
-  {
-    "question": "In the electrochemical series, the metal that displaces hydrogen from acid is:",
-    "options": ["Cu", "Zn", "Ag", "Au"],
-    "answer": "Zn",
-    "explanation": "Zn is above H → Zn + 2H⁺ → Zn²⁺ + H₂"
-  },
-  {
-    "question": "The standard electrode potential of Zn²⁺/Zn is -0.76 V. This means Zn is:",
-    "options": ["Strong oxidizing agent", "Strong reducing agent", "Inert", "Forms complexes"],
-    "answer": "Strong reducing agent",
-    "explanation": "Negative E° → tendency to lose electrons"
-  },
-  {
-    "question": "The catalyst in the contact process is:",
-    "options": ["Fe", "V₂O₅", "Pt", "Ni"],
-    "answer": "V₂O₅",
-    "explanation": "Vanadium(V) oxide for SO₂ → SO₃"
-  },
-  {
-    "question": "The main gas causing acid rain is:",
-    "options": ["CO₂", "SO₂", "N₂", "O₂"],
-    "answer": "SO₂",
-    "explanation": "Forms H₂SO₄ in atmosphere"
-  },
-  {
-    "question": "The principal ore of aluminium is:",
-    "options": ["Haematite", "Bauxite", "Cassiterite", "Galena"],
-    "answer": "Bauxite",
-    "explanation": "Al₂O₃·2H₂O"
-  },
-  {
-    "question": "Aluminium is extracted by:",
-    "options": ["Reduction with carbon", "Electrolysis of alumina", "Roasting", "Smelting"],
-    "answer": "Electrolysis of alumina",
-    "explanation": "Hall-Héroult process (dissolved in cryolite)"
-  },
-  {
-    "question": "Transition elements exhibit:",
-    "options": ["Fixed oxidation states", "Variable oxidation states", "Only +1 state", "No colour in compounds"],
-    "answer": "Variable oxidation states",
-    "explanation": "Due to involvement of d-orbitals"
-  },
-  {
-    "question": "The shape of XeF₄ is:",
-    "options": ["Tetrahedral", "Square planar", "Octahedral", "Trigonal bipyramidal"],
-    "answer": "Square planar",
-    "explanation": "sp³d², two lone pairs → square planar"
-  },
-  {
-    "question": "The hybridization in ethene (C₂H₄) is:",
-    "options": ["sp³", "sp²", "sp", "sp³d"],
-    "answer": "sp²",
-    "explanation": "Double bond → trigonal planar around each C"
-  },
-  {
-    "question": "The bond angle in methane (CH₄) is:",
-    "options": ["109.5°", "120°", "107°", "180°"],
-    "answer": "109.5°",
-    "explanation": "Tetrahedral geometry (sp³)"
-  },
-  {
-    "question": "Which conducts electricity when molten?",
-    "options": ["Sugar", "NaCl", "Alcohol", "Benzene"],
-    "answer": "NaCl",
-    "explanation": "Ionic compound → ions free to move when molten"
-  }
-[
-  {
-    "question": "The maximum number of electrons that can occupy the third energy level is:",
-    "options": ["8", "18", "32", "2"],
-    "answer": "18",
-    "explanation": "Formula: 2n² → for n = 3 → 2 × 9 = 18 electrons"
-  },
-  {
-    "question": "The element with electron configuration 1s² 2s² 2p⁶ 3s² 3p⁴ is:",
-    "options": ["Silicon", "Phosphorus", "Sulphur", "Chlorine"],
-    "answer": "Sulphur",
-    "explanation": "Total electrons = 16 → atomic number 16 → Sulphur (S)"
-  },
-  {
-    "question": "The bond in HF is best described as:",
-    "options": ["Ionic", "Non-polar covalent", "Polar covalent", "Metallic"],
-    "answer": "Polar covalent",
-    "explanation": "Shared electrons between H and F; F is more electronegative → polar molecule"
-  },
-  {
-    "question": "The molecular shape of CO₂ is:",
-    "options": ["Linear", "Trigonal planar", "Tetrahedral", "Bent"],
-    "answer": "Linear",
-    "explanation": "sp hybridization, two double bonds, no lone pairs → 180° bond angle"
-  },
-  {
-    "question": "In the reaction 2Al + 3H₂SO₄ → Al₂(SO₄)₃ + 3H₂, the limiting reactant when 4 moles Al react with 5 moles H₂SO₄ is:",
-    "options": ["Al", "H₂SO₄", "Al₂(SO₄)₃", "H₂"],
-    "answer": "Al",
-    "explanation": "Ratio 2:3 → 4 Al requires 6 H₂SO₄; only 5 available → Al limits"
-  },
-  {
-    "question": "What volume of oxygen at STP is needed to completely burn 24 g of carbon? (C = 12, molar volume = 22.4 dm³/mol)",
-    "options": ["22.4 dm³", "44.8 dm³", "11.2 dm³", "33.6 dm³"],
-    "answer": "44.8 dm³",
-    "explanation": "C + O₂ → CO₂ → 24 g C = 2 mol → 2 mol O₂ → 2 × 22.4 = 44.8 dm³"
-  },
-  {
-    "question": "The gas law that states volume is inversely proportional to pressure at constant temperature is:",
-    "options": ["Charles' law", "Boyle's law", "Gay-Lussac's law", "Avogadro's law"],
-    "answer": "Boyle's law",
-    "explanation": "P₁V₁ = P₂V₂ (constant T)"
-  },
-  {
-    "question": "The pH of 0.0001 M HNO₃ is:",
-    "options": ["1", "2", "3", "4"],
-    "answer": "4",
-    "explanation": "[H⁺] = 10⁻⁴ mol/dm³ → pH = -log(10⁻⁴) = 4"
-  },
-  {
-    "question": "Which is a weak base?",
-    "options": ["NaOH", "KOH", "NH₃", "Ca(OH)₂"],
-    "answer": "NH₃",
-    "explanation": "Ammonia partially ionizes in water (NH₃ + H₂O ⇌ NH₄⁺ + OH⁻)"
-  },
-  {
-    "question": "The salt formed when NH₄OH reacts with HCl is:",
-    "options": ["NH₄Cl", "NH₄OH", "NaCl", "NH₃Cl"],
-    "answer": "NH₄Cl",
-    "explanation": "NH₄OH + HCl → NH₄Cl + H₂O (ammonium chloride)"
-  },
-  {
-    "question": "The IUPAC name of CH₃CH₂CH₂CH₂OH is:",
-    "options": ["Butan-1-ol", "Butan-2-ol", "Propan-1-ol", "Ethanol"],
-    "answer": "Butan-1-ol",
-    "explanation": "4-carbon chain, OH on carbon 1 → butan-1-ol"
-  },
-  {
-    "question": "The functional group in aldehydes is:",
-    "options": ["-COOH", "-CHO", "-CO-", "-OH"],
-    "answer": "-CHO",
-    "explanation": "Carbonyl group with H attached to carbonyl carbon"
-  },
-  {
-    "question": "Alkenes undergo mainly which type of reaction?",
-    "options": ["Substitution", "Addition", "Elimination", "Oxidation"],
-    "answer": "Addition",
-    "explanation": "Double bond allows electrophilic addition (e.g., HBr, Br₂, H₂)"
-  },
-  {
-    "question": "The major product when propene reacts with HBr (no peroxide) is:",
-    "options": ["1-Bromopropane", "2-Bromopropane", "1,2-Dibromopropane", "No reaction"],
-    "answer": "2-Bromopropane",
-    "explanation": "Markovnikov addition: H adds to carbon with more H, Br to the other"
-  },
-  {
-    "question": "In the reaction Fe + CuSO₄ → FeSO₄ + Cu, iron is:",
-    "options": ["Reduced", "Oxidized", "Catalyst", "Neither"],
-    "answer": "Oxidized",
-    "explanation": "Fe → Fe²⁺ + 2e⁻ (loss of electrons)"
-  },
-  {
-    "question": "The oxidation number of S in SO₄²⁻ is:",
-    "options": ["+6", "+4", "+2", "-2"],
-    "answer": "+6",
-    "explanation": "4O = -8, charge -2 → S + (-8) = -2 → S = +6"
-  },
-  {
-    "question": "During electrolysis of dilute H₂SO₄, the gas at the anode is:",
-    "options": ["H₂", "O₂", "SO₂", "H₂S"],
-    "answer": "O₂",
-    "explanation": "OH⁻ discharged → 4OH⁻ → O₂ + 2H₂O + 4e⁻"
-  },
-  {
-    "question": "The factor that decreases rate of reaction is:",
-    "options": ["Increase temperature", "Increase concentration", "Add catalyst", "Add inhibitor"],
-    "answer": "Add inhibitor",
-    "explanation": "Inhibitor blocks active sites or removes reactants"
-  },
-  {
-    "question": "For the equilibrium 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) (exothermic), decreasing pressure will:",
-    "options": ["Shift right", "Shift left", "No effect", "Increase rate"],
-    "answer": "Shift left",
-    "explanation": "Le Chatelier: decrease pressure favours side with more gas moles (3 vs 2)"
-  },
-  {
-    "question": "The catalyst used in the Contact process is:",
-    "options": ["Fe", "V₂O₅", "Pt", "Ni"],
-    "answer": "V₂O₅",
-    "explanation": "Vanadium(V) oxide for 2SO₂ + O₂ → 2SO₃"
-  },
-  {
-    "question": "The primary greenhouse gas responsible for climate change is:",
-    "options": ["O₂", "N₂", "CO₂", "H₂"],
-    "answer": "CO₂",
-    "explanation": "Traps infrared radiation in atmosphere"
-  },
-  {
-    "question": "The allotrope of carbon used in cutting tools is:",
-    "options": ["Graphite", "Diamond", "Fullerene", "Charcoal"],
-    "answer": "Diamond",
-    "explanation": "Hardest natural substance due to tetrahedral network"
-  },
-  {
-    "question": "The element with the highest electronegativity is:",
-    "options": ["Chlorine", "Oxygen", "Fluorine", "Nitrogen"],
-    "answer": "Fluorine",
-    "explanation": "Electronegativity = 4.0 (Pauling scale)"
-  },
-  {
-    "question": "The confirmatory test for nitrate ion is:",
-    "options": ["Brown ring test", "White precipitate with BaCl₂", "Effervescence with acid", "Blue litmus turns red"],
-    "answer": "Brown ring test",
-    "explanation": "FeSO₄ + H₂SO₄ + nitrate → [Fe(H₂O)₅NO]SO₄ (brown ring)"
-  },
-  {
-    "question": "The functional group in carboxylic acids is:",
-    "options": ["-OH", "-CHO", "-COOH", "-CO-"],
-    "answer": "-COOH",
-    "explanation": "Carbonyl + hydroxyl on same carbon"
-  },
-  {
-    "question": "The monomer of natural rubber is:",
-    "options": ["Ethene", "Isoprene", "Vinyl chloride", "Styrene"],
-    "answer": "Isoprene",
-    "explanation": "2-Methylbuta-1,3-diene (C₅H₈)"
-  },
-  {
-    "question": "The test for alkenes is:",
-    "options": ["Bromine water decolourises", "Fehling's solution red ppt", "Iodine blue-black", "Biuret violet"],
-    "answer": "Bromine water decolourises",
-    "explanation": "Electrophilic addition of Br₂ to C=C bond"
-  },
-  {
-    "question": "The reaction between ethanoic acid and sodium hydroxide produces:",
-    "options": ["Ester + water", "Salt + water", "Soap + glycerol", "Alcohol + acid"],
-    "answer": "Salt + water",
-    "explanation": "Neutralization: CH₃COOH + NaOH → CH₃COONa + H₂O"
-  },
-  {
-    "question": "Saponification of fats produces:",
-    "options": ["Soap and glycerol", "Soap only", "Glycerol only", "Fatty acids"],
-    "answer": "Soap and glycerol",
-    "explanation": "Alkaline hydrolysis: triglyceride + NaOH → sodium soap + glycerol"
-  },
-  {
-    "question": "Which carbohydrate gives a positive iodine test?",
-    "options": ["Glucose", "Fructose", "Starch", "Sucrose"],
-    "answer": "Starch",
-    "explanation": "Starch + iodine → blue-black complex"
-  },
-  {
-    "question": "The oxidation number of Cr in CrO₄²⁻ is:",
-    "options": ["+6", "+7", "+3", "+4"],
-    "answer": "+6",
-    "explanation": "4O = -8, charge -2 → Cr - 8 = -2 → Cr = +6"
-  },
-  {
-    "question": "In the electrochemical series, which metal displaces copper from CuSO₄ solution?",
-    "options": ["Silver", "Gold", "Zinc", "Platinum"],
-    "answer": "Zinc",
-    "explanation": "Zn is above Cu → Zn + Cu²⁺ → Zn²⁺ + Cu"
-  },
-  {
-    "question": "The standard electrode potential of Cu²⁺/Cu is +0.34 V. This means Cu is:",
-    "options": ["Strong reducing agent", "Weak reducing agent", "Strong oxidizing agent", "Inert"],
-    "answer": "Weak reducing agent",
-    "explanation": "Positive E° → low tendency to lose electrons (good oxidizing agent for Cu²⁺)"
-  },
-  {
-    "question": "The catalyst in the Haber process is:",
-    "options": ["V₂O₅", "Fe", "Pt", "Ni"],
-    "answer": "Fe",
-    "explanation": "Iron catalyst with Al₂O₃ and K₂O promoters"
-  },
-  {
-    "question": "The gas mainly responsible for acid rain is:",
-    "options": ["CO₂", "SO₂", "O₂", "N₂"],
-    "answer": "SO₂",
-    "explanation": "Oxidized to SO₃ → H₂SO₄ in atmosphere"
-  },
-  {
-    "question": "The principal ore of iron is:",
-    "options": ["Bauxite", "Haematite", "Cassiterite", "Galena"],
-    "answer": "Haematite",
-    "explanation": "Fe₂O₃ (iron(III) oxide)"
-  },
-  {
-    "question": "Aluminium is extracted by:",
-    "options": ["Reduction with carbon", "Electrolysis of alumina in cryolite", "Roasting in air", "Smelting with coke"],
-    "answer": "Electrolysis of alumina in cryolite",
-    "explanation": "Hall-Héroult process (lowers melting point)"
-  },
-  {
-    "question": "Transition metals are characterized by:",
-    "options": ["Fixed oxidation states", "Variable oxidation states", "Only +1 oxidation state", "No coloured compounds"],
-    "answer": "Variable oxidation states",
-    "explanation": "Due to availability of d-orbitals"
-  },
-  {
-    "question": "The shape of BrF₅ is:",
-    "options": ["Tetrahedral", "Square pyramidal", "Octahedral", "Trigonal bipyramidal"],
-    "answer": "Square pyramidal",
-    "explanation": "sp³d² hybridization, one lone pair → square pyramidal"
-  },
-  {
-    "question": "The hybridization in ethyne (C₂H₂) is:",
-    "options": ["sp³", "sp²", "sp", "sp³d"],
-    "answer": "sp",
-    "explanation": "Triple bond → linear, sp hybridized carbon"
-  },
-  {
-    "question": "The bond angle in ammonia (NH₃) is approximately:",
-    "options": ["109.5°", "107°", "120°", "180°"],
-    "answer": "107°",
-    "explanation": "sp³ hybridization, lone pair repulsion reduces angle from 109.5°"
-  },
-  {
-    "question": "Which of the following conducts electricity when molten but not in solid state?",
-    "options": ["Sugar", "NaCl", "Alcohol", "Benzene"],
-    "answer": "NaCl",
-    "explanation": "Ionic compound → ions free to move when molten, fixed in solid"
-  }
-]
+// ============= CHEMISTRY - COMPLETE 100+ QUESTIONS =============
+chemistry: {
+    id: 'chemistry',
+    name: 'Chemistry',
+    category: 'science',
+    isPremium: true,
+    icon: 'fas fa-flask',
+    color: '#00a859',
+    totalQuestions: 130, // UPDATE this number after counting all questions
+    description: 'JAMB Chemistry: Organic, Inorganic, Physical, Analytical',
+    questions: [
+        // ----- ORIGINAL QUESTIONS (ID 1-30) - KEEP YOUR EXISTING ONES -----
+        {
+            id: 1,
+            question: "The atomic number of an element is the number of:",
+            options: ["Neutrons in the nucleus", "Protons in the nucleus", "Electrons in the atom", "Both protons and neutrons"],
+            correct: 1,
+            answer: "Protons in the nucleus",
+            explanation: "Atomic number (Z) = number of protons in the nucleus. It defines the element.",
+            tip: "Atomic number = number of protons",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Atomic Structure"
+        },
+        // ... (keep your existing ID 2-30 here) ...
+        
+        // ============= NEW CHEMISTRY QUESTIONS - BATCH 1 (ID 31-60) =============
+        {
+            id: 31,
+            question: "The atomic number of an element is the number of:",
+            options: ["Neutrons in the nucleus", "Protons in the nucleus", "Electrons in the atom", "Both protons and neutrons"],
+            correct: 1,
+            answer: "Protons in the nucleus",
+            explanation: "Atomic number (Z) = number of protons in the nucleus. It defines the element.",
+            tip: "Atomic number = number of protons",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Atomic Structure"
+        },
+        {
+            id: 32,
+            question: "Which element has the electron configuration 1s² 2s² 2p⁶ 3s² 3p¹?",
+            options: ["Sodium", "Magnesium", "Aluminium", "Silicon"],
+            correct: 2,
+            answer: "Aluminium",
+            explanation: "Atomic number 13 = Aluminium. Count electrons: 2+2+6+2+1 = 13",
+            tip: "Aluminium has 13 electrons",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Electronic Configuration"
+        },
+        {
+            id: 33,
+            question: "The shape of a water molecule (H₂O) is:",
+            options: ["Linear", "Trigonal planar", "Bent (V-shaped)", "Tetrahedral"],
+            correct: 2,
+            answer: "Bent (V-shaped)",
+            explanation: "Two lone pairs on oxygen cause bent geometry; bond angle ~104.5°",
+            tip: "VSEPR: AX₂E₂ = bent",
+            difficulty: "medium",
+            year: "2024",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 34,
+            question: "The type of bond in HCl is:",
+            options: ["Ionic", "Covalent", "Metallic", "Hydrogen bond"],
+            correct: 1,
+            answer: "Covalent",
+            explanation: "HCl has a polar covalent bond due to electronegativity difference",
+            tip: "Non-metal + non-metal = covalent",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Chemical Bonding"
+        },
+        {
+            id: 35,
+            question: "In the reaction 2H₂ + O₂ → 2H₂O, the limiting reactant when 4 moles H₂ and 3 moles O₂ are mixed is:",
+            options: ["H₂", "O₂", "H₂O", "None"],
+            correct: 0,
+            answer: "H₂",
+            explanation: "2:1 ratio; 4 mol H₂ requires 2 mol O₂. We have 3 mol O₂, so H₂ is limiting.",
+            tip: "Divide moles by coefficient, smallest is limiting",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Stoichiometry"
+        },
+        {
+            id: 36,
+            question: "What volume of CO₂ at STP is produced when 12 g of carbon is completely burned in excess oxygen? (C = 12, molar volume = 22.4 dm³)",
+            options: ["11.2 dm³", "22.4 dm³", "44.8 dm³", "5.6 dm³"],
+            correct: 1,
+            answer: "22.4 dm³",
+            explanation: "C + O₂ → CO₂. 12 g C = 1 mol → 1 mol CO₂ = 22.4 dm³",
+            tip: "Molar volume at STP = 22.4 dm³/mol",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Gas Laws"
+        },
+        {
+            id: 37,
+            question: "The gas law that relates pressure, volume, temperature, and amount of gas is:",
+            options: ["Boyle's law", "Charles' law", "Ideal gas law", "Dalton's law"],
+            correct: 2,
+            answer: "Ideal gas law",
+            explanation: "PV = nRT combines Boyle, Charles, Avogadro",
+            tip: "Ideal gas law: PV = nRT",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Gas Laws"
+        },
+        {
+            id: 38,
+            question: "The pH of a 0.001 M HCl solution is:",
+            options: ["1", "2", "3", "4"],
+            correct: 2,
+            answer: "3",
+            explanation: "[H⁺] = 0.001 = 10⁻³ → pH = -log(10⁻³) = 3",
+            tip: "pH = -log[H⁺]",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 39,
+            question: "Which is a strong acid?",
+            options: ["CH₃COOH", "H₂SO₄", "H₂CO₃", "HF"],
+            correct: 1,
+            answer: "H₂SO₄",
+            explanation: "Sulfuric acid is strong (fully dissociates)",
+            tip: "Strong acids: HCl, HNO₃, H₂SO₄, HBr, HI, HClO₄",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 40,
+            question: "The salt formed when NaOH reacts with H₂SO₄ is:",
+            options: ["Na₂SO₄", "NaHSO₄", "Na₂SO₃", "NaCl"],
+            correct: 0,
+            answer: "Na₂SO₄",
+            explanation: "2NaOH + H₂SO₄ → Na₂SO₄ + 2H₂O",
+            tip: "Complete neutralization produces normal salt",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 41,
+            question: "The IUPAC name of CH₃CH₂CH₂OH is:",
+            options: ["Propan-1-ol", "Propan-2-ol", "Ethanol", "Methanol"],
+            correct: 0,
+            answer: "Propan-1-ol",
+            explanation: "3-carbon chain with OH on carbon 1",
+            tip: "Number the chain to give OH lowest number",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 42,
+            question: "The functional group in carboxylic acids is:",
+            options: ["-OH", "-COOH", "-CHO", "-NH₂"],
+            correct: 1,
+            answer: "-COOH",
+            explanation: "Carboxyl group: -COOH",
+            tip: "Carboxylic acids end in -oic acid",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 43,
+            question: "Alkanes undergo mainly:",
+            options: ["Addition reactions", "Substitution reactions", "Elimination reactions", "Oxidation reactions"],
+            correct: 1,
+            answer: "Substitution reactions",
+            explanation: "Alkanes are saturated; undergo free radical substitution (e.g., halogenation)",
+            tip: "Alkanes = single bonds = substitution",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 44,
+            question: "The product of cracking of long-chain hydrocarbons is mainly:",
+            options: ["Alkanes only", "Alkenes and shorter alkanes", "Alkynes only", "Aromatic compounds"],
+            correct: 1,
+            answer: "Alkenes and shorter alkanes",
+            explanation: "Thermal cracking breaks C-C bonds to produce smaller alkanes and alkenes",
+            tip: "Cracking produces more useful shorter hydrocarbons",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 45,
+            question: "In the reaction Zn + CuSO₄ → ZnSO₄ + Cu, zinc is:",
+            options: ["Oxidized", "Reduced", "Neither", "Catalyst"],
+            correct: 0,
+            answer: "Oxidized",
+            explanation: "Zn → Zn²⁺ + 2e⁻ (loss of electrons = oxidation)",
+            tip: "OIL RIG: Oxidation Is Loss, Reduction Is Gain",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Redox Reactions"
+        },
+        {
+            id: 46,
+            question: "The oxidation number of Cr in K₂Cr₂O₇ is:",
+            options: ["+6", "+7", "+3", "+4"],
+            correct: 0,
+            answer: "+6",
+            explanation: "2K = +2, 7O = -14, total -12, 2Cr = +12 → Cr = +6",
+            tip: "Sum of oxidation numbers = charge of ion/compound",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Redox Reactions"
+        },
+        {
+            id: 47,
+            question: "In electrolysis of brine, the gas liberated at the anode is:",
+            options: ["H₂", "Cl₂", "O₂", "Na"],
+            correct: 1,
+            answer: "Cl₂",
+            explanation: "2Cl⁻ → Cl₂ + 2e⁻ (chloride ions oxidized to chlorine gas)",
+            tip: "Anode = oxidation = where anions lose electrons",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Electrochemistry"
+        },
+        {
+            id: 48,
+            question: "The rate of reaction increases with:",
+            options: ["Decrease in temperature", "Increase in concentration", "Decrease in surface area", "Addition of inhibitor"],
+            correct: 1,
+            answer: "Increase in concentration",
+            explanation: "Higher concentration = more collisions = faster rate",
+            tip: "Collision theory: more particles, more frequent effective collisions",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Chemical Kinetics"
+        },
+        {
+            id: 49,
+            question: "Le Chatelier's principle states that if a system at equilibrium is disturbed, it will:",
+            options: ["Stop reacting", "Shift to oppose the change", "Shift to favour the change", "Remain unchanged"],
+            correct: 1,
+            answer: "Shift to oppose the change",
+            explanation: "System adjusts to counteract the disturbance",
+            tip: "Equilibrium shifts to minimize stress",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Chemical Equilibrium"
+        },
+        {
+            id: 50,
+            question: "For the reaction N₂ + 3H₂ ⇌ 2NH₃ (exothermic), increasing temperature will:",
+            options: ["Increase yield of NH₃", "Decrease yield of NH₃", "Have no effect", "Increase rate only"],
+            correct: 1,
+            answer: "Decrease yield of NH₃",
+            explanation: "Exothermic: heat is product. Increasing T shifts equilibrium left",
+            tip: "For exothermic reactions, lower T favors forward reaction",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Chemical Equilibrium"
+        },
+        {
+            id: 51,
+            question: "The Haber process is used to manufacture:",
+            options: ["Sulphuric acid", "Ammonia", "Nitric acid", "Fertilizers only"],
+            correct: 1,
+            answer: "Ammonia",
+            explanation: "Haber process: N₂ + 3H₂ ⇌ 2NH₃",
+            tip: "Haber process = ammonia synthesis",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Industrial Chemistry"
+        },
+        {
+            id: 52,
+            question: "The contact process produces:",
+            options: ["Ammonia", "Sulphuric acid", "Fertilizer", "Caustic soda"],
+            correct: 1,
+            answer: "Sulphuric acid",
+            explanation: "Contact process: SO₂ → SO₃ → H₂SO₄",
+            tip: "Contact process = sulfuric acid",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Industrial Chemistry"
+        },
+        {
+            id: 53,
+            question: "Which is a greenhouse gas?",
+            options: ["N₂", "O₂", "CO₂", "Ar"],
+            correct: 2,
+            answer: "CO₂",
+            explanation: "Carbon dioxide traps infrared radiation",
+            tip: "CO₂, CH₄, H₂O vapor are greenhouse gases",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Environmental Chemistry"
+        },
+        {
+            id: 54,
+            question: "The allotrope of carbon used as lubricant is:",
+            options: ["Diamond", "Graphite", "Fullerene", "Charcoal"],
+            correct: 1,
+            answer: "Graphite",
+            explanation: "Graphite has layered structure that allows sliding",
+            tip: "Graphite = lubricant, pencil lead",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Carbon"
+        },
+        {
+            id: 55,
+            question: "The most reactive halogen is:",
+            options: ["Fluorine", "Chlorine", "Bromine", "Iodine"],
+            correct: 0,
+            answer: "Fluorine",
+            explanation: "Fluorine is most electronegative and most reactive halogen",
+            tip: "Reactivity decreases down group 17",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Periodic Table"
+        },
+        {
+            id: 56,
+            question: "The oxidation state of oxygen in OF₂ is:",
+            options: ["-2", "+2", "-1", "0"],
+            correct: 1,
+            answer: "+2",
+            explanation: "Fluorine is more electronegative, so oxygen has +2 oxidation state",
+            tip: "Fluorine always -1 except in F₂",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Oxidation States"
+        },
+        {
+            id: 57,
+            question: "Which element has the highest electronegativity?",
+            options: ["Fluorine", "Oxygen", "Nitrogen", "Chlorine"],
+            correct: 0,
+            answer: "Fluorine",
+            explanation: "Fluorine has electronegativity 4.0, highest on Pauling scale",
+            tip: "Electronegativity increases across period, decreases down group",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Periodic Properties"
+        },
+        {
+            id: 58,
+            question: "The compound responsible for the brown ring test in nitrates is:",
+            options: ["[Fe(H₂O)₅NO]SO₄", "FeSO₄", "NO₂", "N₂O"],
+            correct: 0,
+            answer: "[Fe(H₂O)₅NO]SO₄",
+            explanation: "Brown ring complex forms when nitrate reacts with Fe²⁺ in presence of H₂SO₄",
+            tip: "Brown ring test confirms nitrate ion",
+            difficulty: "hard",
+            year: "2022",
+            topic: "Qualitative Analysis"
+        },
+        {
+            id: 59,
+            question: "The functional group in ketones is:",
+            options: ["-CHO", "-CO-", "-COOH", "-OH"],
+            correct: 1,
+            answer: "-CO-",
+            explanation: "Carbonyl group between two carbon atoms",
+            tip: "Ketones = R-CO-R'",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 60,
+            question: "Ethene undergoes addition polymerization to form:",
+            options: ["Polyethene", "Polyvinyl chloride", "Teflon", "Nylon"],
+            correct: 0,
+            answer: "Polyethene",
+            explanation: "n CH₂=CH₂ → (-CH₂-CH₂-)ₙ",
+            tip: "Polyethene = polyethylene",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Polymers"
+        },
+        
+        // ============= NEW CHEMISTRY QUESTIONS - BATCH 2 (ID 61-90) =============
+        {
+            id: 61,
+            question: "The test for unsaturation in alkenes is:",
+            options: ["Bromine water decolourises", "Litmus turns red", "Effervescence with acid", "Blue flame"],
+            correct: 0,
+            answer: "Bromine water decolourises",
+            explanation: "Alkenes undergo electrophilic addition with Br₂, decolorizing bromine water",
+            tip: "Bromine water changes from brown to colorless",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 62,
+            question: "The monomer of natural rubber is:",
+            options: ["Isoprene", "Ethene", "Styrene", "Vinyl chloride"],
+            correct: 0,
+            answer: "Isoprene",
+            explanation: "Isoprene (2-methylbuta-1,3-diene) is the monomer of natural rubber",
+            tip: "Isoprene = C₅H₈",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Polymers"
+        },
+        {
+            id: 63,
+            question: "The reaction CH₃COOH + C₂H₅OH → CH₃COOC₂H₅ + H₂O is:",
+            options: ["Esterification", "Saponification", "Hydrolysis", "Neutralization"],
+            correct: 0,
+            answer: "Esterification",
+            explanation: "Carboxylic acid + alcohol → ester + water (conc. H₂SO₄ catalyst)",
+            tip: "Esterification produces sweet-smelling esters",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 64,
+            question: "The product of saponification of fats/oils is:",
+            options: ["Soap and glycerol", "Soap only", "Glycerol only", "Fatty acid"],
+            correct: 0,
+            answer: "Soap and glycerol",
+            explanation: "Alkaline hydrolysis of triglycerides produces soap (fatty acid salts) and glycerol",
+            tip: "Saponification = soap making",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 65,
+            question: "Which is a polysaccharide?",
+            options: ["Glucose", "Sucrose", "Starch", "Fructose"],
+            correct: 2,
+            answer: "Starch",
+            explanation: "Starch is a polymer of glucose units",
+            tip: "Polysaccharides = many monosaccharides",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Biochemistry"
+        },
+        {
+            id: 66,
+            question: "The oxidation number of Mn in KMnO₄ is:",
+            options: ["+7", "+5", "+3", "+4"],
+            correct: 0,
+            answer: "+7",
+            explanation: "K = +1, 4O = -8 → +1 + Mn -8 = 0 → Mn = +7",
+            tip: "Permanganate ion (MnO₄⁻) has Mn in +7 state",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Redox Reactions"
+        },
+        {
+            id: 67,
+            question: "In the electrochemical series, the metal that displaces hydrogen from acid is:",
+            options: ["Copper", "Zinc", "Silver", "Gold"],
+            correct: 1,
+            answer: "Zinc",
+            explanation: "Zinc is above hydrogen in reactivity series",
+            tip: "Metals above H displace H₂ from acids",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Electrochemistry"
+        },
+        {
+            id: 68,
+            question: "The standard electrode potential of Zn²⁺/Zn is -0.76 V. This means Zn:",
+            options: ["Is a strong oxidizing agent", "Is a strong reducing agent", "Is inert", "Forms stable complexes"],
+            correct: 1,
+            answer: "Is a strong reducing agent",
+            explanation: "Negative E° means strong tendency to lose electrons (oxidized)",
+            tip: "More negative E° = stronger reducing agent",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Electrochemistry"
+        },
+        {
+            id: 69,
+            question: "The catalyst used in the Haber process is:",
+            options: ["Iron", "Platinum", "Vanadium(V) oxide", "Nickel"],
+            correct: 0,
+            answer: "Iron",
+            explanation: "Fe catalyst with Al₂O₃ and K₂O promoters",
+            tip: "Haber process = Fe catalyst",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Industrial Chemistry"
+        },
+        {
+            id: 70,
+            question: "The catalyst in the contact process is:",
+            options: ["V₂O₅", "Fe", "Pt", "Ni"],
+            correct: 0,
+            answer: "V₂O₅",
+            explanation: "Vanadium(V) oxide catalyzes SO₂ → SO₃",
+            tip: "Contact process = V₂O₅ catalyst",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Industrial Chemistry"
+        },
+        {
+            id: 71,
+            question: "The gas responsible for acid rain is mainly:",
+            options: ["CO₂", "SO₂", "NO₂", "O₃"],
+            correct: 1,
+            answer: "SO₂",
+            explanation: "Sulfur dioxide forms H₂SO₄ in atmosphere",
+            tip: "SO₂ + H₂O → H₂SO₃, further oxidized to H₂SO₄",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Environmental Chemistry"
+        },
+        {
+            id: 72,
+            question: "The ore of aluminium is:",
+            options: ["Bauxite", "Haematite", "Cassiterite", "Galena"],
+            correct: 0,
+            answer: "Bauxite",
+            explanation: "Bauxite = Al₂O₃·2H₂O",
+            tip: "Bauxite = aluminium ore",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Metallurgy"
+        },
+        {
+            id: 73,
+            question: "The extraction of iron occurs in:",
+            options: ["Blast furnace", "Open hearth furnace", "Bessemer converter", "Electrolytic cell"],
+            correct: 0,
+            answer: "Blast furnace",
+            explanation: "Iron extracted in blast furnace using coke, limestone and iron ore",
+            tip: "Blast furnace = iron extraction",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Metallurgy"
+        },
+        {
+            id: 74,
+            question: "Which is not a property of transition metals?",
+            options: ["Variable oxidation states", "Coloured compounds", "High ionization energy", "Catalytic activity"],
+            correct: 2,
+            answer: "High ionization energy",
+            explanation: "Transition metals have moderate ionization energies, not high",
+            tip: "Transition metals = variable oxidation states, colored compounds, catalytic",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Transition Metals"
+        },
+        {
+            id: 75,
+            question: "The shape of SF₆ molecule is:",
+            options: ["Octahedral", "Tetrahedral", "Trigonal bipyramidal", "Square planar"],
+            correct: 0,
+            answer: "Octahedral",
+            explanation: "6 bonding pairs, no lone pairs → sp³d² hybridization → octahedral",
+            tip: "SF₆ = octahedral (90° bond angles)",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 76,
+            question: "The hybridization in ethene (C₂H₄) is:",
+            options: ["sp³", "sp²", "sp", "sp³d"],
+            correct: 1,
+            answer: "sp²",
+            explanation: "Each carbon has 3 sigma bonds and 1 pi bond → sp² hybridization",
+            tip: "C₂H₄ = sp², trigonal planar",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Hybridization"
+        },
+        {
+            id: 77,
+            question: "The bond angle in methane is:",
+            options: ["109.5°", "120°", "180°", "90°"],
+            correct: 0,
+            answer: "109.5°",
+            explanation: "sp³ hybridization, tetrahedral geometry → 109.5°",
+            tip: "CH₄ = tetrahedral = 109.5°",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 78,
+            question: "Which is an electrolyte?",
+            options: ["Sugar solution", "NaCl solution", "Alcohol", "Benzene"],
+            correct: 1,
+            answer: "NaCl solution",
+            explanation: "NaCl dissociates into ions in water, conducting electricity",
+            tip: "Electrolytes conduct electricity in aqueous solution",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Electrochemistry"
+        },
+        {
+            id: 79,
+            question: "What is the IUPAC name of CH₃-CH(CH₃)-CH₂-CH₃?",
+            options: ["2-Methylbutane", "Isopentane", "2-Methylpropane", "n-Pentane"],
+            correct: 0,
+            answer: "2-Methylbutane",
+            explanation: "Longest chain has 4 carbons (butane), methyl group on carbon 2",
+            tip: "IUPAC: longest carbon chain, number substituents",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 80,
+            question: "The compound CH₂=CH-CH=CH₂ is classified as:",
+            options: ["Alkadiene", "Alkyne", "Alkene", "Cycloalkene"],
+            correct: 0,
+            answer: "Alkadiene",
+            explanation: "Two double bonds → diene (conjugated diene)",
+            tip: "-diene = two double bonds",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 81,
+            question: "Which compound exhibits cis-trans isomerism?",
+            options: ["CH₃-CH=CH₂", "CH₃-CH=CH-CH₃", "CH₂=CH₂", "CH₃-C≡CH"],
+            correct: 1,
+            answer: "CH₃-CH=CH-CH₃",
+            explanation: "Internal alkene with two different groups on each carbon of double bond",
+            tip: "Cis-trans requires different groups on each C of C=C",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Isomerism"
+        },
+        {
+            id: 82,
+            question: "The type of isomerism shown by CH₃CH₂OH and CH₃OCH₃ is:",
+            options: ["Chain isomerism", "Functional group isomerism", "Position isomerism", "Metamerism"],
+            correct: 1,
+            answer: "Functional group isomerism",
+            explanation: "Same molecular formula (C₂H₆O) but different functional groups",
+            tip: "Alcohol vs ether = functional group isomers",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Isomerism"
+        },
+        {
+            id: 83,
+            question: "The reagent used to distinguish between ethene and ethyne is:",
+            options: ["Bromine water", "KMnO₄ (cold, dilute)", "Fehling's solution", "Tollens' reagent"],
+            correct: 3,
+            answer: "Tollens' reagent",
+            explanation: "Ethyne (terminal alkyne) gives silver mirror with Tollens'; ethene does not",
+            tip: "Tollens' = ammoniacal AgNO₃",
+            difficulty: "hard",
+            year: "2022",
+            topic: "Organic Analysis"
+        },
+        {
+            id: 84,
+            question: "The major product when propene reacts with HBr in the presence of peroxide is:",
+            options: ["1-Bromopropane", "2-Bromopropane", "1,2-Dibromopropane", "No reaction"],
+            correct: 0,
+            answer: "1-Bromopropane",
+            explanation: "Anti-Markovnikov addition due to free radical mechanism (peroxide effect)",
+            tip: "Peroxides give anti-Markovnikov (Br adds to less substituted C)",
+            difficulty: "hard",
+            year: "2022",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 85,
+            question: "The reaction CH₃CH₂Br + KOH (alc) → CH₂=CH₂ + KBr + H₂O is:",
+            options: ["Nucleophilic substitution", "Elimination (E2)", "Addition", "Oxidation"],
+            correct: 1,
+            answer: "Elimination (E2)",
+            explanation: "Dehydrohalogenation with alcoholic KOH produces alkene",
+            tip: "Alcoholic KOH = elimination, aqueous KOH = substitution",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Reactions"
+        },
+        {
+            id: 86,
+            question: "The product when ethanol is heated with conc. H₂SO₄ at 170°C is:",
+            options: ["Ethene", "Ethoxyethane", "Ethanoic acid", "Ethyl hydrogensulphate"],
+            correct: 0,
+            answer: "Ethene",
+            explanation: "Dehydration of ethanol at 170°C produces ethene",
+            tip: "170°C = elimination (ethene), 140°C = substitution (ether)",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 87,
+            question: "Which alcohol gives a positive iodoform test?",
+            options: ["CH₃CH₂CH₂OH", "CH₃CH(OH)CH₃", "CH₃CH₂CH(OH)CH₃", "Both B and C"],
+            correct: 3,
+            answer: "Both B and C",
+            explanation: "Alcohols with CH₃CH(OH)- group give iodoform (yellow ppt)",
+            tip: "Iodoform test = methyl ketones or ethanol/isopropanol",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Analysis"
+        },
+        {
+            id: 88,
+            question: "The oxidation product of propan-2-ol with acidified KMnO₄ is:",
+            options: ["Propanone", "Propanoic acid", "Propanal", "Propene"],
+            correct: 0,
+            answer: "Propanone",
+            explanation: "Secondary alcohol → ketone",
+            tip: "1° alcohol → aldehyde → carboxylic acid; 2° alcohol → ketone",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 89,
+            question: "The reagent that distinguishes aldehydes from ketones is:",
+            options: ["Fehling's solution", "Tollens' reagent", "Both A and B", "2,4-DNPH"],
+            correct: 2,
+            answer: "Both A and B",
+            explanation: "Aldehydes reduce Fehling's (red ppt) and Tollens' (silver mirror); ketones do not",
+            tip: "2,4-DNPH tests for both aldehydes and ketones",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Organic Analysis"
+        },
+        {
+            id: 90,
+            question: "The IUPAC name of CH₃CH₂COCH₃ is:",
+            options: ["Butan-2-one", "Propanone", "Butanal", "Butanoic acid"],
+            correct: 0,
+            answer: "Butan-2-one",
+            explanation: "4-carbon chain, carbonyl on carbon 2",
+            tip: "Ketones end in -one",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        
+        // ============= NEW CHEMISTRY QUESTIONS - BATCH 3 (ID 91-120) =============
+        {
+            id: 91,
+            question: "The maximum number of electrons in the third energy level is:",
+            options: ["8", "18", "32", "2"],
+            correct: 1,
+            answer: "18",
+            explanation: "n = 3 → 2n² = 2 × 9 = 18 electrons",
+            tip: "Formula: 2n² where n = principal quantum number",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Atomic Structure"
+        },
+        {
+            id: 92,
+            question: "The element with electron configuration 1s² 2s² 2p⁶ 3s² 3p³ is:",
+            options: ["Phosphorus", "Nitrogen", "Sulphur", "Chlorine"],
+            correct: 0,
+            answer: "Phosphorus",
+            explanation: "Total electrons = 15 → atomic number 15 = Phosphorus",
+            tip: "Phosphorus is in Group 15",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Electronic Configuration"
+        },
+        {
+            id: 93,
+            question: "The bond in NaCl is:",
+            options: ["Covalent", "Ionic", "Metallic", "Hydrogen"],
+            correct: 1,
+            answer: "Ionic",
+            explanation: "Electrostatic attraction between Na⁺ and Cl⁻",
+            tip: "Metal + non-metal = ionic bond",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Chemical Bonding"
+        },
+        {
+            id: 94,
+            question: "The shape of NH₃ molecule is:",
+            options: ["Linear", "Trigonal planar", "Pyramidal", "Tetrahedral"],
+            correct: 2,
+            answer: "Pyramidal",
+            explanation: "sp³ hybridization, one lone pair → trigonal pyramidal",
+            tip: "NH₃ = pyramidal, bond angle ~107°",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 95,
+            question: "In the reaction 2SO₂ + O₂ → 2SO₃, the limiting reactant when 4 moles SO₂ and 3 moles O₂ are mixed is:",
+            options: ["SO₂", "O₂", "SO₃", "None"],
+            correct: 0,
+            answer: "SO₂",
+            explanation: "Ratio 2:1 → 4 SO₂ requires 2 O₂; we have 3 O₂ (excess), SO₂ limits",
+            tip: "Compare actual moles to required ratio",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Stoichiometry"
+        },
+        {
+            id: 96,
+            question: "What volume of CO₂ at STP is produced by heating 50 g CaCO₃? (CaCO₃ = 100 g/mol)",
+            options: ["11.2 dm³", "22.4 dm³", "5.6 dm³", "44.8 dm³"],
+            correct: 0,
+            answer: "11.2 dm³",
+            explanation: "50 g = 0.5 mol → 0.5 mol CO₂ = 0.5 × 22.4 = 11.2 dm³",
+            tip: "CaCO₃ → CaO + CO₂ (1:1 ratio)",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Stoichiometry"
+        },
+        {
+            id: 97,
+            question: "The gas law PV/T = constant is:",
+            options: ["Boyle's law", "Charles' law", "Gay-Lussac's law", "Combined gas law"],
+            correct: 3,
+            answer: "Combined gas law",
+            explanation: "Combines Boyle's, Charles', and Gay-Lussac's laws",
+            tip: "P₁V₁/T₁ = P₂V₂/T₂",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Gas Laws"
+        },
+        {
+            id: 98,
+            question: "The pH of 0.01 M NaOH is:",
+            options: ["2", "12", "1", "7"],
+            correct: 1,
+            answer: "12",
+            explanation: "[OH⁻] = 0.01 = 10⁻² → pOH = 2 → pH = 14 - 2 = 12",
+            tip: "pH + pOH = 14",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 99,
+            question: "Which is a weak acid?",
+            options: ["HCl", "H₂SO₄", "CH₃COOH", "HNO₃"],
+            correct: 2,
+            answer: "CH₃COOH",
+            explanation: "Acetic acid partially dissociates in water (Ka small)",
+            tip: "Weak acids = organic acids (ethanoic, citric)",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 100,
+            question: "The salt produced when NH₃ reacts with HCl is:",
+            options: ["NH₄Cl", "NH₄OH", "NaCl", "NH₃Cl"],
+            correct: 0,
+            answer: "NH₄Cl",
+            explanation: "NH₃ + HCl → NH₄Cl (ammonium chloride)",
+            tip: "Acid + base → salt + water",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 101,
+            question: "The IUPAC name of CH₃CH₂CH₂CHO is:",
+            options: ["Butanal", "Butan-1-ol", "Propanone", "Butanoic acid"],
+            correct: 0,
+            answer: "Butanal",
+            explanation: "4-carbon aldehyde → butanal",
+            tip: "Aldehydes end in -al",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 102,
+            question: "The functional group in esters is:",
+            options: ["-COOH", "-COO-", "-CHO", "-OH"],
+            correct: 1,
+            answer: "-COO-",
+            explanation: "Ester linkage: R-COO-R'",
+            tip: "Esters have sweet smell",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 103,
+            question: "Alkenes mainly undergo:",
+            options: ["Substitution", "Addition", "Elimination", "Oxidation"],
+            correct: 1,
+            answer: "Addition",
+            explanation: "Double bond breaks → addition reactions (hydrogenation, halogenation)",
+            tip: "C=C = addition",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 104,
+            question: "In the reaction Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag, copper is:",
+            options: ["Reduced", "Oxidized", "Catalyst", "Neither"],
+            correct: 1,
+            answer: "Oxidized",
+            explanation: "Cu → Cu²⁺ + 2e⁻ (loss of electrons)",
+            tip: "Cu is more reactive than Ag",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Redox Reactions"
+        },
+        {
+            id: 105,
+            question: "The oxidation number of S in H₂SO₄ is:",
+            options: ["+6", "+4", "+2", "-2"],
+            correct: 0,
+            answer: "+6",
+            explanation: "2H = +2, 4O = -8 → +2 + S -8 = 0 → S = +6",
+            tip: "Sum of oxidation numbers = 0 for neutral compound",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Oxidation States"
+        },
+        {
+            id: 106,
+            question: "During electrolysis of CuSO₄ using copper electrodes, the anode reaction is:",
+            options: ["Cu²⁺ + 2e⁻ → Cu", "Cu → Cu²⁺ + 2e⁻", "2H₂O → O₂ + 4H⁺ + 4e⁻", "4OH⁻ → O₂ + 2H₂O + 4e⁻"],
+            correct: 1,
+            answer: "Cu → Cu²⁺ + 2e⁻",
+            explanation: "Copper anode dissolves (anodic oxidation)",
+            tip: "Active electrodes participate in reaction",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Electrochemistry"
+        },
+        {
+            id: 107,
+            question: "The rate of reaction increases with all EXCEPT:",
+            options: ["Increase in temperature", "Increase in concentration", "Increase in catalyst", "Decrease in surface area"],
+            correct: 3,
+            answer: "Decrease in surface area",
+            explanation: "Smaller surface area → fewer collisions → slower reaction",
+            tip: "Surface area increases with crushing/grinding",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Chemical Kinetics"
+        },
+        {
+            id: 108,
+            question: "According to Le Chatelier's principle, increasing pressure on N₂ + 3H₂ ⇌ 2NH₃ will:",
+            options: ["Shift left", "Shift right", "No effect", "Stop reaction"],
+            correct: 1,
+            answer: "Shift right",
+            explanation: "Fewer moles on right (2 vs 4) → pressure favors side with fewer moles",
+            tip: "High pressure = more NH₃",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Chemical Equilibrium"
+        },
+        {
+            id: 109,
+            question: "The catalyst in the Haber process is:",
+            options: ["V₂O₅", "Fe", "Pt", "Ni"],
+            correct: 1,
+            answer: "Fe",
+            explanation: "Iron catalyst with promoters (Al₂O₃, K₂O)",
+            tip: "Haber = Fe, Contact = V₂O₅",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Industrial Chemistry"
+        },
+        {
+            id: 110,
+            question: "The allotrope of carbon used in pencils is:",
+            options: ["Diamond", "Graphite", "Fullerene", "Charcoal"],
+            correct: 1,
+            answer: "Graphite",
+            explanation: "Graphite is soft and conducts electricity",
+            tip: "Graphite layers slide off onto paper",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Carbon"
+        },
+        {
+            id: 111,
+            question: "The brown ring test confirms the presence of:",
+            options: ["Nitrate ion", "Sulphate ion", "Chloride ion", "Carbonate ion"],
+            correct: 0,
+            answer: "Nitrate ion",
+            explanation: "[Fe(H₂O)₅NO]SO₄ complex gives brown ring",
+            tip: "Nitrate + FeSO₄ + conc. H₂SO₄ → brown ring",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Qualitative Analysis"
+        },
+        {
+            id: 112,
+            question: "The monomer of PVC is:",
+            options: ["Ethene", "Vinyl chloride", "Styrene", "Isoprene"],
+            correct: 1,
+            answer: "Vinyl chloride",
+            explanation: "Polyvinyl chloride = polymer of CH₂=CHCl",
+            tip: "PVC = polyvinyl chloride",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Polymers"
+        },
+        {
+            id: 113,
+            question: "The test for unsaturation in alkenes is:",
+            options: ["Bromine water decolourises", "Litmus turns blue", "Effervescence", "Blue flame"],
+            correct: 0,
+            answer: "Bromine water decolourises",
+            explanation: "Br₂ adds across double bond, losing its brown color",
+            tip: "Alkenes decolorize bromine water",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Organic Chemistry"
+        },
+        {
+            id: 114,
+            question: "The reaction CH₃COOH + NaOH → CH₃COONa + H₂O is:",
+            options: ["Esterification", "Neutralization", "Saponification", "Hydrolysis"],
+            correct: 1,
+            answer: "Neutralization",
+            explanation: "Acid + base → salt + water",
+            tip: "Neutralization produces salt and water",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 115,
+            question: "Which is a reducing sugar?",
+            options: ["Sucrose", "Glucose", "Starch", "Cellulose"],
+            correct: 1,
+            answer: "Glucose",
+            explanation: "Has free aldehyde group (open chain form)",
+            tip: "All monosaccharides are reducing sugars",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Biochemistry"
+        },
+        {
+            id: 116,
+            question: "The oxidation number of Cr in Cr₂O₇²⁻ is:",
+            options: ["+6", "+7", "+3", "+4"],
+            correct: 0,
+            answer: "+6",
+            explanation: "2Cr + 7(-2) = -2 → 2Cr -14 = -2 → 2Cr = +12 → Cr = +6",
+            tip: "Dichromate ion has Cr in +6 state",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Oxidation States"
+        },
+        {
+            id: 117,
+            question: "In the electrochemical series, the metal that displaces zinc from solution is:",
+            options: ["Copper", "Magnesium", "Silver", "Gold"],
+            correct: 1,
+            answer: "Magnesium",
+            explanation: "More reactive metals displace less reactive ones",
+            tip: "Mg is above Zn in reactivity series",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Electrochemistry"
+        },
+        {
+            id: 118,
+            question: "The shape of XeF₄ is:",
+            options: ["Octahedral", "Square planar", "Trigonal bipyramidal", "Tetrahedral"],
+            correct: 1,
+            answer: "Square planar",
+            explanation: "sp³d² hybridization, two lone pairs → square planar",
+            tip: "XeF₄ = square planar (bond angle 90°)",
+            difficulty: "hard",
+            year: "2022",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 119,
+            question: "The hybridization in ethyne (C₂H₂) is:",
+            options: ["sp³", "sp²", "sp", "sp³d"],
+            correct: 2,
+            answer: "sp",
+            explanation: "Triple bond → sp hybridized carbon, linear geometry",
+            tip: "C₂H₂ = sp hybridization, bond angle 180°",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Hybridization"
+        },
+        {
+            id: 120,
+            question: "The bond angle in ammonia (NH₃) is approximately:",
+            options: ["109.5°", "107°", "120°", "180°"],
+            correct: 1,
+            answer: "107°",
+            explanation: "sp³ hybridization, lone pair repulsion reduces angle from 109.5°",
+            tip: "Lone pair repulsion > bonding pair repulsion",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 121,
+            question: "The maximum number of electrons that can occupy the third energy level is:",
+            options: ["8", "18", "32", "2"],
+            correct: 1,
+            answer: "18",
+            explanation: "Formula: 2n² → for n = 3 → 2 × 9 = 18 electrons",
+            tip: "Third shell has s, p, and d orbitals",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Atomic Structure"
+        },
+        {
+            id: 122,
+            question: "The element with electron configuration 1s² 2s² 2p⁶ 3s² 3p⁴ is:",
+            options: ["Silicon", "Phosphorus", "Sulphur", "Chlorine"],
+            correct: 2,
+            answer: "Sulphur",
+            explanation: "Total electrons = 16 → atomic number 16 → Sulphur",
+            tip: "Sulphur is in Group 16",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Electronic Configuration"
+        },
+        {
+            id: 123,
+            question: "The bond in HF is best described as:",
+            options: ["Ionic", "Non-polar covalent", "Polar covalent", "Metallic"],
+            correct: 2,
+            answer: "Polar covalent",
+            explanation: "Shared electrons between H and F; F is more electronegative → polar molecule",
+            tip: "Electronegativity difference = polarity",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Chemical Bonding"
+        },
+        {
+            id: 124,
+            question: "The molecular shape of CO₂ is:",
+            options: ["Linear", "Trigonal planar", "Tetrahedral", "Bent"],
+            correct: 0,
+            answer: "Linear",
+            explanation: "sp hybridization, two double bonds, no lone pairs → 180° bond angle",
+            tip: "O=C=O, linear geometry",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Molecular Geometry"
+        },
+        {
+            id: 125,
+            question: "In the reaction 2Al + 3H₂SO₄ → Al₂(SO₄)₃ + 3H₂, the limiting reactant when 4 moles Al react with 5 moles H₂SO₄ is:",
+            options: ["Al", "H₂SO₄", "Al₂(SO₄)₃", "H₂"],
+            correct: 0,
+            answer: "Al",
+            explanation: "Ratio 2:3 → 4 Al requires 6 H₂SO₄; only 5 available → Al limits",
+            tip: "Compare required vs available",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Stoichiometry"
+        },
+        {
+            id: 126,
+            question: "What volume of oxygen at STP is needed to completely burn 24 g of carbon? (C = 12)",
+            options: ["22.4 dm³", "44.8 dm³", "11.2 dm³", "33.6 dm³"],
+            correct: 1,
+            answer: "44.8 dm³",
+            explanation: "C + O₂ → CO₂ → 24 g C = 2 mol → 2 mol O₂ = 2 × 22.4 = 44.8 dm³",
+            tip: "1 mol gas = 22.4 dm³ at STP",
+            difficulty: "medium",
+            year: "2023",
+            topic: "Stoichiometry"
+        },
+        {
+            id: 127,
+            question: "The gas law that states volume is inversely proportional to pressure at constant temperature is:",
+            options: ["Charles' law", "Boyle's law", "Gay-Lussac's law", "Avogadro's law"],
+            correct: 1,
+            answer: "Boyle's law",
+            explanation: "P₁V₁ = P₂V₂ (constant T)",
+            tip: "Boyle: P ∝ 1/V",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Gas Laws"
+        },
+        {
+            id: 128,
+            question: "The pH of 0.0001 M HNO₃ is:",
+            options: ["1", "2", "3", "4"],
+            correct: 3,
+            answer: "4",
+            explanation: "[H⁺] = 10⁻⁴ mol/dm³ → pH = -log(10⁻⁴) = 4",
+            tip: "Strong acid: [H⁺] = concentration",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 129,
+            question: "Which is a weak base?",
+            options: ["NaOH", "KOH", "NH₃", "Ca(OH)₂"],
+            correct: 2,
+            answer: "NH₃",
+            explanation: "Ammonia partially ionizes: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻",
+            tip: "NH₃ is the most common weak base",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        },
+        {
+            id: 130,
+            question: "The salt formed when NH₄OH reacts with HCl is:",
+            options: ["NH₄Cl", "NH₄OH", "NaCl", "NH₃Cl"],
+            correct: 0,
+            answer: "NH₄Cl",
+            explanation: "NH₄OH + HCl → NH₄Cl + H₂O (ammonium chloride)",
+            tip: "Ammonium hydroxide = ammonia solution",
+            difficulty: "easy",
+            year: "2024",
+            topic: "Acids and Bases"
+        }
+    ] // ← END of questions array (NO comma after last bracket!)
+}, // ← END of chemistry object
