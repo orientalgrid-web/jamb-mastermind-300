@@ -1,749 +1,485 @@
 [
   {
-    "question": "The organelle responsible for protein synthesis is:",
-    "options": ["Mitochondrion", "Ribosome", "Golgi apparatus", "Lysosome"],
-    "answer": "Ribosome",
-    "explanation": "Ribosomes (free or attached to rough ER) translate mRNA into polypeptide chains."
+    "question": "The cell membrane is mainly composed of",
+    "options": ["Proteins only", "Phospholipid bilayer with proteins", "Carbohydrates only", "Nucleic acids"],
+    "answer": "Phospholipid bilayer with proteins",
+    "explanation": "Fluid mosaic model — phospholipids form bilayer with embedded proteins."
   },
   {
-    "question": "The powerhouse of the cell is:",
-    "options": ["Nucleus", "Mitochondrion", "Chloroplast", "Centriole"],
-    "answer": "Mitochondrion",
-    "explanation": "Site of ATP production via aerobic respiration."
+    "question": "The organelle that produces ribosomes is",
+    "options": ["Nucleolus", "Mitochondrion", "Golgi apparatus", "Lysosome"],
+    "answer": "Nucleolus",
+    "explanation": "Nucleolus (inside nucleus) assembles ribosomal subunits."
   },
   {
-    "question": "The process by which plants lose water vapour through leaves is:",
-    "options": ["Transpiration", "Guttation", "Osmosis", "Diffusion"],
-    "answer": "Transpiration",
-    "explanation": "Loss of water vapour from stomata; drives transpiration pull."
+    "question": "The stage of meiosis where homologous chromosomes pair up is",
+    "options": ["Prophase I", "Metaphase I", "Anaphase I", "Telophase II"],
+    "answer": "Prophase I",
+    "explanation": "Synapsis and crossing over occur in prophase I."
   },
   {
-    "question": "The mode of nutrition in fungi is:",
-    "options": ["Autotrophic", "Heterotrophic (saprophytic/parasitic)", "Photosynthetic", "Holozoic"],
-    "answer": "Heterotrophic (saprophytic/parasitic)",
-    "explanation": "Fungi absorb digested food from dead/decaying matter or living hosts."
+    "question": "The type of cell division in bacteria is",
+    "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
+    "answer": "Binary fission",
+    "explanation": "Prokaryotes divide by binary fission — DNA replicates and cell splits."
   },
   {
-    "question": "The vector of malaria is:",
-    "options": ["Tsetse fly", "Female Anopheles mosquito", "Housefly", "Blackfly"],
-    "answer": "Female Anopheles mosquito",
-    "explanation": "Transmits Plasmodium parasite."
+    "question": "The number of chromosomes in a human somatic cell is",
+    "options": ["23", "46", "92", "44"],
+    "answer": "46",
+    "explanation": "Diploid number (2n = 46) in body cells."
   },
   {
-    "question": "The blood pigment in humans is:",
-    "options": ["Haemocyanin", "Haemoglobin", "Chlorophyll", "Haemoerythrin"],
-    "answer": "Haemoglobin",
-    "explanation": "Iron-containing protein in red blood cells; carries oxygen."
+    "question": "The mode of nutrition in Volvox is",
+    "options": ["Heterotrophic", "Autotrophic", "Saprophytic", "Parasitic"],
+    "answer": "Autotrophic",
+    "explanation": "Colonial green alga — photosynthesis using chloroplasts."
   },
   {
-    "question": "The part of the eye that controls light entry is:",
-    "options": ["Retina", "Iris", "Cornea", "Lens"],
-    "answer": "Iris",
-    "explanation": "Adjusts pupil size to regulate light."
+    "question": "The vector of dengue fever is",
+    "options": ["Anopheles mosquito", "Aedes mosquito", "Culex mosquito", "Tsetse fly"],
+    "answer": "Aedes mosquito",
+    "explanation": "Aedes aegypti transmits dengue virus."
   },
   {
-    "question": "The enzyme that digests starch in the mouth is:",
-    "options": ["Pepsin", "Trypsin", "Amylase", "Lipase"],
-    "answer": "Amylase",
-    "explanation": "Salivary amylase (ptyalin) breaks starch to maltose."
+    "question": "The causative organism of guinea worm disease is",
+    "options": ["Dracunculus medinensis", "Plasmodium", "Trypanosoma", "Schistosoma"],
+    "answer": "Dracunculus medinensis",
+    "explanation": "Nematode parasite transmitted via contaminated water."
   },
   {
-    "question": "The excretory organ in earthworm is:",
-    "options": ["Kidney", "Nephridia", "Malpighian tubules", "Flame cells"],
-    "answer": "Nephridia",
-    "explanation": "Segmental excretory organs."
+    "question": "The part of the flower that attracts pollinators is",
+    "options": ["Ovary", "Petal", "Stigma", "Style"],
+    "answer": "Petal",
+    "explanation": "Petals are usually colourful and scented to attract insects/birds."
   },
   {
-    "question": "The type of variation that is inherited is:",
+    "question": "The hormone that causes stomatal closure during drought is",
+    "options": ["Auxin", "Gibberellin", "Abscisic acid", "Cytokinin"],
+    "answer": "Abscisic acid",
+    "explanation": "ABA induces stomatal closure to reduce water loss."
+  },
+  {
+    "question": "The respiratory organ in amphibians is",
+    "options": ["Gills only", "Lungs and moist skin", "Trachea", "Book lungs"],
+    "answer": "Lungs and moist skin",
+    "explanation": "Adult frogs use lungs and cutaneous respiration."
+  },
+  {
+    "question": "The deficiency of vitamin C causes",
+    "options": ["Rickets", "Scurvy", "Beri-beri", "Night blindness"],
+    "answer": "Scurvy",
+    "explanation": "Vitamin C needed for collagen synthesis; deficiency → bleeding gums."
+  },
+  {
+    "question": "The enzyme that converts proteins to peptides in the stomach is",
+    "options": ["Amylase", "Pepsin", "Lipase", "Trypsin"],
+    "answer": "Pepsin",
+    "explanation": "Pepsin (activated from pepsinogen) works in acidic pH."
+  },
+  {
+    "question": "The part of the brain that controls hunger and thirst is",
+    "options": ["Cerebrum", "Cerebellum", "Hypothalamus", "Medulla oblongata"],
+    "answer": "Hypothalamus",
+    "explanation": "Hypothalamus regulates hunger, thirst, body temperature."
+  },
+  {
+    "question": "The hormone that stimulates uterine contraction during childbirth is",
+    "options": ["Prolactin", "Oxytocin", "Progesterone", "Oestrogen"],
+    "answer": "Oxytocin",
+    "explanation": "Oxytocin from posterior pituitary causes labour contractions."
+  },
+  {
+    "question": "The process by which plants absorb water against gravity is mainly",
+    "options": ["Osmosis", "Active transport", "Transpiration pull", "Diffusion"],
+    "answer": "Transpiration pull",
+    "explanation": "Cohesion-tension theory — water pulled up xylem by transpiration."
+  },
+  {
+    "question": "The excretory product of mammals is mainly",
+    "options": ["Uric acid", "Urea", "Ammonia", "Creatinine"],
+    "answer": "Urea",
+    "explanation": "Ureotelic — urea is less toxic and requires less water."
+  },
+  {
+    "question": "The process of complete metamorphosis in insects includes",
+    "options": ["Egg → nymph → adult", "Egg → larva → pupa → adult", "Egg → adult", "Larva → adult"],
+    "answer": "Egg → larva → pupa → adult",
+    "explanation": "Holometabolous (complete) metamorphosis — e.g., butterfly."
+  },
+  {
+    "question": "The respiratory organ in cockroach is",
+    "options": ["Gills", "Lungs", "Tracheae", "Book lungs"],
+    "answer": "Tracheae",
+    "explanation": "Tracheal system — air tubes open through spiracles."
+  },
+  {
+    "question": "The vitamin that prevents scurvy is",
+    "options": ["Vitamin A", "Vitamin B1", "Vitamin C", "Vitamin D"],
+    "answer": "Vitamin C",
+    "explanation": "Ascorbic acid needed for collagen synthesis."
+  },
+  {
+    "question": "The deficiency of vitamin K causes",
+    "options": ["Poor blood clotting", "Rickets", "Beri-beri", "Night blindness"],
+    "answer": "Poor blood clotting",
+    "explanation": "Vitamin K needed for prothrombin synthesis."
+  },
+  {
+    "question": "The process of breakdown of glycogen to glucose is called",
+    "options": ["Glycogenesis", "Glycogenolysis", "Gluconeogenesis", "Glycolysis"],
+    "answer": "Glycogenolysis",
+    "explanation": "Glucagon stimulates glycogenolysis in liver."
+  },
+  {
+    "question": "The causative organism of leprosy is",
+    "options": ["Mycobacterium leprae", "Mycobacterium tuberculosis", "Vibrio cholerae", "Salmonella typhi"],
+    "answer": "Mycobacterium leprae",
+    "explanation": "Acid-fast bacillus causing skin and nerve damage."
+  },
+  {
+    "question": "The organelle that helps in cell division in animal cells is",
+    "options": ["Centriole", "Lysosome", "Ribosome", "Golgi apparatus"],
+    "answer": "Centriole",
+    "explanation": "Centrioles form spindle fibres during mitosis."
+  },
+  {
+    "question": "The type of variation that shows discrete classes is",
     "options": ["Continuous", "Discontinuous", "Environmental", "Acquired"],
     "answer": "Discontinuous",
-    "explanation": "Controlled by genes (e.g., blood groups, tongue rolling)."
+    "explanation": "Controlled by one or few genes (e.g., blood groups)."
   },
   {
-    "question": "The genotype of a person with blood group AB is:",
-    "options": ["IᴬIᴬ", "IᴮIᴮ", "IᴬIᴮ", "ii"],
-    "answer": "IᴬIᴮ",
-    "explanation": "Codominance: both A and B antigens present."
-  },
-  {
-    "question": "The probability of a couple with genotypes AS and AS having a child with sickle cell anaemia (SS) is:",
-    "options": ["25%", "50%", "75%", "0%"],
-    "answer": "25%",
-    "explanation": "Punnett square: 25% SS (affected)"
-  },
-  {
-    "question": "The vector of trypanosomiasis (sleeping sickness) is:",
-    "options": ["Female Anopheles mosquito", "Tsetse fly", "Housefly", "Blackfly"],
-    "answer": "Tsetse fly",
-    "explanation": "Glossina species transmits Trypanosoma."
-  },
-  {
-    "question": "The mode of feeding in Amoeba is:",
-    "options": ["Holozoic", "Saprophytic", "Parasitic", "Autotrophic"],
-    "answer": "Holozoic",
-    "explanation": "Engulfs food particles by phagocytosis."
-  },
-  {
-    "question": "The green pigment in plants is:",
-    "options": ["Haemoglobin", "Chlorophyll", "Melanin", "Carotene"],
-    "answer": "Chlorophyll",
-    "explanation": "Absorbs light for photosynthesis."
-  },
-  {
-    "question": "The part of the brain responsible for balance and posture is:",
-    "options": ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hypothalamus"],
-    "answer": "Cerebellum",
-    "explanation": "Coordinates voluntary movements and maintains balance."
-  },
-  {
-    "question": "The hormone that regulates blood sugar level is:",
-    "options": ["Adrenaline", "Insulin", "Thyroxine", "Oestrogen"],
-    "answer": "Insulin",
-    "explanation": "Lowers blood glucose by promoting uptake into cells."
-  },
-  {
-    "question": "The process by which water moves from root hairs to xylem is:",
-    "options": ["Osmosis", "Diffusion", "Active transport", "Transpiration pull"],
-    "answer": "Osmosis",
-    "explanation": "Water enters root hairs by osmosis due to concentration gradient."
-  },
-  {
-    "question": "The excretory product of birds is:",
-    "options": ["Urea", "Uric acid", "Ammonia", "Carbon dioxide"],
-    "answer": "Uric acid",
-    "explanation": "Uricotelic — conserves water."
-  },
-  {
-    "question": "The type of reproduction in Hydra is mainly:",
-    "options": ["Sexual only", "Asexual (budding)", "Binary fission", "Fragmentation"],
-    "answer": "Asexual (budding)",
-    "explanation": "Budding produces new individuals from parent body."
-  },
-  {
-    "question": "The causative organism of typhoid fever is:",
-    "options": ["Plasmodium", "Salmonella typhi", "Trypanosoma", "Escherichia coli"],
-    "answer": "Salmonella typhi",
-    "explanation": "Bacterial infection via contaminated food/water."
-  },
-  {
-    "question": "The organelle absent in animal cells is:",
-    "options": ["Mitochondrion", "Chloroplast", "Ribosome", "Golgi apparatus"],
-    "answer": "Chloroplast",
-    "explanation": "Plants have chloroplasts for photosynthesis."
-  },
-  {
-    "question": "The process of conversion of atmospheric nitrogen to nitrates is:",
-    "options": ["Nitrification", "Nitrogen fixation", "Denitrification", "Ammonification"],
-    "answer": "Nitrogen fixation",
-    "explanation": "By nitrogen-fixing bacteria (e.g., Rhizobium)."
-  },
-  {
-    "question": "The pyramid of energy is always:",
-    "options": ["Inverted", "Upright", "Bell-shaped", "Horizontal"],
-    "answer": "Upright",
-    "explanation": "Energy decreases at each trophic level (10% rule)."
-  },
-  {
-    "question": "The main source of energy for Earth's ecosystems is:",
-    "options": ["Geothermal energy", "Sunlight", "Chemical energy", "Nuclear energy"],
-    "answer": "Sunlight",
-    "explanation": "Photosynthesis converts solar energy into chemical energy."
-  },
-  {
-    "question": "The pollutant that causes eutrophication is:",
-    "options": ["CO₂", "Nitrate/phosphate fertilizers", "SO₂", "Particulate matter"],
-    "answer": "Nitrate/phosphate fertilizers",
-    "explanation": "Causes algal bloom → oxygen depletion."
-  },
-  {
-    "question": "The vector of schistosomiasis is:",
-    "options": ["Mosquito", "Snail", "Tsetse fly", "Housefly"],
-    "answer": "Snail",
-    "explanation": "Freshwater snail (Bulinus) hosts Schistosoma larvae."
-  },
-  {
-    "question": "The hormone responsible for secondary sexual characteristics in males is:",
-    "options": ["Oestrogen", "Testosterone", "Progesterone", "Insulin"],
-    "answer": "Testosterone",
-    "explanation": "Produced by testes; promotes beard growth, voice deepening, etc."
-  },
-  {
-    "question": "The part of the nephron where ultrafiltration occurs is:",
-    "options": ["Proximal tubule", "Bowman's capsule", "Loop of Henle", "Collecting duct"],
-    "answer": "Bowman's capsule",
-    "explanation": "Glomerulus filters blood into Bowman's capsule."
-  },
-  {
-    "question": "The process of breathing in humans is called:",
-    "options": ["Respiration", "Ventilation", "Photosynthesis", "Excretion"],
-    "answer": "Ventilation",
-    "explanation": "Mechanical process of air exchange; respiration is cellular."
-  },
-  {
-    "question": "The blood vessel that carries oxygenated blood from lungs to heart is:",
-    "options": ["Pulmonary artery", "Pulmonary vein", "Aorta", "Vena cava"],
-    "answer": "Pulmonary vein",
-    "explanation": "Only vein carrying oxygenated blood."
-  },
-  {
-    "question": "The enzyme that curdles milk in the stomach is:",
-    "options": ["Pepsin", "Rennin", "Amylase", "Lipase"],
-    "answer": "Rennin",
-    "explanation": "Chymosin (rennin) coagulates casein in infants."
-  },
-  {
-    "question": "The mode of nutrition in tapeworm is:",
-    "options": ["Autotrophic", "Parasitic", "Saprophytic", "Holozoic"],
-    "answer": "Parasitic",
-    "explanation": "Absorbs digested food through body surface from host intestine."
-  },
-  {
-    "question": "The part of the brain that controls involuntary actions is:",
-    "options": ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hypothalamus"],
-    "answer": "Medulla oblongata",
-    "explanation": "Controls heartbeat, breathing, swallowing."
-  },
-  {
-    "question": "The vitamin deficient in beri-beri is:",
-    "options": ["Vitamin A", "Vitamin B1 (thiamine)", "Vitamin C", "Vitamin D"],
-    "answer": "Vitamin B1 (thiamine)",
-    "explanation": "Deficiency causes nerve damage and heart failure."
-  },
-  {
-    "question": "The process by which green plants make food is:",
-    "options": ["Respiration", "Photosynthesis", "Transpiration", "Digestion"],
-    "answer": "Photosynthesis",
-    "explanation": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (in chloroplasts)"
-  },
-  {
-    "question": "The causative organism of cholera is:",
-    "options": ["Vibrio cholerae", "Plasmodium", "Trypanosoma", "Salmonella"],
-    "answer": "Vibrio cholerae",
-    "explanation": "Bacterial infection via contaminated water."
-  },
-  {
-    "question": "The organelle that contains digestive enzymes is:",
-    "options": ["Mitochondrion", "Lysosome", "Ribosome", "Nucleus"],
-    "answer": "Lysosome",
-    "explanation": "Breaks down waste and worn-out organelles."
-  },
-  {
-    "question": "The type of variation shown by skin colour is:",
-    "options": ["Discontinuous", "Continuous", "Genetic only", "Acquired"],
-    "answer": "Continuous",
-    "explanation": "Controlled by multiple genes → wide range of shades."
-  },
-  {
-    "question": "The blood group that is universal donor is:",
+    "question": "The blood group that has anti-A and anti-B antibodies is",
     "options": ["A", "B", "AB", "O"],
     "answer": "O",
-    "explanation": "No antigens → can donate to all groups."
+    "explanation": "Group O has both anti-A and anti-B antibodies."
   },
   {
-    "question": "The vector of onchocerciasis (river blindness) is:",
-    "options": ["Mosquito", "Blackfly", "Tsetse fly", "Snail"],
-    "answer": "Blackfly",
-    "explanation": "Simulium species transmits Onchocerca volvulus."
+    "question": "The vector of Chagas disease is",
+    "options": ["Mosquito", "Triatomine bug", "Tsetse fly", "Blackfly"],
+    "answer": "Triatomine bug",
+    "explanation": "Kissing bug transmits Trypanosoma cruzi."
   },
   {
-    "question": "The mode of nutrition in Euglena is:",
-    "options": ["Autotrophic only", "Heterotrophic only", "Mixotrophic", "Parasitic"],
-    "answer": "Mixotrophic",
-    "explanation": "Photosynthesis in light; holozoic in dark."
+    "question": "The mode of nutrition in Paramecium is",
+    "options": ["Autotrophic", "Holozoic", "Saprophytic", "Parasitic"],
+    "answer": "Holozoic",
+    "explanation": "Cilia sweep food into oral groove → food vacuole."
   },
   {
-    "question": "The part of the flower that develops into fruit is:",
-    "options": ["Ovary", "Ovule", "Stigma", "Anther"],
+    "question": "The part of the flower that develops into the fruit is",
+    "options": ["Ovule", "Ovary", "Stigma", "Anther"],
     "answer": "Ovary",
-    "explanation": "Ovary wall → fruit; ovule → seed."
+    "explanation": "Ovary wall becomes fruit wall."
   },
   {
-    "question": "The hormone that promotes fruit ripening is:",
-    "options": ["Auxin", "Gibberellin", "Ethene", "Cytokinin"],
-    "answer": "Ethene",
-    "explanation": "Gaseous plant hormone (ethylene) triggers ripening."
-  },
-  {
-    "question": "The process of formation of gametes is:",
-    "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
-    "answer": "Meiosis",
-    "explanation": "Reduces chromosome number by half (haploid)."
-  },
-  {
-    "question": "The organelle absent in prokaryotic cells is:",
-    "options": ["Ribosome", "Cell membrane", "Nucleus", "Cytoplasm"],
-    "answer": "Nucleus",
-    "explanation": "Prokaryotes have nucleoid region, not true nucleus."
-  },
-  {
-    "question": "The causative organism of amoebic dysentery is:",
-    "options": ["Entamoeba histolytica", "Plasmodium", "Giardia", "Trypanosoma"],
-    "answer": "Entamoeba histolytica",
-    "explanation": "Protozoan parasite in contaminated water."
-  },
-  {
-    "question": "The part of the ear responsible for balance is:",
-    "options": ["Cochlea", "Semicircular canals", "Eardrum", "Auditory nerve"],
-    "answer": "Semicircular canals",
-    "explanation": "Detect rotational movement."
-  }
-[
-  {
-    "question": "The organelle that packages and modifies proteins for secretion is:",
-    "options": ["Ribosome", "Golgi apparatus", "Mitochondrion", "Lysosome"],
-    "answer": "Golgi apparatus",
-    "explanation": "Golgi modifies, sorts, and packages proteins into vesicles for secretion or use."
-  },
-  {
-    "question": "The site of photosynthesis in plant cells is:",
-    "options": ["Mitochondrion", "Chloroplast", "Nucleus", "Vacuole"],
-    "answer": "Chloroplast",
-    "explanation": "Contains chlorophyll in thylakoids for light-dependent reactions."
-  },
-  {
-    "question": "The process of cell division that produces gametes is:",
-    "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
-    "answer": "Meiosis",
-    "explanation": "Reduces chromosome number from diploid to haploid (2n → n)."
-  },
-  {
-    "question": "The kingdom that includes mushrooms and moulds is:",
-    "options": ["Monera", "Protista", "Fungi", "Plantae"],
-    "answer": "Fungi",
-    "explanation": "Heterotrophic, chitin cell wall, reproduce by spores."
-  },
-  {
-    "question": "The vector of malaria parasite is:",
-    "options": ["Tsetse fly", "Female Anopheles mosquito", "Housefly", "Blackfly"],
-    "answer": "Female Anopheles mosquito",
-    "explanation": "Transmits Plasmodium sporozoites during blood meal."
-  },
-  {
-    "question": "The blood pigment responsible for oxygen transport is:",
-    "options": ["Haemocyanin", "Haemoglobin", "Chlorophyll", "Melanin"],
-    "answer": "Haemoglobin",
-    "explanation": "Iron-containing protein in RBCs; binds O₂ reversibly."
-  },
-  {
-    "question": "The part of the eye that focuses light on the retina is:",
-    "options": ["Iris", "Cornea", "Lens", "Pupil"],
-    "answer": "Lens",
-    "explanation": "Accommodation: changes shape to focus near/far objects."
-  },
-  {
-    "question": "The enzyme that breaks down proteins in the stomach is:",
-    "options": ["Amylase", "Lipase", "Pepsin", "Trypsin"],
-    "answer": "Pepsin",
-    "explanation": "Active in acidic pH (activated from pepsinogen by HCl)."
-  },
-  {
-    "question": "The excretory organ in insects is:",
-    "options": ["Nephridia", "Malpighian tubules", "Flame cells", "Kidney"],
-    "answer": "Malpighian tubules",
-    "explanation": "Blind tubes that remove nitrogenous waste from haemocoel."
-  },
-  {
-    "question": "The type of variation controlled by the environment is:",
-    "options": ["Genetic", "Continuous", "Acquired", "Discontinuous"],
-    "answer": "Acquired",
-    "explanation": "Not inherited (e.g., skin tanning from sun exposure)."
-  },
-  {
-    "question": "A man with blood group AB marries a woman with blood group O. Possible blood group of child is:",
-    "options": ["A only", "B only", "AB only", "A or B"],
-    "answer": "A or B",
-    "explanation": "Father IᴬIᴮ, mother ii → children Iᴬi (A) or Iᴮi (B)"
-  },
-  {
-    "question": "The probability of a couple both AS genotype having a sickle cell child (SS) is:",
-    "options": ["25%", "50%", "75%", "0%"],
-    "answer": "25%",
-    "explanation": "Punnett square: AS × AS → 25% SS, 50% AS, 25% AA"
-  },
-  {
-    "question": "The vector of river blindness (onchocerciasis) is:",
-    "options": ["Mosquito", "Blackfly", "Tsetse fly", "Snail"],
-    "answer": "Blackfly",
-    "explanation": "Simulium species transmits Onchocerca volvulus larvae."
-  },
-  {
-    "question": "The mode of nutrition in Plasmodium is:",
-    "options": ["Autotrophic", "Saprophytic", "Parasitic", "Holozoic"],
-    "answer": "Parasitic",
-    "explanation": "Endoparasite in human liver and RBCs."
-  },
-  {
-    "question": "The green pigment in plants that absorbs light is:",
-    "options": ["Haemoglobin", "Chlorophyll", "Carotene", "Xanthophyll"],
-    "answer": "Chlorophyll",
-    "explanation": "Mainly chlorophyll a and b absorb red/blue light."
-  },
-  {
-    "question": "The part of the brain that controls voluntary actions is:",
-    "options": ["Medulla oblongata", "Cerebellum", "Cerebrum", "Hypothalamus"],
-    "answer": "Cerebrum",
-    "explanation": "Cerebral cortex controls conscious activities."
-  },
-  {
-    "question": "The hormone that regulates blood calcium level is:",
-    "options": ["Insulin", "Thyroxine", "Parathormone", "Adrenaline"],
-    "answer": "Parathormone",
-    "explanation": "Parathyroid hormone increases blood Ca²⁺."
-  },
-  {
-    "question": "Water movement from soil to root hairs occurs mainly by:",
-    "options": ["Active transport", "Osmosis", "Diffusion", "Transpiration pull"],
-    "answer": "Osmosis",
-    "explanation": "Water moves down concentration gradient into root hairs."
-  },
-  {
-    "question": "The excretory product of birds is mainly:",
-    "options": ["Urea", "Uric acid", "Ammonia", "Creatinine"],
-    "answer": "Uric acid",
-    "explanation": "Uricotelic — insoluble, conserves water."
-  },
-  {
-    "question": "The type of reproduction in Spirogyra is:",
-    "options": ["Budding", "Fragmentation", "Conjugation", "Binary fission"],
-    "answer": "Conjugation",
-    "explanation": "Sexual reproduction: two filaments exchange genetic material."
-  },
-  {
-    "question": "The causative organism of tuberculosis is:",
-    "options": ["Mycobacterium tuberculosis", "Vibrio cholerae", "Plasmodium", "Salmonella"],
-    "answer": "Mycobacterium tuberculosis",
-    "explanation": "Acid-fast bacillus transmitted by airborne droplets."
-  },
-  {
-    "question": "The organelle that stores genetic information is:",
-    "options": ["Mitochondrion", "Nucleus", "Chloroplast", "Ribosome"],
-    "answer": "Nucleus",
-    "explanation": "Contains DNA in chromosomes."
-  },
-  {
-    "question": "The process by which nitrates are converted to nitrogen gas is:",
-    "options": ["Nitrification", "Nitrogen fixation", "Denitrification", "Ammonification"],
-    "answer": "Denitrification",
-    "explanation": "By denitrifying bacteria (returns N₂ to atmosphere)."
-  },
-  {
-    "question": "In a food chain, energy transfer between trophic levels is approximately:",
-    "options": ["100%", "50%", "10%", "1%"],
-    "answer": "10%",
-    "explanation": "Lindeman's 10% law of energy transfer."
-  },
-  {
-    "question": "The ultimate source of energy for Earth's ecosystems is:",
-    "options": ["Chemical energy", "Sunlight", "Geothermal energy", "Nuclear energy"],
-    "answer": "Sunlight",
-    "explanation": "Photosynthesis converts solar energy to chemical energy."
-  },
-  {
-    "question": "The pollutant that causes eutrophication in water bodies is:",
-    "options": ["Carbon monoxide", "Nitrate and phosphate", "Sulphur dioxide", "Particulates"],
-    "answer": "Nitrate and phosphate",
-    "explanation": "Fertilizers cause algal bloom → oxygen depletion."
-  },
-  {
-    "question": "The vector of bilharziasis (schistosomiasis) is:",
-    "options": ["Mosquito", "Freshwater snail", "Tsetse fly", "Blackfly"],
-    "answer": "Freshwater snail",
-    "explanation": "Bulinus or Biomphalaria snails host Schistosoma larvae."
-  },
-  {
-    "question": "The hormone responsible for ovulation is:",
-    "options": ["FSH", "LH", "Progesterone", "Oestrogen"],
-    "answer": "LH",
-    "explanation": "Luteinizing hormone surge triggers ovulation."
-  },
-  {
-    "question": "The functional unit of the kidney is:",
-    "options": ["Neuron", "Nephron", "Alveolus", "Villus"],
-    "answer": "Nephron",
-    "explanation": "Filters blood and forms urine."
-  },
-  {
-    "question": "The process of breathing in humans involves:",
-    "options": ["Inspiration and expiration", "Photosynthesis", "Digestion", "Excretion"],
-    "answer": "Inspiration and expiration",
-    "explanation": "Mechanical ventilation: diaphragm and intercostal muscles."
-  },
-  {
-    "question": "The blood vessel carrying deoxygenated blood to the lungs is:",
-    "options": ["Pulmonary vein", "Pulmonary artery", "Aorta", "Vena cava"],
-    "answer": "Pulmonary artery",
-    "explanation": "Only artery carrying deoxygenated blood."
-  },
-  {
-    "question": "The enzyme that breaks down fats in the small intestine is:",
-    "options": ["Amylase", "Lipase", "Pepsin", "Trypsin"],
-    "answer": "Lipase",
-    "explanation": "Pancreatic lipase emulsifies and hydrolyzes triglycerides."
-  },
-  {
-    "question": "The mode of nutrition in Rhizopus is:",
-    "options": ["Autotrophic", "Saprophytic", "Parasitic", "Holozoic"],
-    "answer": "Saprophytic",
-    "explanation": "Absorbs nutrients from dead organic matter."
-  },
-  {
-    "question": "The part of the brain that regulates body temperature is:",
-    "options": ["Cerebellum", "Medulla oblongata", "Hypothalamus", "Cerebrum"],
-    "answer": "Hypothalamus",
-    "explanation": "Thermoregulatory centre."
-  },
-  {
-    "question": "The deficiency disease caused by lack of vitamin C is:",
-    "options": ["Rickets", "Scurvy", "Beri-beri", "Pellagra"],
-    "answer": "Scurvy",
-    "explanation": "Poor collagen synthesis → bleeding gums, poor healing."
-  },
-  {
-    "question": "The raw materials for photosynthesis are:",
-    "options": ["Glucose and oxygen", "Carbon dioxide and water", "Chlorophyll and light", "Starch and CO₂"],
-    "answer": "Carbon dioxide and water",
-    "explanation": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
-  },
-  {
-    "question": "The causative organism of gonorrhoea is:",
-    "options": ["Neisseria gonorrhoeae", "Treponema pallidum", "Chlamydia trachomatis", "Escherichia coli"],
-    "answer": "Neisseria gonorrhoeae",
-    "explanation": "Bacterial STI transmitted sexually."
-  },
-  {
-    "question": "The organelle that produces ATP is:",
-    "options": ["Nucleus", "Mitochondrion", "Chloroplast", "Lysosome"],
-    "answer": "Mitochondrion",
-    "explanation": "Site of cellular respiration (Krebs cycle & ETC)."
-  },
-  {
-    "question": "The type of variation shown by tongue rolling is:",
-    "options": ["Continuous", "Discontinuous", "Environmental", "Acquired"],
-    "answer": "Discontinuous",
-    "explanation": "Single gene trait (dominant/recessive)."
-  },
-  {
-    "question": "A person with blood group O can receive blood from:",
-    "options": ["A only", "B only", "AB only", "O only"],
-    "answer": "O only",
-    "explanation": "No antigens → only O (no anti-O antibodies)."
-  },
-  {
-    "question": "The vector of elephantiasis (filariasis) is:",
-    "options": ["Anopheles mosquito", "Culex mosquito", "Tsetse fly", "Blackfly"],
-    "answer": "Culex mosquito",
-    "explanation": "Transmits Wuchereria bancrofti."
-  },
-  {
-    "question": "The mode of nutrition in Euglena is:",
-    "options": ["Autotrophic only", "Heterotrophic only", "Mixotrophic", "Parasitic"],
-    "answer": "Mixotrophic",
-    "explanation": "Photosynthesis in light; holozoic in dark."
-  },
-  {
-    "question": "The part of the flower that becomes the seed is:",
-    "options": ["Ovary", "Ovule", "Stigma", "Anther"],
-    "answer": "Ovule",
-    "explanation": "Fertilized ovule → seed."
-  },
-  {
-    "question": "The hormone that promotes cell elongation in plants is:",
-    "options": ["Auxin", "Gibberellin", "Cytokinin", "Abscisic acid"],
+    "question": "The hormone that causes apical dominance is",
+    "options": ["Gibberellin", "Auxin", "Cytokinin", "Abscisic acid"],
     "answer": "Auxin",
-    "explanation": "Promotes apical dominance and phototropism."
+    "explanation": "Auxin inhibits lateral bud growth."
   },
   {
-    "question": "The process by which DNA is copied is:",
-    "options": ["Transcription", "Translation", "Replication", "Mutation"],
-    "answer": "Replication",
-    "explanation": "Semi-conservative DNA synthesis before cell division."
+    "question": "The process by which protein is made from mRNA is",
+    "options": ["Replication", "Transcription", "Translation", "Mutation"],
+    "answer": "Translation",
+    "explanation": "Ribosomes translate mRNA into polypeptide chain."
   },
   {
-    "question": "The organelle absent in prokaryotes is:",
-    "options": ["Ribosome", "Cell membrane", "Nucleus", "Cytoplasm"],
-    "answer": "Nucleus",
-    "explanation": "Prokaryotes have nucleoid, no membrane-bound nucleus."
+    "question": "The organelle present in both plant and animal cells is",
+    "options": ["Chloroplast", "Mitochondrion", "Cell wall", "Plastid"],
+    "answer": "Mitochondrion",
+    "explanation": "Both have mitochondria for respiration."
   },
   {
-    "question": "The causative organism of cholera is:",
-    "options": ["Vibrio cholerae", "Plasmodium", "Trypanosoma", "Salmonella"],
-    "answer": "Vibrio cholerae",
-    "explanation": "Bacterial infection via contaminated water/food."
+    "question": "The causative organism of pneumonia is",
+    "options": ["Streptococcus pneumoniae", "Vibrio cholerae", "Salmonella typhi", "Mycobacterium tuberculosis"],
+    "answer": "Streptococcus pneumoniae",
+    "explanation": "Bacterial infection of lungs."
   },
   {
-    "question": "The part of the ear that converts sound vibrations to nerve impulses is:",
-    "options": ["Eardrum", "Cochlea", "Semicircular canals", "Auditory nerve"],
+    "question": "The part of the ear that detects sound frequency is",
+    "options": ["Semicircular canals", "Cochlea", "Utricle", "Eardrum"],
     "answer": "Cochlea",
-    "explanation": "Organ of Corti in cochlea contains hair cells."
+    "explanation": "Cochlea contains organ of Corti with hair cells for sound."
   }
 [
   {
-    "question": "The cell theory was first proposed by",
-    "options": ["Schleiden and Schwann", "Hooke and Leeuwenhoek", "Watson and Crick", "Mendel and Darwin"],
-    "answer": "Schleiden and Schwann",
-    "explanation": "1838–1839: Schleiden (plants) and Schwann (animals) — all living things are made of cells."
+    "question": "The cell organelle that is the site of cellular respiration is",
+    "options": ["Golgi apparatus", "Mitochondrion", "Lysosome", "Ribosome"],
+    "answer": "Mitochondrion",
+    "explanation": "Mitochondria generate ATP through the Krebs cycle and electron transport chain."
   },
   {
-    "question": "The fluid mosaic model of the cell membrane was proposed by",
-    "options": ["Singer and Nicolson", "Davson and Danielli", "Gorter and Grendel", "Robertson"],
-    "answer": "Singer and Nicolson",
-    "explanation": "1972 — proteins embedded in a phospholipid bilayer like a mosaic."
+    "question": "The process by which cells take in molecules by forming vesicles is called",
+    "options": ["Diffusion", "Endocytosis", "Exocytosis", "Osmosis"],
+    "answer": "Endocytosis",
+    "explanation": "Endocytosis — invagination of plasma membrane to engulf substances (e.g., phagocytosis, pinocytosis)."
   },
   {
-    "question": "The organelle that detoxifies harmful substances in liver cells is",
-    "options": ["Lysosome", "Smooth ER", "Rough ER", "Peroxisome"],
-    "answer": "Smooth ER",
-    "explanation": "Smooth endoplasmic reticulum in liver cells contains enzymes for detoxification (e.g., alcohol, drugs)."
-  },
-  {
-    "question": "The process by which large molecules are expelled from the cell is called",
-    "options": ["Phagocytosis", "Exocytosis", "Pinocytosis", "Osmosis"],
-    "answer": "Exocytosis",
-    "explanation": "Vesicles fuse with plasma membrane to release contents outside (e.g., insulin secretion)."
-  },
-  {
-    "question": "The site of protein modification and packaging in the cell is",
-    "options": ["Ribosome", "Golgi apparatus", "Mitochondrion", "Nucleus"],
-    "answer": "Golgi apparatus",
-    "explanation": "Golgi modifies proteins from rough ER and packages them into vesicles."
-  },
-  {
-    "question": "The organelle responsible for lipid synthesis is",
-    "options": ["Rough ER", "Smooth ER", "Golgi apparatus", "Lysosome"],
-    "answer": "Smooth ER",
-    "explanation": "Smooth ER synthesizes lipids (steroids, phospholipids) and detoxifies drugs."
-  },
-  {
-    "question": "The endosymbiotic theory explains the origin of",
-    "options": ["Nucleus", "Mitochondria and chloroplasts", "Ribosomes", "Golgi apparatus"],
-    "answer": "Mitochondria and chloroplasts",
-    "explanation": "Mitochondria and chloroplasts were once free-living bacteria engulfed by ancestral eukaryotic cell."
-  },
-  {
-    "question": "The stage of mitosis where chromosomes line up at the equator is",
+    "question": "The phase of mitosis where the spindle fibres attach to kinetochores is",
     "options": ["Prophase", "Metaphase", "Anaphase", "Telophase"],
     "answer": "Metaphase",
-    "explanation": "Metaphase — chromosomes align at metaphase plate."
+    "explanation": "Metaphase — kinetochore microtubules attach to centromeres."
   },
   {
-    "question": "Crossing over occurs during",
-    "options": ["Mitosis", "Meiosis I", "Meiosis II", "Interphase"],
-    "answer": "Meiosis I",
-    "explanation": "Prophase I of meiosis — homologous chromosomes exchange genetic material."
+    "question": "The cell division that produces identical daughter cells is",
+    "options": ["Meiosis", "Mitosis", "Binary fission", "Budding"],
+    "answer": "Mitosis",
+    "explanation": "Mitosis — for growth/repair; produces two diploid cells identical to parent."
   },
   {
-    "question": "The number of chromosomes in a human gamete is",
-    "options": ["46", "23", "44", "22"],
+    "question": "The number of chromosomes in a human ovum is",
+    "options": ["46", "23", "92", "44"],
     "answer": "23",
-    "explanation": "Haploid number (n = 23) in sperm and egg."
+    "explanation": "Gametes are haploid (n = 23)."
   },
   {
-    "question": "The mode of nutrition in Rhizopus is",
+    "question": "The mode of nutrition in Mucor is",
     "options": ["Autotrophic", "Saprophytic", "Parasitic", "Holozoic"],
     "answer": "Saprophytic",
-    "explanation": "Bread mould absorbs nutrients from dead organic matter."
+    "explanation": "Mould fungus absorbs nutrients from dead organic matter."
   },
   {
-    "question": "The vector of filariasis (elephantiasis) is",
-    "options": ["Anopheles mosquito", "Culex mosquito", "Tsetse fly", "Blackfly"],
+    "question": "The vector of West Nile virus is",
+    "options": ["Anopheles mosquito", "Culex mosquito", "Aedes mosquito", "Tsetse fly"],
     "answer": "Culex mosquito",
-    "explanation": "Culex transmits Wuchereria bancrofti."
+    "explanation": "Culex species transmits West Nile virus."
   },
   {
-    "question": "The causative organism of malaria is",
-    "options": ["Trypanosoma", "Plasmodium", "Entamoeba", "Schistosoma"],
-    "answer": "Plasmodium",
-    "explanation": "Plasmodium falciparum, vivax, malariae, ovale transmitted by Anopheles."
+    "question": "The causative organism of Ebola is",
+    "options": ["Virus", "Bacterium", "Protozoan", "Fungus"],
+    "answer": "Virus",
+    "explanation": "Ebolavirus (Filoviridae) — haemorrhagic fever transmitted by body fluids."
   },
   {
-    "question": "The part of the flower that develops into the fruit wall is",
-    "options": ["Ovule", "Ovary wall", "Stigma", "Style"],
-    "answer": "Ovary wall",
-    "explanation": "Ovary → fruit; ovule → seed."
+    "question": "The part of the flower that protects the bud is",
+    "options": ["Petal", "Sepal", "Stamen", "Carpel"],
+    "answer": "Sepal",
+    "explanation": "Sepals (calyx) enclose and protect developing flower bud."
   },
   {
-    "question": "The hormone that induces fruit ripening is",
-    "options": ["Auxin", "Gibberellin", "Ethylene", "Cytokinin"],
-    "answer": "Ethylene",
-    "explanation": "Ethylene (gaseous hormone) triggers ripening in climacteric fruits."
+    "question": "The plant hormone that delays senescence is",
+    "options": ["Auxin", "Gibberellin", "Cytokinin", "Ethylene"],
+    "answer": "Cytokinin",
+    "explanation": "Cytokinins promote cell division and delay leaf ageing."
   },
   {
-    "question": "The process of shedding old skin in insects is called",
-    "options": ["Metamorphosis", "Ecdysis", "Molting", "Both B and C"],
-    "answer": "Both B and C",
-    "explanation": "Ecdysis = molting = shedding exoskeleton in arthropods."
-  },
-  {
-    "question": "The respiratory organ in fish is",
-    "options": ["Lungs", "Gills", "Skin", "Trachea"],
+    "question": "The respiratory organ in crayfish is",
+    "options": ["Gills", "Lungs", "Moist skin", "Trachea"],
     "answer": "Gills",
-    "explanation": "Gills extract dissolved oxygen from water."
+    "explanation": "Branchial gills in crustaceans for aquatic respiration."
   },
   {
-    "question": "The excretory organ in flatworms is",
-    "options": ["Nephridia", "Flame cells", "Malpighian tubules", "Kidney"],
-    "answer": "Flame cells",
-    "explanation": "Protonephridia with flame cells in Platyhelminthes."
+    "question": "The deficiency of vitamin B2 causes",
+    "options": ["Riboflavinosis", "Pellagra", "Beri-beri", "Night blindness"],
+    "answer": "Riboflavinosis",
+    "explanation": "Riboflavin deficiency → ariboflavinosis (cracked lips, sore throat)."
   },
   {
-    "question": "The hormone that stimulates milk production in mammals is",
-    "options": ["Prolactin", "Oxytocin", "Oestrogen", "Progesterone"],
-    "answer": "Prolactin",
-    "explanation": "Prolactin (from anterior pituitary) stimulates milk synthesis."
+    "question": "The enzyme that converts peptides to amino acids in the small intestine is",
+    "options": ["Pepsin", "Erepsin", "Amylase", "Lipase"],
+    "answer": "Erepsin",
+    "explanation": "Intestinal erepsin (peptidases) completes protein digestion."
   },
   {
-    "question": "The process by which plants lose water as liquid droplets is",
-    "options": ["Transpiration", "Guttation", "Evaporation", "Osmosis"],
-    "answer": "Guttation",
-    "explanation": "Guttation — root pressure forces water out through hydathodes."
+    "question": "The part of the brain that regulates sleep-wake cycles is",
+    "options": ["Cerebrum", "Cerebellum", "Hypothalamus", "Medulla oblongata"],
+    "answer": "Hypothalamus",
+    "explanation": "Suprachiasmatic nucleus in hypothalamus controls circadian rhythms."
   },
   {
-    "question": "The vitamin that prevents night blindness is",
+    "question": "The hormone that prepares the uterus for implantation is",
+    "options": ["FSH", "LH", "Progesterone", "Oestrogen"],
+    "answer": "Progesterone",
+    "explanation": "Progesterone maintains endometrium after ovulation."
+  },
+  {
+    "question": "The main force responsible for phloem transport is",
+    "options": ["Root pressure", "Transpiration pull", "Mass flow", "Diffusion"],
+    "answer": "Mass flow",
+    "explanation": "Pressure-flow hypothesis — sugars loaded/unloaded create pressure gradient."
+  },
+  {
+    "question": "The excretory product of freshwater fish is",
+    "options": ["Uric acid", "Urea", "Ammonia", "Creatinine"],
+    "answer": "Ammonia",
+    "explanation": "Ammonotelic — dilute ammonia excreted in large volumes of urine."
+  },
+  {
+    "question": "The type of metamorphosis in housefly is",
+    "options": ["Incomplete", "Complete", "No metamorphosis", "Hypermetamorphosis"],
+    "answer": "Complete",
+    "explanation": "Holometabolous — egg → larva (maggot) → pupa → adult."
+  },
+  {
+    "question": "The respiratory organ in millipede is",
+    "options": ["Gills", "Book lungs", "Tracheae", "Skin"],
+    "answer": "Tracheae",
+    "explanation": "Tracheal system in myriapods with spiracles."
+  },
+  {
+    "question": "The vitamin that prevents rickets is",
     "options": ["Vitamin A", "Vitamin B1", "Vitamin C", "Vitamin D"],
-    "answer": "Vitamin A",
-    "explanation": "Vitamin A (retinol) is needed for rhodopsin in rods."
+    "answer": "Vitamin D",
+    "explanation": "Vitamin D promotes calcium absorption; deficiency → soft bones."
   },
   {
-    "question": "The deficiency of iodine causes",
-    "options": ["Goitre", "Rickets", "Scurvy", "Beri-beri"],
-    "answer": "Goitre",
-    "explanation": "Iodine needed for thyroxine; deficiency → thyroid enlargement."
+    "question": "The deficiency of vitamin B9 causes",
+    "options": ["Folate deficiency anaemia", "Rickets", "Scurvy", "Beri-beri"],
+    "answer": "Folate deficiency anaemia",
+    "explanation": "Folic acid deficiency → megaloblastic anaemia, neural tube defects."
   },
   {
-    "question": "The enzyme that converts starch to maltose is",
-    "options": ["Pepsin", "Amylase", "Lipase", "Trypsin"],
-    "answer": "Amylase",
-    "explanation": "Salivary and pancreatic amylase hydrolyse starch."
+    "question": "The process of forming glucose from non-carbohydrate sources is",
+    "options": ["Glycogenesis", "Glycogenolysis", "Gluconeogenesis", "Glycolysis"],
+    "answer": "Gluconeogenesis",
+    "explanation": "Synthesis of glucose from amino acids, glycerol, lactate."
   },
   {
-    "question": "The part of the brain that controls involuntary actions like heartbeat is",
-    "options": ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hypothalamus"],
-    "answer": "Medulla oblongata",
-    "explanation": "Medulla controls cardiac centre, respiratory centre, etc."
+    "question": "The causative organism of poliomyelitis is",
+    "options": ["Poliovirus", "Rubella virus", "Varicella zoster", "Rhinovirus"],
+    "answer": "Poliovirus",
+    "explanation": "Enterovirus causing paralysis; prevented by OPV/IPV vaccine."
   },
   {
-    "question": "The functional unit of the kidney that filters blood is",
-    "options": ["Neuron", "Nephron", "Alveolus", "Villus"],
-    "answer": "Nephron",
-    "explanation": "Nephron = glomerulus + renal tubule."
+    "question": "The organelle that helps in intracellular digestion is",
+    "options": ["Centriole", "Lysosome", "Ribosome", "Golgi apparatus"],
+    "answer": "Lysosome",
+    "explanation": "Lysosomes contain hydrolytic enzymes."
   },
   {
-    "question": "The hormone that increases blood sugar level is",
-    "options": ["Insulin", "Glucagon", "Adrenaline", "Thyroxine"],
-    "answer": "Glucagon",
-    "explanation": "Glucagon (from alpha cells of pancreas) stimulates glycogenolysis."
+    "question": "The type of variation that is not heritable is",
+    "options": ["Genetic", "Continuous", "Environmental", "Discontinuous"],
+    "answer": "Environmental",
+    "explanation": "Environmental variation = phenotypic changes due to environment (not passed to offspring)."
   },
   {
-    "question": "The mode of nutrition in Plasmodium is",
-    "options": ["Autotrophic", "Saprophytic", "Parasitic", "Holozoic"],
+    "question": "The blood group that has anti-A antibodies is",
+    "options": ["A", "B", "AB", "O"],
+    "answer": "B",
+    "explanation": "Group B has anti-A antibodies in plasma."
+  },
+  {
+    "question": "The vector of kala-azar (leishmaniasis) is",
+    "options": ["Mosquito", "Sandfly", "Tsetse fly", "Blackfly"],
+    "answer": "Sandfly",
+    "explanation": "Phlebotomus sandfly transmits Leishmania parasite."
+  },
+  {
+    "question": "The mode of nutrition in Trypanosoma is",
+    "options": ["Autotrophic", "Holozoic", "Saprophytic", "Parasitic"],
     "answer": "Parasitic",
-    "explanation": "Endoparasite in human liver and red blood cells."
+    "explanation": "Absorbs nutrients from host blood via body surface."
   },
   {
-    "question": "The vector of river blindness (onchocerciasis) is",
-    "options": ["Anopheles mosquito", "Blackfly", "Tsetse fly", "Snail"],
-    "answer": "Blackfly",
-    "explanation": "Simulium species transmits Onchocerca volvulus."
+    "question": "The part of the flower that is the site of pollen production is",
+    "options": ["Ovary", "Anther", "Stigma", "Style"],
+    "answer": "Anther",
+    "explanation": "Anther contains microsporangia for pollen."
+  },
+  {
+    "question": "The hormone that promotes seed germination is",
+    "options": ["Auxin", "Gibberellin", "Abscisic acid", "Ethylene"],
+    "answer": "Gibberellin",
+    "explanation": "Gibberellins stimulate amylase synthesis in aleurone layer."
+  },
+  {
+    "question": "The process by which DNA is converted to mRNA is",
+    "options": ["Replication", "Transcription", "Translation", "Mutation"],
+    "answer": "Transcription",
+    "explanation": "Transcription occurs in nucleus (DNA → mRNA)."
+  },
+  {
+    "question": "The organelle that is self-replicating is",
+    "options": ["Ribosome", "Mitochondrion", "Golgi apparatus", "Lysosome"],
+    "answer": "Mitochondrion",
+    "explanation": "Mitochondria divide independently (binary fission)."
+  },
+  {
+    "question": "The causative organism of tetanus is",
+    "options": ["Clostridium tetani", "Vibrio cholerae", "Salmonella typhi", "Mycobacterium tuberculosis"],
+    "answer": "Clostridium tetani",
+    "explanation": "Spore-forming bacterium in soil; causes lockjaw."
+  },
+  {
+    "question": "The part of the ear that amplifies sound vibrations is",
+    "options": ["Eardrum", "Ossicles (malleus, incus, stapes)", "Cochlea", "Auditory tube"],
+    "answer": "Ossicles (malleus, incus, stapes)",
+    "explanation": "Middle ear ossicles amplify and transmit vibrations to oval window."
+  }
+[
+  {
+    "question": "The basic unit of life according to cell theory is the",
+    "options": ["Atom", "Molecule", "Cell", "Tissue"],
+    "answer": "Cell",
+    "explanation": "Cell theory states that all living organisms are composed of cells, the cell is the basic unit of life, and cells arise from pre-existing cells."
+  },
+  {
+    "question": "The organelle that contains chlorophyll and is the site of photosynthesis is the",
+    "options": ["Mitochondrion", "Chloroplast", "Nucleus", "Vacuole"],
+    "answer": "Chloroplast",
+    "explanation": "Chloroplasts contain chlorophyll and are found only in plant cells and some protists."
+  },
+  {
+    "question": "The process by which organisms convert glucose into energy in the presence of oxygen is called",
+    "options": ["Fermentation", "Aerobic respiration", "Photosynthesis", "Transpiration"],
+    "answer": "Aerobic respiration",
+    "explanation": "Aerobic respiration: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy (ATP)."
+  },
+  {
+    "question": "The part of the plant cell that provides rigidity and support is the",
+    "options": ["Cell membrane", "Cell wall", "Cytoplasm", "Nucleus"],
+    "answer": "Cell wall",
+    "explanation": "Cell wall (made of cellulose in plants) provides structural support and protection."
+  },
+  {
+    "question": "The movement of water across a semi-permeable membrane from a region of high water concentration to low is called",
+    "options": ["Diffusion", "Osmosis", "Active transport", "Phagocytosis"],
+    "answer": "Osmosis",
+    "explanation": "Osmosis is the passive movement of water molecules across a selectively permeable membrane."
+  },
+  {
+    "question": "The pigment responsible for the red colour in tomatoes is",
+    "options": ["Chlorophyll", "Carotene", "Xanthophyll", "Lycopene"],
+    "answer": "Lycopene",
+    "explanation": "Lycopene is a carotenoid pigment responsible for red colour in tomatoes and watermelons."
+  },
+  {
+    "question": "The process by which green plants make their food is called",
+    "options": ["Respiration", "Photosynthesis", "Transpiration", "Digestion"],
+    "answer": "Photosynthesis",
+    "explanation": "Photosynthesis: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (light energy + chlorophyll)."
+  },
+  {
+    "question": "The organelle that stores water, food, and waste in plant cells is the",
+    "options": ["Mitochondrion", "Vacuole", "Lysosome", "Ribosome"],
+    "answer": "Vacuole",
+    "explanation": "Large central vacuole in plant cells maintains turgor pressure and stores substances."
+  },
+  {
+    "question": "The type of cell division that produces gametes is",
+    "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
+    "answer": "Meiosis",
+    "explanation": "Meiosis reduces chromosome number by half (haploid gametes)."
+  },
+  {
+    "question": "The number of chromosomes in a human body cell is",
+    "options": ["23", "46", "92", "44"],
+    "answer": "46",
+    "explanation": "Humans are diploid (2n = 46) in somatic cells."
+  },
+  {
+    "question": "The mode of nutrition in green plants is",
+    "options": ["Heterotrophic", "Autotrophic", "Saprophytic", "Parasitic"],
+    "answer": "Autotrophic",
+    "explanation": "Green plants make their own food via photosynthesis."
+  },
+  {
+    "question": "The vector of dengue fever is",
+    "options": ["Anopheles mosquito", "Aedes mosquito", "Culex mosquito", "Tsetse fly"],
+    "answer": "Aedes mosquito",
+    "explanation": "Aedes aegypti transmits dengue virus."
   },
   {
     "question": "The causative organism of sleeping sickness is",
@@ -752,13 +488,507 @@
     "explanation": "Trypanosoma brucei transmitted by tsetse fly."
   },
   {
-    "question": "The process of nitrogen fixation is carried out by",
-    "options": ["Nitrifying bacteria", "Denitrifying bacteria", "Rhizobium and Azotobacter", "All of the above"],
-    "answer": "Rhizobium and Azotobacter",
-    "explanation": "Nitrogen-fixing bacteria convert N₂ to nitrates."
+    "question": "The part of the flower that receives pollen grains is the",
+    "options": ["Ovary", "Stigma", "Style", "Anther"],
+    "answer": "Stigma",
+    "explanation": "Stigma is sticky and traps pollen during pollination."
   },
   {
-    "question": "The pyramid that is always upright in an ecosystem is",
+    "question": "The plant hormone that causes fruit ripening is",
+    "options": ["Auxin", "Gibberellin", "Ethylene", "Cytokinin"],
+    "answer": "Ethylene",
+    "explanation": "Ethylene (gaseous hormone) triggers ripening in climacteric fruits."
+  },
+  {
+    "question": "The respiratory organ in frog tadpoles is",
+    "options": ["Lungs", "Gills", "Skin", "Trachea"],
+    "answer": "Gills",
+    "explanation": "Tadpoles are aquatic and use gills; adults use lungs and skin."
+  },
+  {
+    "question": "The deficiency of vitamin C causes",
+    "options": ["Rickets", "Scurvy", "Beri-beri", "Night blindness"],
+    "answer": "Scurvy",
+    "explanation": "Vitamin C needed for collagen synthesis; deficiency → bleeding gums, poor wound healing."
+  },
+  {
+    "question": "The enzyme that breaks down fats into fatty acids and glycerol is",
+    "options": ["Amylase", "Lipase", "Pepsin", "Trypsin"],
+    "answer": "Lipase",
+    "explanation": "Lipase hydrolyses lipids (fats/oils)."
+  },
+  {
+    "question": "The part of the brain that controls body temperature is",
+    "options": ["Cerebrum", "Cerebellum", "Hypothalamus", "Medulla oblongata"],
+    "answer": "Hypothalamus",
+    "explanation": "Hypothalamus acts as thermostat for thermoregulation."
+  },
+  {
+    "question": "The hormone that lowers blood sugar level is",
+    "options": ["Glucagon", "Insulin", "Adrenaline", "Thyroxine"],
+    "answer": "Insulin",
+    "explanation": "Insulin promotes glucose uptake into cells and glycogenesis."
+  },
+  {
+    "question": "The force responsible for upward movement of water in xylem is mainly",
+    "options": ["Root pressure", "Transpiration pull", "Active transport", "Osmosis"],
+    "answer": "Transpiration pull",
+    "explanation": "Cohesion-tension theory — transpiration creates negative pressure in xylem."
+  },
+  {
+    "question": "The excretory product of reptiles and birds is mainly",
+    "options": ["Urea", "Uric acid", "Ammonia", "Creatinine"],
+    "answer": "Uric acid",
+    "explanation": "Uricotelic — uric acid is insoluble and conserves water."
+  },
+  {
+    "question": "The type of metamorphosis in grasshopper is",
+    "options": ["Complete", "Incomplete", "No metamorphosis", "Hypermetamorphosis"],
+    "answer": "Incomplete",
+    "explanation": "Hemimetabolous — egg → nymph → adult (nymph resembles adult)."
+  },
+  {
+    "question": "The respiratory organ in insects is",
+    "options": ["Gills", "Lungs", "Tracheae", "Book lungs"],
+    "answer": "Tracheae",
+    "explanation": "Tracheal system — air tubes open through spiracles."
+  },
+  {
+    "question": "The vitamin that prevents scurvy is",
+    "options": ["Vitamin A", "Vitamin B1", "Vitamin C", "Vitamin D"],
+    "answer": "Vitamin C",
+    "explanation": "Ascorbic acid needed for collagen synthesis."
+  },
+  {
+    "question": "The deficiency of vitamin D causes",
+    "options": ["Scurvy", "Rickets", "Beri-beri", "Pellagra"],
+    "answer": "Rickets",
+    "explanation": "Vitamin D deficiency → poor calcium absorption → soft bones."
+  },
+  {
+    "question": "The process of breakdown of glucose to pyruvate is called",
+    "options": ["Krebs cycle", "Glycolysis", "Electron transport chain", "Gluconeogenesis"],
+    "answer": "Glycolysis",
+    "explanation": "Glycolysis occurs in cytoplasm; anaerobic step."
+  },
+  {
+    "question": "The causative organism of measles is",
+    "options": ["Bacterium", "Virus", "Protozoan", "Fungus"],
+    "answer": "Virus",
+    "explanation": "Measles virus (Paramyxovirus) — highly contagious."
+  },
+  {
+    "question": "The organelle that is involved in cell division in animal cells is",
+    "options": ["Centriole", "Lysosome", "Ribosome", "Golgi apparatus"],
+    "answer": "Centriole",
+    "explanation": "Centrioles organize spindle fibres during mitosis."
+  },
+  {
+    "question": "The type of variation that is controlled by one or few genes is",
+    "options": ["Continuous", "Discontinuous", "Environmental", "Acquired"],
+    "answer": "Discontinuous",
+    "explanation": "Discontinuous variation — discrete classes (e.g., blood groups)."
+  },
+  {
+    "question": "The blood group that can receive blood from all groups is",
+    "options": ["A", "B", "AB", "O"],
+    "answer": "AB",
+    "explanation": "AB has no anti-A or anti-B antibodies (universal recipient)."
+  },
+  {
+    "question": "The vector of leishmaniasis (kala-azar) is",
+    "options": ["Mosquito", "Sandfly", "Tsetse fly", "Blackfly"],
+    "answer": "Sandfly",
+    "explanation": "Phlebotomus sandfly transmits Leishmania parasite."
+  },
+  {
+    "question": "The mode of nutrition in Plasmodium is",
+    "options": ["Autotrophic", "Saprophytic", "Parasitic", "Holozoic"],
+    "answer": "Parasitic",
+    "explanation": "Plasmodium is an endoparasite in human liver and RBCs."
+  },
+  {
+    "question": "The part of the flower that develops into the seed coat is",
+    "options": ["Ovary wall", "Integument", "Stigma", "Style"],
+    "answer": "Integument",
+    "explanation": "Integuments of ovule become seed coat (testa)."
+  },
+  {
+    "question": "The hormone that causes stomatal closure is",
+    "options": ["Auxin", "Gibberellin", "Abscisic acid", "Cytokinin"],
+    "answer": "Abscisic acid",
+    "explanation": "ABA — stress hormone; closes stomata to reduce water loss."
+  },
+  {
+    "question": "The process by which protein is synthesized from mRNA is",
+    "options": ["Replication", "Transcription", "Translation", "Mutation"],
+    "answer": "Translation",
+    "explanation": "Translation occurs on ribosomes in cytoplasm."
+  },
+  {
+    "question": "The organelle that is absent in animal cells but present in plant cells is",
+    "options": ["Mitochondrion", "Chloroplast", "Ribosome", "Golgi apparatus"],
+    "answer": "Chloroplast",
+    "explanation": "Chloroplasts are for photosynthesis in plants."
+  },
+  {
+    "question": "The causative organism of typhoid is",
+    "options": ["Vibrio cholerae", "Salmonella typhi", "Escherichia coli", "Shigella dysenteriae"],
+    "answer": "Salmonella typhi",
+    "explanation": "Bacterial infection via contaminated food/water."
+  },
+  {
+    "question": "The part of the ear that maintains balance during movement is",
+    "options": ["Cochlea", "Semicircular canals", "Eardrum", "Auditory nerve"],
+    "answer": "Semicircular canals",
+    "explanation": "Semicircular canals detect rotational acceleration."
+  }
+[
+  {
+    "question": "The basic structural and functional unit of all living organisms is the",
+    "options": ["Atom", "Cell", "Molecule", "Tissue"],
+    "answer": "Cell",
+    "explanation": "Cell is the fundamental unit of life (cell theory)."
+  },
+  {
+    "question": "The organelle that is the site of protein synthesis is the",
+    "options": ["Mitochondrion", "Ribosome", "Golgi apparatus", "Lysosome"],
+    "answer": "Ribosome",
+    "explanation": "Ribosomes translate mRNA into polypeptide chains."
+  },
+  {
+    "question": "The green pigment responsible for photosynthesis is",
+    "options": ["Haemoglobin", "Chlorophyll", "Melanin", "Carotene"],
+    "answer": "Chlorophyll",
+    "explanation": "Chlorophyll absorbs light energy for photosynthesis."
+  },
+  {
+    "question": "The process by which water moves across a semi-permeable membrane is called",
+    "options": ["Diffusion", "Osmosis", "Active transport", "Phagocytosis"],
+    "answer": "Osmosis",
+    "explanation": "Osmosis is the passive movement of water from high to low water potential."
+  },
+  {
+    "question": "The organelle that produces energy in the form of ATP is the",
+    "options": ["Nucleus", "Mitochondrion", "Chloroplast", "Vacuole"],
+    "answer": "Mitochondrion",
+    "explanation": "Mitochondria are the powerhouse of the cell via aerobic respiration."
+  },
+  {
+    "question": "The mode of nutrition in which organisms make their own food is called",
+    "options": ["Heterotrophic", "Autotrophic", "Saprophytic", "Parasitic"],
+    "answer": "Autotrophic",
+    "explanation": "Autotrophs (e.g., green plants) synthesize food from inorganic substances."
+  },
+  {
+    "question": "The vector that transmits malaria parasite is",
+    "options": ["Tsetse fly", "Female Anopheles mosquito", "Housefly", "Blackfly"],
+    "answer": "Female Anopheles mosquito",
+    "explanation": "Anopheles mosquito transmits Plasmodium during blood meal."
+  },
+  {
+    "question": "The causative organism of cholera is",
+    "options": ["Virus", "Bacterium", "Protozoan", "Fungus"],
+    "answer": "Bacterium",
+    "explanation": "Vibrio cholerae (bacterium) causes cholera via contaminated water."
+  },
+  {
+    "question": "The part of the plant cell that provides rigidity is the",
+    "options": ["Cell membrane", "Cell wall", "Cytoplasm", "Nucleus"],
+    "answer": "Cell wall",
+    "explanation": "Cellulose cell wall gives support and shape in plants."
+  },
+  {
+    "question": "The process by which plants lose water vapour from leaves is called",
+    "options": ["Guttation", "Transpiration", "Osmosis", "Diffusion"],
+    "answer": "Transpiration",
+    "explanation": "Transpiration is loss of water vapour through stomata."
+  },
+  {
+    "question": "The organelle that packages and modifies proteins is the",
+    "options": ["Ribosome", "Golgi apparatus", "Mitochondrion", "Lysosome"],
+    "answer": "Golgi apparatus",
+    "explanation": "Golgi apparatus modifies proteins and packages them into vesicles."
+  },
+  {
+    "question": "The type of cell division that produces gametes is",
+    "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
+    "answer": "Meiosis",
+    "explanation": "Meiosis reduces chromosome number (2n → n) and creates variation."
+  },
+  {
+    "question": "The number of chromosomes in human gametes is",
+    "options": ["46", "23", "92", "44"],
+    "answer": "23",
+    "explanation": "Haploid number (n = 23) in sperm and egg cells."
+  },
+  {
+    "question": "The mode of nutrition in Rhizopus (bread mould) is",
+    "options": ["Autotrophic", "Saprophytic", "Parasitic", "Holozoic"],
+    "answer": "Saprophytic",
+    "explanation": "Absorbs nutrients from dead organic matter."
+  },
+  {
+    "question": "The vector of river blindness (onchocerciasis) is",
+    "options": ["Mosquito", "Blackfly", "Tsetse fly", "Snail"],
+    "answer": "Blackfly",
+    "explanation": "Simulium blackfly transmits Onchocerca volvulus."
+  },
+  {
+    "question": "The causative organism of sleeping sickness is",
+    "options": ["Plasmodium", "Trypanosoma", "Entamoeba", "Schistosoma"],
+    "answer": "Trypanosoma",
+    "explanation": "Trypanosoma brucei transmitted by tsetse fly."
+  },
+  {
+    "question": "The part of the flower that becomes the fruit is",
+    "options": ["Ovule", "Ovary", "Stigma", "Anther"],
+    "answer": "Ovary",
+    "explanation": "Ovary wall develops into fruit after fertilization."
+  },
+  {
+    "question": "The plant hormone that causes fruit ripening is",
+    "options": ["Auxin", "Gibberellin", "Ethylene", "Cytokinin"],
+    "answer": "Ethylene",
+    "explanation": "Ethylene triggers ripening in many fruits."
+  },
+  {
+    "question": "The respiratory organ in adult frog is",
+    "options": ["Gills", "Lungs and skin", "Trachea", "Book lungs"],
+    "answer": "Lungs and skin",
+    "explanation": "Adult frogs use lungs for breathing and skin for cutaneous respiration."
+  },
+  {
+    "question": "The deficiency of vitamin C causes",
+    "options": ["Rickets", "Scurvy", "Beri-beri", "Pellagra"],
+    "answer": "Scurvy",
+    "explanation": "Vitamin C needed for collagen; deficiency → bleeding gums."
+  },
+  {
+    "question": "The enzyme that digests fats is",
+    "options": ["Amylase", "Lipase", "Pepsin", "Trypsin"],
+    "answer": "Lipase",
+    "explanation": "Lipase breaks down triglycerides into fatty acids and glycerol."
+  },
+  {
+    "question": "The part of the brain that controls balance is",
+    "options": ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hypothalamus"],
+    "answer": "Cerebellum",
+    "explanation": "Cerebellum coordinates movement and balance."
+  },
+  {
+    "question": "The hormone that regulates blood sugar level is",
+    "options": ["Adrenaline", "Insulin", "Thyroxine", "Oestrogen"],
+    "answer": "Insulin",
+    "explanation": "Insulin lowers blood glucose by promoting uptake into cells."
+  },
+  {
+    "question": "The main force driving water up xylem in tall trees is",
+    "options": ["Root pressure", "Transpiration pull", "Active transport", "Osmosis"],
+    "answer": "Transpiration pull",
+    "explanation": "Cohesion-tension theory — transpiration creates negative pressure."
+  },
+  {
+    "question": "The excretory product of birds is mainly",
+    "options": ["Urea", "Uric acid", "Ammonia", "Creatinine"],
+    "answer": "Uric acid",
+    "explanation": "Uric acid is insoluble and conserves water."
+  },
+  {
+    "question": "The type of metamorphosis in butterfly is",
+    "options": ["Incomplete", "Complete", "No metamorphosis", "Hypermetamorphosis"],
+    "answer": "Complete",
+    "explanation": "Holometabolous — egg → larva → pupa → adult."
+  },
+  {
+    "question": "The respiratory organ in cockroach is",
+    "options": ["Gills", "Lungs", "Tracheae", "Book lungs"],
+    "answer": "Tracheae",
+    "explanation": "Tracheal system — air tubes with spiracles."
+  },
+  {
+    "question": "The vitamin that prevents night blindness is",
+    "options": ["Vitamin A", "Vitamin B1", "Vitamin C", "Vitamin D"],
+    "answer": "Vitamin A",
+    "explanation": "Retinol needed for rhodopsin in rods."
+  },
+  {
+    "question": "The deficiency of vitamin D causes",
+    "options": ["Scurvy", "Rickets", "Beri-beri", "Pellagra"],
+    "answer": "Rickets",
+    "explanation": "Poor calcium absorption → soft bones."
+  },
+  {
+    "question": "The process of converting pyruvate to acetyl CoA occurs in",
+    "options": ["Cytoplasm", "Mitochondrial matrix", "Ribosome", "Golgi apparatus"],
+    "answer": "Mitochondrial matrix",
+    "explanation": "Link reaction — pyruvate decarboxylated to acetyl CoA."
+  },
+  {
+    "question": "The causative organism of tuberculosis is",
+    "options": ["Mycobacterium tuberculosis", "Vibrio cholerae", "Salmonella typhi", "Escherichia coli"],
+    "answer": "Mycobacterium tuberculosis",
+    "explanation": "Acid-fast bacillus transmitted by airborne droplets."
+  },
+  {
+    "question": "The organelle that is the site of ribosome formation is",
+    "options": ["Nucleolus", "Mitochondrion", "Golgi apparatus", "Lysosome"],
+    "answer": "Nucleolus",
+    "explanation": "Nucleolus assembles ribosomal subunits."
+  },
+  {
+    "question": "The type of variation that shows a normal distribution curve is",
+    "options": ["Discontinuous", "Continuous", "Environmental", "Acquired"],
+    "answer": "Continuous",
+    "explanation": "Polygenic traits (e.g., height) → bell curve."
+  },
+  {
+    "question": "The blood group that is the universal donor is",
+    "options": ["A", "B", "AB", "O"],
+    "answer": "O",
+    "explanation": "Group O has no A or B antigens on RBCs."
+  },
+  {
+    "question": "The vector of African sleeping sickness is",
+    "options": ["Mosquito", "Tsetse fly", "Sandfly", "Blackfly"],
+    "answer": "Tsetse fly",
+    "explanation": "Glossina transmits Trypanosoma brucei."
+  },
+  {
+    "question": "The mode of nutrition in Amoeba is",
+    "options": ["Autotrophic", "Holozoic", "Saprophytic", "Parasitic"],
+    "answer": "Holozoic",
+    "explanation": "Engulfs food by phagocytosis into food vacuole."
+  },
+  {
+    "question": "The part of the flower that is the female reproductive organ is",
+    "options": ["Androecium", "Gynoecium", "Calyx", "Corolla"],
+    "answer": "Gynoecium",
+    "explanation": "Gynoecium = pistil (stigma, style, ovary)."
+  },
+  {
+    "question": "The hormone that causes leaf abscission is",
+    "options": ["Auxin", "Gibberellin", "Abscisic acid", "Ethylene"],
+    "answer": "Ethylene",
+    "explanation": "Ethylene promotes formation of abscission layer."
+  },
+  {
+    "question": "The process by which DNA makes a copy of itself is",
+    "options": ["Transcription", "Translation", "Replication", "Mutation"],
+    "answer": "Replication",
+    "explanation": "DNA replication occurs during S phase (semi-conservative)."
+  },
+  {
+    "question": "The organelle absent in mature mammalian red blood cells is",
+    "options": ["Mitochondrion", "Nucleus", "Ribosome", "Golgi apparatus"],
+    "answer": "Nucleus",
+    "explanation": "Mature RBCs lose nucleus to increase oxygen-carrying capacity."
+  },
+  {
+    "question": "The causative organism of gonorrhoea is",
+    "options": ["Neisseria gonorrhoeae", "Treponema pallidum", "Chlamydia trachomatis", "Escherichia coli"],
+    "answer": "Neisseria gonorrhoeae",
+    "explanation": "Bacterial STI transmitted sexually."
+  },
+  {
+    "question": "The part of the ear that detects sound is",
+    "options": ["Semicircular canals", "Cochlea", "Eardrum", "Auditory tube"],
+    "answer": "Cochlea",
+    "explanation": "Cochlea contains organ of Corti with hair cells."
+  }
+[
+  {
+    "question": "The law of segregation states that",
+    "options": ["Alleles separate during gamete formation", "Dominant traits always appear", "Traits blend in offspring", "Genes are linked on chromosomes"],
+    "answer": "Alleles separate during gamete formation",
+    "explanation": "Mendel's first law: during meiosis, alleles segregate so each gamete gets one allele."
+  },
+  {
+    "question": "A cross between two heterozygous tall plants (Tt × Tt) will produce tall offspring in the ratio",
+    "options": ["1:1", "3:1", "1:2:1", "9:3:3:1"],
+    "answer": "3:1",
+    "explanation": "Monohybrid cross (Tt × Tt) → 3 tall : 1 dwarf (phenotypic ratio)."
+  },
+  {
+    "question": "The genotype of a person with blood group AB is",
+    "options": ["IᴬIᴬ", "IᴮIᴮ", "IᴬIᴮ", "ii"],
+    "answer": "IᴬIᴮ",
+    "explanation": "Codominance — both A and B alleles expressed (antigens A and B present)."
+  },
+  {
+    "question": "In a dihybrid cross (RrYy × RrYy), the phenotypic ratio is",
+    "options": ["3:1", "1:2:1", "9:3:3:1", "1:1:1:1"],
+    "answer": "9:3:3:1",
+    "explanation": "Mendel's law of independent assortment — two traits assort independently."
+  },
+  {
+    "question": "The probability that two carriers of sickle cell trait (AS × AS) will have a normal child is",
+    "options": ["25%", "50%", "75%", "100%"],
+    "answer": "75%",
+    "explanation": "Punnett square: 25% AA (normal), 50% AS (carrier), 25% SS (affected) → 75% normal (AA + AS)."
+  },
+  {
+    "question": "A sex-linked trait is more common in males because",
+    "options": ["Males have two X chromosomes", "Males have only one X chromosome", "Females have Y chromosome", "Males have no sex chromosomes"],
+    "answer": "Males have only one X chromosome",
+    "explanation": "X-linked recessive traits express in males with one defective allele (XY)."
+  },
+  {
+    "question": "The process by which new species arise is called",
+    "options": ["Variation", "Speciation", "Mutation", "Natural selection"],
+    "answer": "Speciation",
+    "explanation": "Speciation — formation of new species from existing ones (e.g., geographic isolation)."
+  },
+  {
+    "question": "The theory of evolution by natural selection was proposed by",
+    "options": ["Lamarck", "Darwin and Wallace", "Mendel", "Linnaeus"],
+    "answer": "Darwin and Wallace",
+    "explanation": "Charles Darwin and Alfred Russel Wallace (1858) — survival of the fittest."
+  },
+  {
+    "question": "The evidence for evolution that shows similar embryonic stages is",
+    "options": ["Fossil record", "Comparative anatomy", "Embryological evidence", "Biochemical evidence"],
+    "answer": "Embryological evidence",
+    "explanation": "Von Baer's law — embryos of related species show similarities."
+  },
+  {
+    "question": "The type of variation that cannot be inherited is",
+    "options": ["Genetic", "Continuous", "Environmental", "Discontinuous"],
+    "answer": "Environmental",
+    "explanation": "Acquired/environmental traits (e.g., muscle from exercise) are not passed to offspring."
+  },
+  {
+    "question": "A population in Hardy-Weinberg equilibrium has no",
+    "options": ["Mutation", "Gene flow", "Natural selection", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Hardy-Weinberg equilibrium requires no mutation, no migration, no selection, random mating, large population."
+  },
+  {
+    "question": "The ultimate source of genetic variation is",
+    "options": ["Natural selection", "Mutation", "Gene flow", "Genetic drift"],
+    "answer": "Mutation",
+    "explanation": "Mutation creates new alleles; other mechanisms act on existing variation."
+  },
+  {
+    "question": "In ecology, the maximum number of individuals an environment can support is called",
+    "options": ["Carrying capacity", "Population density", "Birth rate", "Death rate"],
+    "answer": "Carrying capacity",
+    "explanation": "Carrying capacity (K) — maximum sustainable population size."
+  },
+  {
+    "question": "The relationship where both organisms benefit is called",
+    "options": ["Parasitism", "Commensalism", "Mutualism", "Competition"],
+    "answer": "Mutualism",
+    "explanation": "Mutualism — both species gain (e.g., bees and flowers)."
+  },
+  {
+    "question": "The process by which nitrates are converted back to nitrogen gas is",
+    "options": ["Nitrification", "Nitrogen fixation", "Denitrification", "Ammonification"],
+    "answer": "Denitrification",
+    "explanation": "Denitrifying bacteria return N₂ to atmosphere."
+  },
+  {
+    "question": "The pyramid that is always upright in an ecosystem is the",
     "options": ["Pyramid of numbers", "Pyramid of biomass", "Pyramid of energy", "Pyramid of population"],
     "answer": "Pyramid of energy",
     "explanation": "Energy decreases at each trophic level (10% rule)."
@@ -770,308 +1000,141 @@
     "explanation": "Solar energy drives photosynthesis."
   },
   {
-    "question": "The pollutant responsible for acid rain is",
-    "options": ["CO₂", "SO₂ and NO₂", "Ozone", "CFCs"],
-    "answer": "SO₂ and NO₂",
-    "explanation": "Sulphur dioxide and nitrogen oxides form H₂SO₄ and HNO₃."
-  },
-  {
-    "question": "Eutrophication is caused by excess",
-    "options": ["Oxygen", "Nitrate and phosphate", "Carbon dioxide", "Sulphur"],
+    "question": "The pollutant that causes eutrophication is excess",
+    "options": ["Carbon dioxide", "Nitrate and phosphate", "Sulphur dioxide", "CFCs"],
     "answer": "Nitrate and phosphate",
-    "explanation": "Fertilizers cause algal bloom → oxygen depletion."
+    "explanation": "Fertilizers → algal bloom → oxygen depletion."
   },
   {
-    "question": "The vector of schistosomiasis (bilharziasis) is",
-    "options": ["Mosquito", "Freshwater snail", "Tsetse fly", "Blackfly"],
-    "answer": "Freshwater snail",
-    "explanation": "Bulinus and Biomphalaria snails release cercariae."
+    "question": "The type of ecological succession that occurs on bare rock is",
+    "options": ["Secondary", "Primary", "Climax", "Hydrarch"],
+    "answer": "Primary",
+    "explanation": "Primary succession — starts on lifeless area (e.g., bare rock)."
   },
   {
-    "question": "The hormone that promotes uterine contraction during labour is",
-    "options": ["Prolactin", "Oxytocin", "Progesterone", "Oestrogen"],
-    "answer": "Oxytocin",
-    "explanation": "Oxytocin from posterior pituitary stimulates labour contractions."
+    "question": "The biome with the highest biodiversity is",
+    "options": ["Tundra", "Desert", "Tropical rainforest", "Grassland"],
+    "answer": "Tropical rainforest",
+    "explanation": "High rainfall, temperature, and sunlight support high species diversity."
   },
   {
-    "question": "The part of the nephron that reabsorbs most water is",
-    "options": ["Proximal convoluted tubule", "Loop of Henle", "Distal convoluted tubule", "Collecting duct"],
-    "answer": "Collecting duct",
-    "explanation": "Collecting duct reabsorbs water under ADH influence."
+    "question": "The process by which organisms change over time to become better suited to their environment is called",
+    "options": ["Variation", "Adaptation", "Mutation", "Speciation"],
+    "answer": "Adaptation",
+    "explanation": "Adaptation — heritable traits that improve survival/reproduction."
   },
   {
-    "question": "The process of breathing is called",
-    "options": ["Respiration", "Ventilation", "Photosynthesis", "Excretion"],
-    "answer": "Ventilation",
-    "explanation": "Ventilation = mechanical movement of air; respiration = cellular."
+    "question": "The type of evolution where unrelated species develop similar traits is",
+    "options": ["Divergent", "Convergent", "Parallel", "Coevolution"],
+    "answer": "Convergent",
+    "explanation": "Convergent evolution — analogous structures (e.g., wings in bats and birds)."
   },
   {
-    "question": "The blood vessel that carries oxygenated blood to the body is",
-    "options": ["Pulmonary artery", "Aorta", "Pulmonary vein", "Vena cava"],
-    "answer": "Aorta",
-    "explanation": "Aorta carries oxygenated blood from left ventricle to body."
+    "question": "The fossil that shows intermediate features between reptiles and birds is",
+    "options": ["Archaeopteryx", "Australopithecus", "Homo erectus", "Tiktaalik"],
+    "answer": "Archaeopteryx",
+    "explanation": "Archaeopteryx — transitional form with feathers and reptilian features."
   },
   {
-    "question": "The enzyme that emulsifies fats in the duodenum is",
-    "options": ["Bile salts", "Lipase", "Amylase", "Trypsin"],
-    "answer": "Bile salts",
-    "explanation": "Bile emulsifies fats; lipase then digests them."
+    "question": "The evidence for evolution from comparative anatomy is",
+    "options": ["Homologous structures", "Analogous structures", "Vestigial structures", "All of the above"],
+    "answer": "All of the above",
+    "explanation": "Homologous (common ancestry), analogous (convergent), vestigial (reduced structures)."
   },
   {
-    "question": "The mode of nutrition in Taenia solium is",
-    "options": ["Autotrophic", "Parasitic", "Saprophytic", "Holozoic"],
-    "answer": "Parasitic",
-    "explanation": "Tapeworm absorbs digested food through tegument from host intestine."
+    "question": "The theory that acquired characteristics are inherited is associated with",
+    "options": ["Darwin", "Lamarck", "Wallace", "Mendel"],
+    "answer": "Lamarck",
+    "explanation": "Lamarckism — use/disuse and inheritance of acquired traits (disproved)."
   },
   {
-    "question": "The part of the brain that controls osmoregulation is",
-    "options": ["Cerebellum", "Medulla oblongata", "Hypothalamus", "Cerebrum"],
-    "answer": "Hypothalamus",
-    "explanation": "Hypothalamus produces ADH and controls thirst/osmoreceptors."
+    "question": "The process by which allele frequencies change due to chance is",
+    "options": ["Natural selection", "Genetic drift", "Gene flow", "Mutation"],
+    "answer": "Genetic drift",
+    "explanation": "Random change in allele frequencies (stronger in small populations)."
   },
   {
-    "question": "The deficiency of vitamin D causes",
-    "options": ["Scurvy", "Rickets", "Beri-beri", "Night blindness"],
-    "answer": "Rickets",
-    "explanation": "Vitamin D deficiency → poor calcium absorption → soft bones."
+    "question": "The founder effect is an example of",
+    "options": ["Natural selection", "Genetic drift", "Gene flow", "Mutation"],
+    "answer": "Genetic drift",
+    "explanation": "Small group colonizes new area → reduced genetic variation."
   },
   {
-    "question": "The raw materials required for photosynthesis are",
-    "options": ["Glucose and oxygen", "Carbon dioxide and water", "Chlorophyll and light", "Starch and CO₂"],
-    "answer": "Carbon dioxide and water",
-    "explanation": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (light energy + chlorophyll)"
+    "question": "The bottleneck effect is an example of",
+    "options": ["Natural selection", "Genetic drift", "Gene flow", "Mutation"],
+    "answer": "Genetic drift",
+    "explanation": "Sudden population decrease → loss of genetic variation."
   },
   {
-    "question": "The causative organism of syphilis is",
-    "options": ["Neisseria gonorrhoeae", "Treponema pallidum", "Chlamydia trachomatis", "Escherichia coli"],
-    "answer": "Treponema pallidum",
-    "explanation": "Spirochaete bacterium transmitted sexually."
+    "question": "The type of natural selection that favours extreme phenotypes is",
+    "options": ["Stabilizing", "Directional", "Disruptive", "Sexual"],
+    "answer": "Disruptive",
+    "explanation": "Disruptive selection — favours extremes (e.g., large/small beaks)."
   },
   {
-    "question": "The organelle that produces energy in the form of ATP is",
-    "options": ["Nucleus", "Mitochondrion", "Chloroplast", "Lysosome"],
-    "answer": "Mitochondrion",
-    "explanation": "Site of aerobic respiration and oxidative phosphorylation."
+    "question": "The type of natural selection that favours intermediate phenotypes is",
+    "options": ["Stabilizing", "Directional", "Disruptive", "Sexual"],
+    "answer": "Stabilizing",
+    "explanation": "Stabilizing selection — reduces variation (e.g., human birth weight)."
   },
   {
-    "question": "The type of variation shown by human height is",
-    "options": ["Discontinuous", "Continuous", "Genetic only", "Acquired"],
-    "answer": "Continuous",
-    "explanation": "Controlled by multiple genes → normal distribution curve."
+    "question": "The type of natural selection that favours one extreme phenotype is",
+    "options": ["Stabilizing", "Directional", "Disruptive", "Sexual"],
+    "answer": "Directional",
+    "explanation": "Directional selection — shifts population mean (e.g., antibiotic resistance)."
   },
   {
-    "question": "The blood group that is universal recipient is",
-    "options": ["A", "B", "AB", "O"],
-    "answer": "AB",
-    "explanation": "AB has no anti-A or anti-B antibodies → can receive from all groups."
+    "question": "The process by which two species evolve together is called",
+    "options": ["Convergent evolution", "Coevolution", "Parallel evolution", "Divergent evolution"],
+    "answer": "Coevolution",
+    "explanation": "Reciprocal evolutionary change (e.g., pollinators and flowers)."
   },
   {
-    "question": "The vector of lymphatic filariasis is",
-    "options": ["Anopheles mosquito", "Culex mosquito", "Tsetse fly", "Blackfly"],
-    "answer": "Culex mosquito",
-    "explanation": "Culex transmits Wuchereria bancrofti [
-  {
-    "question": "The cell organelle that is involved in the synthesis of steroids is",
-    "options": ["Rough ER", "Smooth ER", "Golgi apparatus", "Lysosome"],
-    "answer": "Smooth ER",
-    "explanation": "Smooth endoplasmic reticulum (smooth ER) synthesizes lipids and steroids (e.g., in liver and adrenal cells)."
+    "question": "The study of the distribution of organisms and their interactions is called",
+    "options": ["Genetics", "Ecology", "Taxonomy", "Physiology"],
+    "answer": "Ecology",
+    "explanation": "Ecology — study of organisms and their environment."
   },
   {
-    "question": "The process by which cells engulf solid particles is called",
-    "options": ["Pinocytosis", "Phagocytosis", "Exocytosis", "Osmosis"],
-    "answer": "Phagocytosis",
-    "explanation": "Phagocytosis — engulfing large particles (e.g., Amoeba feeding, macrophages engulfing bacteria)."
+    "question": "The level of organization that includes all ecosystems in a region is",
+    "options": ["Population", "Community", "Biosphere", "Biome"],
+    "answer": "Biome",
+    "explanation": "Biome — large ecological area with similar climate and organisms."
   },
   {
-    "question": "The stage of mitosis where sister chromatids separate is",
-    "options": ["Prophase", "Metaphase", "Anaphase", "Telophase"],
-    "answer": "Anaphase",
-    "explanation": "Anaphase — centromeres split; sister chromatids move to opposite poles."
+    "question": "The relationship where one organism benefits and the other is unaffected is",
+    "options": ["Parasitism", "Commensalism", "Mutualism", "Competition"],
+    "answer": "Commensalism",
+    "explanation": "Commensalism — one benefits, host unaffected (e.g., remora and shark)."
   },
   {
-    "question": "The type of cell division that results in genetic variation is",
-    "options": ["Mitosis", "Meiosis", "Binary fission", "Budding"],
-    "answer": "Meiosis",
-    "explanation": "Meiosis — crossing over and independent assortment create variation in gametes."
+    "question": "The process by which nitrates are added to soil is called",
+    "options": ["Denitrification", "Nitrification", "Nitrogen fixation", "Ammonification"],
+    "answer": "Nitrification",
+    "explanation": "Nitrifying bacteria convert ammonia to nitrates."
   },
   {
-    "question": "The number of chromosomes in a human zygote is",
-    "options": ["23", "46", "44", "22"],
-    "answer": "46",
-    "explanation": "Zygote = diploid (2n = 46) from fusion of haploid gametes (n = 23)."
+    "question": "The type of ecological succession that occurs on previously inhabited area is",
+    "options": ["Primary", "Secondary", "Climax", "Hydrarch"],
+    "answer": "Secondary",
+    "explanation": "Secondary succession — after disturbance (e.g., fire, farming)."
   },
   {
-    "question": "The mode of nutrition in Spirogyra is",
-    "options": ["Autotrophic", "Heterotrophic", "Saprophytic", "Parasitic"],
-    "answer": "Autotrophic",
-    "explanation": "Green alga — photosynthesis using chlorophyll in spiral chloroplast."
+    "question": "The biome with low rainfall and sparse vegetation is",
+    "options": ["Tropical rainforest", "Desert", "Tundra", "Grassland"],
+    "answer": "Desert",
+    "explanation": "Desert — low precipitation (<250 mm/year)."
   },
   {
-    "question": "The vector of yellow fever is",
-    "options": ["Anopheles mosquito", "Aedes mosquito", "Culex mosquito", "Tsetse fly"],
-    "answer": "Aedes mosquito",
-    "explanation": "Aedes aegypti transmits yellow fever virus."
+    "question": "The process by which organisms change over generations is called",
+    "options": ["Variation", "Evolution", "Mutation", "Speciation"],
+    "answer": "Evolution",
+    "explanation": "Evolution — change in heritable traits over time."
   },
   {
-    "question": "The causative organism of amoebic dysentery is",
-    "options": ["Entamoeba histolytica", "Plasmodium falciparum", "Trypanosoma brucei", "Schistosoma mansoni"],
-    "answer": "Entamoeba histolytica",
-    "explanation": "Protozoan parasite in contaminated water/food → invades intestinal wall."
-  },
-  {
-    "question": "The part of the flower that produces pollen grains is",
-    "options": ["Ovary", "Stigma", "Anther", "Style"],
-    "answer": "Anther",
-    "explanation": "Anther contains pollen sacs where pollen is produced."
-  },
-  {
-    "question": "The hormone that causes abscission of leaves is",
-    "options": ["Auxin", "Gibberellin", "Abscisic acid", "Cytokinin"],
-    "answer": "Abscisic acid",
-    "explanation": "ABA promotes leaf fall and dormancy (stress hormone)."
-  },
-  {
-    "question": "The respiratory organ in earthworm is",
-    "options": ["Gills", "Lungs", "Moist skin", "Trachea"],
-    "answer": "Moist skin",
-    "explanation": "Cutaneous respiration — oxygen diffuses through moist skin."
-  },
-  {
-    "question": "The deficiency of vitamin B1 causes",
-    "options": ["Scurvy", "Beri-beri", "Rickets", "Night blindness"],
-    "answer": "Beri-beri",
-    "explanation": "Thiamine deficiency → nerve damage and heart failure."
-  },
-  {
-    "question": "The enzyme that digests proteins in the small intestine is",
-    "options": ["Pepsin", "Trypsin", "Amylase", "Lipase"],
-    "answer": "Trypsin",
-    "explanation": "Pancreatic trypsin hydrolyses proteins to peptides."
-  },
-  {
-    "question": "The part of the brain responsible for higher mental functions is",
-    "options": ["Medulla oblongata", "Cerebellum", "Cerebrum", "Hypothalamus"],
-    "answer": "Cerebrum",
-    "explanation": "Cerebral cortex — reasoning, memory, language, voluntary actions."
-  },
-  {
-    "question": "The hormone that stimulates milk ejection is",
-    "options": ["Prolactin", "Oxytocin", "Oestrogen", "Progesterone"],
-    "answer": "Oxytocin",
-    "explanation": "Oxytocin causes contraction of myoepithelial cells in mammary glands."
-  },
-  {
-    "question": "The process by which plants absorb mineral salts from soil is mainly",
-    "options": ["Osmosis", "Active transport", "Diffusion", "Transpiration pull"],
-    "answer": "Active transport",
-    "explanation": "Minerals move against concentration gradient using energy (ATP)."
-  },
-  {
-    "question": "The excretory product of insects is",
-    "options": ["Urea", "Uric acid", "Ammonia", "Creatinine"],
-    "answer": "Uric acid",
-    "explanation": "Uricotelic — conserves water; excreted as solid paste."
-  },
-  {
-    "question": "The process of shedding old exoskeleton in arthropods is called",
-    "options": ["Metamorphosis", "Ecdysis", "Molting", "Both B and C"],
-    "answer": "Both B and C",
-    "explanation": "Ecdysis = molting = shedding cuticle."
-  },
-  {
-    "question": "The respiratory organ in spiders is",
-    "options": ["Gills", "Book lungs", "Trachea", "Skin"],
-    "answer": "Book lungs",
-    "explanation": "Book lungs (lamellae) in arachnids for gas exchange."
-  },
-  {
-    "question": "The vitamin that is important for blood clotting is",
-    "options": ["Vitamin A", "Vitamin B1", "Vitamin K", "Vitamin D"],
-    "answer": "Vitamin K",
-    "explanation": "Vitamin K required for synthesis of prothrombin and clotting factors."
-  },
-  {
-    "question": "The deficiency of vitamin B12 causes",
-    "options": ["Pernicious anaemia", "Rickets", "Scurvy", "Beri-beri"],
-    "answer": "Pernicious anaemia",
-    "explanation": "Lack of intrinsic factor → poor B12 absorption → megaloblastic anaemia."
-  },
-  {
-    "question": "The process of conversion of glucose to glycogen is called",
-    "options": ["Glycogenesis", "Glycogenolysis", "Gluconeogenesis", "Glycolysis"],
-    "answer": "Glycogenesis",
-    "explanation": "Insulin promotes glycogenesis in liver and muscles."
-  },
-  {
-    "question": "The causative organism of tuberculosis is",
-    "options": ["Mycobacterium tuberculosis", "Vibrio cholerae", "Salmonella typhi", "Escherichia coli"],
-    "answer": "Mycobacterium tuberculosis",
-    "explanation": "Acid-fast bacillus transmitted by airborne droplets."
-  },
-  {
-    "question": "The organelle that contains hydrolytic enzymes is",
-    "options": ["Mitochondrion", "Lysosome", "Ribosome", "Golgi apparatus"],
-    "answer": "Lysosome",
-    "explanation": "Lysosomes contain digestive enzymes for intracellular digestion."
-  },
-  {
-    "question": "The type of variation controlled by multiple genes is",
-    "options": ["Discontinuous", "Continuous", "Environmental", "Acquired"],
-    "answer": "Continuous",
-    "explanation": "Polygenic inheritance (e.g., height, skin colour) → bell curve distribution."
-  },
-  {
-    "question": "The blood group that has both A and B antigens is",
-    "options": ["A", "B", "AB", "O"],
-    "answer": "AB",
-    "explanation": "AB has A and B antigens on RBC surface."
-  },
-  {
-    "question": "The vector of onchocerciasis (river blindness) is",
-    "options": ["Anopheles mosquito", "Blackfly", "Tsetse fly", "Culex mosquito"],
-    "answer": "Blackfly",
-    "explanation": "Simulium species transmits Onchocerca volvulus larvae."
-  },
-  {
-    "question": "The mode of nutrition in Euglena is described as",
-    "options": ["Autotrophic only", "Heterotrophic only", "Mixotrophic", "Parasitic"],
-    "answer": "Mixotrophic",
-    "explanation": "Photosynthesis in light; holozoic feeding in dark."
-  },
-  {
-    "question": "The part of the flower that develops into the seed coat is",
-    "options": ["Ovary wall", "Integument", "Stigma", "Style"],
-    "answer": "Integument",
-    "explanation": "Integuments of ovule → seed coat (testa)."
-  },
-  {
-    "question": "The hormone that inhibits growth and promotes dormancy is",
-    "options": ["Auxin", "Gibberellin", "Abscisic acid", "Cytokinin"],
-    "answer": "Abscisic acid",
-    "explanation": "ABA — stress hormone; causes stomatal closure, seed dormancy."
-  },
-  {
-    "question": "The process by which mRNA is used to make protein is",
-    "options": ["Replication", "Transcription", "Translation", "Mutation"],
-    "answer": "Translation",
-    "explanation": "Translation occurs on ribosomes in cytoplasm."
-  },
-  {
-    "question": "The organelle unique to plant cells is",
-    "options": ["Mitochondrion", "Chloroplast", "Ribosome", "Golgi apparatus"],
-    "answer": "Chloroplast",
-    "explanation": "Chloroplasts are absent in animal cells."
-  },
-  {
-    "question": "The causative organism of cholera is",
-    "options": ["Vibrio cholerae", "Plasmodium falciparum", "Salmonella typhi", "Shigella dysenteriae"],
-    "answer": "Vibrio cholerae",
-    "explanation": "Comma-shaped bacterium → severe diarrhoea via contaminated water."
-  },
-  {
-    "question": "The part of the ear that detects linear acceleration is",
-    "options": ["Cochlea", "Semicircular canals", "Utricle and saccule", "Auditory nerve"],
-    "answer": "Utricle and saccule",
-    "explanation": "Otolith organs detect gravity and linear motion."
+    "question": "The evidence for evolution from DNA and protein similarities is",
+    "options": ["Fossil record", "Comparative anatomy", "Biochemical evidence", "Embryological evidence"],
+    "answer": "Biochemical evidence",
+    "explanation": "Similar DNA/protein sequences indicate common ancestry."
   }
 ]
