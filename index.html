@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>JAMB MASTERMIND 3000 | 12+ Subjects | Smart Mock Exams</title>
-    <!-- Font Awesome 6 (Full Kit) for lively icons -->
+    <title>JAMB Mastermind 3000 | 10 Free Questions Then Pay</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter for modern look -->
+    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <style>
-        /* ========== ROOT & RESET ========== */
         * {
             margin: 0;
             padding: 0;
@@ -26,12 +25,11 @@
             --dark: #1e293b;
             --gray: #64748b;
             --border: #e2e8f0;
-            --card-bg: #ffffff;
-            --shadow: 0 20px 35px -8px rgba(0,0,0,0.1), 0 5px 15px -5px rgba(0,0,0,0.05);
             --premium-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
         body {
-            background: linear-gradient(145deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(145deg, #0b2b44, #1a3a5c, #2b4c7c);
             min-height: 100vh;
             padding: 16px;
         }
@@ -40,28 +38,27 @@
             margin: 0 auto;
             background: rgba(255,255,255,0.98);
             backdrop-filter: blur(10px);
-            border-radius: 40px 40px 24px 24px;
+            border-radius: 48px 48px 32px 32px;
             box-shadow: var(--shadow);
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.3);
             animation: floatIn 0.6s ease-out;
         }
         @keyframes floatIn {
-            0% { opacity: 0; transform: translateY(30px); }
+            0% { opacity: 0; transform: translateY(40px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========== HEADER ========== */
+        /* ===== HEADER ===== */
         .header {
             background: linear-gradient(115deg, var(--primary), var(--primary-dark));
             color: white;
             padding: 28px 32px;
-            position: relative;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .brand h2 {
             font-size: 2rem;
@@ -69,27 +66,20 @@
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-        .brand h2 i {
-            color: #fcd34d;
-            text-shadow: 0 2px 10px rgba(252,211,77,0.4);
-        }
+        .brand h2 i { color: #fcd34d; text-shadow: 0 2px 10px rgba(252,211,77,0.5); }
         .study-timer {
-            background: rgba(255,255,255,0.15);
+            background: rgba(0,0,0,0.25);
             backdrop-filter: blur(8px);
             padding: 12px 28px;
             border-radius: 60px;
             font-weight: 600;
             border: 1px solid rgba(255,255,255,0.25);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .study-timer i {
-            margin-right: 8px;
-            color: #fcd34d;
-        }
+        .study-timer i { margin-right: 8px; color: #fcd34d; }
 
-        /* ========== USER DROPDOWN ========== */
+        /* ===== USER PROFILE ===== */
         .user-profile {
             position: relative;
             display: flex;
@@ -97,8 +87,8 @@
             gap: 15px;
         }
         .user-avatar {
-            width: 52px;
-            height: 52px;
+            width: 54px;
+            height: 54px;
             background: linear-gradient(145deg, #fcd34d, #fbbf24);
             color: #1e293b;
             border-radius: 50%;
@@ -106,11 +96,10 @@
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             border: 3px solid white;
             cursor: pointer;
-            transition: transform 0.2s;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            transition: 0.2s;
         }
         .user-avatar:hover { transform: scale(1.05); }
         .user-dropdown {
@@ -120,11 +109,10 @@
             right: 0;
             background: white;
             border-radius: 24px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            min-width: 250px;
+            box-shadow: 0 30px 60px -15px black;
+            min-width: 260px;
             z-index: 1000;
             overflow: hidden;
-            border: 1px solid var(--border);
         }
         .user-dropdown.show { display: block; animation: slideDown 0.25s; }
         @keyframes slideDown {
@@ -135,7 +123,6 @@
             padding: 16px 24px;
             border-bottom: 1px solid var(--border);
             cursor: pointer;
-            transition: 0.2s;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -145,7 +132,7 @@
         .user-dropdown-item:hover { background: #f1f5f9; }
         .user-dropdown-item i { width: 24px; color: var(--primary); }
 
-        /* ========== TAB NAVIGATION ========== */
+        /* ===== TABS ===== */
         .dashboard-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -162,11 +149,11 @@
             color: var(--gray);
             border-radius: 30px 30px 0 0;
             cursor: pointer;
-            transition: 0.2s;
             font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: 0.2s;
         }
         .tab-btn i { font-size: 1.2rem; }
         .tab-btn.active {
@@ -185,35 +172,34 @@
             border-radius: 3px 3px 0 0;
         }
 
-        /* ========== SUBJECT GRID ========== */
+        /* ===== SUBJECT GRID - ALL PREMIUM ===== */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 22px;
             padding: 16px 0;
         }
         .card {
-            background: var(--card-bg);
-            padding: 28px 16px;
-            border-radius: 28px;
+            background: white;
+            padding: 30px 16px;
+            border-radius: 32px;
             text-align: center;
             border: 2px solid var(--border);
-            transition: all 0.25s ease;
+            transition: all 0.25s;
             cursor: pointer;
-            position: relative;
             box-shadow: 0 8px 20px -10px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         .card:hover {
             transform: translateY(-10px);
             border-color: var(--secondary);
-            box-shadow: 0 25px 35px -15px rgba(0,168,107,0.3);
+            box-shadow: 0 30px 40px -20px var(--secondary);
         }
         .card i {
-            font-size: 3rem;
+            font-size: 3.2rem;
             background: linear-gradient(145deg, var(--primary), #1e4b8f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -222,24 +208,15 @@
         .premium-badge {
             background: var(--premium-gradient);
             color: white;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             font-weight: 800;
-            padding: 5px 12px;
-            border-radius: 30px;
-            letter-spacing: 0.5px;
+            padding: 5px 14px;
+            border-radius: 50px;
             text-transform: uppercase;
         }
-        .premium-card { border: 2px solid #a78bfa; background: linear-gradient(white, #f5f3ff); }
-        .premium-card::before {
-            content: '⭐';
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 1rem;
-            opacity: 0.5;
-        }
+        .premium-card { border: 2px solid #a78bfa; background: #f5f3ff; }
 
-        /* ========== QUIZ INTERFACE ========== */
+        /* ===== QUIZ INTERFACE ===== */
         .quiz-header {
             background: white;
             padding: 24px 32px;
@@ -247,59 +224,34 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
+            gap: 20px;
         }
-        .subject-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        .progress-container {
-            flex: 1;
-            margin: 0 30px;
-            min-width: 200px;
-        }
-        .progress-bar {
-            height: 12px;
-            background: var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: var(--secondary);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
+        .subject-title { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .progress-container { flex: 1; min-width: 250px; }
+        .progress-bar { height: 12px; background: var(--border); border-radius: 20px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--secondary); width: 0%; transition: 0.3s; }
         .score-badge {
             background: var(--dark);
             color: white;
-            padding: 8px 24px;
+            padding: 10px 28px;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 1.1rem;
         }
         .question-box {
             background: #f1f5f9;
             margin: 28px 32px;
             padding: 32px;
-            border-radius: 36px;
+            border-radius: 40px;
             border-left: 12px solid var(--primary);
             font-size: 1.3rem;
             font-weight: 600;
             line-height: 1.6;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
         }
-        .options-container {
-            padding: 0 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
+        .options-container { padding: 0 32px; display: flex; flex-direction: column; gap: 18px; }
         .option {
             background: white;
             border: 2px solid var(--border);
-            border-radius: 30px;
+            border-radius: 40px;
             padding: 22px 28px;
             font-size: 1.1rem;
             font-weight: 600;
@@ -307,18 +259,14 @@
             align-items: center;
             gap: 20px;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.2s;
         }
-        .option:hover {
-            border-color: var(--primary);
-            transform: translateX(8px);
-            background: #f0f9ff;
-        }
+        .option:hover { border-color: var(--primary); transform: translateX(8px); background: #f0f9ff; }
         .option-letter {
             background: var(--primary);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 30px;
             display: flex;
             align-items: center;
@@ -332,11 +280,11 @@
         .option.wrong { background: var(--danger); color: white; border-color: var(--danger); }
         .option.wrong .option-letter { background: white; color: var(--danger); }
 
-        /* ========== MOCK EXAM SETUP ========== */
+        /* ===== MOCK SETUP ===== */
         .mock-setup {
             background: #f8fafc;
-            border-radius: 36px;
-            padding: 32px;
+            border-radius: 48px;
+            padding: 40px;
             margin: 24px;
         }
         .mock-subjects-grid {
@@ -348,29 +296,29 @@
         .subject-checkbox {
             background: white;
             border: 2px solid var(--border);
-            border-radius: 20px;
-            padding: 14px 20px;
+            border-radius: 28px;
+            padding: 16px 22px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             cursor: pointer;
             transition: 0.2s;
         }
         .subject-checkbox:hover { border-color: var(--secondary); }
         .subject-checkbox input { width: 20px; height: 20px; accent-color: var(--secondary); }
 
-        /* ========== PAYMENT PLANS ========== */
+        /* ===== PAYMENT PLANS ===== */
         .plan-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            margin: 30px 0;
+            gap: 30px;
+            margin: 40px 0;
         }
         .plan-card {
             background: white;
             border: 2px solid var(--border);
-            border-radius: 36px;
-            padding: 32px 24px;
+            border-radius: 48px;
+            padding: 36px 28px;
             transition: 0.3s;
             cursor: pointer;
             box-shadow: 0 10px 30px -15px rgba(0,0,0,0.1);
@@ -379,20 +327,20 @@
             border-color: var(--secondary);
             background: #f0fdf9;
             transform: scale(1.02);
-            box-shadow: 0 25px 40px -15px rgba(0,168,107,0.3);
+            box-shadow: 0 30px 40px -15px rgba(0,168,107,0.3);
         }
-        .plan-price { font-size: 3rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
+        .plan-price { font-size: 3.2rem; font-weight: 800; color: var(--primary); margin: 20px 0; }
         .payment-methods {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            margin: 40px 0 20px;
+            margin: 50px 0 20px;
         }
         .payment-btn {
             background: #0d1b2a;
             color: white;
-            padding: 15px 40px;
+            padding: 16px 45px;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 600;
@@ -401,9 +349,9 @@
             gap: 12px;
             transition: 0.2s;
         }
-        .payment-btn:hover { transform: translateY(-4px); filter: brightness(1.2); }
+        .payment-btn:hover { transform: translateY(-5px); background: #1e293b; }
 
-        /* ========== BUTTONS ========== */
+        /* ===== BUTTONS ===== */
         .btn {
             padding: 14px 32px;
             border-radius: 60px;
@@ -422,7 +370,28 @@
         .btn-premium { background: var(--premium-gradient); color: white; }
         .btn-gold { background: linear-gradient(145deg, #fbbf24, #f59e0b); color: #1e293b; }
 
-        /* ========== NOTIFICATION ========== */
+        /* ===== RESULTS ===== */
+        .results-container {
+            padding: 50px;
+            text-align: center;
+        }
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(var(--secondary) 0deg, #e2e8f0 0deg);
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            border: 12px solid white;
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== NOTIFICATION ===== */
         .notification {
             position: fixed;
             top: 30px;
@@ -430,131 +399,135 @@
             background: white;
             padding: 18px 32px;
             border-radius: 60px;
-            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 45px -12px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             gap: 14px;
             font-weight: 600;
             z-index: 9999;
             border-left: 8px solid var(--primary);
-            animation: slideIn 0.3s ease;
+            animation: slideIn 0.3s;
         }
         @keyframes slideIn { from { transform: translateX(60px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
 
-        /* ========== RESULTS ========== */
-        .results-container {
+        /* ===== FREE COUNTER & PAYMENT WALL ===== */
+        .free-counter {
+            background: linear-gradient(145deg, #f59e0b, #fbbf24);
+            color: #1e293b;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-right: 15px;
+        }
+        .payment-wall {
+            background: rgba(0,0,0,0.05);
+            border: 2px dashed var(--primary);
+            border-radius: 40px;
             padding: 40px;
             text-align: center;
+            margin: 20px 32px;
         }
-        .score-circle {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: conic-gradient(var(--secondary) 0deg, var(--border) 0deg);
-            margin: 30px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            font-weight: 800;
+        .lock-icon {
+            font-size: 3rem;
             color: var(--primary);
-            border: 10px solid white;
-            box-shadow: var(--shadow);
+            margin-bottom: 20px;
         }
 
-        /* ========== RESPONSIVE ========== */
         @media (max-width: 700px) {
-            .header { flex-direction: column; align-items: start; gap: 15px; }
+            .header { flex-direction: column; align-items: start; }
             .brand h2 { font-size: 1.6rem; }
-            .dashboard-tabs .tab-btn { padding: 12px 16px; font-size: 0.85rem; }
+            .dashboard-tabs .tab-btn { padding: 12px 16px; }
             .question-box { margin: 16px; padding: 22px; font-size: 1.1rem; }
             .option { padding: 16px 20px; }
-        }
-        @media (max-width: 480px) {
-            .grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
         }
     </style>
 </head>
 <body>
 <div class="app-container">
-    <!-- ========== HEADER ========== -->
+    <!-- ===== HEADER ===== -->
     <div class="header">
         <div class="brand">
             <h2><i class="fas fa-graduation-cap"></i> JAMB MASTERMIND 3000</h2>
-            <div style="font-size: 0.9rem; opacity: 0.9;">12+ subjects · 2500+ questions · mock exams</div>
+            <div style="font-size: 0.9rem; opacity: 0.9;">15+ premium subjects · 3000+ questions</div>
         </div>
-        <div class="study-timer" id="sessionTimer"><i class="far fa-clock"></i> 00:00:00</div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div class="free-counter" id="freeCounter"><i class="fas fa-gift"></i> Free: <span id="freeCount">10</span>/10</div>
+            <div class="study-timer" id="sessionTimer"><i class="far fa-clock"></i> 00:00:00</div>
+        </div>
         <div class="user-profile">
             <div class="user-avatar" onclick="toggleUserMenu()">🎓</div>
             <div class="user-dropdown" id="userMenu">
                 <div class="user-dropdown-item" onclick="viewProfile()"><i class="fas fa-user"></i> My Profile</div>
-                <div class="user-dropdown-item" onclick="showSubscription()"><i class="fas fa-crown"></i> Subscription</div>
-                <div class="user-dropdown-item" onclick="showPaymentHistory()"><i class="fas fa-history"></i> Payment History</div>
+                <div class="user-dropdown-item" onclick="viewSubscription()"><i class="fas fa-crown"></i> Subscription</div>
+                <div class="user-dropdown-item" onclick="viewPaymentHistory()"><i class="fas fa-history"></i> Payment History</div>
                 <div class="user-dropdown-item" onclick="openPremiumTab()"><i class="fas fa-gem"></i> Upgrade to Premium</div>
                 <div class="user-dropdown-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
             </div>
         </div>
     </div>
 
-    <!-- ========== TABS ========== -->
+    <!-- ===== TABS ===== -->
     <div class="dashboard-tabs">
-        <button class="tab-btn active" onclick="switchTab('practice')"><i class="fas fa-pencil-alt"></i> Practice</button>
-        <button class="tab-btn" onclick="switchTab('mock')"><i class="fas fa-random"></i> Mock Exam</button>
-        <button class="tab-btn" onclick="switchTab('premium')"><i class="fas fa-crown"></i> Premium</button>
-        <button class="tab-btn" onclick="switchTab('subjects')"><i class="fas fa-list"></i> Subjects</button>
+        <button class="tab-btn active" onclick="switchTab('practice', this)"><i class="fas fa-pencil-alt"></i> Practice</button>
+        <button class="tab-btn" onclick="switchTab('mock', this)"><i class="fas fa-random"></i> Mock Exam</button>
+        <button class="tab-btn" onclick="switchTab('premium', this)"><i class="fas fa-crown"></i> Premium</button>
+        <button class="tab-btn" onclick="switchTab('subjects', this)"><i class="fas fa-list"></i> Subjects</button>
     </div>
 
-    <!-- ========== DASHBOARD / PRACTICE TAB ========== -->
+    <!-- ===== PRACTICE TAB ===== -->
     <div id="practiceTab" class="tab-content" style="display: block; padding: 24px;">
-        <div style="margin-bottom: 20px;"><input type="text" id="subjectSearch" class="btn" placeholder="🔍 Search subjects..." style="width:100%; padding:16px; border-radius:60px; border:2px solid var(--border);"></div>
+        <input type="text" id="subjectSearch" placeholder="🔍 Search subjects..." style="width:100%; padding:16px 24px; border-radius:60px; border:2px solid #e2e8f0; margin-bottom:20px;" onkeyup="filterSubjects()">
         <div id="subjectsGrid" class="grid"></div>
-        <div style="margin-top: 30px; text-align: center;">
-            <button class="btn btn-gold" onclick="quickDemo()"><i class="fas fa-bolt"></i> Quick Demo (3 random questions)</button>
+        <div style="text-align:center; margin-top:30px;">
+            <button class="btn btn-gold" onclick="quickDemo()"><i class="fas fa-bolt"></i> Try 10 Free Questions</button>
         </div>
     </div>
 
-    <!-- ========== MOCK EXAM TAB ========== -->
+    <!-- ===== MOCK TAB ===== -->
     <div id="mockTab" class="tab-content" style="display: none; padding: 24px;">
         <div class="mock-setup">
-            <h2 style="font-size: 2rem; margin-bottom: 20px;">📋 Create Your Mock Exam</h2>
-            <p style="margin-bottom: 30px;">Choose subjects, duration, and number of questions. Questions are randomly picked from the bank.</p>
-            <div style="background: #fffbeb; border-left: 12px solid #f59e0b; padding: 20px; border-radius: 24px; margin-bottom: 30px;">
-                <i class="fas fa-bolt" style="color:#f59e0b;"></i> <strong>Premium users:</strong> unlimited mock exams & detailed analytics. <button class="btn btn-premium" onclick="openPremiumTab()" style="padding: 10px 25px;">✨ Upgrade</button>
+            <h2 style="font-size:2.2rem; margin-bottom:20px;">📋 Create Your Mock Exam</h2>
+            <p style="margin-bottom:30px;">Randomly generated questions from selected subjects – just like real JAMB.</p>
+            <div style="background:#fffbeb; border-left:12px solid #f59e0b; padding:20px; border-radius:24px; margin-bottom:30px;">
+                <i class="fas fa-bolt" style="color:#f59e0b;"></i> <strong>Premium required:</strong> Mock exams use your free questions. Upgrade for unlimited. <button class="btn btn-premium" onclick="openPremiumTab()" style="padding:10px 25px;">✨ Upgrade</button>
             </div>
-            <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-bottom: 30px;">
-                <div style="min-width: 200px;">
+            <div style="display:flex; flex-wrap:wrap; gap:40px; margin-bottom:30px;">
+                <div>
                     <h3>⏱️ Duration</h3>
                     <label><input type="radio" name="duration" value="120" checked> 2 hours (JAMB)</label><br>
                     <label><input type="radio" name="duration" value="150"> 2.5 hours</label><br>
                     <label><input type="radio" name="duration" value="90"> 1.5 hours</label>
                 </div>
-                <div style="min-width: 200px;">
+                <div>
                     <h3>📊 Question count</h3>
                     <label><input type="radio" name="qCount" value="180" checked> 180 (full)</label><br>
                     <label><input type="radio" name="qCount" value="120"> 120</label><br>
                     <label><input type="radio" name="qCount" value="60"> 60 (quick)</label>
                 </div>
             </div>
-            <h3>✅ Select subjects</h3>
+            <h3>✅ Select Subjects</h3>
             <div id="mockSubjectsList" class="mock-subjects-grid"></div>
-            <button class="btn btn-primary" style="width:100%; padding:20px; font-size:1.3rem; margin-top:30px;" onclick="startMockExam()"><i class="fas fa-shuffle"></i> GENERATE RANDOM MOCK EXAM</button>
+            <button class="btn btn-primary" style="width:100%; padding:20px; font-size:1.3rem; margin-top:30px;" onclick="startMockExam()"><i class="fas fa-shuffle"></i> GENERATE RANDOM MOCK</button>
         </div>
     </div>
 
-    <!-- ========== PREMIUM TAB (with PAYMENT INTEGRATION) ========== -->
+    <!-- ===== PREMIUM TAB (PAYMENT GATEWAYS) ===== -->
     <div id="premiumTab" class="tab-content" style="display: none; padding: 40px;">
-        <div style="text-align: center; max-width: 1200px; margin:0 auto;">
-            <i class="fas fa-crown" style="font-size:5rem; background: var(--premium-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
-            <h2 style="font-size:2.8rem;">Go Premium</h2>
-            <p style="font-size:1.2rem; margin-bottom: 40px;">Unlock all subjects, unlimited mocks, AI explanations & more.</p>
+        <div style="text-align:center; max-width:1200px; margin:0 auto;">
+            <i class="fas fa-crown" style="font-size:5rem; background:var(--premium-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
+            <h2 style="font-size:2.8rem;">Unlock All Subjects</h2>
+            <p style="font-size:1.2rem; margin-bottom:40px;">Get unlimited access to 3000+ questions across 15+ subjects.</p>
             <div class="plan-grid">
                 <div class="plan-card" onclick="selectPlan('basic')">
                     <h3>📘 Basic</h3>
                     <div class="plan-price">₦2,500</div>
                     <p>per month</p>
                     <ul style="list-style:none; text-align:left; margin:20px 0;">
-                        <li>✅ All 12+ subjects</li>
-                        <li>✅ 2500+ questions</li>
+                        <li>✅ All 15+ subjects</li>
+                        <li>✅ 3000+ questions</li>
                         <li>✅ 5 mock exams/month</li>
                     </ul>
                     <a href="https://paystack.com/pay/jamb-basic" target="_blank" class="btn btn-primary" style="width:100%;">Pay with Paystack</a>
@@ -564,7 +537,7 @@
                     <div class="plan-price">₦5,000</div>
                     <p>per month</p>
                     <ul style="list-style:none; text-align:left; margin:20px 0;">
-                        <li>✅ All subjects + premium</li>
+                        <li>✅ All 15+ subjects</li>
                         <li>✅ 3500+ questions</li>
                         <li>✅ Unlimited mock exams</li>
                         <li>✅ Video solutions & AI tutor</li>
@@ -592,12 +565,12 @@
         </div>
     </div>
 
-    <!-- ========== ALL SUBJECTS TAB ========== -->
+    <!-- ===== ALL SUBJECTS TAB ===== -->
     <div id="subjectsTab" class="tab-content" style="display: none; padding: 24px;">
         <div id="allSubjectsList" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px;"></div>
     </div>
 
-    <!-- ========== QUIZ SECTION (HIDDEN INITIALLY) ========== -->
+    <!-- ===== QUIZ SECTION (HIDDEN) ===== -->
     <div id="quizSection" style="display: none;">
         <div class="quiz-header">
             <span class="subject-title" id="currentSubjectName">Mathematics</span>
@@ -607,6 +580,12 @@
             </div>
             <div id="mockTimer" class="score-badge" style="display:none;"><i class="fas fa-hourglass-half"></i> <span id="timeLeft">02:00:00</span></div>
         </div>
+        <div id="paymentWall" class="payment-wall" style="display: none;">
+            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+            <h2>You've used all 10 free questions!</h2>
+            <p style="margin: 20px 0 30px; font-size: 1.1rem;">Unlock unlimited access to all subjects and thousands of questions.</p>
+            <button class="btn btn-premium" onclick="openPremiumTab()" style="padding: 15px 40px; font-size: 1.2rem;"><i class="fas fa-crown"></i> Upgrade Now</button>
+        </div>
         <div class="question-box" id="questionText">Loading...</div>
         <div class="options-container" id="optionsList"></div>
         <div style="display:flex; justify-content:space-between; padding:30px 32px 40px;">
@@ -615,9 +594,9 @@
         </div>
     </div>
 
-    <!-- ========== RESULTS SECTION ========== -->
+    <!-- ===== RESULTS SECTION ===== -->
     <div id="resultsSection" style="display:none; padding:40px; text-align:center;">
-        <i class="fas fa-trophy" style="font-size:5rem; color: #fbbf24;"></i>
+        <i class="fas fa-trophy" style="font-size:5rem; color:#fbbf24;"></i>
         <h2 style="font-size:2.5rem;">Practice Completed!</h2>
         <div class="score-circle" id="scoreCircle">85%</div>
         <div style="display:flex; gap:20px; justify-content:center; margin:30px 0;">
@@ -627,80 +606,245 @@
         </div>
     </div>
 
-    <!-- ========== FOOTER ========== -->
-    <div style="background:#f1f5f9; padding:24px; text-align:center; border-top:1px solid var(--border);">
+    <!-- ===== FOOTER ===== -->
+    <div style="background:#f1f5f9; padding:24px; text-align:center; border-top:1px solid #e2e8f0;">
         <p style="font-weight:600;">© 2026 JAMB Mastermind 3000 – Complete Edition. All rights reserved.</p>
         <p style="margin-top:8px;">📧 support@jambmastermind.com | 📞 +234 810 336 5359</p>
     </div>
 </div>
 
-<!-- ========== JAVASCRIPT ========== -->
 <script>
-    // -----------------------------------------------------------------
-    //   JAMB MASTERMIND 3000 – COMPLETE INTEGRATION OF ALL SUBJECTS
-    //   INCLUDES: mathematics, english, physics, chemistry, biology,
-    //   history, geography, crs, islamic, music, government, accounting,
-    //   literature, commerce, agricscience, economics.
-    //   SMART RANDOM MOCK, PAYMENT LINKS, LIVELY INTERACTIONS.
-    // -----------------------------------------------------------------
+    // ========== JAMB MASTERMIND 3000 – 10 FREE QUESTIONS, THEN PAY ==========
+    // ALL SUBJECTS ARE PREMIUM – no free subjects
+    
+    // FREE TRIAL CONFIG
+    const MAX_FREE_QUESTIONS = 10;
+    let freeQuestionsUsed = 0;
+    let hasPaid = false;
+    
+    // Load saved state
+    try {
+        const savedPaid = localStorage.getItem('jamb_paid');
+        if (savedPaid === 'true') hasPaid = true;
+        
+        const savedFree = localStorage.getItem('jamb_free_used');
+        if (savedFree) freeQuestionsUsed = parseInt(savedFree);
+    } catch(e) {}
+    
+    // Update free counter display
+    function updateFreeCounter() {
+        document.getElementById('freeCount').innerText = Math.max(0, MAX_FREE_QUESTIONS - freeQuestionsUsed);
+        if (hasPaid) {
+            document.getElementById('freeCounter').style.display = 'none';
+        }
+    }
+    
+    // Check if user can access next question
+    function canAccessQuestion() {
+        if (hasPaid) return true;
+        return freeQuestionsUsed < MAX_FREE_QUESTIONS;
+    }
+    
+    // Increment free counter
+    function incrementFreeUsed() {
+        if (!hasPaid && freeQuestionsUsed < MAX_FREE_QUESTIONS) {
+            freeQuestionsUsed++;
+            try { localStorage.setItem('jamb_free_used', freeQuestionsUsed); } catch(e) {}
+            updateFreeCounter();
+        }
+    }
+    
+    // Show payment wall if needed
+    function checkPaymentWall() {
+        const wall = document.getElementById('paymentWall');
+        const questionBox = document.getElementById('questionText');
+        const optionsList = document.getElementById('optionsList');
+        
+        if (!hasPaid && freeQuestionsUsed >= MAX_FREE_QUESTIONS) {
+            wall.style.display = 'block';
+            questionBox.style.display = 'none';
+            optionsList.style.display = 'none';
+            return true;
+        } else {
+            wall.style.display = 'none';
+            questionBox.style.display = 'block';
+            optionsList.style.display = 'flex';
+            return false;
+        }
+    }
 
-    // ---------- GLOBAL QUESTION BANK (simplified but massive) ----------
+    // ========== QUESTION BANK – ALL PREMIUM ==========
     window.QUESTION_BANK = {};
 
-    // Helper to generate dummy questions for each subject (real content replaced with realistic samples)
-    function generateSubjectQuestions(subjectId, baseName, count, isPremium, category, icon) {
+    function generateSubjectQuestions(id, name, count, icon) {
         let qs = [];
         for (let i = 1; i <= count; i++) {
+            let questionText = "";
+            let options = [];
+            let correctIdx = 0;
+            let explanation = "";
+            let tip = "";
+            
+            if (name === "Mathematics") {
+                if (i % 3 === 0) {
+                    questionText = `Math Q${i}: Solve for x: 2x + 5 = 15`;
+                    options = ["x = 5", "x = 10", "x = 7.5", "x = 20"];
+                    correctIdx = 0;
+                    explanation = "2x = 10, so x = 5";
+                    tip = "Subtract 5 from both sides first";
+                } else if (i % 3 === 1) {
+                    questionText = `Math Q${i}: What is the value of sin 90°?`;
+                    options = ["1", "0", "0.5", "-1"];
+                    correctIdx = 0;
+                    explanation = "sin 90° = 1";
+                    tip = "Remember the unit circle";
+                } else {
+                    questionText = `Math Q${i}: If 3x - 7 = 11, find x.`;
+                    options = ["x = 6", "x = 4", "x = 8", "x = 2"];
+                    correctIdx = 0;
+                    explanation = "3x = 18, so x = 6";
+                    tip = "Add 7 to both sides";
+                }
+            } else if (name === "English") {
+                if (i % 2 === 0) {
+                    questionText = `English Q${i}: Choose the correct spelling:`;
+                    options = ["Accommodate", "Acommodate", "Accommodiate", "Acomodate"];
+                    correctIdx = 0;
+                    explanation = "'Accommodate' has double c and double m";
+                    tip = "Remember: it's big enough to Accommodate two c's and two m's";
+                } else {
+                    questionText = `English Q${i}: The word 'ephemeral' means:`;
+                    options = ["Short-lived", "Permanent", "Difficult", "Beautiful"];
+                    correctIdx = 0;
+                    explanation = "Ephemeral means lasting for a very short time";
+                    tip = "Think of mayflies - they live for one day";
+                }
+            } else if (name === "Physics") {
+                if (i % 2 === 0) {
+                    questionText = `Physics Q${i}: What is the SI unit of force?`;
+                    options = ["Newton", "Joule", "Watt", "Pascal"];
+                    correctIdx = 0;
+                    explanation = "Force is measured in Newtons (N)";
+                    tip = "F = ma → N = kg·m/s²";
+                } else {
+                    questionText = `Physics Q${i}: A body accelerates uniformly from rest at 2 m/s² for 5 seconds. Its final velocity is:`;
+                    options = ["10 m/s", "5 m/s", "2.5 m/s", "20 m/s"];
+                    correctIdx = 0;
+                    explanation = "v = u + at = 0 + 2×5 = 10 m/s";
+                    tip = "Use v = u + at";
+                }
+            } else if (name === "Chemistry") {
+                if (i % 2 === 0) {
+                    questionText = `Chemistry Q${i}: What is the atomic number of Carbon?`;
+                    options = ["6", "12", "14", "8"];
+                    correctIdx = 0;
+                    explanation = "Carbon has atomic number 6";
+                    tip = "It has 6 protons";
+                } else {
+                    questionText = `Chemistry Q${i}: The pH of a neutral solution is:`;
+                    options = ["7", "0", "14", "1"];
+                    correctIdx = 0;
+                    explanation = "pH 7 is neutral";
+                    tip = "<7 acidic, >7 alkaline";
+                }
+            } else if (name === "Biology") {
+                if (i % 2 === 0) {
+                    questionText = `Biology Q${i}: Which organelle is known as the powerhouse of the cell?`;
+                    options = ["Mitochondrion", "Nucleus", "Ribosome", "Golgi apparatus"];
+                    correctIdx = 0;
+                    explanation = "Mitochondria produce ATP (energy)";
+                    tip = "Think of 'power' → mitochondria";
+                } else {
+                    questionText = `Biology Q${i}: The process by which plants lose water vapour through leaves is:`;
+                    options = ["Transpiration", "Evaporation", "Condensation", "Photosynthesis"];
+                    correctIdx = 0;
+                    explanation = "Transpiration is water loss from plant surfaces";
+                    tip = "Mainly through stomata";
+                }
+            } else if (name === "History") {
+                if (i % 2 === 0) {
+                    questionText = `History Q${i}: The Amalgamation of Nigeria occurred in which year?`;
+                    options = ["1914", "1960", "1900", "1861"];
+                    correctIdx = 0;
+                    explanation = "Lord Lugard amalgamated Northern and Southern Nigeria in 1914";
+                    tip = "WWI started the same year";
+                } else {
+                    questionText = `History Q${i}: Who founded the Sokoto Caliphate?`;
+                    options = ["Usman dan Fodio", "Ahmadu Bello", "Kanem", "Shehu"];
+                    correctIdx = 0;
+                    explanation = "Usman dan Fodio led the Fulani jihad (1804)";
+                    tip = "He was a religious reformer";
+                }
+            } else if (name === "Agric Science") {
+                if (i % 2 === 0) {
+                    questionText = `Agric Q${i}: The main nutrient responsible for leafy growth in plants is:`;
+                    options = ["Nitrogen", "Phosphorus", "Potassium", "Calcium"];
+                    correctIdx = 0;
+                    explanation = "Nitrogen promotes vegetative growth";
+                    tip = "Deficiency causes yellowing of leaves";
+                } else {
+                    questionText = `Agric Q${i}: A common method of preserving fish in Nigeria is:`;
+                    options = ["Smoking", "Freezing", "Canning", "Salting"];
+                    correctIdx = 0;
+                    explanation = "Smoking is the most traditional method";
+                    tip = "Combines drying and antimicrobial action";
+                }
+            } else {
+                // Generic fallback for other subjects
+                questionText = `${name} Q${i}: Sample question for ${name}`;
+                options = ["Option A (correct)", "Option B", "Option C", "Option D"];
+                correctIdx = 0;
+                explanation = `Explanation for ${name} question ${i}.`;
+                tip = `Study tip for ${name}.`;
+            }
+            
             qs.push({
                 id: i,
-                question: `${baseName} sample question ${i}: What is the primary concept?`,
-                options: ["Option A", "Option B", "Option C", "Option D"],
-                correct: 0,
-                answer: "Option A",
-                explanation: `Explanation for ${baseName} question ${i}.`,
-                tip: `Tip for ${baseName}.`,
+                question: questionText,
+                options: options,
+                correct: correctIdx,
+                answer: options[correctIdx],
+                explanation: explanation,
+                tip: tip,
                 difficulty: i % 3 === 0 ? "hard" : (i % 2 === 0 ? "medium" : "easy"),
-                year: ["2023","2024"][i%2],
+                year: ["2023", "2024"][i % 2],
                 topic: "General"
             });
         }
         return {
-            id: subjectId,
-            name: baseName,
-            category: category,
-            isPremium: isPremium,
+            id: id,
+            name: name,
             icon: icon,
             totalQuestions: count,
             questions: qs
         };
     }
 
-    // Create all subjects
-    QUESTION_BANK.math = generateSubjectQuestions('math','Mathematics',85,false,'science','fas fa-calculator');
-    QUESTION_BANK.english = generateSubjectQuestions('english','English Language',90,false,'arts','fas fa-book');
-    QUESTION_BANK.physics = generateSubjectQuestions('physics','Physics',70,true,'science','fas fa-atom');
-    QUESTION_BANK.chemistry = generateSubjectQuestions('chemistry','Chemistry',75,true,'science','fas fa-flask');
-    QUESTION_BANK.biology = generateSubjectQuestions('biology','Biology',80,false,'science','fas fa-dna');
-    QUESTION_BANK.history = generateSubjectQuestions('history','History',110,false,'arts','fas fa-landmark');
-    QUESTION_BANK.geography = generateSubjectQuestions('geography','Geography',85,true,'arts','fas fa-globe');
-    QUESTION_BANK.crs = generateSubjectQuestions('crs','Christian Studies',95,false,'arts','fas fa-church');
-    QUESTION_BANK.islamic = generateSubjectQuestions('islamic','Islamic Studies',85,false,'arts','fas fa-mosque');
-    QUESTION_BANK.music = generateSubjectQuestions('music','Music',160,true,'arts','fas fa-music');
-    QUESTION_BANK.government = generateSubjectQuestions('government','Government',120,false,'arts','fas fa-gavel');
-    QUESTION_BANK.accounting = generateSubjectQuestions('accounting','Accounting',100,true,'commercial','fas fa-coins');
-    QUESTION_BANK.literature = generateSubjectQuestions('literature','Literature',110,false,'arts','fas fa-feather');
-    QUESTION_BANK.commerce = generateSubjectQuestions('commerce','Commerce',100,true,'commercial','fas fa-store');
-    QUESTION_BANK.agricscience = generateSubjectQuestions('agricscience','Agric Science',130,false,'science','fas fa-seedling');
-    QUESTION_BANK.economics = generateSubjectQuestions('economics','Economics',120,true,'commercial','fas fa-chart-line');
+    // Build all subjects – ALL ARE PREMIUM
+    QUESTION_BANK.math = generateSubjectQuestions('math', 'Mathematics', 85, 'fas fa-calculator');
+    QUESTION_BANK.english = generateSubjectQuestions('english', 'English', 90, 'fas fa-book');
+    QUESTION_BANK.physics = generateSubjectQuestions('physics', 'Physics', 75, 'fas fa-atom');
+    QUESTION_BANK.chemistry = generateSubjectQuestions('chemistry', 'Chemistry', 80, 'fas fa-flask');
+    QUESTION_BANK.biology = generateSubjectQuestions('biology', 'Biology', 85, 'fas fa-dna');
+    QUESTION_BANK.history = generateSubjectQuestions('history', 'History', 120, 'fas fa-landmark');
+    QUESTION_BANK.geography = generateSubjectQuestions('geography', 'Geography', 90, 'fas fa-globe');
+    QUESTION_BANK.crs = generateSubjectQuestions('crs', 'CRS', 100, 'fas fa-church');
+    QUESTION_BANK.islamic = generateSubjectQuestions('islamic', 'Islamic Studies', 95, 'fas fa-mosque');
+    QUESTION_BANK.music = generateSubjectQuestions('music', 'Music', 165, 'fas fa-music');
+    QUESTION_BANK.government = generateSubjectQuestions('government', 'Government', 130, 'fas fa-gavel');
+    QUESTION_BANK.accounting = generateSubjectQuestions('accounting', 'Accounting', 110, 'fas fa-coins');
+    QUESTION_BANK.literature = generateSubjectQuestions('literature', 'Literature', 115, 'fas fa-feather');
+    QUESTION_BANK.commerce = generateSubjectQuestions('commerce', 'Commerce', 100, 'fas fa-store');
+    QUESTION_BANK.agricscience = generateSubjectQuestions('agricscience', 'Agric Science', 130, 'fas fa-seedling');
+    QUESTION_BANK.economics = generateSubjectQuestions('economics', 'Economics', 125, 'fas fa-chart-line');
 
-    // all subject keys
     const ALL_SUBJECT_KEYS = Object.keys(QUESTION_BANK);
 
-    // ---------- APP STATE ----------
+    // ========== APP STATE ==========
     const APP_STATE = {
-        currentUser: { name: 'Student', plan: 'free', questionsAttempted: 0, mockExamsTaken: 0 },
+        currentUser: { name: 'Student', plan: hasPaid ? 'premium' : 'free' },
         currentSubject: null,
-        currentMode: 'practice', // practice or mock
+        currentMode: 'practice',
         currentQIndex: 0,
         userAnswers: [],
         sessionSeconds: 0,
@@ -710,17 +854,33 @@
         selectedPlan: 'pro'
     };
 
-    // ---------- INITIAL RENDERING ----------
+    // ========== RENDER FUNCTIONS ==========
     function renderSubjectsGrid() {
         const grid = document.getElementById('subjectsGrid');
         grid.innerHTML = '';
         ALL_SUBJECT_KEYS.forEach(key => {
             const s = QUESTION_BANK[key];
             const card = document.createElement('div');
-            card.className = `card ${s.isPremium ? 'premium-card' : ''}`;
+            card.className = 'card premium-card';
             card.onclick = () => startPractice(s.id);
-            card.innerHTML = `<i class="${s.icon}"></i><p>${s.name}</p><small>${s.totalQuestions} Q</small>${s.isPremium ? '<div class="premium-badge">PREMIUM</div>' : ''}`;
+            card.innerHTML = `<i class="${s.icon}"></i><p>${s.name}</p><small>${s.totalQuestions} Q</small><div class="premium-badge">PREMIUM</div>`;
             grid.appendChild(card);
+        });
+    }
+
+    function filterSubjects() {
+        const search = document.getElementById('subjectSearch').value.toLowerCase();
+        const grid = document.getElementById('subjectsGrid');
+        grid.innerHTML = '';
+        ALL_SUBJECT_KEYS.forEach(key => {
+            const s = QUESTION_BANK[key];
+            if (s.name.toLowerCase().includes(search) || search === '') {
+                const card = document.createElement('div');
+                card.className = 'card premium-card';
+                card.onclick = () => startPractice(s.id);
+                card.innerHTML = `<i class="${s.icon}"></i><p>${s.name}</p><small>${s.totalQuestions} Q</small><div class="premium-badge">PREMIUM</div>`;
+                grid.appendChild(card);
+            }
         });
     }
 
@@ -731,7 +891,7 @@
             const s = QUESTION_BANK[key];
             const div = document.createElement('div');
             div.className = 'subject-checkbox';
-            div.innerHTML = `<input type="checkbox" value="${s.id}" ${!s.isPremium ? 'checked' : ''}> <span>${s.name} ${s.isPremium ? '🔒' : ''}</span>`;
+            div.innerHTML = `<input type="checkbox" value="${s.id}"> <span>${s.name} (${s.totalQuestions} Q) 🔒 Premium</span>`;
             container.appendChild(div);
         });
     }
@@ -741,40 +901,59 @@
         container.innerHTML = '';
         ALL_SUBJECT_KEYS.forEach(key => {
             const s = QUESTION_BANK[key];
-            const badge = s.isPremium ? '<span class="premium-badge">Premium</span>' : '<span style="background:#00a86b; color:white; padding:2px 12px; border-radius:60px;">Free</span>';
-            container.innerHTML += `<div class="card" style="padding:20px;"><i class="${s.icon}"></i><p>${s.name}</p>${badge}</div>`;
+            container.innerHTML += `<div class="card premium-card" style="padding:20px;"><i class="${s.icon}"></i><p>${s.name}</p><span class="premium-badge">Premium</span><small>${s.totalQuestions} questions</small></div>`;
         });
     }
 
-    // ---------- PRACTICE MODE ----------
+    // ========== PRACTICE ==========
     function startPractice(subjId) {
-        if (QUESTION_BANK[subjId].isPremium && APP_STATE.currentUser.plan === 'free') {
-            showNotification('This subject requires Premium. Upgrade now!', 'warning');
+        // Check free trial limit first
+        if (!hasPaid && freeQuestionsUsed >= MAX_FREE_QUESTIONS) {
             openPremiumTab();
+            showNotification('You\'ve used all 10 free questions. Upgrade to continue!', 'warning');
             return;
         }
+        
         APP_STATE.currentSubject = subjId;
         APP_STATE.currentMode = 'practice';
         APP_STATE.currentQIndex = 0;
         APP_STATE.userAnswers = [];
-        document.getElementById('dashboard').style.display = 'none';
+        
+        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
         document.getElementById('quizSection').style.display = 'block';
         document.getElementById('resultsSection').style.display = 'none';
-        document.getElementById('subjectTitle').textContent = QUESTION_BANK[subjId].name;
+        document.getElementById('mockTimer').style.display = 'none';
+        document.getElementById('currentSubjectName').innerText = QUESTION_BANK[subjId].name;
+        
+        checkPaymentWall();
         loadQuestion();
     }
 
     function loadQuestion() {
-        const q = QUESTION_BANK[APP_STATE.currentSubject].questions[APP_STATE.currentQIndex];
+        if (!canAccessQuestion()) {
+            checkPaymentWall();
+            return;
+        }
+        
+        const subject = QUESTION_BANK[APP_STATE.currentSubject];
+        const questions = subject.questions;
+        const q = questions[APP_STATE.currentQIndex];
+        
+        if (!q) {
+            finishQuiz();
+            return;
+        }
+        
         document.getElementById('questionText').innerHTML = `${APP_STATE.currentQIndex+1}. ${q.question}`;
-        document.getElementById('qCounter').innerHTML = `${APP_STATE.currentQIndex+1}/${QUESTION_BANK[APP_STATE.currentSubject].questions.length}`;
-        let optsDiv = document.getElementById('optionsList');
+        document.getElementById('qCounter').innerHTML = `${APP_STATE.currentQIndex+1}/${questions.length}`;
+        
+        const optsDiv = document.getElementById('optionsList');
         optsDiv.innerHTML = '';
-        q.options.forEach((opt,idx)=>{
-            let btn = document.createElement('div');
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement('div');
             btn.className = 'option';
             btn.innerHTML = `<span class="option-letter">${String.fromCharCode(65+idx)}</span> ${opt}`;
-            btn.onclick = ()=> selectOption(idx, btn, q.correct);
+            btn.onclick = () => selectOption(idx, btn, q.correct);
             optsDiv.appendChild(btn);
         });
         updateProgress();
@@ -782,197 +961,267 @@
 
     function selectOption(idx, btn, correctIdx) {
         if (APP_STATE.userAnswers[APP_STATE.currentQIndex]) return;
-        let isCorrect = idx === correctIdx;
+        
+        // Count this question towards free trial (first answer only)
+        if (!hasPaid && !APP_STATE.userAnswers[APP_STATE.currentQIndex]) {
+            incrementFreeUsed();
+        }
+        
+        const isCorrect = idx === correctIdx;
         APP_STATE.userAnswers[APP_STATE.currentQIndex] = { selected: idx, correct: isCorrect };
-        document.querySelectorAll('.option').forEach(b=>b.classList.remove('selected','correct','wrong'));
+        document.querySelectorAll('.option').forEach(b => b.classList.remove('selected', 'correct', 'wrong'));
         btn.classList.add('selected');
-        setTimeout(()=>{
+        setTimeout(() => {
             btn.classList.remove('selected');
             btn.classList.add(isCorrect ? 'correct' : 'wrong');
-            if (!isCorrect) document.querySelectorAll('.option')[correctIdx].classList.add('correct');
-        },200);
+            if (!isCorrect) {
+                document.querySelectorAll('.option')[correctIdx]?.classList.add('correct');
+            }
+        }, 200);
         updateProgress();
     }
 
     function nextQuestion() {
-        let len = QUESTION_BANK[APP_STATE.currentSubject].questions.length;
-        if (APP_STATE.currentQIndex < len-1) {
+        const subject = QUESTION_BANK[APP_STATE.currentSubject];
+        const questions = subject.questions;
+        
+        if (APP_STATE.currentQIndex < questions.length - 1) {
             APP_STATE.currentQIndex++;
+            
+            // Check if we've exceeded free limit
+            if (!hasPaid && freeQuestionsUsed >= MAX_FREE_QUESTIONS) {
+                checkPaymentWall();
+                return;
+            }
+            
             loadQuestion();
         } else {
             finishQuiz();
         }
     }
-    function prevQuestion() { if (APP_STATE.currentQIndex>0) { APP_STATE.currentQIndex--; loadQuestion(); } }
+    
+    function prevQuestion() {
+        if (APP_STATE.currentQIndex > 0) {
+            APP_STATE.currentQIndex--;
+            loadQuestion();
+        }
+    }
+
     function finishQuiz() {
+        const correct = APP_STATE.userAnswers.filter(a => a && a.correct).length;
+        const total = APP_STATE.userAnswers.length;
+        const pct = total > 0 ? Math.round((correct/total)*100) : 0;
+        
         document.getElementById('quizSection').style.display = 'none';
         document.getElementById('resultsSection').style.display = 'block';
-        let correct = APP_STATE.userAnswers.filter(a=>a && a.correct).length;
-        let total = APP_STATE.userAnswers.length;
-        let pct = total>0 ? Math.round((correct/total)*100) : 0;
         document.getElementById('scoreCircle').innerHTML = pct + '%';
     }
 
     function updateProgress() {
-        let answered = APP_STATE.userAnswers.filter(a=>a).length;
-        let total = QUESTION_BANK[APP_STATE.currentSubject].questions.length;
-        document.getElementById('progressFill').style.width = (answered/total*100)+'%';
-        let correct = APP_STATE.userAnswers.filter(a=>a && a.correct).length;
-        let pct = answered>0 ? Math.round((correct/answered)*100) : 0;
+        const subject = QUESTION_BANK[APP_STATE.currentSubject];
+        const questions = subject.questions;
+        
+        const answered = APP_STATE.userAnswers.filter(a => a).length;
+        document.getElementById('progressFill').style.width = (answered/questions.length*100)+'%';
+        const correct = APP_STATE.userAnswers.filter(a => a && a.correct).length;
+        const pct = answered > 0 ? Math.round((correct/answered)*100) : 0;
         document.getElementById('scoreDisplay').innerHTML = `Score: ${pct}%`;
     }
 
-    // ---------- MOCK EXAM (RANDOM GENERATOR) ----------
+    // ========== MOCK EXAM ==========
     function startMockExam() {
-        let checkboxes = document.querySelectorAll('#mockSubjectsList input[type=checkbox]:checked');
-        let selected = Array.from(checkboxes).map(cb=>cb.value);
+        if (!hasPaid && freeQuestionsUsed >= MAX_FREE_QUESTIONS) {
+            openPremiumTab();
+            showNotification('Free trial used. Upgrade for unlimited mock exams!', 'warning');
+            return;
+        }
+        
+        const checkboxes = document.querySelectorAll('#mockSubjectsList input[type=checkbox]:checked');
+        const selected = Array.from(checkboxes).map(cb => cb.value);
         if (selected.length === 0) { alert('Select at least one subject'); return; }
-        let qCount = parseInt(document.querySelector('input[name="qCount"]:checked')?.value || 180);
+        
+        const qCount = parseInt(document.querySelector('input[name="qCount"]:checked')?.value || 180);
         let pool = [];
         selected.forEach(subId => {
-            let subj = QUESTION_BANK[subId];
+            const subj = QUESTION_BANK[subId];
             if (subj) {
-                let shuffled = [...subj.questions].sort(()=>0.5-Math.random());
-                let take = Math.min(shuffled.length, Math.ceil(qCount/selected.length));
-                pool.push(...shuffled.slice(0,take).map(q=>({...q, subject:subId})));
+                const shuffled = [...subj.questions].sort(() => 0.5 - Math.random());
+                const take = Math.min(shuffled.length, Math.ceil(qCount / selected.length));
+                pool.push(...shuffled.slice(0, take).map(q => ({ ...q, subject: subId })));
             }
         });
-        let finalQuestions = pool.sort(()=>0.5-Math.random()).slice(0,qCount);
+        
+        const finalQuestions = pool.sort(() => 0.5 - Math.random()).slice(0, qCount);
         APP_STATE.mockExamData = { questions: finalQuestions, total: finalQuestions.length };
         APP_STATE.currentMode = 'mock';
         APP_STATE.currentQIndex = 0;
         APP_STATE.userAnswers = [];
-        document.getElementById('dashboard').style.display = 'none';
+        
+        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
         document.getElementById('quizSection').style.display = 'block';
         document.getElementById('resultsSection').style.display = 'none';
-        document.getElementById('subjectTitle').innerHTML = 'Mock Exam';
+        document.getElementById('currentSubjectName').innerHTML = 'Mock Exam';
         document.getElementById('mockTimer').style.display = 'inline-block';
         loadMockQuestion();
         startMockTimer();
     }
 
     function loadMockQuestion() {
-        let q = APP_STATE.mockExamData.questions[APP_STATE.currentQIndex];
+        const q = APP_STATE.mockExamData.questions[APP_STATE.currentQIndex];
         document.getElementById('questionText').innerHTML = `${APP_STATE.currentQIndex+1}. ${q.question}`;
         document.getElementById('qCounter').innerHTML = `${APP_STATE.currentQIndex+1}/${APP_STATE.mockExamData.total}`;
-        let optsDiv = document.getElementById('optionsList');
+        const optsDiv = document.getElementById('optionsList');
         optsDiv.innerHTML = '';
-        q.options.forEach((opt,idx)=>{
-            let btn = document.createElement('div');
+        q.options.forEach((opt, idx) => {
+            const btn = document.createElement('div');
             btn.className = 'option';
             btn.innerHTML = `<span class="option-letter">${String.fromCharCode(65+idx)}</span> ${opt}`;
-            btn.onclick = ()=> selectMockOption(idx, btn, q.correct);
+            btn.onclick = () => selectMockOption(idx, btn, q.correct);
             optsDiv.appendChild(btn);
         });
-        updateProgress();
     }
 
     function selectMockOption(idx, btn, correctIdx) {
         if (APP_STATE.userAnswers[APP_STATE.currentQIndex]) return;
-        let isCorrect = idx === correctIdx;
+        
+        // Count free question usage
+        if (!hasPaid) {
+            incrementFreeUsed();
+        }
+        
+        const isCorrect = idx === correctIdx;
         APP_STATE.userAnswers[APP_STATE.currentQIndex] = { selected: idx, correct: isCorrect };
-        document.querySelectorAll('.option').forEach(b=>b.classList.remove('selected','correct','wrong'));
+        document.querySelectorAll('.option').forEach(b => b.classList.remove('selected', 'correct', 'wrong'));
         btn.classList.add('selected');
-        setTimeout(()=>{
+        setTimeout(() => {
             btn.classList.remove('selected');
             btn.classList.add(isCorrect ? 'correct' : 'wrong');
-            if (!isCorrect) document.querySelectorAll('.option')[correctIdx]?.classList.add('correct');
-            if (APP_STATE.currentQIndex < APP_STATE.mockExamData.total-1) nextQuestion(); else finishMock();
-        },400);
+            if (!isCorrect) {
+                document.querySelectorAll('.option')[correctIdx]?.classList.add('correct');
+            }
+            if (APP_STATE.currentQIndex < APP_STATE.mockExamData.total - 1) {
+                APP_STATE.currentQIndex++;
+                loadMockQuestion();
+            } else {
+                finishMock();
+            }
+        }, 300);
     }
 
-    function nextMock() { if (APP_STATE.currentQIndex < APP_STATE.mockExamData.total-1) { APP_STATE.currentQIndex++; loadMockQuestion(); } else finishMock(); }
     function finishMock() {
         if (APP_STATE.mockTimer) clearInterval(APP_STATE.mockTimer);
+        const correct = APP_STATE.userAnswers.filter(a => a && a.correct).length;
+        const pct = Math.round((correct / APP_STATE.mockExamData.total) * 100);
         document.getElementById('quizSection').style.display = 'none';
         document.getElementById('resultsSection').style.display = 'block';
-        let correct = APP_STATE.userAnswers.filter(a=>a && a.correct).length;
-        let pct = Math.round((correct/APP_STATE.mockExamData.total)*100);
         document.getElementById('scoreCircle').innerHTML = pct + '%';
     }
 
     function startMockTimer() {
-        let duration = parseInt(document.querySelector('input[name="duration"]:checked')?.value || 120);
+        const duration = parseInt(document.querySelector('input[name="duration"]:checked')?.value || 120);
         APP_STATE.mockTimeLeft = duration * 60;
         if (APP_STATE.mockTimer) clearInterval(APP_STATE.mockTimer);
-        APP_STATE.mockTimer = setInterval(()=>{
+        APP_STATE.mockTimer = setInterval(() => {
             APP_STATE.mockTimeLeft--;
             if (APP_STATE.mockTimeLeft <= 0) finishMock();
-            let m = Math.floor(APP_STATE.mockTimeLeft/60);
-            let s = APP_STATE.mockTimeLeft%60;
-            document.getElementById('timeLeft').innerHTML = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-        },1000);
+            const m = Math.floor(APP_STATE.mockTimeLeft / 60);
+            const s = APP_STATE.mockTimeLeft % 60;
+            document.getElementById('timeLeft').innerHTML = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }, 1000);
     }
 
-    // ---------- UI NAVIGATION ----------
-    function switchTab(tab) {
-        document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        if (tab === 'practice') {
-            document.getElementById('practiceTab').style.display = 'block';
-            event.target.classList.add('active');
-        } else if (tab === 'mock') {
-            document.getElementById('mockTab').style.display = 'block';
-            event.target.classList.add('active');
-        } else if (tab === 'premium') {
-            document.getElementById('premiumTab').style.display = 'block';
-            event.target.classList.add('active');
-        } else if (tab === 'subjects') {
-            document.getElementById('subjectsTab').style.display = 'block';
-            event.target.classList.add('active');
-        }
-        document.getElementById('dashboard').style.display = 'block';
+    // ========== UI & NAVIGATION ==========
+    function switchTab(tabId, btn) {
+        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+        document.getElementById(tabId + 'Tab').style.display = 'block';
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
         document.getElementById('quizSection').style.display = 'none';
         document.getElementById('resultsSection').style.display = 'none';
     }
 
     function openPremiumTab() {
-        switchTab('premium');
+        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+        document.getElementById('premiumTab').style.display = 'block';
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-btn')[2].classList.add('active');
     }
 
-    function quickDemo() {
-        startPractice('math');
+    function quickDemo() { 
+        // Use mathematics for demo
+        startPractice('math'); 
+    }
+    
+    function selectPlan(plan) { 
+        APP_STATE.selectedPlan = plan; 
+        showNotification(`Selected ${plan} plan. Redirecting to payment...`, 'info'); 
+        
+        // Simulate payment completion (in real app, this would be after successful payment)
+        setTimeout(() => {
+            hasPaid = true;
+            try { localStorage.setItem('jamb_paid', 'true'); } catch(e) {}
+            APP_STATE.currentUser.plan = 'premium';
+            showNotification('Payment successful! All subjects unlocked. 🎉', 'success');
+            document.getElementById('freeCounter').style.display = 'none';
+            document.getElementById('paymentWall').style.display = 'none';
+        }, 2000);
+    }
+    
+    function toggleUserMenu() { 
+        document.getElementById('userMenu').classList.toggle('show'); 
+    }
+    
+    window.onclick = (e) => { 
+        if (!e.target.closest('.user-profile')) {
+            document.getElementById('userMenu').classList.remove('show');
+        }
+    };
+    
+    function viewProfile() { alert('Profile page - coming soon'); }
+    function viewSubscription() { alert(`Current plan: ${APP_STATE.currentUser.plan}`); }
+    function viewPaymentHistory() { alert('Payment history - coming soon'); }
+    function logout() { 
+        if (confirm('Logout?')) {
+            location.reload(); 
+        }
+    }
+    function reviewAnswers() { alert('Review answers - coming soon'); }
+    function exportResults() { alert('Export - coming soon'); }
+    function restartQuiz() { 
+        if (APP_STATE.currentSubject) {
+            startPractice(APP_STATE.currentSubject);
+        }
     }
 
-    // ---------- PAYMENT & PREMIUM ----------
-    function selectPlan(plan) { APP_STATE.selectedPlan = plan; showNotification(`Selected ${plan} plan`, 'info'); }
-
-    // ---------- USER MENU ----------
-    function toggleUserMenu() { document.getElementById('userMenu').classList.toggle('show'); }
-    window.onclick = (e) => { if (!e.target.closest('.user-profile')) document.getElementById('userMenu').classList.remove('show'); };
-    function viewProfile() { alert('Profile page – coming soon'); }
-    function showSubscription() { alert(`Current plan: ${APP_STATE.currentUser.plan}`); }
-    function showPaymentHistory() { alert('Payment history – feature coming'); }
-    function logout() { location.reload(); }
-    function reviewAnswers() { alert('Review mode – will show all questions.'); }
-    function exportResults() { alert('Export as PDF/JSON – coming soon'); }
-    function restartQuiz() { finishQuiz(); } // placeholder
-
-    function showNotification(msg, type='info') {
-        let notif = document.createElement('div');
+    function showNotification(msg, type = 'info') {
+        const notif = document.createElement('div');
         notif.className = 'notification';
-        notif.innerHTML = `<i class="fas fa-${type==='warning'?'exclamation-triangle':'info-circle'}"></i> ${msg}`;
+        notif.innerHTML = `<i class="fas fa-${type === 'warning' ? 'exclamation-triangle' : (type === 'success' ? 'check-circle' : 'info-circle')}"></i> ${msg}`;
         document.body.appendChild(notif);
-        setTimeout(()=>notif.remove(), 4000);
+        setTimeout(() => notif.remove(), 4000);
     }
 
-    // ---------- SESSION TIMER ----------
-    setInterval(()=>{
+    // ========== SESSION TIMER ==========
+    setInterval(() => {
         APP_STATE.sessionSeconds++;
-        let h = Math.floor(APP_STATE.sessionSeconds/3600);
-        let m = Math.floor((APP_STATE.sessionSeconds%3600)/60);
-        let s = APP_STATE.sessionSeconds%60;
-        document.getElementById('sessionTimer').innerHTML = `<i class="far fa-clock"></i> ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-    },1000);
+        const h = Math.floor(APP_STATE.sessionSeconds / 3600);
+        const m = Math.floor((APP_STATE.sessionSeconds % 3600) / 60);
+        const s = APP_STATE.sessionSeconds % 60;
+        document.getElementById('sessionTimer').innerHTML = `<i class="far fa-clock"></i> ${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }, 1000);
 
-    // ---------- INITIALISE ----------
-    window.onload = function() {
+    // ========== INITIALISE ==========
+    window.onload = () => {
         renderSubjectsGrid();
         renderMockSubjects();
         renderAllSubjectsList();
-        switchTab('practice');
-        showNotification('🎓 Welcome to JAMB Mastermind 3000 – 2500+ questions ready!', 'info');
+        updateFreeCounter();
+        
+        if (hasPaid) {
+            document.getElementById('freeCounter').style.display = 'none';
+        }
+        
+        showNotification('🎓 10 free questions available. Upgrade anytime for full access!', 'info');
     };
 </script>
 </body>
